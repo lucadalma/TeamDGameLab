@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Variables/Create Float")]
 public class FloatVariable : ScriptableObject
 {
 #if UNITY_EDITOR
