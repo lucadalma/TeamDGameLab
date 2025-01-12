@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy/CreateEnemyGroup")]
 public class EnemyGroup : ScriptableObject
 {
-    //[SerializeField]
-    //Enemy enemy;
+    [SerializeField]
+    public GameObject enemy;
 
     [SerializeField]
-    int numberOfEnemy = 0;
+    public int numberOfEnemy = 0;
 }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb23545dbba468040b031cb71c253bb5, type: 3}
-  m_Name: TestWave
+  m_Script: {fileID: 11500000, guid: 69673bc232dbf1d46a1f6737d476197c, type: 3}
+  m_Name: EnemyGroup2
   m_EditorClassIdentifier: 
-  wave: []
-  timeBetweenWaves: 2
+  enemy: {fileID: 7382528220790388808, guid: 0b7198ff5000e3b41822e9237f89e260, type: 3}
+  numberOfEnemy: 3

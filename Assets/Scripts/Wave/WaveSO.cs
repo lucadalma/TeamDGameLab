@@ -6,8 +6,24 @@ using UnityEngine;
 public class WaveSO : ScriptableObject
 {
     [SerializeField]
-    List<EnemyGroup> wave;
+    public List<EnemyGroup> enemyGroup;
 
     [SerializeField]
-    int timeBetweenWaves = 0;
+    public List<GameObject> spawnPoint;
+
+    private void OnValidate()
+    {
+        if (enemyGroup.Count != spawnPoint.Count)
+        {
+            while (spawnPoint.Count < enemyGroup.Count)
+            {
+                spawnPoint.Add(null);
+            }
+
+            while (spawnPoint.Count > enemyGroup.Count)
+            {
+                spawnPoint.RemoveAt(spawnPoint.Count - 1);
+            }
+        }
+    }
 }
