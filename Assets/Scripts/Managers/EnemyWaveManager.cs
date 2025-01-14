@@ -74,11 +74,11 @@ public class EnemyWaveManager : MonoBehaviour
             for (int i = 0; i < currentEnemyGroup.numberOfEnemy; i++)
             {
                 Instantiate(currentEnemyGroup.enemy, currentWaveSO.spawnPoint[spawnPointIndex].transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(0.2f);
             }
             spawnPointIndex++;
         }
 
-        yield return new WaitForSeconds(0);
     }
 
 }

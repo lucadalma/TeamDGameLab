@@ -269,9 +269,15 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: 25d671093c61d8748905e9956fe10b89, type: 2}
   - {fileID: 11400000, guid: dcff132cd2ba40a4d83950ed55fef61b, type: 2}
+  - {fileID: 11400000, guid: dcff132cd2ba40a4d83950ed55fef61b, type: 2}
+  - {fileID: 11400000, guid: dcff132cd2ba40a4d83950ed55fef61b, type: 2}
+  - {fileID: 11400000, guid: dcff132cd2ba40a4d83950ed55fef61b, type: 2}
   timeBetweenWaves:
   - 4
   - 7
+  - 2
+  - 1
+  - 5
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
 --- !u!1 &383122184
 GameObject:
@@ -612,6 +618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9bc37103ecea9545ae5d15683725e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseEvent: {fileID: 11400000, guid: d1c66e0709dc3ee4ab043e4dec4281ce, type: 2}
+  resumeEvent: {fileID: 11400000, guid: 4e6876e95dad2fd4a84edf53620525e6, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
