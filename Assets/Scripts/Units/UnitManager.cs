@@ -7,11 +7,31 @@ public class UnitManager : MonoBehaviour
     public Transform targetPoint;  // Punto finale per le unità
 
     private UnitData selectedUnit; // Unità attualmente selezionata
+    private float[] cooldownTimers; // Timer per il cooldown delle unità
+
+    void Start()
+    {
+        // Inizializza i timer di cooldown
+        cooldownTimers = new float[unitOptions.Length];
+    }
 
     void Update()
     {
+        HandleCooldowns();
         HandleUnitSelection();
         HandleLaneClick();
+    }
+
+    private void HandleCooldowns()
+    {
+        // Aggiorna tutti i timer di cooldown
+        for (int i = 0; i < cooldownTimers.Length; i++)
+        {
+            if (cooldownTimers[i] > 0)
+            {
+                cooldownTimers[i] -= Time.deltaTime;
+            }
+        }
     }
 
     private void HandleUnitSelection()
@@ -37,15 +57,29 @@ public class UnitManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && selectedUnit != null)
         {
+            int unitIndex = System.Array.IndexOf(unitOptions, selectedUnit);
+            if (unitIndex < 0)
+            {
+                Debug.LogError("Errore: Unità selezionata non trovata tra le opzioni.");
+                return;
+            }
+
+            // Controlla il cooldown dell'unità selezionata
+            if (cooldownTimers[unitIndex] > 0)
+            {
+                Debug.Log($"Cooldown attivo per {selectedUnit.unitName}. Tempo rimanente: {cooldownTimers[unitIndex]:F2} secondi.");
+                return;
+            }
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
             {
-                SpawnUnit(hit.point);
+                SpawnUnit(hit.point, unitIndex);
             }
         }
     }
 
-    private void SpawnUnit(Vector3 position)
+    private void SpawnUnit(Vector3 position, int unitIndex)
     {
         if (selectedUnit.unitPrefab == null)
         {
@@ -53,8 +87,10 @@ public class UnitManager : MonoBehaviour
             return;
         }
 
+        // Istanzia l'unità
         GameObject unit = Instantiate(selectedUnit.unitPrefab, position, Quaternion.identity);
         UnitBehavior behavior = unit.GetComponent<UnitBehavior>();
+
         if (behavior != null)
         {
             behavior.Initialize(selectedUnit, targetPoint);
@@ -64,5 +100,8 @@ public class UnitManager : MonoBehaviour
         {
             Debug.LogError($"Componente UnitBehavior mancante nel prefab di {selectedUnit.unitName}");
         }
+
+        // Avvia il cooldown
+        cooldownTimers[unitIndex] = selectedUnit.spawnCd;
     }
 }

@@ -10,4 +10,6 @@ public class UnitData : ScriptableObject
     public float fireRate;        // Frequenza di fuoco
     public GameObject projectilePrefab; // Prefab dei proiettili
     public float damage;          // Danno inflitto
+    public int spawnCd;           // Cooldown per creare la stessa unità (solo test)
+                                 
 }

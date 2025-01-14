@@ -29,10 +29,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524465827759734202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: -3.9, y: 0, z: 0}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2066857062403432916}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524465827759734202}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!23 &524465827759734200
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,7 +98,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.53, y: 1, z: 1.56}
+  m_Size: {x: 5.15, y: 3.1, z: 9.63}
   m_Center: {x: 0.74, y: 0, z: 0}
 --- !u!114 &1434943012508864952
 MonoBehaviour:
@@ -122,7 +123,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 524465827759734202}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -132,6 +133,100 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!1001 &1955770538486728255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 524465827759734206}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7694610365199612353, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: -3662148554659373657, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: 919132149155446097, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Name
+      value: Uralvagonzavod T-90A Vladimir Main Battle Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883296453152623539, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: 5663868790369578441, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: 6156827642135845166, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+--- !u!4 &2066857062403432916 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+  m_PrefabInstance: {fileID: 1955770538486728255}
+  m_PrefabAsset: {fileID: 0}
