@@ -97,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3.22}
-  m_Center: {x: 0, y: 0, z: 1.12}
+  m_Size: {x: 2.53, y: 1, z: 1.45}
+  m_Center: {x: 0.75, y: 0, z: 0}
 --- !u!114 &-3529231164210964508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 10
+  detectionRadius: 70
 --- !u!195 &-905687119727590561
 NavMeshAgent:
   m_ObjectHideFlags: 0
