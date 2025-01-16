@@ -19,4 +19,4 @@ MonoBehaviour:
   fireRate: 0.2
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
   damage: 4
-  spawnCd: 3
+  spawnCd: 1

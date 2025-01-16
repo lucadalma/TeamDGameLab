@@ -4,12 +4,12 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     public string unitName;
-    public GameObject unitPrefab; // Prefab dell'unità
-    public float speed;           // Velocità di movimento
     public float health;          // Punti vita
+    public float speed;           // Velocità di movimento
     public float fireRate;        // Frequenza di fuoco
-    public GameObject projectilePrefab; // Prefab dei proiettili
     public float damage;          // Danno inflitto
     public int spawnCd;           // Cooldown per creare la stessa unità (solo test)
+    public GameObject unitPrefab; // Prefab dell'unità
+    public GameObject projectilePrefab; // Prefab dei proiettili
                                  
 }

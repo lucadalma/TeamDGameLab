@@ -25,7 +25,7 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.LogWarning("Il target del proiettile è scomparso!");
+           // Debug.LogWarning("Il target del proiettile è scomparso!");
             Destroy(gameObject);
             return;
         }
