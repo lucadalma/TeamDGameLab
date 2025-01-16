@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  enemyList: {fileID: 11400000, guid: 390b90a11842b0547b468e99c7471616, type: 2}
 --- !u!65 &3813893335848586489
 BoxCollider:
   m_ObjectHideFlags: 0

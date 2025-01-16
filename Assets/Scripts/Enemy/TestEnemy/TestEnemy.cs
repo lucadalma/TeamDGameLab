@@ -7,6 +7,8 @@ public class TestEnemy : MonoBehaviour
 
     public float speed;
 
+
+    public GameObjectList enemyList;
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -21,6 +23,16 @@ public class TestEnemy : MonoBehaviour
     {
         speed = 50f;
         Debug.Log(speed);
+    }
+
+    private void Awake()
+    {
+        enemyList.List.Add(gameObject);
+    }
+    private void OnDestroy()
+    {
+        enemyList.List.Remove(gameObject);
+
     }
 
 }
