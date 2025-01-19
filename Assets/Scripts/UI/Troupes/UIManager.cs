@@ -156,6 +156,15 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void removeDeployUnits(GameObject unit)
+    {
+        Debug.Log("removed" + unit.name);
+        availableUnitsToDeploy.Remove(unit);
+        Destroy(unit);
+        setDeployUnits();
+
+    }
+
 
 
     void setDeployUnits()

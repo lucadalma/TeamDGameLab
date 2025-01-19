@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class UnitManager : MonoBehaviour
@@ -9,16 +11,21 @@ public class UnitManager : MonoBehaviour
     private UnitData selectedUnit; // Unità attualmente selezionata
     private float[] cooldownTimers; // Timer per il cooldown delle unità
 
+    private bool readyToDeply;
+    private GameObject currentUnitButton;
+    UIManager uIManager;
+
     void Start()
     {
         // Inizializza i timer di cooldown
         cooldownTimers = new float[unitOptions.Length];
+        uIManager = FindObjectOfType<UIManager>();
     }
 
     void Update()
     {
         HandleCooldowns();
-        HandleUnitSelection();
+        //HandleUnitSelection();
         HandleLaneClick();
     }
 
@@ -34,6 +41,8 @@ public class UnitManager : MonoBehaviour
         }
     }
 
+    /*
+     
     private void HandleUnitSelection()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && unitOptions.Length > 0)
@@ -52,7 +61,32 @@ public class UnitManager : MonoBehaviour
             Debug.Log($"Selezionata unità: {selectedUnit.unitName}");
         }
     }
+    
+     */
 
+    public void HandleUnitSelection(int UnitIDToSelect, GameObject currentButton)
+    {
+        foreach (UnitData unitData in unitOptions)
+        {
+            if (unitData.unitID == UnitIDToSelect)
+            {
+
+                currentUnitButton = currentButton;
+                selectedUnit = unitData;
+                Debug.Log($"Selezionata unità: {selectedUnit.unitName}");
+                readyToDeply = true;
+                return;
+            }
+        }
+
+        Debug.LogError("Uniota nohn trovata");
+
+    }
+
+
+
+    /*
+    
     private void HandleLaneClick()
     {
         if (Input.GetMouseButtonDown(0) && selectedUnit != null)
@@ -78,6 +112,44 @@ public class UnitManager : MonoBehaviour
             }
         }
     }
+
+    */
+
+    private void HandleLaneClick()
+    {
+        if (readyToDeply)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                int unitIndex = System.Array.IndexOf(unitOptions, selectedUnit);
+                if (unitIndex < 0)
+                {
+                    Debug.LogError("Errore: Unità selezionata non trovata tra le opzioni.");
+                    return;
+                }
+
+                // Controlla il cooldown dell'unità selezionata
+                if (cooldownTimers[unitIndex] > 0)
+                {
+                    Debug.Log($"Cooldown attivo per {selectedUnit.unitName}. Tempo rimanente: {cooldownTimers[unitIndex]:F2} secondi.");
+                    return;
+                }
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
+                {
+                    uIManager.removeDeployUnits(currentUnitButton);
+                    SpawnUnit(hit.point, unitIndex);
+                    readyToDeply = false;
+                }
+            }
+        }
+
+
+
+    }
+
+
 
     private void SpawnUnit(Vector3 position, int unitIndex)
     {
