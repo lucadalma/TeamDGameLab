@@ -5,10 +5,7 @@ using UnityEngine;
 public class EnemyWaveManager : MonoBehaviour
 {
     [SerializeField]
-    List<WaveSO> waves;
-
-    [SerializeField]
-    List<float> timeBetweenWaves;
+    List<WavesSO> waves;
 
     [SerializeField]
     GameEvent increaseWaveNumber;
@@ -19,41 +16,53 @@ public class EnemyWaveManager : MonoBehaviour
 
     GameObject waveParent;
 
+    [SerializeField]
+    FloatVariable timeBetweenSpawn;
+
+    [SerializeField]
+    IntVariable difficulty;
+
+    WavesSO currentSetOfWave;
+
+
     private void Start()
     {
         StartCoroutine(ManageWaves());
     }
 
-    private void OnValidate()
-    {
-        if (waves.Count != timeBetweenWaves.Count)
-        {
-            while (timeBetweenWaves.Count < waves.Count)
-            {
-                timeBetweenWaves.Add(10f);
-            }
+    //private void OnValidate()
+    //{
+    //    if (waves.Count != timeBetweenWaves.Count)
+    //    {
+    //        while (timeBetweenWaves.Count < waves.Count)
+    //        {
+    //            timeBetweenWaves.Add(10f);
+    //        }
 
-            while (timeBetweenWaves.Count > waves.Count)
-            {
-                timeBetweenWaves.RemoveAt(timeBetweenWaves.Count - 1);
-            }
-        }
-    }
+    //        while (timeBetweenWaves.Count > waves.Count)
+    //        {
+    //            timeBetweenWaves.RemoveAt(timeBetweenWaves.Count - 1);
+    //        }
+    //    }
+    //}
 
     private IEnumerator ManageWaves()
     {
         while (true)
         {
-            if (currentWave >= waves.Count) currentWave = 0;
+            if (difficulty.Value >= waves.Count) difficulty.Value = waves.Count;
+            currentSetOfWave = waves[difficulty.Value];
+
+            if (currentWave >= currentSetOfWave.waves.Count) currentWave = 0;
 
             numberOfWaves += 1;
 
             Debug.Log($"Inizio wave {numberOfWaves}");
             yield return StartCoroutine(SpawnWave(currentWave));
 
-            if (currentWave < timeBetweenWaves.Count)
+            if (currentWave < currentSetOfWave.timeBetweenWaves.Count)
             {
-                float delay = timeBetweenWaves[currentWave];
+                float delay = currentSetOfWave.timeBetweenWaves[currentWave];
                 Debug.Log($"Attesa di {delay} secondi prima della prossima wave.");
                 yield return new WaitForSeconds(delay);
             }
@@ -64,7 +73,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     private IEnumerator SpawnWave(int waveIndex)
     {
-        WaveSO currentWaveSO = waves[waveIndex];
+        WaveSO currentWaveSO = currentSetOfWave.waves[waveIndex];
 
 
         int spawnPointIndex = 0;
@@ -74,7 +83,7 @@ public class EnemyWaveManager : MonoBehaviour
             for (int i = 0; i < currentEnemyGroup.numberOfEnemy; i++)
             {
                 Instantiate(currentEnemyGroup.enemy, currentWaveSO.spawnPoint[spawnPointIndex].transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(timeBetweenSpawn.Value);
             }
             spawnPointIndex++;
         }
