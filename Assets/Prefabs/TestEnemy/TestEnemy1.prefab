@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3813893335848586489}
   - component: {fileID: -5213529589641163392}
   - component: {fileID: 1840282606209046094}
+  - component: {fileID: 7574226990799376210}
   m_Layer: 0
   m_Name: TestEnemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3c98c9055d374488b0ead4879356c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 35
   enemyList: {fileID: 11400000, guid: 390b90a11842b0547b468e99c7471616, type: 2}
 --- !u!65 &3813893335848586489
 BoxCollider:
@@ -119,6 +120,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7574226990799376210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339074892067526164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09a8604d43bec1488594694d6452a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
 --- !u!1 &5339074892637621037
 GameObject:
   m_ObjectHideFlags: 0

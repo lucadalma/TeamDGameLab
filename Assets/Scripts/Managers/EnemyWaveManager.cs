@@ -50,7 +50,7 @@ public class EnemyWaveManager : MonoBehaviour
     {
         while (true)
         {
-            if (difficulty.Value >= waves.Count) difficulty.Value = waves.Count;
+            if (difficulty.Value >= waves.Count) difficulty.Value = waves.Count - 1;
             currentSetOfWave = waves[difficulty.Value];
 
             if (currentWave >= currentSetOfWave.waves.Count) currentWave = 0;

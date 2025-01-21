@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: SO_Unit_Assault
   m_EditorClassIdentifier: 
   unitName: Assalto
-  unitPrefab: {fileID: 760287114875062983, guid: 0d0d75e01e0d1da449685a6a969f63e6, type: 3}
-  speed: 15
   health: 3
-  fireRate: 0.2
-  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
+  speed: 30
+  fireRate: 1
   damage: 4
   spawnCd: 1
+  unitID: 0
+  unitPrefab: {fileID: 760287114875062983, guid: 0d0d75e01e0d1da449685a6a969f63e6, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}

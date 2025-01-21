@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Base
   health: 4
-  speed: 9
+  speed: 20
   fireRate: 4
   damage: 4
   spawnCd: 1

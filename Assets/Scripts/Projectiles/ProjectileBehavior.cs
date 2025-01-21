@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    private float speed = 30f;
+    [SerializeField]
+    private float speed = 400f;
     private float damage;
     private Transform target;
 

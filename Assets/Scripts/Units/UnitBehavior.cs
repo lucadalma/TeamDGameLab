@@ -97,7 +97,7 @@ public class UnitBehavior : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(directionToEnemy);
 
             // Ruota gradualmente verso il nemico
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             return;
         }
