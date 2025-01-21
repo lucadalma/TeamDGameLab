@@ -122,7 +122,7 @@ public class UIManager : MonoBehaviour
     {
         if (unitsOnTimer + unitsOnDeploy < 10 && unitsOnTimer < 8)
         {
-            bool Spawned = false;
+            //bool Spawned = false;
 
             foreach (var slot in timerSlots)
             {
