@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 524465827759734201}
   - component: {fileID: 1434943012508864952}
   - component: {fileID: -3939811169087522837}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Unit_Base
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
   detectionRadius: 50
+  rotationSpeed: 3
 --- !u!195 &-3939811169087522837
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -203,18 +204,62 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: -7678035867002140528, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6427813383969352304, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -4366659997774951492, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -3662148554659373657, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: -1736981966366404323, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -1306053630595845998, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -304876638058187421, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -33954447834618433, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
       propertyPath: m_Name
       value: Uralvagonzavod T-90A Vladimir Main Battle Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1158203184967404974, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973055700618496458, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3883296453152623539, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: 4241598769952450080, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5663868790369578441, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -223,6 +268,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
+    - target: {fileID: 6517867031990689168, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521986585636184640, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750797931870994214, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786340030871266744, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8899385969642330309, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c65de5bfc2f0884c90d182b57a765b8, type: 3}
 --- !u!4 &2066857062403432916 stripped

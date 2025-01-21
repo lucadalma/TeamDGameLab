@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7382528220045165695}
   - component: {fileID: 7382528220045165692}
   - component: {fileID: 7382528220045165693}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,8 +108,9 @@ GameObject:
   - component: {fileID: 7382528220790388811}
   - component: {fileID: 7382528220790388810}
   - component: {fileID: -2370746502459330745}
-  - component: {fileID: 8077106219564799839}
-  m_Layer: 0
+  - component: {fileID: -6222981477314806101}
+  - component: {fileID: -2772920395199777712}
+  m_Layer: 3
   m_Name: TestEnemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -159,7 +160,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8077106219564799839
+--- !u!114 &-6222981477314806101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +169,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 7382528220790388808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09a8604d43bec1488594694d6452a8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 356af13b547c7d245a56bc20592918b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
+  projectilePrefab: {fileID: 4455838741618225204, guid: dd3cc2528b70a6e4e9855dad66e3c4e9, type: 3}
+  detectionRadius: 500
+  rotationSpeed: 3
+--- !u!195 &-2772920395199777712
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382528220790388808}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4

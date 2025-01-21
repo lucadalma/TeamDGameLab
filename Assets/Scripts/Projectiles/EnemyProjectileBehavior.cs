@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class ProjectileBehavior : MonoBehaviour
+public class EnemyProjectileBehavior : MonoBehaviour
 {
     [SerializeField]
     private float speed = 400f;
-    private float damage = 10f;
+    private float damage = 5f;
     private Transform target;
 
     public void Initialize(float damage, Transform target)
     {
-        this.damage = damage;
+        
         this.target = target;
 
         if (target != null)
@@ -36,11 +36,11 @@ public class ProjectileBehavior : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             Debug.Log($"Proiettile ha colpito: {target.name}");
-            EnemyBehaviour enemy = target.GetComponent<EnemyBehaviour>();
-            if (enemy != null)
+            UnitBehavior unit = target.GetComponent<UnitBehavior>();
+            if (unit != null)
             {
-                enemy.TakeDamage(damage);
-                Debug.Log($"Danno inflitto: {damage} a {enemy.name}");
+                unit.TakeDamage(damage);
+                Debug.Log($"Danno inflitto: {damage} a {unit.name}");
             }
             else
             {

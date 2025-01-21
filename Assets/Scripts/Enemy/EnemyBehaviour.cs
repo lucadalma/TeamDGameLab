@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitBehavior : MonoBehaviour
+public class EnemyBehaviour : MonoBehaviour
 {
     private float speed;
     private float health;
@@ -23,7 +25,7 @@ public class UnitBehavior : MonoBehaviour
         initialRotation = transform.rotation;
     }
 
-    public void Initialize(UnitData data, Transform target)
+    public void Initialize(EnemyData data, Transform target)
     {
         speed = data.speed;
         health = data.health;
@@ -31,7 +33,7 @@ public class UnitBehavior : MonoBehaviour
         damage = data.damage;
         projectilePrefab = data.projectilePrefab;
         targetPoint = target;
-        
+
     }
 
     void Update()
@@ -76,13 +78,13 @@ public class UnitBehavior : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
         foreach (var collider in hitColliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Unit"))
             {
                 currentEnemy = collider.gameObject;
                 break;
             }
         }
-        
+
 
     }
 
@@ -104,19 +106,21 @@ public class UnitBehavior : MonoBehaviour
 
         if (currentEnemy == null)
         {
-           // Debug.LogWarning("Nessun nemico attuale da attaccare!");
+            Debug.LogWarning("Nessun nemico attuale da attaccare!");
             return;
         }
 
         if (projectilePrefab != null)
         {
-            //Debug.Log($"Sparo al nemico: {currentEnemy.name}");
+            
+
+            Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform);
+            projectile.GetComponent<EnemyProjectileBehavior>().Initialize(damage, currentEnemy.transform);
         }
         else
         {
-           // Debug.LogError("Prefab del proiettile non assegnato!");
+            Debug.LogError("Prefab del proiettile non assegnato!");
         }
 
         attackCooldown = 1f / fireRate; // Tempo di ricarica basato su fire rate
@@ -129,23 +133,23 @@ public class UnitBehavior : MonoBehaviour
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
         if (distance > detectionRadius) return false;
 
-        UnitBehavior enemyBehavior = enemy.GetComponent<UnitBehavior>();
+        EnemyBehaviour enemyBehavior = enemy.GetComponent<EnemyBehaviour>();
 
         if (enemyBehavior != null && enemyBehavior.health <= 0)
         {
-            
+
             return false;
         }
-            
+
 
         return true;
     }
 
     public void TakeDamage(float damage)
     {
-        
 
         health -= damage;
+
         if (health <= 0)
         {
             Die();
@@ -154,7 +158,6 @@ public class UnitBehavior : MonoBehaviour
 
     private void Die()
     {
-        Debug.LogError("Muore?");
         Destroy(gameObject);
     }
 }
