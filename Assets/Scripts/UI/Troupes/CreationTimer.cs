@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class CreationTimer : MonoBehaviour
 {
+    public bool first = false; 
     bool activated = false;
+
 
     public float creationTime;
     public GameObject DeployUnit;
@@ -35,7 +37,7 @@ public class CreationTimer : MonoBehaviour
 
     void creation()
     {
-        if (activated == false) 
+        if (!activated && first ) 
         {
             creationTime -= Time.deltaTime;
         }
@@ -46,15 +48,13 @@ public class CreationTimer : MonoBehaviour
             activated = true;
             creationTime = 1;
             manager.AddDeployUnits(DeployUnit);
-            manager.unitsOnTimer--;
-            Destroy(gameObject);
+            manager.remopveUnitOnTimer(gameObject);
         }
     }
 
     public void cancelUntCreation()
     {
-        manager.unitsOnTimer--;
-        Destroy(gameObject);
+        manager.remopveUnitOnTimer(gameObject);
     }
 
     void updateCreationBar()

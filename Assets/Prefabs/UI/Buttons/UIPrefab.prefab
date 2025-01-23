@@ -453,13 +453,9 @@ MonoBehaviour:
   - {fileID: 2880839482747928779}
   timerSlots:
   - {fileID: 2880839483823257045}
-  - {fileID: 2880839483805242466}
   - {fileID: 2880839484219037436}
-  - {fileID: 2880839484696111509}
   - {fileID: 2880839483441443120}
-  - {fileID: 2880839484438165786}
   - {fileID: 2880839484129839391}
-  - {fileID: 2880839484204105811}
 --- !u!1 &2880839483028868317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1028,7 @@ GameObject:
   - component: {fileID: 2880839483441443122}
   - component: {fileID: 2880839483441443123}
   m_Layer: 5
-  m_Name: Trupe timer slot 5
+  m_Name: Trupe timer slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1051,7 +1047,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1269,13 +1265,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2880839483823257045}
-  - {fileID: 2880839483805242466}
   - {fileID: 2880839484219037436}
-  - {fileID: 2880839484696111509}
   - {fileID: 2880839483441443120}
-  - {fileID: 2880839484438165786}
   - {fileID: 2880839484129839391}
-  - {fileID: 2880839484204105811}
   m_Father: {fileID: 2880839484459038840}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1372,7 +1364,7 @@ GameObject:
   - component: {fileID: 2880839483805242468}
   - component: {fileID: 2880839483805242469}
   m_Layer: 5
-  m_Name: Trupe timer slot 2
+  m_Name: Upgrade timer slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1390,8 +1382,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 1
+  m_Father: {fileID: 8849716493178549339}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1828,7 +1820,7 @@ GameObject:
   - component: {fileID: 2880839484129839377}
   - component: {fileID: 2880839484129839390}
   m_Layer: 5
-  m_Name: Trupe timer slot 7
+  m_Name: Trupe timer slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1847,7 +1839,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1904,7 +1896,7 @@ GameObject:
   - component: {fileID: 2880839484204105813}
   - component: {fileID: 2880839484204105810}
   m_Layer: 5
-  m_Name: Trupe timer slot 8
+  m_Name: Upgrade timer slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1922,8 +1914,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 7
+  m_Father: {fileID: 8849716493178549339}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1980,7 +1972,7 @@ GameObject:
   - component: {fileID: 2880839484219037438}
   - component: {fileID: 2880839484219037439}
   m_Layer: 5
-  m_Name: Trupe timer slot 3
+  m_Name: Trupe timer slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1999,7 +1991,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2056,7 +2048,7 @@ GameObject:
   - component: {fileID: 2880839484438165788}
   - component: {fileID: 2880839484438165789}
   m_Layer: 5
-  m_Name: Trupe timer slot 6
+  m_Name: Upgrade timer slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2074,12 +2066,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 5
+  m_Father: {fileID: 8849716493178549339}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.150011, y: -15.416955}
+  m_AnchoredPosition: {x: 19.150011, y: -15.416933}
   m_SizeDelta: {x: -67.84332, y: -69.03073}
   m_Pivot: {x: 0.49999994, y: 0.49999976}
 --- !u!222 &2880839484438165788
@@ -2132,7 +2124,7 @@ GameObject:
   - component: {fileID: 2880839484459038842}
   - component: {fileID: 2880839484459038843}
   m_Layer: 5
-  m_Name: Trupe timer panel
+  m_Name: Timer panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,6 +2143,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2880839483688372581}
+  - {fileID: 8849716493178549339}
   m_Father: {fileID: 2880839483015369467}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2570,7 +2563,7 @@ GameObject:
   - component: {fileID: 2880839484696111511}
   - component: {fileID: 2880839484696111508}
   m_Layer: 5
-  m_Name: Trupe timer slot 4
+  m_Name: Upgrade timer slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2588,8 +2581,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 3
+  m_Father: {fileID: 8849716493178549339}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2710,3 +2703,43 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6779737870253124306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8849716493178549339}
+  m_Layer: 5
+  m_Name: Upgrades timer slots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8849716493178549339
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6779737870253124306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2880839483805242466}
+  - {fileID: 2880839484696111509}
+  - {fileID: 2880839484438165786}
+  - {fileID: 2880839484204105811}
+  m_Father: {fileID: 2880839484459038840}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000038146973, y: -0.0000076293945}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

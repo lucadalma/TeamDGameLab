@@ -8,15 +8,20 @@ public class UIManager : MonoBehaviour
     int posiblePages;
     int currentPage = 0;
 
-    [NonSerialized] public int unitsOnTimer;
-    [NonSerialized] public int unitsOnDeploy;
+    [NonSerialized] public int numberOfUnitsOnTimer;
+    [NonSerialized] public int numberOfUnitsOnDeploy;
 
     [SerializeField] List<GameObject> availableUnitsToCreate;
+
+
     List<GameObject> availableUnitsToDeploy = new List<GameObject>();
+    List<GameObject> unitsOnTimer = new List<GameObject>();
+
 
     [SerializeField] List<Transform> creationSelectorSlots;
     [SerializeField] List<Transform> deploimentSelectorSlots;
     [SerializeField] List<Transform> timerSlots;
+
 
     // Start is called before the first frame update
     void Start()
@@ -118,39 +123,65 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void setUnitOnTimer(GameObject unit)
+    public void setUnitOnTimer()
     {
-        if (unitsOnTimer + unitsOnDeploy < 10 && unitsOnTimer < 8)
+        if (unitsOnTimer.Count > 0)
         {
-            bool Spawned = false;
-
-            foreach (var slot in timerSlots)
+            for (int i = 0; i < unitsOnTimer.Count; i++)
             {
-                if (slot.childCount == 0)
+                unitsOnTimer[i].transform.SetParent(timerSlots[i]);
+                unitsOnTimer[i].transform.position = timerSlots[i].position;
+                if (i == 0)
                 {
-                    Instantiate(unit, slot);
-                    unitsOnTimer++;
-                    break;
+                    unitsOnTimer[i].GetComponent<CreationTimer>().first = true;
                 }
             }
         }
-        else
-        {
-            Debug.LogWarning("cant create any more units");
-        }
+
+        numberOfUnitsOnTimer = unitsOnTimer.Count;
 
     }
+
+    public void addUnitOnTimer(GameObject unit)
+    {
+        if (numberOfUnitsOnTimer < 4 && numberOfUnitsOnTimer + numberOfUnitsOnDeploy < 10)
+        {
+            Debug.Log("now on timer" + unit.name);
+
+            GameObject newUnit = Instantiate(unit, timerSlots[0]);
+
+            unitsOnTimer.Add(newUnit);
+            setUnitOnTimer();
+        }
+        else
+        {
+            Debug.LogWarning("no space for unit to be created");
+        }
+
+
+
+    }
+
+
+    public void remopveUnitOnTimer(GameObject unit)
+    {
+        Debug.Log("removed" + unit.name);
+        unitsOnTimer.Remove(unit);
+        Destroy(unit);
+        setUnitOnTimer();
+    }
+
 
     public void AddDeployUnits(GameObject unit)
     {
 
         Debug.Log("spawned" + unit.name);
-        
+
 
 
         GameObject newUnit = Instantiate(unit, deploimentSelectorSlots[0]);
 
-       availableUnitsToDeploy.Add(newUnit);
+        availableUnitsToDeploy.Add(newUnit);
 
         setDeployUnits();
 
@@ -174,6 +205,6 @@ public class UIManager : MonoBehaviour
             availableUnitsToDeploy[i].transform.SetParent(deploimentSelectorSlots[i]);
             availableUnitsToDeploy[i].transform.position = deploimentSelectorSlots[i].position;
         }
-        unitsOnDeploy = availableUnitsToDeploy.Count;
+        numberOfUnitsOnDeploy = availableUnitsToDeploy.Count;
     }
 }
