@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -200,6 +201,9 @@ public class UIManager : MonoBehaviour
 
     void setDeployUnits()
     {
+
+       availableUnitsToDeploy = availableUnitsToDeploy.OrderBy(item => item.GetComponent<unitDeployButton>().unitID).ToList();
+
         for (int i = 0; i < availableUnitsToDeploy.Count; i++)
         {
             availableUnitsToDeploy[i].transform.SetParent(deploimentSelectorSlots[i]);
