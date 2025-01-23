@@ -40,13 +40,13 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (currentEnemy == null || !IsEnemyValid(currentEnemy))
         {
-            // Nessun nemico valido, continua a muoverti
-            MoveTowardsTarget();
+            // Nessun nemico valido: l'unità cerca nemici e si muove verso il bersaglio
             SearchForEnemy();
+            MoveTowardsTarget();
         }
         else
         {
-            // Attacca il nemico
+            // Nemico valido: attacca e ferma il movimento
             AttackEnemy();
         }
     }
@@ -78,30 +78,37 @@ public class EnemyBehaviour : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
         foreach (var collider in hitColliders)
         {
+            // Se trova una base, la priorizza come bersaglio
+            if (collider.CompareTag("BaseA"))
+            {
+                currentEnemy = collider.gameObject;
+                return;
+            }
+
+            // Altrimenti cerca un'unità nemica
             if (collider.CompareTag("Unit"))
             {
                 currentEnemy = collider.gameObject;
-                break;
+                return;
             }
         }
-
-
     }
 
     private void AttackEnemy()
     {
+        // Ferma il movimento mentre si attacca
+        Vector3 directionToEnemy = currentEnemy.transform.position - transform.position;
+        directionToEnemy.y = 0; // Mantieni l'orientamento orizzontale
+        Quaternion targetRotation = Quaternion.LookRotation(directionToEnemy);
+
+        // Ruota gradualmente verso il bersaglio
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        // Controlla il cooldown per l'attacco
         if (attackCooldown > 0)
         {
             attackCooldown -= Time.deltaTime;
-
-            Vector3 directionToEnemy = currentEnemy.transform.position - transform.position;
-            directionToEnemy.y = 0; // Mantieni l'orientamento orizzontale
-            Quaternion targetRotation = Quaternion.LookRotation(directionToEnemy);
-
-            // Ruota gradualmente verso il nemico
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-            return;
+            return; // Attendi il cooldown per attaccare di nuovo
         }
 
         if (currentEnemy == null)
@@ -110,10 +117,23 @@ public class EnemyBehaviour : MonoBehaviour
             return;
         }
 
-        if (projectilePrefab != null)
+        if (currentEnemy.CompareTag("BaseA"))
         {
-            
-
+            Debug.Log($"Attaccando la base: {currentEnemy.name}");
+            // Applica danno direttamente alla base
+            BaseHealth baseHealth = currentEnemy.GetComponent<BaseHealth>();
+            if (baseHealth != null)
+            {
+                baseHealth.TakeDamage(damage);
+            }
+            else
+            {
+                Debug.LogError("Componente BaseBehavior mancante sulla base!");
+            }
+        }
+        else if (projectilePrefab != null)
+        {
+            // Spara un proiettile verso l'unità nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectile.GetComponent<EnemyProjectileBehavior>().Initialize(damage, currentEnemy.transform);
@@ -123,7 +143,8 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.LogError("Prefab del proiettile non assegnato!");
         }
 
-        attackCooldown = 1f / fireRate; // Tempo di ricarica basato su fire rate
+        // Imposta il cooldown per il prossimo attacco
+        attackCooldown = 1f / fireRate;
     }
 
     private bool IsEnemyValid(GameObject enemy)

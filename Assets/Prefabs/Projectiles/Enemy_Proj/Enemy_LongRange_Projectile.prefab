@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4455838741618225201}
   - component: {fileID: 4455838741618225206}
   - component: {fileID: 4455838741618225207}
-  - component: {fileID: 4579213030475486596}
+  - component: {fileID: -2289086146974117270}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Enemy_LongRange_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be46f8a0ae3fd2d4782c1b10137207db, type: 2}
+  - {fileID: 2100000, guid: 7d4d30e933491e44b986e063d4ca56a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4579213030475486596
+--- !u!114 &-2289086146974117270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,8 +107,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4455838741618225204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5875641a59651a44485d14bb069a737b, type: 3}
+  m_Script: {fileID: 11500000, guid: 99ee7a6422a3e764ab8d2dbb76967eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
-  damage: 0
+  damage: 10

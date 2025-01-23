@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4455838741618225207}
   - component: {fileID: -2289086146974117270}
   m_Layer: 0
-  m_Name: Enemy_Projectile
+  m_Name: Enemy_Sponge_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d4d30e933491e44b986e063d4ca56a9, type: 2}
+  - {fileID: 2100000, guid: c5b0021408d70aa4d92539d33774a732, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
-  damage: 0
+  damage: 3

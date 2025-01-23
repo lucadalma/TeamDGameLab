@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &760287114875062983
+--- !u!1 &4455838741618225204
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 128007028321751165}
-  - component: {fileID: 9156735849889933072}
-  - component: {fileID: 6289513754075034061}
-  - component: {fileID: 9188777124601951202}
-  - component: {fileID: 5680275769993154519}
-  - component: {fileID: 4344008802801804616}
-  m_Layer: 3
-  m_Name: Unit_Assalto
-  m_TagString: Unit
+  - component: {fileID: 4455838741618225200}
+  - component: {fileID: 4455838741618225201}
+  - component: {fileID: 4455838741618225206}
+  - component: {fileID: 4455838741618225207}
+  - component: {fileID: -2289086146974117270}
+  m_Layer: 0
+  m_Name: Enemy_Swarm_Projectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &128007028321751165
+--- !u!4 &4455838741618225200
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760287114875062983}
+  m_GameObject: {fileID: 4455838741618225204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9156735849889933072
+--- !u!33 &4455838741618225201
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760287114875062983}
-  m_Mesh: {fileID: -593260223985284230, guid: 461506acadea3ce45ac01c5d525cd681, type: 3}
---- !u!23 &6289513754075034061
+  m_GameObject: {fileID: 4455838741618225204}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4455838741618225206
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760287114875062983}
+  m_GameObject: {fileID: 4455838741618225204}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 355cc972ee2d3bd43a92acf9fabad92a, type: 2}
+  - {fileID: 2100000, guid: be46f8a0ae3fd2d4782c1b10137207db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,53 +85,30 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9188777124601951202
-BoxCollider:
+--- !u!135 &4455838741618225207
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760287114875062983}
+  m_GameObject: {fileID: 4455838741618225204}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.93, y: 0.55, z: 1.85}
-  m_Center: {x: 0, y: 0.3, z: -0.39}
---- !u!114 &5680275769993154519
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2289086146974117270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760287114875062983}
+  m_GameObject: {fileID: 4455838741618225204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edd172bd9a1f2447a9e56f3025a4196, type: 3}
+  m_Script: {fileID: 11500000, guid: 99ee7a6422a3e764ab8d2dbb76967eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 50
-  rotationSpeed: 10
---- !u!195 &4344008802801804616
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760287114875062983}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.61
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 10
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.55
-  m_BaseOffset: 0
-  m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
+  speed: 400
+  damage: 5

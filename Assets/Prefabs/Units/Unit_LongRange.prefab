@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 1000
+  detectionRadius: 200
   rotationSpeed: 3
 --- !u!195 &9039410474528768603
 NavMeshAgent:
