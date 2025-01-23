@@ -15,9 +15,10 @@ MonoBehaviour:
   unitName: Tank
   health: 9
   speed: 25
-  fireRate: 2
+  fireRate: 3
   damage: 10
   spawnCd: 5
   unitID: 2
-  unitPrefab: {fileID: 524465827759734202, guid: 76cad79be652b0c4bbf20124d22dd11a, type: 3}
+  unitCount: 1
+  unitPrefab: {fileID: 8193337744482914128, guid: dedf0f0d659a39046877df01c9fe2861, type: 3}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}

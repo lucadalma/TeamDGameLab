@@ -119,7 +119,7 @@ public class UnitBehavior : MonoBehaviour
            // Debug.LogError("Prefab del proiettile non assegnato!");
         }
 
-        attackCooldown = 1f / fireRate; // Tempo di ricarica basato su fire rate
+        attackCooldown = 1f * fireRate; // Tempo di ricarica basato su fire rate
     }
 
     private bool IsEnemyValid(GameObject enemy)
@@ -154,7 +154,6 @@ public class UnitBehavior : MonoBehaviour
 
     private void Die()
     {
-        Debug.LogError("Muore?");
         Destroy(gameObject);
     }
 }

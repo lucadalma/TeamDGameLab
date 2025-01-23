@@ -3,8 +3,9 @@ using UnityEngine;
 public class EnemyProjectileBehavior : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 400f;
-    private float damage = 5f;
+    public float speed;
+    [SerializeField]
+    public float damage;
     private Transform target;
 
     public void Initialize(float damage, Transform target)

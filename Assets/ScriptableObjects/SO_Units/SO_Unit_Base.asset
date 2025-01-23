@@ -15,9 +15,10 @@ MonoBehaviour:
   unitName: Base
   health: 4
   speed: 20
-  fireRate: 4
+  fireRate: 0.4
   damage: 4
   spawnCd: 1
   unitID: 1
-  unitPrefab: {fileID: 524465827759734202, guid: 32d658e36e37a8c40bcc4d4dc16c4fb0, type: 3}
+  unitCount: 3
+  unitPrefab: {fileID: 5824003280416219573, guid: 952173cdb9a65c64cb7ba3ca1f7ba72a, type: 3}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}

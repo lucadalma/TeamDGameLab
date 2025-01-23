@@ -11,9 +11,11 @@ public class UnitManager : MonoBehaviour
     private UnitData selectedUnit; // Unità attualmente selezionata
     private float[] cooldownTimers; // Timer per il cooldown delle unità
 
-    private bool readyToDeply;
+    private bool readyToDeploy;
     private GameObject currentUnitButton;
-    UIManager uIManager;
+    private UIManager uIManager;
+    [SerializeField] 
+    public Transform[] spawnpoints; // Punti di spawn per le corsie
 
     void Start()
     {
@@ -25,7 +27,6 @@ public class UnitManager : MonoBehaviour
     void Update()
     {
         HandleCooldowns();
-        //HandleUnitSelection();
         HandleLaneClick();
     }
 
@@ -41,83 +42,26 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    /*
-     
-    private void HandleUnitSelection()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && unitOptions.Length > 0)
-        {
-            selectedUnit = unitOptions[0];
-            Debug.Log($"Selezionata unità: {selectedUnit.unitName}");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && unitOptions.Length > 1)
-        {
-            selectedUnit = unitOptions[1];
-            Debug.Log($"Selezionata unità: {selectedUnit.unitName}");
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && unitOptions.Length > 2)
-        {
-            selectedUnit = unitOptions[2];
-            Debug.Log($"Selezionata unità: {selectedUnit.unitName}");
-        }
-    }
-    
-     */
-
     public void HandleUnitSelection(int UnitIDToSelect, GameObject currentButton)
     {
         foreach (UnitData unitData in unitOptions)
         {
             if (unitData.unitID == UnitIDToSelect)
             {
-
                 currentUnitButton = currentButton;
                 selectedUnit = unitData;
                 Debug.Log($"Selezionata unità: {selectedUnit.unitName}");
-                readyToDeply = true;
+                readyToDeploy = true;
                 return;
             }
         }
 
-        Debug.LogError("Uniota nohn trovata");
-
+        Debug.LogError("Unità non trovata");
     }
-
-
-
-    /*
-    
-    private void HandleLaneClick()
-    {
-        if (Input.GetMouseButtonDown(0) && selectedUnit != null)
-        {
-            int unitIndex = System.Array.IndexOf(unitOptions, selectedUnit);
-            if (unitIndex < 0)
-            {
-                Debug.LogError("Errore: Unità selezionata non trovata tra le opzioni.");
-                return;
-            }
-
-            // Controlla il cooldown dell'unità selezionata
-            if (cooldownTimers[unitIndex] > 0)
-            {
-                Debug.Log($"Cooldown attivo per {selectedUnit.unitName}. Tempo rimanente: {cooldownTimers[unitIndex]:F2} secondi.");
-                return;
-            }
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
-            {
-                SpawnUnit(hit.point, unitIndex);
-            }
-        }
-    }
-
-    */
 
     private void HandleLaneClick()
     {
-        if (readyToDeply)
+        if (readyToDeploy)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -128,7 +72,6 @@ public class UnitManager : MonoBehaviour
                     return;
                 }
 
-                // Controlla il cooldown dell'unità selezionata
                 if (cooldownTimers[unitIndex] > 0)
                 {
                     Debug.Log($"Cooldown attivo per {selectedUnit.unitName}. Tempo rimanente: {cooldownTimers[unitIndex]:F2} secondi.");
@@ -138,42 +81,73 @@ public class UnitManager : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
                 {
-                    uIManager.removeDeployUnits(currentUnitButton);
-                    SpawnUnit(hit.point, unitIndex);
-                    readyToDeply = false;
+                    Debug.Log($"Hit su oggetto: {hit.transform.name}");
+                    int laneIndex = GetLaneIndex(hit.transform);
+                    Debug.Log($"Lane index cliccato: {laneIndex}");
+
+                    if (laneIndex >= 0 && laneIndex < spawnpoints.Length)
+                    {
+                        uIManager.removeDeployUnits(currentUnitButton);
+                        SpawnUnitsInArea(spawnpoints[laneIndex].position, unitIndex);
+                        readyToDeploy = false;
+                    }
+                    else
+                    {
+                        Debug.LogError("Indice della corsia non valido!");
+                    }
                 }
             }
         }
-
-
-
     }
 
-
-
-    private void SpawnUnit(Vector3 position, int unitIndex)
+    private void SpawnUnitsInArea(Vector3 centerPosition, int unitIndex)
     {
-        if (selectedUnit.unitPrefab == null)
+        if (selectedUnit == null || selectedUnit.unitPrefab == null)
         {
-            Debug.LogError($"Prefab non assegnato per {selectedUnit.unitName}");
+            Debug.LogError("Unità selezionata o prefab mancante!");
             return;
         }
 
-        // Istanzia l'unità
-        GameObject unit = Instantiate(selectedUnit.unitPrefab, position, Quaternion.identity);
-        UnitBehavior behavior = unit.GetComponent<UnitBehavior>();
+        int unitCount = selectedUnit.unitCount;
+        float areaWidth = 5f;
+        float areaLength = 5f;
 
-        if (behavior != null)
+        Debug.Log($"Inizio spawn di {unitCount} unità...");
+
+        for (int i = 0; i < unitCount; i++)
         {
-            behavior.Initialize(selectedUnit, targetPoint);
-            Debug.Log($"{selectedUnit.unitName} spawnata in {position}");
-        }
-        else
-        {
-            Debug.LogError($"Componente UnitBehavior mancante nel prefab di {selectedUnit.unitName}");
+            float offsetX = Random.Range(-areaWidth / 2, areaWidth / 2);
+            float offsetZ = Random.Range(-areaLength / 2, areaLength / 2);
+            Vector3 spawnPosition = centerPosition + new Vector3(offsetX, 0, offsetZ);
+
+            Debug.Log($"Spawn unità {i + 1} in posizione {spawnPosition}");
+
+            GameObject unit = Instantiate(selectedUnit.unitPrefab, spawnPosition, Quaternion.identity);
+            UnitBehavior behavior = unit.GetComponent<UnitBehavior>();
+
+            if (behavior != null)
+            {
+                behavior.Initialize(selectedUnit, targetPoint);
+                Debug.Log($"{selectedUnit.unitName} spawnata in {spawnPosition}");
+            }
+            else
+            {
+                Debug.LogError($"Componente UnitBehavior mancante nel prefab di {selectedUnit.unitName}");
+            }
         }
 
-        // Avvia il cooldown
         cooldownTimers[unitIndex] = selectedUnit.spawnCd;
+    }
+    private int GetLaneIndex(Transform hitTransform)
+    {
+        for (int i = 0; i < spawnpoints.Length; i++)
+        {
+            if (spawnpoints[i] == hitTransform)
+            {
+                return i;
+            }
+        }
+
+        return -1;
     }
 }
