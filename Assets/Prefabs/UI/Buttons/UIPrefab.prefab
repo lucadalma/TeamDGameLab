@@ -452,10 +452,10 @@ MonoBehaviour:
   - {fileID: 2880839483922699616}
   - {fileID: 2880839482747928779}
   timerSlots:
-  - {fileID: 2880839483823257045}
-  - {fileID: 2880839484219037436}
-  - {fileID: 2880839483441443120}
   - {fileID: 2880839484129839391}
+  - {fileID: 2880839483441443120}
+  - {fileID: 2880839484219037436}
+  - {fileID: 2880839483823257045}
 --- !u!1 &2880839483028868317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 2880839483441443122}
   - component: {fileID: 2880839483441443123}
   m_Layer: 5
-  m_Name: Trupe timer slot 3
+  m_Name: Trupe timer slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1047,11 +1047,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.099989, y: -15.416959}
+  m_AnchoredPosition: {x: -18.10003, y: -15.416958}
   m_SizeDelta: {x: -67.84332, y: -69.03073}
   m_Pivot: {x: 0.49999994, y: 0.49999976}
 --- !u!222 &2880839483441443122
@@ -1264,10 +1264,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2880839483823257045}
-  - {fileID: 2880839484219037436}
-  - {fileID: 2880839483441443120}
   - {fileID: 2880839484129839391}
+  - {fileID: 2880839483441443120}
+  - {fileID: 2880839484219037436}
+  - {fileID: 2880839483823257045}
   m_Father: {fileID: 2880839484459038840}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 2880839483805242468}
   - component: {fileID: 2880839483805242469}
   m_Layer: 5
-  m_Name: Upgrade timer slot 1
+  m_Name: Upgrade timer slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1383,7 +1383,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8849716493178549339}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1440,7 +1440,7 @@ GameObject:
   - component: {fileID: 2880839483823257047}
   - component: {fileID: 2880839483823257044}
   m_Layer: 5
-  m_Name: Trupe timer slot 1
+  m_Name: Trupe timer slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1459,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 2880839484129839377}
   - component: {fileID: 2880839484129839390}
   m_Layer: 5
-  m_Name: Trupe timer slot 4
+  m_Name: Trupe timer slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1839,7 +1839,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1896,7 +1896,7 @@ GameObject:
   - component: {fileID: 2880839484204105813}
   - component: {fileID: 2880839484204105810}
   m_Layer: 5
-  m_Name: Upgrade timer slot 4
+  m_Name: Upgrade timer slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1915,7 +1915,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8849716493178549339}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 2880839484219037438}
   - component: {fileID: 2880839484219037439}
   m_Layer: 5
-  m_Name: Trupe timer slot 2
+  m_Name: Trupe timer slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1991,7 +1991,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2880839483688372581}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2048,7 +2048,7 @@ GameObject:
   - component: {fileID: 2880839484438165788}
   - component: {fileID: 2880839484438165789}
   m_Layer: 5
-  m_Name: Upgrade timer slot 3
+  m_Name: Upgrade timer slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2067,7 +2067,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8849716493178549339}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2563,7 +2563,7 @@ GameObject:
   - component: {fileID: 2880839484696111511}
   - component: {fileID: 2880839484696111508}
   m_Layer: 5
-  m_Name: Upgrade timer slot 2
+  m_Name: Upgrade timer slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,11 +2582,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8849716493178549339}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 19.15001, y: 19.29999}
+  m_AnchoredPosition: {x: 19.15003, y: 19.300007}
   m_SizeDelta: {x: -67.84332, y: -69.03073}
   m_Pivot: {x: 0.49999994, y: 0.49999976}
 --- !u!222 &2880839484696111511
@@ -2731,10 +2731,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2880839483805242466}
-  - {fileID: 2880839484696111509}
-  - {fileID: 2880839484438165786}
   - {fileID: 2880839484204105811}
+  - {fileID: 2880839484438165786}
+  - {fileID: 2880839484696111509}
+  - {fileID: 2880839483805242466}
   m_Father: {fileID: 2880839484459038840}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
