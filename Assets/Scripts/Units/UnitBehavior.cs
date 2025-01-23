@@ -12,7 +12,7 @@ public class UnitBehavior : MonoBehaviour
     private GameObject currentEnemy;
 
     public GameObject projectilePrefab; // Prefab del proiettile
-    public float detectionRadius = 15f; // Raggio di rilevamento nemici
+    public float detectionRadius; // Raggio di rilevamento nemici
 
     private Quaternion initialRotation; // Variabile per memorizzare la rotazione iniziale
     public float rotationSpeed = 3f;
@@ -97,26 +97,26 @@ public class UnitBehavior : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(directionToEnemy);
 
             // Ruota gradualmente verso il nemico
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             return;
         }
 
         if (currentEnemy == null)
         {
-            Debug.LogWarning("Nessun nemico attuale da attaccare!");
+           // Debug.LogWarning("Nessun nemico attuale da attaccare!");
             return;
         }
 
         if (projectilePrefab != null)
         {
-            Debug.Log($"Sparo al nemico: {currentEnemy.name}");
+            //Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform);
         }
         else
         {
-            Debug.LogError("Prefab del proiettile non assegnato!");
+           // Debug.LogError("Prefab del proiettile non assegnato!");
         }
 
         attackCooldown = 1f / fireRate; // Tempo di ricarica basato su fire rate
@@ -143,6 +143,8 @@ public class UnitBehavior : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        
+
         health -= damage;
         if (health <= 0)
         {
@@ -152,6 +154,7 @@ public class UnitBehavior : MonoBehaviour
 
     private void Die()
     {
+        Debug.LogError("Muore?");
         Destroy(gameObject);
     }
 }

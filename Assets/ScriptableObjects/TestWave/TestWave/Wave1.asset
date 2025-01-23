@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 95eae28380737fa42b832f2c1d738443, type: 2}
   - {fileID: 11400000, guid: 1cfbcf6516e596e4199d6abbaa84be91, type: 2}
   spawnPoint:
-  - {fileID: 4874812906823238235, guid: 9c6a5592812514e4cb39f757a3486cb4, type: 3}
-  - {fileID: 232453661688353245, guid: be2f9f8100c6cf4469d52e05cbacd90f, type: 3}
+  - {fileID: 5669457753797789619, guid: 5388768402654614386364f459a93c11, type: 3}
+  - {fileID: 3989790256463914579, guid: a4c2cc005b5aa844a94c13701997fbd2, type: 3}

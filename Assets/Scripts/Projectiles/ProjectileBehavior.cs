@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour
 {
-    private float speed = 30f;
-    private float damage;
+    [SerializeField]
+    private float speed = 400f;
+    private float damage = 10f;
     private Transform target;
 
     public void Initialize(float damage, Transform target)
@@ -35,7 +36,7 @@ public class ProjectileBehavior : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             Debug.Log($"Proiettile ha colpito: {target.name}");
-            EnemyHealth enemy = target.GetComponent<EnemyHealth>();
+            EnemyBehaviour enemy = target.GetComponent<EnemyBehaviour>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);

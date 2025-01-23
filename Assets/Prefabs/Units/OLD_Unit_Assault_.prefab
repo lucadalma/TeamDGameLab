@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
   detectionRadius: 50
+  rotationSpeed: 3
 --- !u!195 &8739341647753112061
 NavMeshAgent:
   m_ObjectHideFlags: 0

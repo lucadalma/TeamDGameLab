@@ -29,16 +29,18 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            if (gameStatus == GameStatus.GameRunning) 
-            {
-                gameStatus = GameStatus.GamePause;
-                pauseEvent.Raise();
-            }
-            else if (gameStatus == GameStatus.GamePause)
-            {
-                gameStatus = GameStatus.GameRunning;
-                resumeEvent.Raise();
-            }
+            Application.Quit();
+
+            //if (gameStatus == GameStatus.GameRunning) 
+            //{
+            //    gameStatus = GameStatus.GamePause;
+            //    pauseEvent.Raise();
+            //}
+            //else if (gameStatus == GameStatus.GamePause)
+            //{
+            //    gameStatus = GameStatus.GameRunning;
+            //    resumeEvent.Raise();
+            //}
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Wave/Create Wave")]
+[CreateAssetMenu(menuName = "Wave/Create Single Wave")]
 public class WaveSO : ScriptableObject
 {
     [SerializeField]
