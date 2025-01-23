@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 enum GameStatus 
 {
@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameEvent resumeEvent;
+
+    [SerializeField]
+    GameObject winMenu;
+
+    [SerializeField]
+    GameObject GameOverMenu;
 
     GameStatus gameStatus;
 
@@ -43,4 +49,17 @@ public class GameManager : MonoBehaviour
             //}
         }
     }
+
+
+
+    public void ReturnToMainMenu() 
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void ActivateMenu(GameObject menu) 
+    {
+        menu.SetActive(true);
+    }
+
 }
