@@ -7,8 +7,15 @@ public class TestEnemy : MonoBehaviour
 
     public float speed;
 
+    private float speedDefault = 0;
+
 
     public GameObjectList enemyList;
+
+    private void Start()
+    {
+        speedDefault = speed;
+    }
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
@@ -33,6 +40,16 @@ public class TestEnemy : MonoBehaviour
     {
         enemyList.List.Remove(gameObject);
 
+    }
+
+    public void StopEnemyMovement() 
+    {
+        speed = 0;
+    }
+
+    public void MoveEnemy() 
+    {
+        speed = speedDefault;
     }
 
 }

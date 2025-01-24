@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Assalto
   health: 10
-  speed: 20
+  speed: 40
   fireRate: 3
   damage: 4
   spawnCd: 1

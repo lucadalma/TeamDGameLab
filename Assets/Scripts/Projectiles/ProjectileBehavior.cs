@@ -37,15 +37,32 @@ public class ProjectileBehavior : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             Debug.Log($"Proiettile ha colpito: {target.name}");
-            EnemyBehaviour enemy = target.GetComponent<EnemyBehaviour>();
-            if (enemy != null)
+            if (target.gameObject.CompareTag("BaseB"))
             {
-                enemy.TakeDamage(damage);
-                Debug.Log($"Danno inflitto: {damage} a {enemy.name}");
+                BaseHealth baseHealth = target.GetComponent<BaseHealth>();
+                if (baseHealth != null)
+                {
+                    baseHealth.TakeDamage(damage);
+                    Debug.Log($"Danno inflitto: {damage} a {baseHealth.name}");
+                }
+                else
+                {
+                    Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                }
             }
-            else
+            else if (target.gameObject.CompareTag("Enemy"))
             {
-                Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+
+                EnemyBehaviour unit = target.GetComponent<EnemyBehaviour>();
+                if (unit != null)
+                {
+                    unit.TakeDamage(damage);
+                    Debug.Log($"Danno inflitto: {damage} a {unit.name}");
+                }
+                else
+                {
+                    Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                }
             }
             Destroy(gameObject);
         }

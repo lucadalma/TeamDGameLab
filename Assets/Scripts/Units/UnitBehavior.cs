@@ -6,10 +6,10 @@ public class UnitBehavior : MonoBehaviour
     private float health;
     private float fireRate;
     private float damage;
-    private float attackCooldown;
+    public float attackCooldown;
     private Transform currentRotation;
     private Transform targetPoint;
-    private GameObject currentEnemy;
+    public GameObject currentEnemy;
 
     public GameObject projectilePrefab; // Prefab del proiettile
     public float detectionRadius; // Raggio di rilevamento nemici
@@ -177,6 +177,7 @@ public class UnitBehavior : MonoBehaviour
 
     private void Die()
     {
+
         Destroy(gameObject);
     }
 }

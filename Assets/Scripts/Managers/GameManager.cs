@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void ActivateMenu(GameObject menu) 
     {
+        if (menu == null) return;
         menu.SetActive(true);
     }
 

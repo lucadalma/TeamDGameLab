@@ -19,5 +19,6 @@ public class BaseHealth : MonoBehaviour
     {
         Debug.Log($"Base {gameObject.name} è stata distrutta!");
         // Implementa la logica per la fine della partita o la distruzione della base
+        Destroy(gameObject);
     }
 }

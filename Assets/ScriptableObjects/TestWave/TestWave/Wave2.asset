@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Wave2
   m_EditorClassIdentifier: 
   enemyGroup:
-  - {fileID: 11400000, guid: 0de8859265ccf9f4ca18af4a9fa5561a, type: 2}
   - {fileID: 11400000, guid: 1cfbcf6516e596e4199d6abbaa84be91, type: 2}
   spawnPoint:
-  - {fileID: 2991550722793759739, guid: a77badd84cdeaf743947b29884bb7a85, type: 3}
   - {fileID: 5247190211839611374, guid: 93fead75b4a9c4f498323cfbb98a5f04, type: 3}
