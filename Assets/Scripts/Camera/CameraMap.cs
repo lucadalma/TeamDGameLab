@@ -3,61 +3,51 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraMap : MonoBehaviour
 {
     [Header("Obj")]
-    public GameObject Camera;
-    public Camera m_Camera;
+    public Camera Camera;
 
-    [Header("SensCam")]
-    public float rotationSpeed;
 
 
     [Header("MoveCam")]
     public float movespeed;
-    public float maxDistance, minDistance;
+    public float maxRotate;
+    public float minRotate;
 
-    [Header("Zoom")]
+   [Header("Zoom")]
     public float max;
     public float min;
 
-
-    private Vector3 turn;
-    private Vector3 move;
+    private Transform localTrans;
 
 
+    private void Start()
+    {
+        localTrans = GetComponent<Transform>();
+    }
 
     void FixedUpdate()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-
-        CameraMove();
         CameramanMove();
         Zoom();
     }
 
-    private void CameraMove()
-    {
-        turn.y += Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
-        turn.y = Mathf.Clamp(turn.y, -90, 5);
-        Camera.transform.localRotation = Quaternion.Euler(-turn.y, -53, 0);
-
-    }
-
     void CameramanMove()
     {
-        move = new Vector3(0f, 0f, Input.GetAxis("Vertical")) * 1;
-        transform.position += (move * movespeed) * Time.deltaTime;
+        float rotationY = -Input.GetAxis("Horizontal");
 
-        if (transform.position.z > maxDistance)
-        {
-            transform.position = new Vector3(0, 0, maxDistance);
-        }
-        else if (transform.position.z < -minDistance)
-        {
-            transform.position = new Vector3(0, 0, -minDistance);
-        }
+        Vector3 eulerAngle = localTrans.rotation.eulerAngles;
+
+        eulerAngle.y = (eulerAngle.y > 180) ? eulerAngle.y - 360 : eulerAngle.y;
+
+        eulerAngle.y += rotationY * Time.deltaTime * movespeed;
+
+        eulerAngle.y = Mathf.Clamp(eulerAngle.y, minRotate, maxRotate);
+
+        localTrans.rotation = Quaternion.Euler(eulerAngle);
     }
 
     void Zoom()
@@ -65,15 +55,15 @@ public class CameraMap : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if (m_Camera.fieldOfView < max)
-                m_Camera.fieldOfView += 2;
+            if (Camera.fieldOfView < max)
+                Camera.fieldOfView += 5;
 
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
-            if (m_Camera.fieldOfView > min)
-                m_Camera.fieldOfView -= 2;
+            if (Camera.fieldOfView > min)
+                Camera.fieldOfView -= 5;
         }
     }
 }
