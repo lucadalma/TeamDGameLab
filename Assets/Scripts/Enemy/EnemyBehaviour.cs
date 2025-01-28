@@ -7,7 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
     private float speed;
     private float health;
     private float fireRate;
-    public float fireRate2;
+    //public float fireRate2;
     private float damage;
     public float attackCooldown;
     private Transform currentRotation;
@@ -49,7 +49,8 @@ public class EnemyBehaviour : MonoBehaviour
         //    MoveTowardsTarget();
         //}
         //else
-        if(currentEnemy != null){
+        //MoveTowardsTarget();
+        if (currentEnemy != null){
             // Nemico valido: attacca e ferma il movimento
             AttackEnemy();
         }
@@ -59,7 +60,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (targetPoint == null) return;
 
-        enemyMovement.MoveEnemy();
+        //enemyMovement.MoveEnemy();
 
         Vector3 direction = (targetPoint.position - transform.position).normalized;
 
@@ -155,7 +156,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         // Imposta il cooldown per il prossimo attacco
-        attackCooldown = 1f / fireRate2;
+        attackCooldown = 1f / fireRate;
     }
 
     private bool IsEnemyValid(GameObject enemy)

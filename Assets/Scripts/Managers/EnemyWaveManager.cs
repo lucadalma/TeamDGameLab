@@ -14,6 +14,8 @@ public class EnemyWaveManager : MonoBehaviour
 
     int numberOfWaves = 0;
 
+    public Transform targetPoint;  // Punto finale per le unità
+
     GameObject waveParent;
 
     [SerializeField]
@@ -82,7 +84,12 @@ public class EnemyWaveManager : MonoBehaviour
         {
             for (int i = 0; i < currentEnemyGroup.numberOfEnemy; i++)
             {
-                Instantiate(currentEnemyGroup.enemy, currentWaveSO.spawnPoint[spawnPointIndex].transform.position, Quaternion.identity);
+                GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, currentWaveSO.spawnPoint[spawnPointIndex].transform.position, Quaternion.identity);
+                EnemyBehaviour behavior = unit.GetComponent<EnemyBehaviour>();
+                if (behavior != null)
+                {
+                    behavior.Initialize(currentEnemyGroup.enemy, targetPoint);
+                }
                 yield return new WaitForSeconds(timeBetweenSpawn.Value);
             }
             spawnPointIndex++;

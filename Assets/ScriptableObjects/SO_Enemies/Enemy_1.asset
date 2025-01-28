@@ -19,5 +19,5 @@ MonoBehaviour:
   damage: 5
   spawnCd: 1
   unitID: 0
-  unitPrefab: {fileID: 1927213937340799936, guid: ccdf84373cb87ae4d8694ac35e38a97c, type: 3}
+  unitPrefab: {fileID: 7348415824809312673, guid: 2100811662a04c0408449b8a02b0dcfe, type: 3}
   projectilePrefab: {fileID: 4455838741618225204, guid: dd3cc2528b70a6e4e9855dad66e3c4e9, type: 3}
