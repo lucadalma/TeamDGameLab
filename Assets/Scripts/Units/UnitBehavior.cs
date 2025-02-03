@@ -3,6 +3,7 @@ using UnityEngine;
 public class UnitBehavior : MonoBehaviour
 {
     private float speed;
+    private float oldSpeed = 0;
     private float health;
     private float fireRate;
     private float damage;
@@ -21,6 +22,7 @@ public class UnitBehavior : MonoBehaviour
     {
         // Salva la rotazione iniziale al momento dell'inizializzazione
         initialRotation = transform.rotation;
+        oldSpeed = speed;
     }
 
     public void Initialize(UnitData data, Transform target)
@@ -115,21 +117,22 @@ public class UnitBehavior : MonoBehaviour
             return;
         }
 
-        if (currentEnemy.CompareTag("BaseB"))
-        {
-            Debug.Log($"Attaccando la base: {currentEnemy.name}");
-            // Applica danno direttamente alla base
-            BaseHealth baseHealth = currentEnemy.GetComponent<BaseHealth>();
-            if (baseHealth != null)
-            {
-                baseHealth.TakeDamage(damage);
-            }
-            else
-            {
-                Debug.LogError("Componente BaseBehavior mancante sulla base!");
-            }
-        }
-        else if (projectilePrefab != null)
+        //if (currentEnemy.CompareTag("BaseB"))
+        //{
+        //    Debug.Log($"Attaccando la base: {currentEnemy.name}");
+        //    // Applica danno direttamente alla base
+        //    BaseHealth baseHealth = currentEnemy.GetComponent<BaseHealth>();
+        //    if (baseHealth != null)
+        //    {
+        //        baseHealth.TakeDamage(damage);
+        //    }
+        //    else
+        //    {
+        //        Debug.LogError("Componente BaseBehavior mancante sulla base!");
+        //    }
+        //}
+        //else 
+        if (projectilePrefab != null)
         {
             // Spara un proiettile verso l'unità nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
@@ -179,5 +182,15 @@ public class UnitBehavior : MonoBehaviour
     {
 
         Destroy(gameObject);
+    }
+
+    public void PauseGameObject()
+    {
+        speed = 0;
+    }
+
+    public void ResumeGameObject()
+    {
+        speed = oldSpeed;
     }
 }

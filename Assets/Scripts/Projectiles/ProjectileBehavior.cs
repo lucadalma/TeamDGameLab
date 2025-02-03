@@ -4,9 +4,18 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    private float oldSpeed;
     [SerializeField]
     private float damage;
     private Transform target;
+
+    private Vector3 point;
+
+    private void Start()
+    {
+        oldSpeed = speed;
+        point = target.position;
+    }
 
     public void Initialize(float damage, Transform target)
     {
@@ -27,16 +36,21 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (target == null)
         {
-           // Debug.LogWarning("Il target del proiettile è scomparso!");
-            Destroy(gameObject);
+            // Debug.LogWarning("Il target del proiettile è scomparso!");
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            //Destroy(gameObject);
             return;
+
+        }
+        else 
+        {
+            
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
+        if (Vector3.Distance(transform.position, point) < 0.1f)
         {
-            Debug.Log($"Proiettile ha colpito: {target.name}");
             if (target.gameObject.CompareTag("BaseB"))
             {
                 BaseHealth baseHealth = target.GetComponent<BaseHealth>();
@@ -67,4 +81,15 @@ public class ProjectileBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void StopProjectile()
+    {
+        speed = 0;
+    }
+
+    public void ResumeProjectile()
+    {
+        speed = oldSpeed;
+    }
+
 }

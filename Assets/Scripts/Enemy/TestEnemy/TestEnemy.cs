@@ -28,8 +28,7 @@ public class TestEnemy : MonoBehaviour
 
     public void ResumeGameObject() 
     {
-        speed = 50f;
-        Debug.Log(speed);
+        speed = speedDefault;
     }
 
     private void Awake()
@@ -44,6 +43,7 @@ public class TestEnemy : MonoBehaviour
 
     public void StopEnemyMovement() 
     {
+        Debug.Log("Entrato");
         speed = 0;
     }
 

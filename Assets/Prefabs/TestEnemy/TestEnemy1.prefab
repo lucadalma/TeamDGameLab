@@ -129,7 +129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5339074892067526164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f3c98c9055d374488b0ead4879356c8, type: 3}
   m_Name: 
@@ -165,8 +165,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5339074892067526186}
-        m_TargetAssemblyTypeName: TestEnemy, Assembly-CSharp
+      - m_Target: {fileID: 1297187108066656469}
+        m_TargetAssemblyTypeName: EnemyBehaviour, Assembly-CSharp
         m_MethodName: PauseGameObject
         m_Mode: 1
         m_Arguments:
@@ -193,8 +193,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5339074892067526186}
-        m_TargetAssemblyTypeName: TestEnemy, Assembly-CSharp
+      - m_Target: {fileID: 1297187108066656469}
+        m_TargetAssemblyTypeName: EnemyBehaviour, Assembly-CSharp
         m_MethodName: ResumeGameObject
         m_Mode: 1
         m_Arguments:
@@ -217,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356af13b547c7d245a56bc20592918b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate2: 10
   attackCooldown: 0
   currentEnemy: {fileID: 0}
   projectilePrefab: {fileID: 4455838741618225204, guid: dd3cc2528b70a6e4e9855dad66e3c4e9, type: 3}

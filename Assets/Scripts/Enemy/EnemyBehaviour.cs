@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     private float speed;
+    private float oldSpeed = 0;
     private float health;
     private float fireRate;
     //public float fireRate2;
@@ -20,13 +21,12 @@ public class EnemyBehaviour : MonoBehaviour
     private Quaternion initialRotation; // Variabile per memorizzare la rotazione iniziale
     public float rotationSpeed = 3f;
 
-    TestEnemy enemyMovement;
 
     void Start()
     {
         // Salva la rotazione iniziale al momento dell'inizializzazione
         initialRotation = transform.rotation;
-        enemyMovement = gameObject.GetComponent<TestEnemy>();
+        oldSpeed = speed;
     }
 
     public void Initialize(EnemyData data, Transform target)
@@ -42,16 +42,15 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        SearchForEnemy();
-        //if (currentEnemy == null || !IsEnemyValid(currentEnemy))
-        //{
-        //    // Nessun nemico valido: l'unità cerca nemici e si muove verso il bersaglio
-        //    MoveTowardsTarget();
-        //}
-        //else
-        //MoveTowardsTarget();
-        if (currentEnemy != null){
-            // Nemico valido: attacca e ferma il movimento
+        if (currentEnemy == null || !IsEnemyValid(currentEnemy))
+        {
+            // Nessun nemico valido, continua a muoverti
+            MoveTowardsTarget();
+            SearchForEnemy();
+        }
+        else
+        {
+            // Attacca il nemico
             AttackEnemy();
         }
     }
@@ -81,7 +80,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void SearchForEnemy()
     {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, initialRotation, rotationSpeed * Time.deltaTime);
-        enemyMovement.MoveEnemy();
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
         foreach (var collider in hitColliders)
         {
@@ -96,10 +95,6 @@ public class EnemyBehaviour : MonoBehaviour
                 currentEnemy = collider.gameObject;
                 return;
             }
-            else 
-            {
-                currentEnemy = null;
-            }
         }
     }
 
@@ -110,7 +105,6 @@ public class EnemyBehaviour : MonoBehaviour
         directionToEnemy.y = 0; // Mantieni l'orientamento orizzontale
         Quaternion targetRotation = Quaternion.LookRotation(directionToEnemy);
 
-        enemyMovement.StopEnemyMovement();
 
         // Ruota gradualmente verso il bersaglio
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -131,7 +125,7 @@ public class EnemyBehaviour : MonoBehaviour
         //if (currentEnemy.CompareTag("BaseA"))
         //{
         //    Debug.Log($"Attaccando la base: {currentEnemy.name}");
-        //    // Applica danno direttamente alla base
+        //    Applica danno direttamente alla base
         //    BaseHealth baseHealth = currentEnemy.GetComponent<BaseHealth>();
         //    if (baseHealth != null)
         //    {
@@ -142,7 +136,7 @@ public class EnemyBehaviour : MonoBehaviour
         //        Debug.LogError("Componente BaseBehavior mancante sulla base!");
         //    }
         //}
-        //else 
+        //else
         if (projectilePrefab != null)
         {
             // Spara un proiettile verso l'unità nemica
@@ -192,5 +186,15 @@ public class EnemyBehaviour : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    public void PauseGameObject()
+    {
+        speed = 0;
+    }
+
+    public void ResumeGameObject()
+    {
+        speed = oldSpeed;
     }
 }

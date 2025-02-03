@@ -180,6 +180,8 @@ GameObject:
   - component: {fileID: 8180102846564152490}
   - component: {fileID: 3786551352053618606}
   - component: {fileID: 7487127384538951132}
+  - component: {fileID: -4620131857675532416}
+  - component: {fileID: 7060872577064851230}
   m_Layer: 3
   m_Name: TestEnemy3
   m_TagString: Enemy
@@ -243,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356af13b547c7d245a56bc20592918b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate2: 15
   attackCooldown: 0
   currentEnemy: {fileID: 0}
   projectilePrefab: {fileID: 4455838741618225204, guid: dd3cc2528b70a6e4e9855dad66e3c4e9, type: 3}
@@ -271,3 +272,59 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-4620131857675532416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4770363133413246159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5167ce7ea58f8438dee19666b8a613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d1c66e0709dc3ee4ab043e4dec4281ce, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7060872577064851230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4770363133413246159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5167ce7ea58f8438dee19666b8a613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4e6876e95dad2fd4a84edf53620525e6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

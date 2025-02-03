@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 7529231737413571529}
   - component: {fileID: -2442743702793723154}
   - component: {fileID: 1046802163985202061}
+  - component: {fileID: 8180301251911169453}
+  - component: {fileID: 6891229256013295952}
   m_Layer: 3
   m_Name: Unit_Swarm
   m_TagString: Unit
@@ -145,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edd172bd9a1f2447a9e56f3025a4196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 0
+  currentEnemy: {fileID: 0}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
   detectionRadius: 100
   rotationSpeed: 3
@@ -170,6 +174,62 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8180301251911169453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927213937340799936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5167ce7ea58f8438dee19666b8a613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d1c66e0709dc3ee4ab043e4dec4281ce, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2442743702793723154}
+        m_TargetAssemblyTypeName: UnitBehavior, Assembly-CSharp
+        m_MethodName: PauseGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6891229256013295952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927213937340799936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5167ce7ea58f8438dee19666b8a613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4e6876e95dad2fd4a84edf53620525e6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2442743702793723154}
+        m_TargetAssemblyTypeName: UnitBehavior, Assembly-CSharp
+        m_MethodName: ResumeGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4706203841184824374
 GameObject:
   m_ObjectHideFlags: 0

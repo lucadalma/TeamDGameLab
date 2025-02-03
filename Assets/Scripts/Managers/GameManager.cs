@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-enum GameStatus 
+enum GameStatus
 {
     GamePause,
     GameRunning
@@ -33,31 +33,30 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (gameStatus == GameStatus.GameRunning)
+            {
+                gameStatus = GameStatus.GamePause;
+                pauseEvent.Raise();
 
-            //if (gameStatus == GameStatus.GameRunning) 
-            //{
-            //    gameStatus = GameStatus.GamePause;
-            //    pauseEvent.Raise();
-            //}
-            //else if (gameStatus == GameStatus.GamePause)
-            //{
-            //    gameStatus = GameStatus.GameRunning;
-            //    resumeEvent.Raise();
-            //}
+            }
+            else if (gameStatus == GameStatus.GamePause)
+            {
+                gameStatus = GameStatus.GameRunning;
+                resumeEvent.Raise();
+            }
         }
     }
 
 
 
-    public void ReturnToMainMenu() 
+    public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
     }
 
-    public void ActivateMenu(GameObject menu) 
+    public void ActivateMenu(GameObject menu)
     {
         if (menu == null) return;
         menu.SetActive(true);
