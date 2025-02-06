@@ -171,8 +171,6 @@ public class UIManager : MonoBehaviour
     {
         if (numberOfUnitsOnTimer < 4 && numberOfUnitsOnTimer + numberOfUnitsOnDeploy < 10)
         {
-            Debug.Log("now on timer" + unit.name);
-
             GameObject newUnit = Instantiate(unit, unitTimerSlots[0]);
 
             unitsOnTimer.Add(newUnit);
@@ -190,7 +188,6 @@ public class UIManager : MonoBehaviour
 
     public void removeUnitOnTimer(GameObject unit)
     {
-        Debug.Log("removed" + unit.name);
         unitsOnTimer.Remove(unit);
         Destroy(unit);
         setUnitOnTimer();
@@ -199,11 +196,6 @@ public class UIManager : MonoBehaviour
 
     public void AddDeployUnits(GameObject unit)
     {
-
-        Debug.Log("spawned" + unit.name);
-
-
-
         GameObject newUnit = Instantiate(unit, deploimentSelectorSlots[0]);
 
         availableUnitsToDeploy.Add(newUnit);
@@ -214,7 +206,7 @@ public class UIManager : MonoBehaviour
 
     public void removeDeployUnits(GameObject unit)
     {
-        Debug.Log("removed" + unit.name);
+
         availableUnitsToDeploy.Remove(unit);
         Destroy(unit);
         setDeployUnits();
@@ -312,12 +304,10 @@ public class UIManager : MonoBehaviour
             {
                 if (TargetBuilding == null)
                 {
-                    Debug.Log("sheatch build");
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, buildingLayerMask))
                     {
                         turnOffInteractionsWithStaticUI(staticUI.transform);
-                        Debug.Log("build found");
                         TargetBuilding = hit.collider.gameObject;
                         openBuildingMenu(Input.mousePosition);
                     }
@@ -433,7 +423,6 @@ public class UIManager : MonoBehaviour
         {
             if (numberOfBuildingsOnTimer < 4)
             {
-                Debug.Log("now on timer" + building.name);
 
                 GameObject newBuilding = Instantiate(building, buildingTimerSlots[0]);
                 newBuilding.GetComponent<CreationTimer>().buildingSlot = TargetBuilding;
@@ -461,7 +450,6 @@ public class UIManager : MonoBehaviour
 
     public void removeBuildingOnTimer(GameObject building)
     {
-        Debug.Log("removed" + building.name);
         buildingsOnTimer.Remove(building);
         Destroy(building);
         setBuildingOnTimer();
