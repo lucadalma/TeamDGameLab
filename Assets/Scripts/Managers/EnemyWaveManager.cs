@@ -59,13 +59,13 @@ public class EnemyWaveManager : MonoBehaviour
 
             numberOfWaves += 1;
 
-            Debug.Log($"Inizio wave {numberOfWaves}");
+            //Debug.Log($"Inizio wave {numberOfWaves}");
             yield return StartCoroutine(SpawnWave(currentWave));
 
             if (currentWave < currentSetOfWave.timeBetweenWaves.Count)
             {
                 float delay = currentSetOfWave.timeBetweenWaves[currentWave];
-                Debug.Log($"Attesa di {delay} secondi prima della prossima wave.");
+               // Debug.Log($"Attesa di {delay} secondi prima della prossima wave.");
                 yield return new WaitForSeconds(delay);
             }
 

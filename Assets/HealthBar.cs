@@ -41,17 +41,9 @@ public class HealthBar : MonoBehaviour
         health -= damage;
     
 
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 
-    private void Die()
-    {
-
-         Destroy(gameObject);
-    }
+   
         
     
 
