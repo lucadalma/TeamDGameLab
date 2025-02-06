@@ -21,6 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Quaternion initialRotation; // Variabile per memorizzare la rotazione iniziale
     public float rotationSpeed = 3f;
 
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -142,7 +143,9 @@ public class EnemyBehaviour : MonoBehaviour
             // Spara un proiettile verso l'unità nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            projectile.GetComponent<EnemyProjectileBehavior>().Initialize(damage, currentEnemy.transform);
+
+            if(projectile != null)
+                projectile.GetComponent<EnemyProjectileBehavior>().Initialize(damage, currentEnemy.transform);
         }
         else
         {
@@ -174,6 +177,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        healthBar.TakeDamage(damage);
 
         health -= damage;
 

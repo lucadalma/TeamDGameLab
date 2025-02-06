@@ -15,7 +15,7 @@ public class CreatorButton : MonoBehaviour
 
     public void startUnitTimer()
     {
-        Debug.Log("creation Button Pressed");
+        //Debug.Log("creation Button Pressed");
         manager.addUnitOnTimer(unitWaitTimer);
     }
 }
