@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,6 +15,10 @@ public class UIManager : MonoBehaviour
 {
     int posiblePages;
     int currentPage = 0;
+
+    [SerializeField] float animSpeed;
+
+    bool animInProgress = false;
 
     [SerializeField] GameObject staticUI;
 
@@ -39,6 +45,7 @@ public class UIManager : MonoBehaviour
     List<GameObject> buildingsOnTimer = new List<GameObject>();
 
     [NonSerialized] public GameObject TargetBuilding;
+    [NonSerialized] public Vector2 TargetPoint;
     [SerializeField] private LayerMask buildingLayerMask;
     [SerializeField] float r;
 
@@ -281,7 +288,7 @@ public class UIManager : MonoBehaviour
 
             if (button != null)
             {
-                button.enabled = true ;
+                button.enabled = true;
             }
 
             if (child.childCount > 0)
@@ -318,7 +325,7 @@ public class UIManager : MonoBehaviour
                 else
                 {
                     TargetBuilding = null;
-                    removeBuiidingMenu();
+                    removeBuiidingMenu(Input.mousePosition);
                     turnOnInteractionsWithStaticUI(staticUI.transform);
                 }
             }
@@ -334,21 +341,28 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < availableBuildingCategories.Count; i++)
         {
             spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
-            GameObject temp = Instantiate(availableBuildingCategories[i], spawnPoint, transform.rotation, transform);
+            GameObject temp = Instantiate(availableBuildingCategories[i], CenterPoint, transform.rotation, transform);
+            StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
             temp.GetComponent<BuildingButton>().centerPoint = CenterPoint;
             buildingButtonsDysplayed.Add(temp);
         }
+
+        //StartCoroutine(AnimStartCreate(ang, CenterPoint));
     }
-    public void removeBuiidingMenu()
+    public void removeBuiidingMenu(Vector2 CenterPoint)
     {
         foreach (var buildingButton in buildingButtonsDysplayed)
         {
+            Vector2 startPos = buildingButton.transform.position;
+            StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
             Destroy(buildingButton.gameObject);
         }
 
+        //StartCoroutine(AnimStartRemove(CenterPoint));
+
         buildingButtonsDysplayed.Clear();
 
-        
+
     }
 
 
@@ -356,11 +370,14 @@ public class UIManager : MonoBehaviour
     {
         foreach (var buildingButton in buildingButtonsDysplayed)
         {
+            Vector2 startPos = buildingButton.transform.position;
+            StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
+
             Destroy(buildingButton.gameObject);
         }
         buildingButtonsDysplayed.Clear();
 
-        GameObject backButton =Instantiate(BuildingBackButton, CenterPoint, transform.rotation, transform);
+        GameObject backButton = Instantiate(BuildingBackButton, CenterPoint, transform.rotation, transform);
         buildingButtonsDysplayed.Add(backButton);
 
         List<GameObject> buttonsInCurrentCategory = new List<GameObject>();
@@ -368,7 +385,7 @@ public class UIManager : MonoBehaviour
 
         foreach (var buildingButton in availableBuildings)
         {
-            if(buildingButton.GetComponent<BuildingButton>().category == Category)
+            if (buildingButton.GetComponent<BuildingButton>().category == Category)
             {
                 buttonsInCurrentCategory.Add(buildingButton);
             }
@@ -381,7 +398,8 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < buttonsInCurrentCategory.Count; i++)
         {
             spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
-            GameObject temp = Instantiate(buttonsInCurrentCategory[i], spawnPoint, transform.rotation, transform);
+            GameObject temp = Instantiate(buttonsInCurrentCategory[i], CenterPoint, transform.rotation, transform);
+            StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
             temp.GetComponent<BuildingButton>().centerPoint = spawnPoint;
             buildingButtonsDysplayed.Add(temp);
         }
@@ -409,9 +427,9 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void addBuildingOnTimer(GameObject building)
+    public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint)
     {
-        if (building != null) 
+        if (building != null)
         {
             if (numberOfBuildingsOnTimer < 4)
             {
@@ -422,7 +440,7 @@ public class UIManager : MonoBehaviour
 
                 buildingsOnTimer.Add(newBuilding);
                 setBuildingOnTimer();
-                removeBuiidingMenu();
+                removeBuiidingMenu(CenterPoint);
                 turnOnInteractionsWithStaticUI(staticUI.transform);
             }
             else
@@ -447,5 +465,61 @@ public class UIManager : MonoBehaviour
         buildingsOnTimer.Remove(building);
         Destroy(building);
         setBuildingOnTimer();
+    }
+
+
+
+    IEnumerator AnimStartRemove(Vector2 CenterPoint)
+    {
+        foreach (var buildingButton in buildingButtonsDysplayed)
+        {
+            Vector2 startPos = buildingButton.transform.position;
+            StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
+
+            while (animInProgress)
+            {
+                yield return null;
+            }
+            Destroy(buildingButton.gameObject);
+            yield return null;
+
+        }
+    }
+    IEnumerator AnimStartCreate(float ang, Vector2 CenterPoint)
+    {
+        Vector2 spawnPoint;
+
+        for (int i = 0; i < availableBuildingCategories.Count; i++)
+        {
+            while (animInProgress)
+            {
+                yield return null;
+            }
+
+            spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
+            GameObject temp = Instantiate(availableBuildingCategories[i], CenterPoint, transform.rotation, transform);
+            StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
+            temp.GetComponent<BuildingButton>().centerPoint = CenterPoint;
+            buildingButtonsDysplayed.Add(temp);
+            yield return null;
+        }
+    }
+
+    IEnumerator AnimationProgression(Vector2 startPos, Vector2 endPos, GameObject obj)
+    {
+        bool animationTransitioned = false;
+        animInProgress = true;
+
+        for (float i = 0; i < 1; i += animSpeed * Time.deltaTime)
+        {
+            Debug.Log(i);
+            obj.transform.position = Vector2.Lerp(startPos, endPos, i);
+            if(i>0.5 && !animationTransitioned)
+            {
+                animationTransitioned = true;
+                animInProgress = false;
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

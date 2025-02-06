@@ -46,13 +46,13 @@ public class BuildingButton : MonoBehaviour
     {
         if (TypeEnum.back == type)
         {
-            uIM.removeBuiidingMenu();
+            uIM.removeBuiidingMenu(centerPoint);
             uIM.openBuildingMenu(transform.position);
         }
     }
 
     public void StartBuildingTimer()
     {
-        uIM.addBuildingOnTimer(BuildingTimer);
+        uIM.addBuildingOnTimer(BuildingTimer, centerPoint);
     }
 }
