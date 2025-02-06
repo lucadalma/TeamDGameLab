@@ -210,8 +210,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 5, z: 0}
+  m_Size: {x: 13.3, y: 14.43, z: 60}
+  m_Center: {x: 0, y: 5, z: -22.86}
 --- !u!114 &-2442743702793723154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,8 +227,9 @@ MonoBehaviour:
   attackCooldown: 0
   currentEnemy: {fileID: 0}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 100
+  detectionRadius: 50
   rotationSpeed: 3
+  healthBar: {fileID: 3318814927896821315}
 --- !u!195 &1046802163985202061
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -389,7 +390,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 4130397334565552579}
   m_HandleRect: {fileID: 0}
-  m_Direction: 0
+  m_Direction: 1
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
@@ -670,6 +671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adef257349fd3f459ba2e6a5525a73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitData: {fileID: 11400000, guid: a3bf462d97fcb544abb77d8abfed92c3, type: 2}
   healthSlider: {fileID: 5825469561839446661}
   maxhealth: 100
   health: 0

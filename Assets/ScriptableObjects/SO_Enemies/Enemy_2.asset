@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Medio
   health: 3
-  speed: 4
-  fireRate: 4
+  speed: 9.23
+  fireRate: 1
   damage: 8
   spawnCd: 0
   unitID: 1

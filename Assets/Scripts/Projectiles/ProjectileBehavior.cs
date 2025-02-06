@@ -37,17 +37,19 @@ public class ProjectileBehavior : MonoBehaviour
         if (target == null)
         {
             // Debug.LogWarning("Il target del proiettile è scomparso!");
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            //Destroy(gameObject);
+            //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Destroy(gameObject);
             return;
 
         }
-        else 
+        else
         {
-            
+            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
+
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
+            
+
 
         if (Vector3.Distance(transform.position, point) < 0.1f)
         {

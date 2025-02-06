@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Enemy_1
   m_EditorClassIdentifier: 
   unitName: Piccolo
-  health: 10
-  speed: 10
-  fireRate: 2
+  health: 100
+  speed: 25.85
+  fireRate: 1
   damage: 5
   spawnCd: 1
   unitID: 0

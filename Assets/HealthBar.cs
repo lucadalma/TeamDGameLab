@@ -5,18 +5,23 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    [SerializeField]
+    public UnitData unitData;
     public Slider healthSlider;
-    public float maxhealth = 100;
+    public float maxhealth;
     public float health;
+    
     
 
     // Start is called before the first frame update
     void Start()
     {
+        unitData.health = maxhealth;
+
         health = maxhealth;  
     }
 
-    private void Update()
+    public void Update()
     {
         if(healthSlider.value != health)
         {
@@ -31,9 +36,21 @@ public class HealthBar : MonoBehaviour
        
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
+    
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+
+         Destroy(gameObject);
     }
         
     

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2367351564572146999}
   - component: {fileID: 2715284509171545416}
   - component: {fileID: 7995045803170389431}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy_Sponge
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,8 +65,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0
   currentEnemy: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  detectionRadius: 50
+  projectilePrefab: {fileID: 4455838741618225204, guid: 434a374bff850974bbae67ed0aee60f5, type: 3}
+  detectionRadius: 100
   rotationSpeed: 3
 --- !u!195 &2367351564572146999
 NavMeshAgent:

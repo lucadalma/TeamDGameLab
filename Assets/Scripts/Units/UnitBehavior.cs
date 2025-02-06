@@ -18,6 +18,8 @@ public class UnitBehavior : MonoBehaviour
     private Quaternion initialRotation; // Variabile per memorizzare la rotazione iniziale
     public float rotationSpeed = 3f;
 
+    public HealthBar healthBar;
+
     void Start()
     {
         // Salva la rotazione iniziale al momento dell'inizializzazione
@@ -157,11 +159,13 @@ public class UnitBehavior : MonoBehaviour
 
         UnitBehavior enemyBehavior = enemy.GetComponent<UnitBehavior>();
 
-        if (enemyBehavior != null && enemyBehavior.health <= 0)
+        BaseHealth baseHealth = base.GetComponent<BaseHealth>();
+
+        if (enemyBehavior != null && enemyBehavior.health <= 0 && baseHealth.health <= 0)
         {
-            
             return false;
         }
+
             
 
         return true;
@@ -169,7 +173,7 @@ public class UnitBehavior : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        
+        healthBar.TakeDamage(damage);
 
         health -= damage;
         if (health <= 0)

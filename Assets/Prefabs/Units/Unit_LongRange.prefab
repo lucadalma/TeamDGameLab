@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adef257349fd3f459ba2e6a5525a73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitData: {fileID: 11400000, guid: c3a277a16710b9b4297ed5247512e448, type: 2}
   healthSlider: {fileID: 3274305689941353472}
   maxhealth: 100
   health: 0
@@ -518,7 +519,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 238786787672263022}
   m_HandleRect: {fileID: 0}
-  m_Direction: 0
+  m_Direction: 1
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
@@ -592,9 +593,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0
   currentEnemy: {fileID: 0}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 200
+  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
+  detectionRadius: 150
   rotationSpeed: 3
+  healthBar: {fileID: 7334433375511510991}
 --- !u!195 &9039410474528768603
 NavMeshAgent:
   m_ObjectHideFlags: 0
