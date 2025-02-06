@@ -38,8 +38,8 @@ public class EnemyProjectileBehavior : MonoBehaviour
         if (target == null)
         {
             // Debug.LogWarning("Il target del proiettile è scomparso!");
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            //Destroy(gameObject);
+            //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Destroy(gameObject);
             return;
         }
 
