@@ -20,4 +20,4 @@ MonoBehaviour:
   spawnCd: 0
   unitID: 1
   unitPrefab: {fileID: 6605576422835594313, guid: 8f388280c9e27a143aad25062faa18b7, type: 3}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: e855c603bab827246a1e29980ec2f8a6, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class CreationTimer : MonoBehaviour
     public float creationTime;
     public GameObject DeployUnit;
 
+    public GameObject BuildingPref;
+    [NonSerialized] public GameObject buildingSlot;
 
     public Image timerBar;
 
@@ -20,6 +23,13 @@ public class CreationTimer : MonoBehaviour
 
     float creationTimeMax;
 
+    enum timerTypeEnum
+    {
+        unit,
+        building
+    }
+
+    [SerializeField] timerTypeEnum timerType;
     void Start()
     {
         creationTimeMax  = creationTime;
@@ -29,13 +39,23 @@ public class CreationTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        creation();
+
         updateCreationBar();
+
+        if (timerType == timerTypeEnum.unit)
+        {
+            unitCreation();
+
+        }
+        else if (timerType == timerTypeEnum.building)
+        {
+            buildingCreation();
+        }
     }
 
 
 
-    void creation()
+    void unitCreation()
     {
         if (!activated && first ) 
         {
@@ -48,13 +68,39 @@ public class CreationTimer : MonoBehaviour
             activated = true;
             creationTime = 1;
             manager.AddDeployUnits(DeployUnit);
-            manager.remopveUnitOnTimer(gameObject);
+            manager.removeUnitOnTimer(gameObject);
         }
     }
 
+    void buildingCreation()
+    {
+        if (!activated && first)
+        {
+            creationTime -= Time.deltaTime;
+        }
+
+
+        if (creationTime < 0)
+        {
+            activated = true;
+            creationTime = 1;
+
+            Vector3 spawnSlot = buildingSlot.transform.position;
+            manager.removeBuildingOnTimer(gameObject);
+            Destroy(buildingSlot);
+            Instantiate(BuildingPref, spawnSlot, Quaternion.identity);
+        }
+    }
+
+
     public void cancelUntCreation()
     {
-        manager.remopveUnitOnTimer(gameObject);
+        manager.removeUnitOnTimer(gameObject);
+    }
+
+    public void cancelBuildingCreation()
+    {
+       manager.removeBuildingOnTimer(gameObject);
     }
 
     void updateCreationBar()

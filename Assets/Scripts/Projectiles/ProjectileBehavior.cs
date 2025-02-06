@@ -9,12 +9,10 @@ public class ProjectileBehavior : MonoBehaviour
     private float damage;
     private Transform target;
 
-    private Vector3 point;
 
     private void Start()
     {
         oldSpeed = speed;
-        point = target.position;
     }
 
     public void Initialize(float damage, Transform target)
@@ -44,14 +42,14 @@ public class ProjectileBehavior : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, point, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         }
 
             
 
 
-        if (Vector3.Distance(transform.position, point) < 0.1f)
+        if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             if (target.gameObject.CompareTag("BaseB"))
             {
