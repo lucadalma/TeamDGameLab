@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 6605576422835594310}
   - component: {fileID: 6605576422835594312}
   - component: {fileID: 6605576422835594311}
-  - component: {fileID: 8319657061708011928}
   - component: {fileID: 6138467012760009060}
   - component: {fileID: 4384031708522571427}
   m_Layer: 0
@@ -150,7 +149,7 @@ MonoBehaviour:
   attackCooldown: 0
   currentEnemy: {fileID: 0}
   projectilePrefab: {fileID: 4455838741618225204, guid: e855c603bab827246a1e29980ec2f8a6, type: 3}
-  detectionRadius: 200
+  detectionRadius: 100
   rotationSpeed: 3
 --- !u!195 &6605576422835594311
 NavMeshAgent:
@@ -174,20 +173,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
---- !u!114 &8319657061708011928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6605576422835594313}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3c98c9055d374488b0ead4879356c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  enemyList: {fileID: 11400000, guid: 390b90a11842b0547b468e99c7471616, type: 2}
 --- !u!114 &6138467012760009060
 MonoBehaviour:
   m_ObjectHideFlags: 0
