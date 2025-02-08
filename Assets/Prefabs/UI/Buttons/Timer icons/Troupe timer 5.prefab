@@ -90,9 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1e5e77dbe272d49b9e020578140c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  first: 0
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   creationTime: 20
   DeployUnit: {fileID: 102633549431355430, guid: 6380f99bcd3d71f4fa8f0c7622c33286, type: 3}
+  BuildingPref: {fileID: 0}
   timerBar: {fileID: 6907869805315139735}
+  timerType: 0
 --- !u!1 &145249371856481888
 GameObject:
   m_ObjectHideFlags: 0

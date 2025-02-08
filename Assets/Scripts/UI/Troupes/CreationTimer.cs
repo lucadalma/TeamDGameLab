@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class CreationTimer : MonoBehaviour
 {
-    public bool first = false; 
+    public bool first = false;
     bool activated = false;
+    public BoolVariable pause;
 
 
     public float creationTime;
@@ -32,8 +33,8 @@ public class CreationTimer : MonoBehaviour
     [SerializeField] timerTypeEnum timerType;
     void Start()
     {
-        creationTimeMax  = creationTime;
-        manager =  FindObjectOfType<UIManager>();
+        creationTimeMax = creationTime;
+        manager = FindObjectOfType<UIManager>();
     }
 
     // Update is called once per frame
@@ -57,38 +58,45 @@ public class CreationTimer : MonoBehaviour
 
     void unitCreation()
     {
-        if (!activated && first ) 
+        if (pause.Value == false)
         {
-            creationTime -= Time.deltaTime;
+            if (!activated && first)
+            {
+                creationTime -= Time.deltaTime;
+            }
+            if (creationTime < 0)
+            {
+                activated = true;
+                creationTime = 1;
+                manager.AddDeployUnits(DeployUnit);
+                manager.removeUnitOnTimer(gameObject);
+            }
+
         }
 
-
-        if (creationTime < 0)
-        {
-            activated = true;
-            creationTime = 1;
-            manager.AddDeployUnits(DeployUnit);
-            manager.removeUnitOnTimer(gameObject);
-        }
     }
 
     void buildingCreation()
     {
-        if (!activated && first)
+        if (pause.Value == false)
         {
-            creationTime -= Time.deltaTime;
-        }
+            if (!activated && first)
+            {
+                creationTime -= Time.deltaTime;
+            }
 
 
-        if (creationTime < 0)
-        {
-            activated = true;
-            creationTime = 1;
+            if (creationTime < 0)
+            {
+                activated = true;
+                creationTime = 1;
 
-            Vector3 spawnSlot = buildingSlot.transform.position;
-            manager.removeBuildingOnTimer(gameObject);
-            Destroy(buildingSlot);
-            Instantiate(BuildingPref, spawnSlot, Quaternion.identity);
+                Vector3 spawnSlot = buildingSlot.transform.position;
+                manager.removeBuildingOnTimer(gameObject);
+                Destroy(buildingSlot);
+                Instantiate(BuildingPref, spawnSlot, Quaternion.identity);
+            }
+
         }
     }
 
@@ -100,7 +108,7 @@ public class CreationTimer : MonoBehaviour
 
     public void cancelBuildingCreation()
     {
-       manager.removeBuildingOnTimer(gameObject);
+        manager.removeBuildingOnTimer(gameObject);
     }
 
     void updateCreationBar()

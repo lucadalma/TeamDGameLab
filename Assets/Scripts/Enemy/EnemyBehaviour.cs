@@ -14,6 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Transform currentRotation;
     private Transform targetPoint;
     public GameObject currentEnemy;
+    public BoolVariable pause;
 
     public GameObject projectilePrefab; // Prefab del proiettile
     public float detectionRadius; // Raggio di rilevamento nemici
@@ -43,16 +44,19 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (currentEnemy == null || !IsEnemyValid(currentEnemy))
+        if (!pause.Value)
         {
-            // Nessun nemico valido, continua a muoverti
-            MoveTowardsTarget();
-            SearchForEnemy();
-        }
-        else
-        {
-            // Attacca il nemico
-            AttackEnemy();
+            if (currentEnemy == null || !IsEnemyValid(currentEnemy))
+            {
+                // Nessun nemico valido, continua a muoverti
+                MoveTowardsTarget();
+                SearchForEnemy();
+            }
+            else
+            {
+                // Attacca il nemico
+                AttackEnemy();
+            }
         }
     }
 
@@ -144,7 +148,7 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
-            if(projectile != null)
+            if (projectile != null)
                 projectile.GetComponent<EnemyProjectileBehavior>().Initialize(damage, currentEnemy.transform);
         }
         else

@@ -16,6 +16,8 @@ public class EnemyWaveManager : MonoBehaviour
 
     public Transform targetPoint;  // Punto finale per le unità
 
+    public BoolVariable pause;
+
     GameObject waveParent;
 
     [SerializeField]
@@ -58,6 +60,11 @@ public class EnemyWaveManager : MonoBehaviour
             if (currentWave >= currentSetOfWave.waves.Count) currentWave = 0;
 
             numberOfWaves += 1;
+
+            while (pause.Value)
+            {
+                yield return null;
+            }
 
             //Debug.Log($"Inizio wave {numberOfWaves}");
             yield return StartCoroutine(SpawnWave(currentWave));

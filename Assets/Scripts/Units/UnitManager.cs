@@ -17,11 +17,9 @@ public class UnitManager : MonoBehaviour
     [SerializeField] 
     public Transform[] spawnpoints; // Punti di spawn per le corsie
 
-    private bool pause;
 
     void Start()
     {
-        pause = false;
         // Inizializza i timer di cooldown
         cooldownTimers = new float[unitOptions.Length];
         uIManager = FindObjectOfType<UIManager>();
@@ -154,13 +152,5 @@ public class UnitManager : MonoBehaviour
         return -1;
     }
 
-    public void PauseTimer() 
-    {
-        pause = true;
-    }
 
-    public void ResumeTimer() 
-    {
-        pause = false;
-    }
 }

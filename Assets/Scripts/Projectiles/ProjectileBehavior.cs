@@ -4,16 +4,11 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField]
     private float speed;
-    private float oldSpeed;
     [SerializeField]
     private float damage;
     private Transform target;
 
-
-    private void Start()
-    {
-        oldSpeed = speed;
-    }
+    public BoolVariable pause;
 
     public void Initialize(float damage, Transform target)
     {
@@ -32,64 +27,58 @@ public class ProjectileBehavior : MonoBehaviour
 
     void Update()
     {
-        if (target == null)
+        if (!pause.Value)
         {
-            // Debug.LogWarning("Il target del proiettile è scomparso!");
-            //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            Destroy(gameObject);
-            return;
 
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-        }
-
-            
-
-
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
-        {
-            if (target.gameObject.CompareTag("BaseB"))
+            if (target == null)
             {
-                BaseHealth baseHealth = target.GetComponent<BaseHealth>();
-                if (baseHealth != null)
-                {
-                    baseHealth.TakeDamage(damage);
-                    Debug.Log($"Danno inflitto: {damage} a {baseHealth.name}");
-                }
-                else
-                {
-                    Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
-                }
+                // Debug.LogWarning("Il target del proiettile è scomparso!");
+                //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+                Destroy(gameObject);
+                return;
+
             }
-            else if (target.gameObject.CompareTag("Enemy"))
+            else
             {
+                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
-                EnemyBehaviour unit = target.GetComponent<EnemyBehaviour>();
-                if (unit != null)
-                {
-                    unit.TakeDamage(damage);
-                    Debug.Log($"Danno inflitto: {damage} a {unit.name}");
-                }
-                else
-                {
-                    Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
-                }
             }
-            Destroy(gameObject);
+
+
+
+
+            if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            {
+                if (target.gameObject.CompareTag("BaseB"))
+                {
+                    BaseHealth baseHealth = target.GetComponent<BaseHealth>();
+                    if (baseHealth != null)
+                    {
+                        baseHealth.TakeDamage(damage);
+                        Debug.Log($"Danno inflitto: {damage} a {baseHealth.name}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                    }
+                }
+                else if (target.gameObject.CompareTag("Enemy"))
+                {
+
+                    EnemyBehaviour unit = target.GetComponent<EnemyBehaviour>();
+                    if (unit != null)
+                    {
+                        unit.TakeDamage(damage);
+                        Debug.Log($"Danno inflitto: {damage} a {unit.name}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                    }
+                }
+                Destroy(gameObject);
+            }
         }
-    }
-
-    public void StopProjectile()
-    {
-        speed = 0;
-    }
-
-    public void ResumeProjectile()
-    {
-        speed = oldSpeed;
     }
 
 }

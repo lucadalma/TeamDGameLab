@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseEvent: {fileID: 11400000, guid: d1c66e0709dc3ee4ab043e4dec4281ce, type: 2}
   resumeEvent: {fileID: 11400000, guid: 4e6876e95dad2fd4a84edf53620525e6, type: 2}
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   winMenu: {fileID: 1803162412}
   GameOverMenu: {fileID: 1874386221}
 --- !u!114 &194100490
@@ -793,6 +794,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d89f6a5a3a7ba2743abcaa4ae6e482c5, type: 2}
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   targetPoint: {fileID: 1094485801}
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   timeBetweenSpawn: {fileID: 11400000, guid: fd9e5a95a0042f541a7a7a92c8985065, type: 2}
   difficulty: {fileID: 11400000, guid: c2fdbec07bf325c46a552227e39ae746, type: 2}
 --- !u!1 &724716904

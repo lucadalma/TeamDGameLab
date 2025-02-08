@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     GameEvent resumeEvent;
 
     [SerializeField]
+    BoolVariable pause;
+
+    [SerializeField]
     GameObject winMenu;
 
     [SerializeField]
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameStatus = GameStatus.GameRunning;
+        pause.SetValue(false);
     }
 
     void Update()
@@ -39,12 +43,14 @@ public class GameManager : MonoBehaviour
             {
                 gameStatus = GameStatus.GamePause;
                 pauseEvent.Raise();
+                pause.SetValue(true);
 
             }
             else if (gameStatus == GameStatus.GamePause)
             {
                 gameStatus = GameStatus.GameRunning;
                 resumeEvent.Raise();
+                pause.SetValue(false);
             }
         }
     }

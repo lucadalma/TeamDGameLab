@@ -12,6 +12,8 @@ public class UnitBehavior : MonoBehaviour
     private Transform targetPoint;
     public GameObject currentEnemy;
 
+    public BoolVariable pause;
+
     public GameObject projectilePrefab; // Prefab del proiettile
     public float detectionRadius; // Raggio di rilevamento nemici
 
@@ -35,21 +37,25 @@ public class UnitBehavior : MonoBehaviour
         damage = data.damage;
         projectilePrefab = data.projectilePrefab;
         targetPoint = target;
-        
+
     }
 
     void Update()
     {
-        if (currentEnemy == null || !IsEnemyValid(currentEnemy))
+        if (!pause.Value)
         {
-            // Nessun nemico valido, continua a muoverti
-            MoveTowardsTarget();
-            SearchForEnemy();
-        }
-        else
-        {
-            // Attacca il nemico
-            AttackEnemy();
+
+            if (currentEnemy == null || !IsEnemyValid(currentEnemy))
+            {
+                // Nessun nemico valido, continua a muoverti
+                MoveTowardsTarget();
+                SearchForEnemy();
+            }
+            else
+            {
+                // Attacca il nemico
+                AttackEnemy();
+            }
         }
     }
 
@@ -104,7 +110,7 @@ public class UnitBehavior : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(directionToEnemy);
 
         // Ruota gradualmente verso il bersaglio
-       // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         // Controlla il cooldown per l'attacco
         if (attackCooldown > 0)
@@ -166,7 +172,7 @@ public class UnitBehavior : MonoBehaviour
             return false;
         }
 
-            
+
 
         return true;
     }
@@ -188,13 +194,13 @@ public class UnitBehavior : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void PauseGameObject()
-    {
-        speed = 0;
-    }
+    //public void PauseGameObject()
+    //{
+    //    speed = 0;
+    //}
 
-    public void ResumeGameObject()
-    {
-        speed = oldSpeed;
-    }
+    //public void ResumeGameObject()
+    //{
+    //    speed = oldSpeed;
+    //}
 }

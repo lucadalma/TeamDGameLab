@@ -92,9 +92,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: 0
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   creationTime: 10
   DeployUnit: {fileID: 102633549431355430, guid: 2c6a5a8c9c1d57b4b9ea2e45e709d0bb, type: 3}
+  BuildingPref: {fileID: 0}
   timerBar: {fileID: 6907869805315139735}
+  timerType: 0
 --- !u!1 &145249371856481888
 GameObject:
   m_ObjectHideFlags: 0
