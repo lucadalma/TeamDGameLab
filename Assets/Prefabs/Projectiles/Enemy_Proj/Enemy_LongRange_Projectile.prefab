@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   damage: 50
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
 --- !u!114 &3818467259445789626
 MonoBehaviour:
   m_ObjectHideFlags: 0
