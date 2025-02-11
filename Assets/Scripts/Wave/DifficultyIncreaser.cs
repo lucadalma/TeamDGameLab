@@ -13,6 +13,8 @@ public class DifficultyIncreaser : MonoBehaviour
     [SerializeField]
     List<WavesSO> ListWaves;
 
+    public BoolVariable pause;
+
     void Start()
     {
         difficulty.Value = 0;
@@ -25,7 +27,13 @@ public class DifficultyIncreaser : MonoBehaviour
         {
             if (difficulty.Value >= ListWaves.Count) difficulty.Value = ListWaves.Count - 1;
 
-            yield return new WaitForSeconds(interval);
+            while (pause.Value)
+                yield return null;
+
+            yield return new WaitForSeconds(interval); 
+
+            if (pause.Value)
+                continue;
             difficulty.Value++;
         }
     }

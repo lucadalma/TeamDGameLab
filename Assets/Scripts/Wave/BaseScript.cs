@@ -8,6 +8,8 @@ public class BaseScript : MonoBehaviour
     [SerializeField]
     GameEvent evento;
 
+    [SerializeField]
+    BoolVariable pause;
 
     public Slider speedSlider;
     public int moveSpeed;
@@ -15,20 +17,23 @@ public class BaseScript : MonoBehaviour
 
     void Update()
     {
+
         if (speedSlider != null)
         {
             if (speedSlider.value > 0 && speedSlider.value < 0.9f)
             {
                 speedSlider.value = 0;
             }
-            else if(speedSlider.value < 0 && speedSlider.value > -0.9f)
+            else if (speedSlider.value < 0 && speedSlider.value > -0.9f)
             {
                 speedSlider.value = 0;
             }
             speed = speedSlider.value;
-            transform.Translate(Vector3.forward * -(speed * moveSpeed) * Time.deltaTime);
+            if (!pause.Value)
+                transform.Translate(Vector3.forward * -(speed * moveSpeed) * Time.deltaTime);
 
         }
+
     }
 
     private void OnDestroy()

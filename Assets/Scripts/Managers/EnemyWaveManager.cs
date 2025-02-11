@@ -28,6 +28,8 @@ public class EnemyWaveManager : MonoBehaviour
 
     WavesSO currentSetOfWave;
 
+    float areaWidth = 5f;
+    float areaLength = 5f;
 
     private void Start()
     {
@@ -72,7 +74,7 @@ public class EnemyWaveManager : MonoBehaviour
             if (currentWave < currentSetOfWave.timeBetweenWaves.Count)
             {
                 float delay = currentSetOfWave.timeBetweenWaves[currentWave];
-               // Debug.Log($"Attesa di {delay} secondi prima della prossima wave.");
+                // Debug.Log($"Attesa di {delay} secondi prima della prossima wave.");
                 yield return new WaitForSeconds(delay);
             }
 
@@ -91,16 +93,19 @@ public class EnemyWaveManager : MonoBehaviour
         {
             for (int i = 0; i < currentEnemyGroup.numberOfEnemy; i++)
             {
-                GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, currentWaveSO.spawnPoint[spawnPointIndex].transform.position, Quaternion.identity);
+                float offsetX = Random.Range(-areaWidth / 2, areaWidth / 2);
+                float offsetZ = Random.Range(-areaLength / 2, areaLength / 2);
+                Vector3 spawnPosition = currentWaveSO.spawnPoint[spawnPointIndex].transform.position + new Vector3(offsetX, 0, offsetZ);
+                GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, spawnPosition, Quaternion.identity);
                 EnemyBehaviour behavior = unit.GetComponent<EnemyBehaviour>();
                 if (behavior != null)
                 {
                     behavior.Initialize(currentEnemyGroup.enemy, targetPoint);
                 }
-                yield return new WaitForSeconds(timeBetweenSpawn.Value);
             }
             spawnPointIndex++;
         }
+        yield return new WaitForSeconds(timeBetweenSpawn.Value);
 
     }
 
