@@ -17,6 +17,9 @@ public class UnitManager : MonoBehaviour
     [SerializeField] 
     public Transform[] spawnpoints; // Punti di spawn per le corsie
 
+    [SerializeField]
+    public Transform baseTransform;
+
 
     void Start()
     {
@@ -89,7 +92,8 @@ public class UnitManager : MonoBehaviour
                     if (laneIndex >= 0 && laneIndex < spawnpoints.Length)
                     {
                         uIManager.removeDeployUnits(currentUnitButton);
-                        SpawnUnitsInArea(spawnpoints[laneIndex].position, unitIndex);
+                        Vector3 spawnPosition = new Vector3(spawnpoints[laneIndex].position.x, spawnpoints[laneIndex].position.y, baseTransform.position.z);
+                        SpawnUnitsInArea(spawnPosition, unitIndex);
                         readyToDeploy = false;
                     }
                     else
