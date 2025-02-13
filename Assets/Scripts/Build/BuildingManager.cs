@@ -15,6 +15,7 @@ public class BuildingManager : MonoBehaviour
         if(BuildingEffect != null && ZonaBuilding != null)
         {
             SpawnManagerBuilding(BuildingEffect, ZonaBuilding);
+
         }
 
     }

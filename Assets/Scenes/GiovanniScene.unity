@@ -922,6 +922,7 @@ MonoBehaviour:
     m_Bits: 8
   targetPoint: {fileID: 1534789753}
   spawnpoints: []
+  baseTransform: {fileID: 0}
 --- !u!4 &526836029
 Transform:
   m_ObjectHideFlags: 0
