@@ -15,7 +15,7 @@ public class Event : MonoBehaviour
     EventManager EM;
 
 
-   public EventType eventType;
+    public EventType eventType;
 
 
     private void Start()
@@ -27,8 +27,27 @@ public class Event : MonoBehaviour
 
     void Update()
     {
-        if (eventType == EventType.HPRegen)
-            EM.AddListAction(HPRegeneration);
+
+        SwitcAbility();
+
+    }
+
+
+
+    void SwitcAbility()
+    {
+        switch (eventType)
+        {
+            case EventType.None:
+                break;
+            case EventType.HPRegen:
+                EM.AddListAction(HPRegeneration);
+                break;
+            case EventType.Speed:
+                break;
+            default:
+                break;
+        }
     }
 
 

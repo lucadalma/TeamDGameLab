@@ -4,6 +4,7 @@ public class UnitBehavior : MonoBehaviour
 {
     private float speed;
     private float oldSpeed = 0;
+    private float maxhealth;
     private float health;
     private float fireRate;
     private float damage;
@@ -22,8 +23,19 @@ public class UnitBehavior : MonoBehaviour
 
     public HealthBar healthBar;
 
+
+    public EventManager EM;
+
     void Start()
     {
+
+        health = maxhealth;
+
+
+        if (EM == null)
+            EM = FindObjectOfType<EventManager>();
+
+
         // Salva la rotazione iniziale al momento dell'inizializzazione
         initialRotation = transform.rotation;
         oldSpeed = speed;
@@ -32,13 +44,16 @@ public class UnitBehavior : MonoBehaviour
     public void Initialize(UnitData data, Transform target)
     {
         speed = data.speed;
-        health = data.health;
+        maxhealth = data.health;
         fireRate = data.fireRate;
         damage = data.damage;
         projectilePrefab = data.projectilePrefab;
         targetPoint = target;
 
     }
+
+
+
 
     void Update()
     {
@@ -58,7 +73,18 @@ public class UnitBehavior : MonoBehaviour
             }
         }
 
-        PowerUp();
+        if (health >= maxhealth)
+        {
+            health = maxhealth;
+        }
+
+
+
+
+        if (EM == null)
+            EM = FindObjectOfType<EventManager>();
+        if (EM != null)
+            PowerUp();
     }
 
     private void MoveTowardsTarget()
@@ -196,17 +222,17 @@ public class UnitBehavior : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public EventManager em;
+
 
     private void PowerUp()
     {
-        if (em == null)
-            em = FindObjectOfType<EventManager>();        
 
-        health += em.newHP;
-        
 
-    } 
+        health += EM.newHP;
+        Debug.Log(health);
+
+
+    }
 
     //public void PauseGameObject()
     //{
