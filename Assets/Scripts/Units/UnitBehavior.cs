@@ -57,6 +57,8 @@ public class UnitBehavior : MonoBehaviour
                 AttackEnemy();
             }
         }
+
+        PowerUp();
     }
 
     private void MoveTowardsTarget()
@@ -193,6 +195,18 @@ public class UnitBehavior : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    public EventManager em;
+
+    private void PowerUp()
+    {
+        if (em == null)
+            em = FindObjectOfType<EventManager>();        
+
+        health += em.newHP;
+        
+
+    } 
 
     //public void PauseGameObject()
     //{

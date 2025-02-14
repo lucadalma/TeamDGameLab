@@ -7,6 +7,7 @@ public class EventManager : MonoBehaviour
 {
     public List<Action> actions = new List<Action>();
 
+    UnitBehavior unitBehavior;
 
     public float newMoveSpeed;
     public float newHP;
@@ -15,7 +16,14 @@ public class EventManager : MonoBehaviour
     private void Update()
     {
         UsedPowerUp();
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            newHP += 100 * Time.deltaTime;
+        }
     }
+
+
 
 
 
