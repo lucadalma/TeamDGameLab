@@ -10,17 +10,16 @@ public class CameraMap : MonoBehaviour
     [Header("Obj")]
     public Camera Camera;
 
+    [Header("Y rotation")]
+    public float speedYRotation;
 
 
     [Header("MoveCam")]
-    public float moveSpeedX;
     public float moveSpeedY;
-    public float maxRotateY;
-    public float minRotateY;
     public float maxHeight;
     public float minHeight;
 
-   [Header("Zoom")]
+    [Header("Zoom")]
     public float max;
     public float min;
 
@@ -40,23 +39,18 @@ public class CameraMap : MonoBehaviour
 
     void CameramanMove()
     {
-        float rotationY = -Input.GetAxis("Horizontal");
-        float rotationX = Input.GetAxis("Vertical");
 
-        Vector3 eulerAngle = localTrans.rotation.eulerAngles;
-
-        eulerAngle.y = (eulerAngle.y > 180) ? eulerAngle.y - 360 : eulerAngle.y;
-
-        eulerAngle.y += rotationY * Time.deltaTime * moveSpeedX;
-
-        eulerAngle.y = Mathf.Clamp(eulerAngle.y, minRotateY, maxRotateY);
-
-        Vector3 movement = new Vector3(0, rotationX, 0) * moveSpeedY;
-        movement = transform.TransformDirection(movement);
+        if (Input.GetMouseButton(1))
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speedYRotation);
+        
+        
+        float movementY = Input.GetAxis("CameraYMove");
+        float movementZ = -Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(0, movementY, movementZ) * moveSpeedY;
         float newY = Mathf.Clamp(transform.position.y + movement.y * Time.deltaTime, minHeight, maxHeight);
         transform.position = new Vector3(transform.position.x, newY, transform.position.z) + movement * Time.deltaTime;
 
-        localTrans.rotation = Quaternion.Euler(eulerAngle);
+
     }
 
     void Zoom()
