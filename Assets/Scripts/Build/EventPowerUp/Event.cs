@@ -34,8 +34,7 @@ public class Event : MonoBehaviour
         if (SE == null)
             SE = FindObjectOfType<StackEvent>();
 
-        //Stack();
-        //stack = SE.AddStackHp(stack, 1);
+        Stack();
     }
 
 
@@ -82,9 +81,9 @@ public class Event : MonoBehaviour
     void Stack()
     {
         if (eventType == EventType.HPRegen)
-            SE.RemoveAddStackHp(this.gameObject, null);
+            SE.RemoveAddStackHpList(this.gameObject, null);
         if (eventType == EventType.Speed)
-            SE.AddStackSpeedUp(this.gameObject, stack, 1);
+            SE.RemoveSpeedUpStackList(this.gameObject, null);
     }
 
 
@@ -93,15 +92,14 @@ public class Event : MonoBehaviour
 
     private void HPRegeneration()
     {
-        
-        EM.newHP = 1 * Time.deltaTime;
-        Debug.Log(stack);
+        stack = SE.AddStackHp(stack, 1);
+        EM.newHP = stack * Time.deltaTime;
 
-        if (ChangeEvent(EventType.HPRegen) == false)
+        if (ChangeEvent() == true)
         {
-            stack = 0;
             EM.RemoveListAction(HPRegeneration);
-            EM.RemoveAddStackHp(null, this.gameObject);
+            SE.RemoveAddStackHpList(null, this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -109,15 +107,15 @@ public class Event : MonoBehaviour
 
     private void SpeedUp()
     {
+        stack = SE.AddStackSpeedUp(stack, 1);
+        EM.newMoveSpeed = stack;
 
-        EM.newMoveSpeed = 1;
-
-        if (ChangeEvent(EventType.HPRegen) == false)
-        {
-            stack = 0;
-            EM.RemoveListAction(SpeedUp);
-            EM.RemoveSpeedUpStack(null, this.gameObject);
-        }
+        //if (ChangeEvent() == false)
+        //{
+        //    EM.RemoveListAction(SpeedUp);
+        //    SE.RemoveSpeedUpStack(null, this.gameObject);
+        //    Destroy(this.gameObject);
+        //}
     }
 
 
@@ -126,18 +124,14 @@ public class Event : MonoBehaviour
     private void UnitaUnLook(bool red, bool green, bool blue)
     {
         if (red == true)
-        {
             EM.red = true;
-        }
         if (green == true)
-        {
             EM.green = true;
-        }
         if (blue == true)
-        {
             EM.blue = true;
-            Debug.Log(EM.blue);
-        }
+
+        //if (ChangeEvent() == false)
+        //    Destroy(this.gameObject);
 
     }
 
@@ -145,15 +139,15 @@ public class Event : MonoBehaviour
 
 
 
-
-    bool ChangeEvent(EventType _eventType)
+    bool change;
+    bool ChangeEvent()
     {
-        if (eventType != _eventType)
+        if (change == true)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 
 
