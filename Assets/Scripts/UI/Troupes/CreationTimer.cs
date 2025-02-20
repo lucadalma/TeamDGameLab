@@ -123,6 +123,7 @@ public class CreationTimer : MonoBehaviour
 
     public void cancelBuildingCreation()
     {
+        buildingSlot.layer = LayerMask.NameToLayer("Buildings");
         manager.removeBuildingOnTimer(gameObject);
     }
 
