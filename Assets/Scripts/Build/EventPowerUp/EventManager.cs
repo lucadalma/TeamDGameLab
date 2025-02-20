@@ -12,6 +12,8 @@ public class EventManager : MonoBehaviour
     [HideInInspector]
     public float newMoveSpeed;
     [HideInInspector]
+    public float newBuildSpeed;
+    [HideInInspector]
     public bool red, green, blue;
 
 

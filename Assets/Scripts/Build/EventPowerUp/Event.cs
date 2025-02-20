@@ -8,6 +8,7 @@ public enum EventType
     None,
     HPRegen,
     Speed,
+    BuildingCreationSpeed,
     RedUnità,
     GreenUnità,
     BlueUnità
@@ -66,6 +67,9 @@ public class Event : MonoBehaviour
             case EventType.BlueUnità:
                 UnitaUnLook(false, false, true);
                 break;
+            case EventType.BuildingCreationSpeed:
+                EM.AddListAction(BuildSpeed);
+                break;
             default:
                 break;
         }
@@ -83,7 +87,9 @@ public class Event : MonoBehaviour
         if (eventType == EventType.HPRegen)
             SE.RemoveAddStackHpList(this.gameObject, null);
         if (eventType == EventType.Speed)
-            SE.RemoveSpeedUpStackList(this.gameObject, null);
+            SE.RemoveAddSpeedUpStackList(this.gameObject, null);
+        if (eventType == EventType.Speed)
+            SE.RemoveAddBuildSpeedList(this.gameObject, null);
     }
 
 
@@ -119,6 +125,18 @@ public class Event : MonoBehaviour
     }
 
 
+    private void BuildSpeed()
+    {
+        stack = SE.AddStackBuildSpeed(stack, 7);
+        EM.newBuildSpeed = stack;
+
+        //if (ChangeEvent() == false)
+        //{
+        //    EM.RemoveListAction(SpeedUp);
+        //    SE.RemoveSpeedUpStack(null, this.gameObject);
+        //    Destroy(this.gameObject);
+        //}
+    }
 
 
     private void UnitaUnLook(bool red, bool green, bool blue)
