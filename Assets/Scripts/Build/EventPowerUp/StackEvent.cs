@@ -35,20 +35,21 @@ public class StackEvent : MonoBehaviour
     List<GameObject> SpeedUpStack = new List<GameObject>();
     float stackSpeed;
 
-    public void RemoveAddSpeedUpStackList(GameObject Addobj, GameObject Remobj)
+    public void AddSpeedUpStackList(GameObject Addobj)
     {
         SpeedUpStack.Add(Addobj);
+        
+    }
+
+    public void RemoveSpeedUpStackList(GameObject Remobj)
+    {
         SpeedUpStack.Remove(Remobj);
     }
 
-    public float AddStackSpeedUp(float stack, float ammount)
+    public float ChangeStackSpeedUp(float stack, float ammount)
     {
-        if (SpeedUpStack.Count > stackSpeed)
-        {
-            stack += ammount;
-            stackSpeed++;
-        }
-
+        stack = SpeedUpStack.Count * ammount;
+       
         return stack;
     }
     #endregion
@@ -58,12 +59,12 @@ public class StackEvent : MonoBehaviour
     List<GameObject> BuildigSpeedStack = new List<GameObject>();
     float stackBuildSpeed;
 
-
     public void RemoveAddBuildSpeedList(GameObject Addobj, GameObject Remobj)
     {
         BuildigSpeedStack.Add(Addobj);
         BuildigSpeedStack.Remove(Remobj);
     }
+
 
     public float AddStackBuildSpeed(float stack, float ammount)
     {
@@ -75,5 +76,9 @@ public class StackEvent : MonoBehaviour
 
         return stack;
     }
+
+
+
+
 
 }

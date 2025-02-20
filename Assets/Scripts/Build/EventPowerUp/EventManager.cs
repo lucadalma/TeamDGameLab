@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    public List<Action> actions = new List<Action>();
+    [SerializeField] public List<Action> actions = new List<Action>();
 
     //[HideInInspector]
     public float newHP;
@@ -21,8 +21,6 @@ public class EventManager : MonoBehaviour
     {
         UsedPowerUp();
     }
-
-
 
 
 

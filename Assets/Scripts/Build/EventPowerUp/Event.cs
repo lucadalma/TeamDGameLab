@@ -80,14 +80,12 @@ public class Event : MonoBehaviour
     }
 
 
-
-
     void Stack()
     {
         if (eventType == EventType.HPRegen)
             SE.RemoveAddStackHpList(this.gameObject, null);
         if (eventType == EventType.Speed)
-            SE.RemoveAddSpeedUpStackList(this.gameObject, null);
+            SE.AddSpeedUpStackList(this.gameObject);
         if (eventType == EventType.Speed)
             SE.RemoveAddBuildSpeedList(this.gameObject, null);
     }
@@ -113,7 +111,7 @@ public class Event : MonoBehaviour
 
     private void SpeedUp()
     {
-        stack = SE.AddStackSpeedUp(stack, 1);
+        stack = SE.ChangeStackSpeedUp(stack, 1);
         EM.newMoveSpeed = stack;
 
         //if (ChangeEvent() == false)
@@ -154,7 +152,11 @@ public class Event : MonoBehaviour
     }
 
 
-
+    private void OnDestroy()
+    {
+        SE.RemoveSpeedUpStackList(this.gameObject);
+        SE.ChangeStackSpeedUp(stack, 1);
+    }
 
 
     bool change = false;
