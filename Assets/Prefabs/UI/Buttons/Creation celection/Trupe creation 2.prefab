@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitWaitTimer: {fileID: 102633549431355430, guid: 8a394d081f4e543479fc903081e40852, type: 3}
+  targetButton: {fileID: 423624919573337153}
+  type: 1
 --- !u!1 &4594758004939053560
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,11 +191,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.44705883}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0.5686275}
     m_SelectedColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 0.43137255}
-    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.7882353}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.9254902}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

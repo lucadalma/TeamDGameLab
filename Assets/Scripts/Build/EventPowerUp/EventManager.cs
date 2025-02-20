@@ -9,7 +9,7 @@ public class EventManager : MonoBehaviour
 
     //[HideInInspector]
     public float newHP;
-    [HideInInspector]
+
     public float newMoveSpeed;
     [HideInInspector]
     public float newBuildSpeed;
