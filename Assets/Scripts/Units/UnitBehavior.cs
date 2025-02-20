@@ -229,8 +229,8 @@ public class UnitBehavior : MonoBehaviour
 
 
         health += EM.newHP;
-        Debug.Log(health);
-
+        speed += EM.newMoveSpeed;
+        Debug.Log(speed);
 
     }
 

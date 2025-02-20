@@ -7,7 +7,7 @@ public class EventManager : MonoBehaviour
 {
     public List<Action> actions = new List<Action>();
 
-    [HideInInspector]
+    //[HideInInspector]
     public float newHP;
     [HideInInspector]
     public float newMoveSpeed;

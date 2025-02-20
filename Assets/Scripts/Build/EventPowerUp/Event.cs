@@ -139,7 +139,7 @@ public class Event : MonoBehaviour
 
 
 
-    bool change;
+    bool change = false;
     bool ChangeEvent()
     {
         if (change == true)
