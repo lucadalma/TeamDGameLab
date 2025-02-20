@@ -44,7 +44,8 @@ public class UIManager : MonoBehaviour
     List<GameObject> buildingButtonsDysplayed = new List<GameObject>();
     List<GameObject> buildingsOnTimer = new List<GameObject>();
 
-    [NonSerialized] public GameObject TargetBuilding;
+     public GameObject TargetBuilding;
+//   public Transform TargetBuildParent;
     [NonSerialized] public Vector2 TargetPoint;
     [SerializeField] private LayerMask buildingLayerMask;
     [SerializeField] float r;
@@ -309,12 +310,14 @@ public class UIManager : MonoBehaviour
                     {
                         turnOffInteractionsWithStaticUI(staticUI.transform);
                         TargetBuilding = hit.collider.gameObject;
+//                      TargetBuildParent = hit.collider.gameObject.transform.parent;
                         openBuildingMenu(Input.mousePosition);
                     }
                 }
                 else
                 {
                     TargetBuilding = null;
+//                  TargetBuildParent = null;
                     removeBuiidingMenu(Input.mousePosition);
                     turnOnInteractionsWithStaticUI(staticUI.transform);
                 }
@@ -426,6 +429,7 @@ public class UIManager : MonoBehaviour
 
                 GameObject newBuilding = Instantiate(building, buildingTimerSlots[0]);
                 newBuilding.GetComponent<CreationTimer>().buildingSlot = TargetBuilding;
+//              newBuilding.GetComponent<CreationTimer>().parent = TargetBuildParent;
 
                 buildingsOnTimer.Add(newBuilding);
                 setBuildingOnTimer();

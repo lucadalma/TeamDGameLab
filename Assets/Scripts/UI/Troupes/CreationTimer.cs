@@ -17,6 +17,7 @@ public class CreationTimer : MonoBehaviour
 
     public GameObject BuildingPref;
     [NonSerialized] public GameObject buildingSlot;
+    [NonSerialized] public Transform parent;
 
     public Image timerBar;
 
@@ -92,9 +93,11 @@ public class CreationTimer : MonoBehaviour
                 creationTime = 1;
 
                 Vector3 spawnSlot = buildingSlot.transform.position;
+                Transform parent = buildingSlot.transform.parent;
                 manager.removeBuildingOnTimer(gameObject);
                 Destroy(buildingSlot);
-                Instantiate(BuildingPref, spawnSlot, Quaternion.identity);
+                GameObject newBuild = Instantiate(BuildingPref, spawnSlot, Quaternion.identity,parent);
+//                newBuild.transform.parent = parent;
             }
 
         }

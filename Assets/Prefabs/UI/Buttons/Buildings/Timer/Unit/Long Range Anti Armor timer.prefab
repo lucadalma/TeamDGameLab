@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: 0
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   creationTime: 5
   DeployUnit: {fileID: 0}
   BuildingPref: {fileID: 7222558343854961609, guid: cf3465fdb8607534996e367c5d709014, type: 3}
