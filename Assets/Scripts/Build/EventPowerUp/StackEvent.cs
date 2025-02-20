@@ -1,34 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.tvOS;
 
 public class StackEvent : MonoBehaviour
 {
     #region HPStack
     List<GameObject> HPStack = new List<GameObject>();
-    float stackHP;
 
-    public void RemoveAddStackHpList(GameObject Addobj, GameObject Remobj)
+    public void AddStackHpList(GameObject Addobj)
     {
-
         HPStack.Add(Addobj);
-        HPStack.Remove(Remobj);
 
     }
 
-    public float AddStackHp(float stack, float ammount)
+
+    public void RemoveStackHpList(GameObject obj)
     {
-        if (HPStack.Count > stackHP)
-        {
-            stack += ammount;
-            stackHP++;
-        }
+        HPStack.Remove(obj);
+    }
+
+    public float ChangeStackHp(float stack, float ammount)
+    {
+
+        stack = HPStack.Count * ammount;
 
         return stack;
     }
 
     #endregion
-
 
 
     #region SpeedUpStack
@@ -38,7 +38,7 @@ public class StackEvent : MonoBehaviour
     public void AddSpeedUpStackList(GameObject Addobj)
     {
         SpeedUpStack.Add(Addobj);
-        
+
     }
 
     public void RemoveSpeedUpStackList(GameObject Remobj)
@@ -49,34 +49,34 @@ public class StackEvent : MonoBehaviour
     public float ChangeStackSpeedUp(float stack, float ammount)
     {
         stack = SpeedUpStack.Count * ammount;
-       
+
         return stack;
     }
     #endregion
 
 
-
+    #region BuildSpeed
     List<GameObject> BuildigSpeedStack = new List<GameObject>();
-    float stackBuildSpeed;
 
-    public void RemoveAddBuildSpeedList(GameObject Addobj, GameObject Remobj)
+    public void AddBuildSpeedList(GameObject Addobj)
     {
         BuildigSpeedStack.Add(Addobj);
-        BuildigSpeedStack.Remove(Remobj);
+
     }
 
-
-    public float AddStackBuildSpeed(float stack, float ammount)
+    public void RemoveBuildSpeedList(GameObject obj)
     {
-        if (BuildigSpeedStack.Count > stackSpeed)
-        {
-            stack += ammount;
-            stackBuildSpeed++;
-        }
+        BuildigSpeedStack.Remove(obj);
+    }
+
+    public float ChaneStackBuildSpeed(float stack, float ammount)
+    {
+      
+        stack = BuildigSpeedStack.Count * ammount;
 
         return stack;
     }
-
+    #endregion
 
 
 

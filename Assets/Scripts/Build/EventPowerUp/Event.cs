@@ -21,10 +21,16 @@ public enum EventType
 public class Event : MonoBehaviour
 {
     EventManager EM;
+    
     StackEvent SE;
-
-
     public EventType eventType;
+
+    [Header("AmmountStack")]
+    public float hpStack;
+    public float speedStack;
+    public float buildSpeedStack;
+
+
     float stack;
 
 
@@ -83,11 +89,11 @@ public class Event : MonoBehaviour
     void Stack()
     {
         if (eventType == EventType.HPRegen)
-            SE.RemoveAddStackHpList(this.gameObject, null);
+            SE.AddStackHpList(this.gameObject);
         if (eventType == EventType.Speed)
             SE.AddSpeedUpStackList(this.gameObject);
         if (eventType == EventType.Speed)
-            SE.RemoveAddBuildSpeedList(this.gameObject, null);
+            SE.AddBuildSpeedList(this.gameObject);
     }
 
 
@@ -96,44 +102,25 @@ public class Event : MonoBehaviour
 
     private void HPRegeneration()
     {
-        stack = SE.AddStackHp(stack, 1);
+        stack = SE.ChangeStackHp(stack, hpStack);
         EM.newHP = stack * Time.deltaTime;
-
-        if (ChangeEvent() == true)
-        {
-            EM.RemoveListAction(HPRegeneration);
-            SE.RemoveAddStackHpList(null, this.gameObject);
-            Destroy(this.gameObject);
-        }
     }
 
 
 
     private void SpeedUp()
     {
-        stack = SE.ChangeStackSpeedUp(stack, 1);
+        stack = SE.ChangeStackSpeedUp(stack, speedStack);
         EM.newMoveSpeed = stack;
 
-        //if (ChangeEvent() == false)
-        //{
-        //    EM.RemoveListAction(SpeedUp);
-        //    SE.RemoveSpeedUpStack(null, this.gameObject);
-        //    Destroy(this.gameObject);
-        //}
+
     }
 
 
     private void BuildSpeed()
     {
-        stack = SE.AddStackBuildSpeed(stack, 7);
+        stack = SE.ChaneStackBuildSpeed(stack, buildSpeedStack);
         EM.newBuildSpeed = stack;
-
-        //if (ChangeEvent() == false)
-        //{
-        //    EM.RemoveListAction(SpeedUp);
-        //    SE.RemoveSpeedUpStack(null, this.gameObject);
-        //    Destroy(this.gameObject);
-        //}
     }
 
 
@@ -146,29 +133,47 @@ public class Event : MonoBehaviour
         if (blue == true)
             EM.blue = true;
 
-        //if (ChangeEvent() == false)
-        //    Destroy(this.gameObject);
-
     }
 
 
     private void OnDestroy()
     {
-        SE.RemoveSpeedUpStackList(this.gameObject);
-        SE.ChangeStackSpeedUp(stack, 1);
-    }
-
-
-    bool change = false;
-    bool ChangeEvent()
-    {
-        if (change == true)
+        switch (eventType)
         {
-            return true;
+            case EventType.None:
+                break;
+            case EventType.HPRegen:
+                EM.RemoveListAction(HPRegeneration);
+                SE.RemoveStackHpList(this.gameObject);
+                SE.ChangeStackHp(stack, hpStack);
+                break;
+            case EventType.Speed:
+                EM.RemoveListAction(SpeedUp);
+                SE.RemoveSpeedUpStackList(this.gameObject);
+                SE.ChangeStackSpeedUp(stack, speedStack);
+                break;
+            case EventType.BuildingCreationSpeed:
+                EM.RemoveListAction(BuildSpeed);
+                SE.RemoveBuildSpeedList(this.gameObject);
+                SE.ChaneStackBuildSpeed(stack, buildSpeedStack);
+                break;
+            case EventType.RedUnità:
+                UnitaUnLook(false, false, false);
+                break;
+            case EventType.GreenUnità:
+                UnitaUnLook(false, false, false);
+                break;
+            case EventType.BlueUnità:
+                UnitaUnLook(false, false, false);
+                break;
+            default:
+                break;
         }
 
-        return false;
+
     }
+
+
 
 
 }
