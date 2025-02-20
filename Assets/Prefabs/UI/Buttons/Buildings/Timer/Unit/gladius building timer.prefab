@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 133737436944122311}
   - component: {fileID: 8104882357771957156}
   m_Layer: 5
-  m_Name: Speed Upgrade Timer
+  m_Name: gladius building timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9411911, b: 0, a: 1}
+  m_Color: {r: 0.06666667, g: 0, b: 0.8117648, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   first: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  creationTime: 0
+  creationTime: 120
   DeployUnit: {fileID: 0}
-  BuildingPref: {fileID: 7222558343854961609, guid: 2c9c9a8dcacb5c54dbf1ecca8cfd8484, type: 3}
+  BuildingPref: {fileID: 7222558343854961609, guid: cf3465fdb8607534996e367c5d709014, type: 3}
   timerBar: {fileID: 6907869805315139735}
-  creationTimeMax: 60
+  creationTimeMax: 120
   timerType: 1
 --- !u!1 &145249371856481888
 GameObject:

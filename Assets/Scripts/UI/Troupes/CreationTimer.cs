@@ -22,8 +22,9 @@ public class CreationTimer : MonoBehaviour
     public Image timerBar;
 
     UIManager manager;
+    EventManager eM;
 
-    float creationTimeMax;
+    public float creationTimeMax;
 
     enum timerTypeEnum
     {
@@ -34,8 +35,19 @@ public class CreationTimer : MonoBehaviour
     [SerializeField] timerTypeEnum timerType;
     void Start()
     {
-        creationTimeMax = creationTime;
+
         manager = FindObjectOfType<UIManager>();
+        eM = FindObjectOfType<EventManager>();
+        if (timerType == timerTypeEnum.building)
+        {
+            creationTimeMax -= creationTimeMax * eM.newBuildSpeed;
+            creationTime = creationTimeMax;
+
+        }
+        else
+        {
+            creationTimeMax = creationTime;
+        }
     }
 
     // Update is called once per frame

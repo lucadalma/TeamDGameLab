@@ -30,13 +30,13 @@ public class CreatorButton : MonoBehaviour
         switch (type)
         {
             case ButtonType.Red:
-                buttonControl(Em.red);
+                buttonControl(Em.Mace);
                 break;
             case ButtonType.Green:
-                buttonControl(Em.green);
+                buttonControl(Em.Dart);
                 break;
             case ButtonType.Blue:
-                buttonControl(Em.blue);
+                buttonControl(Em.Gladius);
                 break;
             default:
                 break;

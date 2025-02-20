@@ -392,6 +392,12 @@ public class UIManager : MonoBehaviour
         {
             spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
             GameObject temp = Instantiate(buttonsInCurrentCategory[i], CenterPoint, transform.rotation, transform);
+
+            if(temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type)
+            {
+                temp.GetComponent<Button>().interactable = false;
+            }
+
             StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
             temp.GetComponent<BuildingButton>().centerPoint = spawnPoint;
             buildingButtonsDysplayed.Add(temp);
@@ -429,7 +435,7 @@ public class UIManager : MonoBehaviour
 
                 GameObject newBuilding = Instantiate(building, buildingTimerSlots[0]);
                 newBuilding.GetComponent<CreationTimer>().buildingSlot = TargetBuilding;
-//              newBuilding.GetComponent<CreationTimer>().parent = TargetBuildParent;
+                TargetBuilding.layer = LayerMask.NameToLayer("BuiildingsInQueue");
 
                 buildingsOnTimer.Add(newBuilding);
                 setBuildingOnTimer();

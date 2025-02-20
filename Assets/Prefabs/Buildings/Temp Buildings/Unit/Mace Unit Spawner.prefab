@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7222558343854961610}
   - component: {fileID: 7222558343854961611}
   - component: {fileID: 7222558343854961608}
-  - component: {fileID: -5640404744347214801}
-  - component: {fileID: 6905220299970935086}
+  - component: {fileID: -8287998634685723415}
+  - component: {fileID: -2941554764211240227}
   m_Layer: 6
-  m_Name: Speed Upgrade
+  m_Name: Mace Unit Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c07befab8ca1540368e662cfe2fddf6b, type: 2}
+  - {fileID: 2100000, guid: 5195427c0d27644ed90d87ebe86d468a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5640404744347214801
+--- !u!114 &-8287998634685723415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,11 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventType: 2
+  eventType: 4
   hpStack: 0
-  speedStack: 1
+  speedStack: 0
   buildSpeedStack: 0
---- !u!114 &6905220299970935086
+--- !u!114 &-2941554764211240227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 6
+  type: 4
   isInfront: 0

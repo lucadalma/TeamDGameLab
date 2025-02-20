@@ -149,3 +149,4 @@ MonoBehaviour:
   BuildingTimer: {fileID: 102633549431355430, guid: 9e05bf89ee78dfa41be15b6ed410bae0, type: 3}
   type: 1
   category: 2
+  buttonType: 6

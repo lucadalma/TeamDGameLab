@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7222558343854961610}
   - component: {fileID: 7222558343854961611}
   - component: {fileID: 7222558343854961608}
+  - component: {fileID: 5224025032951795355}
+  - component: {fileID: -7138544317131968065}
   m_Layer: 6
   m_Name: Supply Depot
   m_TagString: Untagged
@@ -62,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6629797300637803691, guid: 01f1000372c96684c9866c171d214a00, type: 3}
+  - {fileID: 2100000, guid: 5a30cb009e991ba4e9148cb2184815ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +99,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5224025032951795355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  isInfront: 0
+--- !u!114 &-7138544317131968065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventType: 3
+  hpStack: 0
+  speedStack: 0
+  buildSpeedStack: 0.07

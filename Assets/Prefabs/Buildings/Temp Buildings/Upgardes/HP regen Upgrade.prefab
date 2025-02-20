@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7222558343854961611}
   - component: {fileID: 7222558343854961608}
   - component: {fileID: 1729679221092161158}
+  - component: {fileID: -4502186670267664138}
   m_Layer: 6
   m_Name: HP regen Upgrade
   m_TagString: Untagged
@@ -111,3 +112,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 1
+  hpStack: 0
+  speedStack: 0
+  buildSpeedStack: 0
+--- !u!114 &-4502186670267664138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 7
+  isInfront: 0

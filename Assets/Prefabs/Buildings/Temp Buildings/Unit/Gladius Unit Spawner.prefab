@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7222558343854961610}
   - component: {fileID: 7222558343854961611}
   - component: {fileID: 7222558343854961608}
-  - component: {fileID: -5640404744347214801}
-  - component: {fileID: 6905220299970935086}
+  - component: {fileID: 1811770120474427518}
+  - component: {fileID: -5131636757044618823}
   m_Layer: 6
-  m_Name: Speed Upgrade
+  m_Name: Gladius Unit Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c07befab8ca1540368e662cfe2fddf6b, type: 2}
+  - {fileID: 2100000, guid: e9991badf98075543a5eea19ee60a076, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,23 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5640404744347214801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7222558343854961609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventType: 2
-  hpStack: 0
-  speedStack: 1
-  buildSpeedStack: 0
---- !u!114 &6905220299970935086
+--- !u!114 &1811770120474427518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,5 +111,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 6
+  type: 5
   isInfront: 0
+--- !u!114 &-5131636757044618823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventType: 6
+  hpStack: 0
+  speedStack: 0
+  buildSpeedStack: 0

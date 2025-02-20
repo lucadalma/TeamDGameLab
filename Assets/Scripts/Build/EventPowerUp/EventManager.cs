@@ -11,10 +11,10 @@ public class EventManager : MonoBehaviour
     public float newHP;
 
     public float newMoveSpeed;
-    [HideInInspector]
+
     public float newBuildSpeed;
     [HideInInspector]
-    public bool red, green, blue;
+    public bool Mace, Dart, Gladius;
 
 
     private void Update()

@@ -9,9 +9,9 @@ public enum EventType
     HPRegen,
     Speed,
     BuildingCreationSpeed,
-    RedUnità,
-    GreenUnità,
-    BlueUnità
+    MaceUnit,
+    DartUnit,
+    GladiusUnit
 };
 
 
@@ -64,13 +64,13 @@ public class Event : MonoBehaviour
             case EventType.Speed:
                 EM.AddListAction(SpeedUp);
                 break;
-            case EventType.RedUnità:
+            case EventType.MaceUnit:
                 UnitaUnLook(true, false, false);
                 break;
-            case EventType.GreenUnità:
+            case EventType.DartUnit:
                 UnitaUnLook(false, true, false);
                 break;
-            case EventType.BlueUnità:
+            case EventType.GladiusUnit:
                 UnitaUnLook(false, false, true);
                 break;
             case EventType.BuildingCreationSpeed:
@@ -92,7 +92,7 @@ public class Event : MonoBehaviour
             SE.AddStackHpList(this.gameObject);
         if (eventType == EventType.Speed)
             SE.AddSpeedUpStackList(this.gameObject);
-        if (eventType == EventType.Speed)
+        if (eventType == EventType.BuildingCreationSpeed)
             SE.AddBuildSpeedList(this.gameObject);
     }
 
@@ -127,11 +127,11 @@ public class Event : MonoBehaviour
     private void UnitaUnLook(bool red, bool green, bool blue)
     {
         if (red == true)
-            EM.red = true;
+            EM.Mace = true;
         if (green == true)
-            EM.green = true;
+            EM.Dart = true;
         if (blue == true)
-            EM.blue = true;
+            EM.Gladius = true;
 
     }
 
@@ -157,13 +157,13 @@ public class Event : MonoBehaviour
                 SE.RemoveBuildSpeedList(this.gameObject);
                 SE.ChaneStackBuildSpeed(stack, buildSpeedStack);
                 break;
-            case EventType.RedUnità:
+            case EventType.MaceUnit:
                 UnitaUnLook(false, false, false);
                 break;
-            case EventType.GreenUnità:
+            case EventType.DartUnit:
                 UnitaUnLook(false, false, false);
                 break;
-            case EventType.BlueUnità:
+            case EventType.GladiusUnit:
                 UnitaUnLook(false, false, false);
                 break;
             default:
