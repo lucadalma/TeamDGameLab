@@ -155,8 +155,8 @@ public class UIManager : MonoBehaviour
         {
             for (int i = 0; i < unitsOnTimer.Count; i++)
             {
-                unitsOnTimer[i].transform.SetParent(unitTimerSlots[i]);
-                unitsOnTimer[i].transform.position = unitTimerSlots[i].position;
+                unitsOnTimer[i].transform.SetParent(unitTimerSlots[i + availableUnitsToDeploy.Count]);
+                unitsOnTimer[i].transform.position = unitTimerSlots[i + availableUnitsToDeploy.Count].position;
                 if (i == 0)
                 {
                     unitsOnTimer[i].GetComponent<CreationTimer>().first = true;
@@ -227,6 +227,7 @@ public class UIManager : MonoBehaviour
             availableUnitsToDeploy[i].transform.position = deploimentSelectorSlots[i].position;
         }
         numberOfUnitsOnDeploy = availableUnitsToDeploy.Count;
+        setUnitOnTimer();
     }
 
 
@@ -483,6 +484,12 @@ public class UIManager : MonoBehaviour
 
         }
     }
+
+        
+
+
+
+
     IEnumerator AnimStartCreate(float ang, Vector2 CenterPoint)
     {
         Vector2 spawnPoint;
@@ -520,4 +527,10 @@ public class UIManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+
+
+
+
+
+
 }
