@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Enemy_2
   m_EditorClassIdentifier: 
   unitName: Medio
-  health: 150
-  speed: 9.23
-  fireRate: 1
-  damage: 8
+  health: 80
+  speed: 0.5
+  fireRate: 6
+  damage: 30
   spawnCd: 0
   unitID: 1
   unitPrefab: {fileID: 2367351564572146998, guid: dafd40c8a91ad2645aa4ebdef228c6c6, type: 3}
