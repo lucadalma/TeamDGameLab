@@ -44,6 +44,14 @@ public class UIManager : MonoBehaviour
     List<GameObject> buildingButtonsDysplayed = new List<GameObject>();
     List<GameObject> buildingsOnTimer = new List<GameObject>();
 
+    [SerializeField] Transform unitPanel;
+    [SerializeField] Transform buildingsPanel;
+
+    [SerializeField] List<Transform> unitPanelPos;
+    [SerializeField] List<Transform> buildingsPanelPos;
+
+
+
      public GameObject TargetBuilding;
 //   public Transform TargetBuildParent;
     [NonSerialized] public Vector2 TargetPoint;
@@ -54,6 +62,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         if (availableUnitsToCreate.Count % 6 == 0)
         {
             posiblePages = (availableUnitsToCreate.Count / 6) - 1;
@@ -165,12 +175,13 @@ public class UIManager : MonoBehaviour
         }
 
         numberOfUnitsOnTimer = unitsOnTimer.Count;
+        unitPanelControl();
 
     }
 
     public void addUnitOnTimer(GameObject unit)
     {
-        if (numberOfUnitsOnTimer < 4 && numberOfUnitsOnTimer + numberOfUnitsOnDeploy < 10)
+        if (numberOfUnitsOnTimer + numberOfUnitsOnDeploy < 8)
         {
             GameObject newUnit = Instantiate(unit, unitTimerSlots[0]);
 
@@ -424,14 +435,14 @@ public class UIManager : MonoBehaviour
         }
 
         numberOfBuildingsOnTimer = buildingsOnTimer.Count;
-
+        buildingPanelControl();
     }
 
     public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint)
     {
         if (building != null)
         {
-            if (numberOfBuildingsOnTimer < 4)
+            if (numberOfBuildingsOnTimer < 8)
             {
 
                 GameObject newBuilding = Instantiate(building, buildingTimerSlots[0]);
@@ -528,8 +539,42 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void unitPanelControl() 
+    {
+        int currentPos;
+
+        if ((unitsOnTimer.Count + availableUnitsToDeploy.Count) % 2 == 0) 
+        {
+            currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count) / 2;
+        }
+        else
+        {
+            currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count + 1) / 2;
+        }
 
 
+        Debug.Log(currentPos + "Is the unit offset");
+        unitPanel.position = unitPanelPos[currentPos].position;
+
+    }
+
+    void buildingPanelControl()
+    {
+
+        int currentPos;
+
+        if (buildingsOnTimer.Count % 2 == 0)
+        {
+            currentPos = buildingsOnTimer.Count / 2;
+        }
+        else
+        {
+            currentPos = (buildingsOnTimer.Count + 1) / 2;
+        }
+        Debug.Log(currentPos + "Is the building offset");
+        buildingsPanel.position = buildingsPanelPos[currentPos].position;
+
+    }
 
 
 
