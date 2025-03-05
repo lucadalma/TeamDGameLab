@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Enemy_3
   m_EditorClassIdentifier: 
   unitName: Grande
-  health: 200
-  speed: 0.5
-  fireRate: 0.5
-  damage: 12
-  spawnCd: 0
-  unitID: 1
+  health: 150
+  speed: 20
+  fireRate: 2
+  damage: 90
+  spawnCd: 5
+  unitID: 2
   unitPrefab: {fileID: 6605576422835594313, guid: 8f388280c9e27a143aad25062faa18b7, type: 3}
   projectilePrefab: {fileID: 4455838741618225204, guid: e855c603bab827246a1e29980ec2f8a6, type: 3}
