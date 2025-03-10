@@ -20,10 +20,12 @@ public class StackEvent : MonoBehaviour
         HPStack.Remove(obj);
     }
 
-    public float ChangeStackHp(float stack, float ammount)
+    public float ChangeStackHp(float stack, float ammount1, float ammount2)
     {
-
-        stack = HPStack.Count * ammount;
+        if (HPStack.Count <= 1)
+            stack = HPStack.Count * ammount1;
+        else if (HPStack.Count >= 2)
+            stack = HPStack.Count * ammount2;
 
         return stack;
     }
@@ -46,14 +48,21 @@ public class StackEvent : MonoBehaviour
         SpeedUpStack.Remove(Remobj);
     }
 
-    public float ChangeStackSpeedUp(float stack, float ammount)
+    public float ChangeStackSpeedUp(float stack, float ammount1)
     {
-        stack = SpeedUpStack.Count * ammount;
+
+
+        if (SpeedUpStack.Count == 2)
+            ammount1 = 0.75f;
+        if (SpeedUpStack.Count >= 3)
+            ammount1 = 0.5f;
+
+        stack = ammount1 * SpeedUpStack.Count;
+
 
         return stack;
     }
     #endregion
-
 
     #region BuildSpeed
     List<GameObject> BuildigSpeedStack = new List<GameObject>();
@@ -71,7 +80,7 @@ public class StackEvent : MonoBehaviour
 
     public float ChaneStackBuildSpeed(float stack, float ammount)
     {
-      
+
         stack = BuildigSpeedStack.Count * ammount;
 
         return stack;

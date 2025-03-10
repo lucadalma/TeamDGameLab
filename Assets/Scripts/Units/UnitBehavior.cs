@@ -34,6 +34,8 @@ public class UnitBehavior : MonoBehaviour
 
         if (EM == null)
             EM = FindObjectOfType<EventManager>();
+        if (EM != null)
+            PowerUp();
 
 
         // Salva la rotazione iniziale al momento dell'inizializzazione
@@ -81,10 +83,6 @@ public class UnitBehavior : MonoBehaviour
 
 
 
-        if (EM == null)
-            EM = FindObjectOfType<EventManager>();
-        if (EM != null)
-            PowerUp();
     }
 
     private void MoveTowardsTarget()
