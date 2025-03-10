@@ -224,11 +224,9 @@ public class UnitBehavior : MonoBehaviour
 
     private void PowerUp()
     {
-
-
         health += EM.newHP;
         speed += EM.newMoveSpeed;
-        Debug.Log(speed);
+        Debug.Log("speed " + speed);
 
     }
 

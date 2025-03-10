@@ -27,7 +27,7 @@ public class Event : MonoBehaviour
 
     [Header("AmmountStack")]
     public float hpStack1, hpStack2;
-    public float speedStack1;
+    public float speedStack1, speedStack2;
     public float buildSpeedStack;
 
 
@@ -103,14 +103,14 @@ public class Event : MonoBehaviour
     private void HPRegeneration()
     {
         stack = SE.ChangeStackHp(stack, hpStack1, hpStack2);
-        EM.newHP = stack * Time.deltaTime;
+        EM.newHP = stack /** Time.deltaTime*/;
     }
 
 
 
     private void SpeedUp()
     {
-        stack = SE.ChangeStackSpeedUp(stack, speedStack1);
+        stack = SE.ChangeStackSpeedUp(stack, speedStack1, speedStack2);
         EM.newMoveSpeed = stack;
 
 
@@ -150,7 +150,7 @@ public class Event : MonoBehaviour
             case EventType.Speed:
                 EM.RemoveListAction(SpeedUp);
                 SE.RemoveSpeedUpStackList(this.gameObject);
-                SE.ChangeStackSpeedUp(stack, speedStack1);
+                SE.ChangeStackSpeedUp(stack, speedStack1, speedStack2);
                 break;
             case EventType.BuildingCreationSpeed:
                 EM.RemoveListAction(BuildSpeed);

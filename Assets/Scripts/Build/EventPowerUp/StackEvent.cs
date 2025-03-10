@@ -22,10 +22,10 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackHp(float stack, float ammount1, float ammount2)
     {
-        if (HPStack.Count <= 1)
+        if (HPStack.Count == 1)
             stack = HPStack.Count * ammount1;
         else if (HPStack.Count >= 2)
-            stack = HPStack.Count * ammount2;
+            stack = (HPStack.Count + ammount1) * ammount2;
 
         return stack;
     }
@@ -48,16 +48,13 @@ public class StackEvent : MonoBehaviour
         SpeedUpStack.Remove(Remobj);
     }
 
-    public float ChangeStackSpeedUp(float stack, float ammount1)
+    public float ChangeStackSpeedUp(float stack, float ammount1, float ammount2)
     {
 
-
-        if (SpeedUpStack.Count == 2)
-            ammount1 = 0.75f;
-        if (SpeedUpStack.Count >= 3)
-            ammount1 = 0.5f;
-
-        stack = ammount1 * SpeedUpStack.Count;
+        if( SpeedUpStack.Count == 1)
+            stack = ammount1 * SpeedUpStack.Count;
+        if (SpeedUpStack.Count >= 2)
+            stack = ammount2 * (SpeedUpStack.Count + ammount1);
 
 
         return stack;
