@@ -233,7 +233,7 @@ public class UnitBehavior : MonoBehaviour
         speed += EM.newMoveSpeed;
         armor += EM.newArmor;
         detectionRadius += EM.newRange;
-        damage += EM.newCaliber;
+        damage += EM.newDmg;
         attackCooldown += EM.newReload;
 
     }

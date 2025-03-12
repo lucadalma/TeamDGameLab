@@ -13,6 +13,7 @@ public enum EventType
     Armor,
     Range,
     Caliber,
+    Riot,
     MaceUnit,
     DartUnit,
     GladiusUnit
@@ -95,6 +96,9 @@ public class Event : MonoBehaviour
             case EventType.Caliber:
                 EM.AddListAction(Caliber);
                 break;
+            case EventType.Riot:
+                EM.AddListAction(Riot);
+                break;
             default:
                 break;
         }
@@ -121,6 +125,8 @@ public class Event : MonoBehaviour
             SE.AddRangeStackList(this.gameObject);
         if (eventType == EventType.Caliber)
             SE.AddCaliberStackList(this.gameObject);
+        if (eventType == EventType.Riot)
+            SE.AddRiotStackList(this.gameObject);
 
     }
 
@@ -173,8 +179,16 @@ public class Event : MonoBehaviour
     private void Caliber()
     {
         stack = SE.ChangeStackCaliber(stack, ammount1);
-        EM.newCaliber = stack;
-        EM.newReload = SE.ReloadStack(EM.newReload, debuff);
+        EM.newDmg = stack;
+        EM.newReload = SE.ReloadDebuff(EM.newReload, debuff);
+    }
+
+    private void Riot() //[1]
+    {
+        stack = SE.ChangeStackRiot(stack, debuff);
+        EM.newDmg = stack;
+        EM.newReload = SE.ReloadBuff(EM.newReload, ammount1);
+
     }
 
     private void UnitaUnLook(bool red, bool green, bool blue)
@@ -231,7 +245,13 @@ public class Event : MonoBehaviour
                 EM.RemoveListAction(Caliber);
                 SE.RemoveCaliberStackList(this.gameObject);
                 SE.ChangeStackCaliber(stack, ammount1);
-                SE.ReloadStack(EM.newReload, debuff);
+                SE.ReloadDebuff(EM.newReload, debuff);
+                break;
+            case EventType.Riot:
+                EM.RemoveListAction(Riot);
+                SE.RemoveRiotStackList(this.gameObject);
+                SE.ChangeStackRiot(stack, debuff);
+                SE.ReloadBuff(EM.newReload, ammount1);
                 break;
             case EventType.MaceUnit:
                 UnitaUnLook(false, false, false);

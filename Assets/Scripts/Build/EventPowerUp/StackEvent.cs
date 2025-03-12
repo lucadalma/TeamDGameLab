@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.tvOS;
 
@@ -211,23 +212,75 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackCaliber(float stack, float ammount1)
     {
+
+
         if (CaliberStack.Count <= 1)
-            stack = CaliberStack.Count * ((ammount1 / 100) + 6);
+        {
+            float debuff = RiotStack.Count * (-0.5f);
+            stack = (CaliberStack.Count * ((ammount1 / 100) + 6)) + debuff;
+        }
         if (CaliberStack.Count >= 2)
-            stack = (CaliberStack.Count + 24) * (ammount1/100);
+        {
+            float debuff = RiotStack.Count * (-0.5f);
+            stack = (CaliberStack.Count + 24) * (ammount1 / 100) + debuff;
+        }
+
+
+
 
         return stack;
     }
 
-    public float ReloadStack(float stack, float debuff)
+    public float ReloadDebuff(float stack, float debuff)
     {
+        float debuffR = RiotStack.Count * (-0.5f);
 
-        stack = CaliberStack.Count * (debuff / 100);
+        stack = (CaliberStack.Count * (debuff / 100)) + debuffR;
 
         return stack;
     }
 
     #endregion
 
+    #region StackRiot
+
+
+    List<GameObject> RiotStack = new List<GameObject>();
+
+    public void AddRiotStackList(GameObject Addobj)
+    {
+        RiotStack.Add(Addobj);
+    }
+
+
+    public void RemoveRiotStackList(GameObject obj)
+    {
+        RiotStack.Remove(obj);
+    }
+
+    public float ChangeStackRiot(float stack, float debuff)
+    {
+
+        if (CaliberStack.Count <= 0)
+            stack = RiotStack.Count * (-debuff / 100);
+        else if (CaliberStack.Count >= 1)
+            stack = ChangeStackCaliber(stack, debuff / 2);
+
+        return stack;
+
+    }
+
+
+    public float ReloadBuff(float stack, float ammount)
+    {
+        if (CaliberStack.Count <= 0)
+            stack = RiotStack.Count * (-ammount / 100);
+        else if (CaliberStack.Count >= 1)
+            stack = ChangeStackCaliber(stack, ammount - 40);
+
+        return stack;
+    }
+
+    #endregion
 
 }
