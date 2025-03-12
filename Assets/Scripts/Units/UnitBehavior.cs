@@ -232,6 +232,10 @@ public class UnitBehavior : MonoBehaviour
         health += EM.newHPReg;
         speed += EM.newMoveSpeed;
         armor += EM.newArmor;
+        detectionRadius += EM.newRange;
+        damage += EM.newDmg;
+        attackCooldown += EM.newReload;
+
     }
 
     //public void PauseGameObject()
