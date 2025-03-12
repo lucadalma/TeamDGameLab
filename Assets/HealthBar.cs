@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +11,18 @@ public class HealthBar : MonoBehaviour
     public Slider healthSlider;
     public float maxhealth;
     public float health;
-    
-    
+    private float armor;
+
+    EventManager EM;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(EM == null)
+            EM = FindObjectOfType<EventManager>();
+
+        PowerUp();
+
         unitData.health = maxhealth;
 
         health = maxhealth;  
@@ -33,21 +40,22 @@ public class HealthBar : MonoBehaviour
         transform.LookAt(Camera.main.transform);
         transform.Rotate(0, 180, 0); // Inverte la rotazione per essere correttamente visibile
 
-        // Test: Premi Spazio per togliere 10 HP
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
-
     }
 
     public void TakeDamage(float damage)
     {
+        damage -= armor;
+
         health -= damage;
     
-
     }
 
+    void PowerUp()
+    {
+        maxhealth += EM.newHp;
+        health += EM.newHPReg;
+        armor += EM.newArmor;
+    }
    
         
     

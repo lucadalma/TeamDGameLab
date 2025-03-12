@@ -22,7 +22,7 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackHp(float stack, float ammount1, float ammount2)
     {
-        if (HPStack.Count == 1)
+        if (HPStack.Count <= 1)
             stack = HPStack.Count * ammount1;
         else if (HPStack.Count >= 2)
             stack = (HPStack.Count + ammount1) * ammount2;
@@ -31,7 +31,6 @@ public class StackEvent : MonoBehaviour
     }
 
     #endregion
-
 
     #region SpeedUpStack
     List<GameObject> SpeedUpStack = new List<GameObject>();
@@ -50,11 +49,25 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackSpeedUp(float stack, float ammount1, float ammount2)
     {
+        if (stack >= 0.5f)
+        {
 
-        if (SpeedUpStack.Count == 1)
-            stack = ammount1 * SpeedUpStack.Count;
-        if (SpeedUpStack.Count >= 2)
-            stack = ammount2 * (SpeedUpStack.Count + ammount1);
+            if (SpeedUpStack.Count <= 1)
+            {
+                float debuff = RangeStack.Count * (-0.5f);
+                stack = (ammount1 + debuff) * SpeedUpStack.Count;
+            }
+            if (SpeedUpStack.Count >= 2)
+            {
+                float debuff = (RangeStack.Count + 1) * (-0.5f);
+                stack = ammount2 * (SpeedUpStack.Count + ammount1 + (debuff));
+            }
+
+        }
+        else if (stack < 0.5f && SpeedUpStack.Count <= 1)
+        {
+            stack = 0.5f;
+        }
 
 
         return stack;
@@ -102,7 +115,7 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackMaxHp(float stack, float ammount1)
     {
-        stack = MaxHPStack.Count * ammount1;
+        stack = (MaxHPStack.Count * ammount1 / 100);
 
         return stack;
     }
@@ -129,14 +142,92 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackArmor(float stack, float ammount1, float ammount2)
     {
-        if (ArmorStack.Count == 1)
+        if (ArmorStack.Count <= 1)
             stack = ArmorStack.Count * ammount1;
-        if(ArmorStack.Count >= 2)
-            stack = (ArmorStack.Count * (ammount1/2) + ammount2);
+        if (ArmorStack.Count >= 2)
+            stack = (ArmorStack.Count * (ammount1 / 2) + ammount2);
 
         return stack;
     }
 
+    #endregion
+
+    #region StackRange
+
+
+    List<GameObject> RangeStack = new List<GameObject>();
+
+    public void AddRangeStackList(GameObject Addobj)
+    {
+        RangeStack.Add(Addobj);
+
+    }
+
+
+    public void RemoveRangeStackList(GameObject obj)
+    {
+        RangeStack.Remove(obj);
+    }
+
+    public float ChangeStackRange(float stack, float ammount1, float ammount2)
+    {
+        if (RangeStack.Count <= 1)
+            stack = RangeStack.Count * ((ammount1 / 100) + 4);
+
+
+
+        if (RangeStack.Count >= 2)
+            stack = (RangeStack.Count * ammount2) + 0.25f;
+
+
+        return stack;
+    }
+
+    public float SpeedDebuff(float speed, float debuff)
+    {
+        speed = RangeStack.Count * (-debuff);
+
+        return speed;
+    }
+
 
     #endregion
+
+    #region StackCaliber
+
+    List<GameObject> CaliberStack = new List<GameObject>();
+
+    public void AddCaliberStackList(GameObject Addobj)
+    {
+        CaliberStack.Add(Addobj);
+
+    }
+
+
+    public void RemoveCaliberStackList(GameObject obj)
+    {
+        CaliberStack.Remove(obj);
+    }
+
+    public float ChangeStackCaliber(float stack, float ammount1)
+    {
+        if (CaliberStack.Count <= 1)
+            stack = CaliberStack.Count * ((ammount1 / 100) + 6);
+        if (CaliberStack.Count >= 2)
+            stack = (CaliberStack.Count + 24) * (ammount1/100);
+
+        return stack;
+    }
+
+    public float ReloadStack(float stack, float debuff)
+    {
+
+        stack = CaliberStack.Count * (debuff / 100);
+
+        return stack;
+    }
+
+    #endregion
+
+
 }

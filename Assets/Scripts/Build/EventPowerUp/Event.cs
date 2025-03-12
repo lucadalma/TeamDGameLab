@@ -11,6 +11,8 @@ public enum EventType
     BuildingCreationSpeed,
     MaxHP,
     Armor,
+    Range,
+    Caliber,
     MaceUnit,
     DartUnit,
     GladiusUnit
@@ -30,8 +32,10 @@ public class Event : MonoBehaviour
     [Header("AmmountStack")]
     [Tooltip("Prima stack")]
     public float ammount1;
-    [Tooltip("Se il buildd ha una seconda stack differente dalla prima")]
+    [Tooltip("Se il build ha una seconda stack differente dalla prima")]
     public float ammount2;
+    [Tooltip("Se il build ha una debuff")]
+    public float debuff;
 
 
     float stack;
@@ -85,6 +89,12 @@ public class Event : MonoBehaviour
             case EventType.Armor:
                 EM.AddListAction(Armor);
                 break;
+            case EventType.Range:
+                EM.AddListAction(Range);
+                break;
+            case EventType.Caliber:
+                EM.AddListAction(Caliber);
+                break;
             default:
                 break;
         }
@@ -107,6 +117,11 @@ public class Event : MonoBehaviour
             SE.AddMaxHpStackList(this.gameObject);
         if (eventType == EventType.Armor)
             SE.AddArmorStackList(this.gameObject);
+        if (eventType == EventType.Range)
+            SE.AddRangeStackList(this.gameObject);
+        if (eventType == EventType.Caliber)
+            SE.AddCaliberStackList(this.gameObject);
+
     }
 
 
@@ -148,6 +163,19 @@ public class Event : MonoBehaviour
         EM.newArmor = stack;
     }
 
+    private void Range()
+    {
+        stack = SE.ChangeStackRange(stack, ammount1, ammount2);
+        EM.newRange = stack;
+        EM.newMoveSpeed = SE.SpeedDebuff(EM.newMoveSpeed, debuff);
+    }
+
+    private void Caliber()
+    {
+        stack = SE.ChangeStackCaliber(stack, ammount1);
+        EM.newCaliber = stack;
+        EM.newReload = SE.ReloadStack(EM.newReload, debuff);
+    }
 
     private void UnitaUnLook(bool red, bool green, bool blue)
     {
@@ -192,6 +220,18 @@ public class Event : MonoBehaviour
                 EM.RemoveListAction(Armor);
                 SE.RemoveArmorStackList(this.gameObject);
                 SE.ChangeStackArmor(stack, ammount1, ammount2);
+                break;
+            case EventType.Range:
+                EM.RemoveListAction(Range);
+                SE.RemoveRangeStackList(this.gameObject);
+                SE.ChangeStackRange(stack, ammount1, ammount2);
+                SE.SpeedDebuff(EM.newMoveSpeed, debuff);
+                break;
+            case EventType.Caliber:
+                EM.RemoveListAction(Caliber);
+                SE.RemoveCaliberStackList(this.gameObject);
+                SE.ChangeStackCaliber(stack, ammount1);
+                SE.ReloadStack(EM.newReload, debuff);
                 break;
             case EventType.MaceUnit:
                 UnitaUnLook(false, false, false);

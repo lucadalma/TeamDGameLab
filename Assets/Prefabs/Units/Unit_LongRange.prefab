@@ -596,6 +596,7 @@ MonoBehaviour:
   detectionRadius: 150
   rotationSpeed: 3
   healthBar: {fileID: 7334433375511510991}
+  EM: {fileID: 0}
 --- !u!195 &9039410474528768603
 NavMeshAgent:
   m_ObjectHideFlags: 0

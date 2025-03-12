@@ -13,6 +13,8 @@ public class EventManager : MonoBehaviour
     public float newBuildSpeed;
     public float newHp;
     public float newArmor;
+    public float newRange;
+    public float newCaliber, newReload;
 
     [HideInInspector]
     public bool Mace, Dart, Gladius;
