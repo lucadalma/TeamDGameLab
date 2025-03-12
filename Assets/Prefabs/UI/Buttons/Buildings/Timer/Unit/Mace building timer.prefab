@@ -69,8 +69,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -92,12 +92,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: 0
+  onOrder: 1
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  creationTime: 120
+  creationTime: 5
   DeployUnit: {fileID: 0}
   BuildingPref: {fileID: 7222558343854961609, guid: f48bf8b08d7857740a788fc2203a1d21, type: 3}
   timerBar: {fileID: 6907869805315139735}
-  creationTimeMax: 120
+  creationTimeMax: 20
   timerType: 1
 --- !u!1 &145249371856481888
 GameObject:

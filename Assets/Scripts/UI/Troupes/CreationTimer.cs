@@ -3,11 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class CreationTimer : MonoBehaviour
 {
+    //public TextMeshProUGUI BuldingOrderText;
+
+
     public bool first = false;
+    public int onOrder = 1;
     bool activated = false;
     public BoolVariable pause;
 
@@ -93,7 +98,7 @@ public class CreationTimer : MonoBehaviour
     {
         if (pause.Value == false)
         {
-            if (!activated && first)
+            if (!activated && onOrder == 0)
             {
                 creationTime -= Time.deltaTime;
             }
@@ -106,9 +111,11 @@ public class CreationTimer : MonoBehaviour
 
                 Vector3 spawnSlot = buildingSlot.transform.position;
                 Transform parent = buildingSlot.transform.parent;
+                manager.removeBuildingButton(buildingSlot.GetComponent<BuildingCategorization>().BuildingButton);
                 manager.removeBuildingOnTimer(gameObject);
                 Destroy(buildingSlot);
                 GameObject newBuild = Instantiate(BuildingPref, spawnSlot, Quaternion.identity,parent);
+                manager.addBuildingButton(newBuild.GetComponent<BuildingCategorization>().BuildingButton);
 //                newBuild.transform.parent = parent;
             }
 

@@ -6,4 +6,5 @@ public class BuildingCategorization : MonoBehaviour
 {
     public BuildingButton.ButtonEnum type;
     public bool isInfront;
+    public GameObject BuildingButton;
 }

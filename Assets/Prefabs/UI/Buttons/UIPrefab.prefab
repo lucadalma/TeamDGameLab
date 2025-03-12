@@ -1405,15 +1405,7 @@ MonoBehaviour:
   - {fileID: 9092842950762133138}
   - {fileID: 7568004904069973039}
   - {fileID: 3068780445070354626}
-  buildingTimerSlots:
-  - {fileID: 2880839484654093583}
-  - {fileID: 2880839483922699616}
-  - {fileID: 2880839484515893237}
-  - {fileID: 2880839484509658882}
-  - {fileID: 2880839484118901725}
-  - {fileID: 2880839484745400503}
-  - {fileID: 2880839483307771494}
-  - {fileID: 2880839483552939527}
+  buildingTimerSlots: []
   availableBuildingCategories:
   - {fileID: 2167088606545193342, guid: 16f21e366334bea4aa0633d89bcf0c34, type: 3}
   - {fileID: 2167088606545193342, guid: 53843186af6f0d0499113c7ebdd39803, type: 3}
@@ -1458,7 +1450,7 @@ MonoBehaviour:
   TargetBuilding: {fileID: 0}
   buildingLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 448
   r: 120
 --- !u!1 &2880839483028868317
 GameObject:

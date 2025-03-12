@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] float animSpeed;
 
     bool animInProgress = false;
+    bool buildingButtonsVisible;
 
     [SerializeField] GameObject staticUI;
 
@@ -35,7 +36,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Transform> creationSelectorSlots;
     [SerializeField] List<Transform> deploimentSelectorSlots;
     [SerializeField] List<Transform> unitTimerSlots;
-    [SerializeField] List<Transform> buildingTimerSlots;
+    [SerializeField] List<GameObject> currentBuildingButtons;
 
     [SerializeField] List<GameObject> availableBuildingCategories;
     [SerializeField] List<GameObject> availableBuildings;
@@ -52,8 +53,8 @@ public class UIManager : MonoBehaviour
 
 
 
-     public GameObject TargetBuilding;
-//   public Transform TargetBuildParent;
+    public GameObject TargetBuilding;
+    //   public Transform TargetBuildParent;
     [NonSerialized] public Vector2 TargetPoint;
     [SerializeField] private LayerMask buildingLayerMask;
     [SerializeField] float r;
@@ -80,9 +81,9 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        searchForBuilding();
+        ShowBuildingUIButton();
+        PressdCloseBuildingUI();
     }
-
 
 
     void SetAvailableUnits()
@@ -305,37 +306,123 @@ public class UIManager : MonoBehaviour
     }
 
 
-
-    //buildin buttons functions
-    void searchForBuilding()
+    void ShowBuildingUIButton()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
 
 
-            if (Input.GetMouseButtonDown(0))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, buildingLayerMask) && TargetBuilding == null)
             {
-                if (TargetBuilding == null)
+                if (!buildingButtonsVisible)
                 {
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, buildingLayerMask))
+                    foreach (var button in currentBuildingButtons)
                     {
-                        turnOffInteractionsWithStaticUI(staticUI.transform);
-                        TargetBuilding = hit.collider.gameObject;
-//                      TargetBuildParent = hit.collider.gameObject.transform.parent;
-                        openBuildingMenu(Input.mousePosition);
+                        ActivateButtonVisisbility(button.transform);
                     }
+                    buildingButtonsVisible = true;
                 }
-                else
+
+            }
+            else
+            {
+                if (buildingButtonsVisible)
                 {
-                    TargetBuilding = null;
-//                  TargetBuildParent = null;
-                    removeBuiidingMenu(Input.mousePosition);
-                    turnOnInteractionsWithStaticUI(staticUI.transform);
+                    foreach (var button in currentBuildingButtons)
+                    {
+                        DeactivateButtonVisibility(button.transform);
+                    }
+
+                    buildingButtonsVisible = false;
                 }
+
+
+
+            }
+
+        }
+    }
+
+
+
+    void DeactivateButtonVisibility(Transform parent)
+    {
+            Image image = parent.GetComponent<Image>();
+            Button button = parent.GetComponent<Button>();
+
+
+            if (image != null)
+            {
+                image.enabled = false;
+            }
+
+            if (button != null)
+            {
+                button.enabled = false;
+            }
+
+        foreach (Transform child in parent)
+        {
+            if (child.childCount > 0)
+            {
+                DeactivateButtonVisibility(child);
             }
         }
     }
+
+
+    void ActivateButtonVisisbility(Transform parent)
+    {
+            Image image = parent.GetComponent<Image>();
+            Button button = parent.GetComponent<Button>();
+
+
+            if (image != null)
+            {
+                image.enabled = true;
+            }
+
+            if (button != null)
+            {
+                button.enabled = true;
+            }
+
+        foreach (Transform child in parent)
+        {
+            if (child.childCount > 0)
+            {
+                ActivateButtonVisisbility(child);
+            }
+        }
+    }
+
+
+    //buildin buttons functions
+    public void PressdOpenBuildingUI(GameObject targetBuilding)
+    {
+        Debug.Log("ButtonPressed");
+        turnOffInteractionsWithStaticUI(staticUI.transform);
+        TargetBuilding = targetBuilding;
+        //      TargetBuildParent = hit.collider.gameObject.transform.parent;
+        openBuildingMenu(Input.mousePosition);
+
+    }
+
+    void PressdCloseBuildingUI()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (TargetBuilding != null && Input.GetMouseButtonDown(0))
+            {
+                TargetBuilding = null;
+                //TargetBuildParent = null;
+                removeBuiidingMenu(Input.mousePosition);
+                turnOnInteractionsWithStaticUI(staticUI.transform);
+            }
+        }
+    }
+
 
     public void openBuildingMenu(Vector2 CenterPoint)
     {
@@ -352,6 +439,13 @@ public class UIManager : MonoBehaviour
             buildingButtonsDysplayed.Add(temp);
         }
 
+        foreach (var button in currentBuildingButtons)
+        {
+            DeactivateButtonVisibility(button.transform);
+        }
+
+
+        buildingButtonsVisible = false;
         //StartCoroutine(AnimStartCreate(ang, CenterPoint));
     }
     public void removeBuiidingMenu(Vector2 CenterPoint)
@@ -405,7 +499,7 @@ public class UIManager : MonoBehaviour
             spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
             GameObject temp = Instantiate(buttonsInCurrentCategory[i], CenterPoint, transform.rotation, transform);
 
-            if(temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type)
+            if (temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type)
             {
                 temp.GetComponent<Button>().interactable = false;
             }
@@ -425,17 +519,23 @@ public class UIManager : MonoBehaviour
         {
             for (int i = 0; i < buildingsOnTimer.Count; i++)
             {
-                buildingsOnTimer[i].transform.SetParent(buildingTimerSlots[i]);
-                buildingsOnTimer[i].transform.position = buildingTimerSlots[i].position;
-                if (i == 0)
-                {
-                    buildingsOnTimer[i].GetComponent<CreationTimer>().first = true;
-                }
+
+                CreationTimer Timer = buildingsOnTimer[i].GetComponent<CreationTimer>();
+
+                Timer.onOrder = i;
+                //if (i == 0)
+                //{
+                //    Timer.BuldingOrderText.text = "";
+                //}
+                //else
+                //{
+                //    Timer.BuldingOrderText.text = i.ToString();
+                //}
+
             }
         }
 
         numberOfBuildingsOnTimer = buildingsOnTimer.Count;
-        buildingPanelControl();
     }
 
     public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint)
@@ -445,12 +545,14 @@ public class UIManager : MonoBehaviour
             if (numberOfBuildingsOnTimer < 8)
             {
 
-                GameObject newBuilding = Instantiate(building, buildingTimerSlots[0]);
+                GameObject newBuilding = Instantiate(building, TargetBuilding.GetComponent<BuildingCategorization>().BuildingButton.transform);
                 newBuilding.GetComponent<CreationTimer>().buildingSlot = TargetBuilding;
                 TargetBuilding.layer = LayerMask.NameToLayer("BuiildingsInQueue");
 
                 buildingsOnTimer.Add(newBuilding);
+
                 setBuildingOnTimer();
+                TargetBuilding = null;
                 removeBuiidingMenu(CenterPoint);
                 turnOnInteractionsWithStaticUI(staticUI.transform);
             }
@@ -477,6 +579,16 @@ public class UIManager : MonoBehaviour
         setBuildingOnTimer();
     }
 
+    public void removeBuildingButton(GameObject ButtonToRemove)
+    {
+        currentBuildingButtons.Remove(ButtonToRemove);
+    }
+
+    public void addBuildingButton(GameObject ButtonToAdd)
+    {
+        currentBuildingButtons.Add(ButtonToAdd);
+    }
+
 
 
     IEnumerator AnimStartRemove(Vector2 CenterPoint)
@@ -496,7 +608,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-        
+
 
 
 
@@ -528,9 +640,8 @@ public class UIManager : MonoBehaviour
 
         for (float i = 0; i < 1; i += animSpeed * Time.deltaTime)
         {
-            Debug.Log(i);
             obj.transform.position = Vector2.Lerp(startPos, endPos, i);
-            if(i>0.5 && !animationTransitioned)
+            if (i > 0.5 && !animationTransitioned)
             {
                 animationTransitioned = true;
                 animInProgress = false;
@@ -539,11 +650,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void unitPanelControl() 
+    void unitPanelControl()
     {
         int currentPos;
 
-        if ((unitsOnTimer.Count + availableUnitsToDeploy.Count) % 2 == 0) 
+        if ((unitsOnTimer.Count + availableUnitsToDeploy.Count) % 2 == 0)
         {
             currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count) / 2;
         }
@@ -551,14 +662,11 @@ public class UIManager : MonoBehaviour
         {
             currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count + 1) / 2;
         }
-
-
-        Debug.Log(currentPos + "Is the unit offset");
         unitPanel.position = unitPanelPos[currentPos].position;
 
     }
 
-    void buildingPanelControl()
+    void AbilityPanelControl()
     {
 
         int currentPos;
@@ -571,7 +679,6 @@ public class UIManager : MonoBehaviour
         {
             currentPos = (buildingsOnTimer.Count + 1) / 2;
         }
-        Debug.Log(currentPos + "Is the building offset");
         buildingsPanel.position = buildingsPanelPos[currentPos].position;
 
     }
