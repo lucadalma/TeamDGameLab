@@ -8,6 +8,7 @@ public class UnitBehavior : MonoBehaviour
     private float health;
     private float fireRate;
     private float damage;
+    private float armor;
     public float attackCooldown;
     private Transform currentRotation;
     private Transform targetPoint;
@@ -205,6 +206,9 @@ public class UnitBehavior : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        damage -= armor;
+        Debug.Log(damage);
+
         healthBar.TakeDamage(damage);
 
         health -= damage;
@@ -224,10 +228,10 @@ public class UnitBehavior : MonoBehaviour
 
     private void PowerUp()
     {
-        health += EM.newHP;
+        maxhealth += EM.newHp;
+        health += EM.newHPReg;
         speed += EM.newMoveSpeed;
-        Debug.Log("speed " + speed);
-
+        armor += EM.newArmor;
     }
 
     //public void PauseGameObject()

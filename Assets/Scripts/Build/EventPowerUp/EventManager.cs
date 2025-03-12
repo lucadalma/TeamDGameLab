@@ -8,11 +8,12 @@ public class EventManager : MonoBehaviour
     [SerializeField] public List<Action> actions = new List<Action>();
 
     //[HideInInspector]
-    public float newHP;
-
+    public float newHPReg;
     public float newMoveSpeed;
-
     public float newBuildSpeed;
+    public float newHp;
+    public float newArmor;
+
     [HideInInspector]
     public bool Mace, Dart, Gladius;
 

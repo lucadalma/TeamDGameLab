@@ -1934,9 +1934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b8689bdb9e6b0468f4518e7f78db07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newHP: 0
+  newHPReg: 0
   newMoveSpeed: 0
   newBuildSpeed: 0
+  newHp: 0
+  newArmor: 0
   Mace: 0
   Dart: 0
   Gladius: 0
