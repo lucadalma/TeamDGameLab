@@ -59,6 +59,7 @@ public class Event : MonoBehaviour
     }
 
 
+    #region AddPower&Stack
 
     void SwitcAbility()
     {
@@ -130,7 +131,7 @@ public class Event : MonoBehaviour
 
     }
 
-
+    #endregion
 
 
     #region PowerUp
