@@ -35,7 +35,7 @@ public class StackEvent : MonoBehaviour
 
     #region SpeedUpStack
     List<GameObject> SpeedUpStack = new List<GameObject>();
-    float stackSpeed;
+ 
 
     public void AddSpeedUpStackList(GameObject Addobj)
     {
@@ -50,25 +50,20 @@ public class StackEvent : MonoBehaviour
 
     public float ChangeStackSpeedUp(float stack, float ammount1, float ammount2)
     {
-        if (stack >= 0.5f)
-        {
 
-            if (SpeedUpStack.Count <= 1)
-            {
-                float debuff = RangeStack.Count * (-0.5f);
-                stack = (ammount1 + debuff) * SpeedUpStack.Count;
-            }
-            if (SpeedUpStack.Count >= 2)
-            {
-                float debuff = (RangeStack.Count + 1) * (-0.5f);
-                stack = ammount2 * (SpeedUpStack.Count + ammount1 + (debuff));
-            }
-
-        }
-        else if (stack < 0.5f && SpeedUpStack.Count <= 1)
+        if (SpeedUpStack.Count <= 1)
         {
-            stack = 0.5f;
+            float debuff = RangeStack.Count * (-0.5f);
+            stack = (ammount1 + debuff) * SpeedUpStack.Count;
         }
+        if (SpeedUpStack.Count >= 2)
+        {
+            float debuff = (RangeStack.Count + 1) * (-0.5f);
+            stack = ammount2 * (SpeedUpStack.Count + ammount1 + (debuff));
+        }
+
+
+
 
 
         return stack;
@@ -187,6 +182,9 @@ public class StackEvent : MonoBehaviour
     public float SpeedDebuff(float speed, float debuff)
     {
         speed = RangeStack.Count * (-debuff);
+
+        if (speed < 0)
+            speed = 0;
 
         return speed;
     }
