@@ -9,6 +9,8 @@ public enum EventType
     HPRegen,
     Speed,
     BuildingCreationSpeed,
+    MaxHP,
+    Armor,
     MaceUnit,
     DartUnit,
     GladiusUnit
@@ -21,14 +23,15 @@ public enum EventType
 public class Event : MonoBehaviour
 {
     EventManager EM;
-    
+
     StackEvent SE;
     public EventType eventType;
 
     [Header("AmmountStack")]
-    public float hpStack;
-    public float speedStack;
-    public float buildSpeedStack;
+    [Tooltip("Prima stack")]
+    public float ammount1;
+    [Tooltip("Se il buildd ha una seconda stack differente dalla prima")]
+    public float ammount2;
 
 
     float stack;
@@ -76,6 +79,12 @@ public class Event : MonoBehaviour
             case EventType.BuildingCreationSpeed:
                 EM.AddListAction(BuildSpeed);
                 break;
+            case EventType.MaxHP:
+                EM.AddListAction(MaxHP);
+                break;
+            case EventType.Armor:
+                EM.AddListAction(Armor);
+                break;
             default:
                 break;
         }
@@ -89,38 +98,54 @@ public class Event : MonoBehaviour
     void Stack()
     {
         if (eventType == EventType.HPRegen)
-            SE.AddStackHpList(this.gameObject);
+            SE.AddHpStackList(this.gameObject);
         if (eventType == EventType.Speed)
             SE.AddSpeedUpStackList(this.gameObject);
         if (eventType == EventType.BuildingCreationSpeed)
-            SE.AddBuildSpeedList(this.gameObject);
+            SE.AddBuildSpeedStackList(this.gameObject);
+        if (eventType == EventType.MaxHP)
+            SE.AddMaxHpStackList(this.gameObject);
+        if (eventType == EventType.Armor)
+            SE.AddArmorStackList(this.gameObject);
     }
 
 
 
 
-
+    #region PowerUp
     private void HPRegeneration()
     {
-        stack = SE.ChangeStackHp(stack, hpStack);
-        EM.newHP = stack * Time.deltaTime;
+        stack = SE.ChangeStackHp(stack, ammount1, ammount2);
+        EM.newHPReg = stack * Time.deltaTime;
     }
 
 
 
     private void SpeedUp()
     {
-        stack = SE.ChangeStackSpeedUp(stack, speedStack);
+        stack = SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
         EM.newMoveSpeed = stack;
-
 
     }
 
 
     private void BuildSpeed()
     {
-        stack = SE.ChaneStackBuildSpeed(stack, buildSpeedStack);
+        stack = SE.ChangeStackBuildSpeed(stack, ammount1);
         EM.newBuildSpeed = stack;
+    }
+
+
+    private void MaxHP()
+    {
+        stack = SE.ChangeStackMaxHp(stack, ammount1);
+        EM.newHp = stack;
+    }
+
+    private void Armor()
+    {
+        stack = SE.ChangeStackArmor(stack, ammount1, ammount2);
+        EM.newArmor = stack;
     }
 
 
@@ -134,8 +159,9 @@ public class Event : MonoBehaviour
             EM.Gladius = true;
 
     }
+    #endregion
 
-
+    #region OnDestroy
     private void OnDestroy()
     {
         switch (eventType)
@@ -144,18 +170,28 @@ public class Event : MonoBehaviour
                 break;
             case EventType.HPRegen:
                 EM.RemoveListAction(HPRegeneration);
-                SE.RemoveStackHpList(this.gameObject);
-                SE.ChangeStackHp(stack, hpStack);
+                SE.RemoveHpStackList(this.gameObject);
+                SE.ChangeStackHp(stack, ammount1, ammount2);
                 break;
             case EventType.Speed:
                 EM.RemoveListAction(SpeedUp);
                 SE.RemoveSpeedUpStackList(this.gameObject);
-                SE.ChangeStackSpeedUp(stack, speedStack);
+                SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
                 break;
             case EventType.BuildingCreationSpeed:
                 EM.RemoveListAction(BuildSpeed);
-                SE.RemoveBuildSpeedList(this.gameObject);
-                SE.ChaneStackBuildSpeed(stack, buildSpeedStack);
+                SE.RemoveBuildSpeedStackList(this.gameObject);
+                SE.ChangeStackBuildSpeed(stack, ammount1);
+                break;
+            case EventType.MaxHP:
+                EM.RemoveListAction(MaxHP);
+                SE.RemoveMaxHpStackList(this.gameObject);
+                SE.ChangeStackMaxHp(stack, ammount1);
+                break;
+            case EventType.Armor:
+                EM.RemoveListAction(Armor);
+                SE.RemoveArmorStackList(this.gameObject);
+                SE.ChangeStackArmor(stack, ammount1, ammount2);
                 break;
             case EventType.MaceUnit:
                 UnitaUnLook(false, false, false);
@@ -172,8 +208,7 @@ public class Event : MonoBehaviour
 
 
     }
-
-
+    #endregion
 
 
 }
