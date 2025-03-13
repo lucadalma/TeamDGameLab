@@ -15,7 +15,7 @@ public class CreationTimer : MonoBehaviour
     public int onOrder = 1;
     bool activated = false;
     public BoolVariable pause;
-
+    public BuildingButton.forUnit unitToUpgrade;
 
     public float creationTime;
     public GameObject DeployUnit;
@@ -115,6 +115,10 @@ public class CreationTimer : MonoBehaviour
                 manager.removeBuildingOnTimer(gameObject);
                 Destroy(buildingSlot);
                 GameObject newBuild = Instantiate(BuildingPref, spawnSlot, Quaternion.identity,parent);
+                if (unitToUpgrade != BuildingButton.forUnit.notUnitUpgrade)
+                {
+                    newBuild.GetComponent<BuildingCategorization>().unitToUpgrade = unitToUpgrade;
+                }
                 manager.addBuildingButton(newBuild.GetComponent<BuildingCategorization>().BuildingButton);
 //                newBuild.transform.parent = parent;
             }

@@ -246,8 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 2
-  ammount1: 0
-  ammount2: 0
+  ammount1: 1
+  ammount2: 0.5
+  debuff: 0
 --- !u!114 &6905220299970935086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 6
+  unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 4702368915331540466}
 --- !u!1001 &6868306118414748812
@@ -271,16 +273,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 6666611622363696195}
     m_Modifications:
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c182ed3003b154b49b4af8684079e62c, type: 3}
+    - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.50937456
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.g
-      value: 0.9622642
+      value: 0.9528302
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.r
-      value: 0.93656987
+      value: 0.94197005
+      objectReference: {fileID: 0}
+    - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name

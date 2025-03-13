@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] List<GameObject> availableBuildingCategories;
     [SerializeField] List<GameObject> availableBuildings;
+    [SerializeField] List<GameObject> availableUnitsToUpgrade;
     [SerializeField] GameObject BuildingBackButton;
 
     List<GameObject> buildingButtonsDysplayed = new List<GameObject>();
@@ -348,19 +349,19 @@ public class UIManager : MonoBehaviour
 
     void DeactivateButtonVisibility(Transform parent)
     {
-            Image image = parent.GetComponent<Image>();
-            Button button = parent.GetComponent<Button>();
+        Image image = parent.GetComponent<Image>();
+        Button button = parent.GetComponent<Button>();
 
 
-            if (image != null)
-            {
-                image.enabled = false;
-            }
+        if (image != null)
+        {
+            image.enabled = false;
+        }
 
-            if (button != null)
-            {
-                button.enabled = false;
-            }
+        if (button != null)
+        {
+            button.enabled = false;
+        }
 
         foreach (Transform child in parent)
         {
@@ -374,19 +375,19 @@ public class UIManager : MonoBehaviour
 
     void ActivateButtonVisisbility(Transform parent)
     {
-            Image image = parent.GetComponent<Image>();
-            Button button = parent.GetComponent<Button>();
+        Image image = parent.GetComponent<Image>();
+        Button button = parent.GetComponent<Button>();
 
 
-            if (image != null)
-            {
-                image.enabled = true;
-            }
+        if (image != null)
+        {
+            image.enabled = true;
+        }
 
-            if (button != null)
-            {
-                button.enabled = true;
-            }
+        if (button != null)
+        {
+            button.enabled = true;
+        }
 
         foreach (Transform child in parent)
         {
@@ -452,20 +453,18 @@ public class UIManager : MonoBehaviour
     {
         foreach (var buildingButton in buildingButtonsDysplayed)
         {
-            Vector2 startPos = buildingButton.transform.position;
-            StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
+            //Vector2 startPos = buildingButton.transform.position;
+            //StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
             Destroy(buildingButton.gameObject);
         }
 
         //StartCoroutine(AnimStartRemove(CenterPoint));
 
         buildingButtonsDysplayed.Clear();
-
-
     }
 
 
-    public void selectBuildingCategory(Vector2 CenterPoint, BuildingButton.CtegoryEnum Category)
+    public void selectBuildingCategory(Vector2 CenterPoint, BuildingButton.CategoryEnum Category)
     {
         foreach (var buildingButton in buildingButtonsDysplayed)
         {
@@ -499,7 +498,46 @@ public class UIManager : MonoBehaviour
             spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
             GameObject temp = Instantiate(buttonsInCurrentCategory[i], CenterPoint, transform.rotation, transform);
 
-            if (temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type)
+
+            if (temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades)
+            {
+                temp.GetComponent<Button>().interactable = false;
+            }
+
+            StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
+            temp.GetComponent<BuildingButton>().centerPoint = CenterPoint;
+            buildingButtonsDysplayed.Add(temp);
+        }
+
+    }
+
+    public void SelectUnitToUpgrade(Vector2 CenterPoint, BuildingButton.ButtonEnum Upgrade, BuildingButton.forUnit unitToUpgardes, GameObject timer)
+    {
+        foreach (var buildingButton in buildingButtonsDysplayed)
+        {
+            Vector2 startPos = buildingButton.transform.position;
+            StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
+
+            Destroy(buildingButton.gameObject);
+        }
+        buildingButtonsDysplayed.Clear();
+
+        GameObject backButton = Instantiate(BuildingBackButton, CenterPoint, transform.rotation, transform);
+        buildingButtonsDysplayed.Add(backButton);
+        backButton.GetComponent<BuildingButton>().type = BuildingButton.TypeEnum.backToUpgrades;
+
+        Vector2 spawnPoint;
+        float numberOfCategories = availableUnitsToUpgrade.Count;
+        float ang = (360f / numberOfCategories) * Mathf.Deg2Rad;
+
+        for (int i = 0; i < availableUnitsToUpgrade.Count; i++)
+        {
+            spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
+            GameObject temp = Instantiate(availableUnitsToUpgrade[i], CenterPoint, transform.rotation, transform);
+            temp.GetComponent<BuildingButton>().buttonType = Upgrade;
+            temp.GetComponent<BuildingButton>().BuildingTimer = timer;
+
+            if (temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type && temp.GetComponent<BuildingButton>().unitAffected == TargetBuilding.GetComponent<BuildingCategorization>().unitToUpgrade)
             {
                 temp.GetComponent<Button>().interactable = false;
             }
@@ -508,10 +546,7 @@ public class UIManager : MonoBehaviour
             temp.GetComponent<BuildingButton>().centerPoint = spawnPoint;
             buildingButtonsDysplayed.Add(temp);
         }
-
     }
-
-
 
     public void setBuildingOnTimer()
     {
@@ -538,7 +573,7 @@ public class UIManager : MonoBehaviour
         numberOfBuildingsOnTimer = buildingsOnTimer.Count;
     }
 
-    public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint)
+    public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint, BuildingButton.TypeEnum type, BuildingButton.forUnit affectrdUnit)
     {
         if (building != null)
         {
@@ -547,6 +582,13 @@ public class UIManager : MonoBehaviour
 
                 GameObject newBuilding = Instantiate(building, TargetBuilding.GetComponent<BuildingCategorization>().BuildingButton.transform);
                 newBuilding.GetComponent<CreationTimer>().buildingSlot = TargetBuilding;
+
+                if(type == BuildingButton.TypeEnum.unitSelector)
+                {
+                    newBuilding.GetComponent<CreationTimer>().unitToUpgrade = affectrdUnit;
+                }
+
+
                 TargetBuilding.layer = LayerMask.NameToLayer("BuiildingsInQueue");
 
                 buildingsOnTimer.Add(newBuilding);

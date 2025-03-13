@@ -12,11 +12,14 @@ public class BuildingButton : MonoBehaviour
     public enum TypeEnum
     {
         category,
-        building,
-        back
+        nonUniyUpgradebuilding,
+        unitUpgradeBuilding,
+        unitSelector,
+        backToCtaegory,
+        backToUpgrades,
     }
 
-    public enum CtegoryEnum
+    public enum CategoryEnum
     {
         nullCategory,
         units,
@@ -34,26 +37,40 @@ public class BuildingButton : MonoBehaviour
         javelin,
         mace,
         gladius,
-        engineUpgrade,
+        engineTurbocharger,
         selfRapair,
         reactiveArmor,
-        rangeUpgrade,
-        DamageUpgrade,
+        TargetingComputer,
+        HeavyCaliber,
         secondaryWeapon,
         riotMode,
         stremlinedProduction,
-        advancedTargeting,
-        artilleryStrike,
+        ablativeArmor,
+        advancedOptics,
+        missileStrike,
+        overdrive,
         eMP,
         fortification
     }
+
+    public enum forUnit
+    {
+        notUnitUpgrade,
+        dart,
+        javelin,
+        mace,
+        gladius,
+    }
+
+
 
     UIManager uIM;
     EventManager Em;
 
     public TypeEnum type;
-    public CtegoryEnum category;
+    public CategoryEnum category;
     public ButtonEnum buttonType;
+    public forUnit unitAffected;
 
 
     void Start()
@@ -61,9 +78,9 @@ public class BuildingButton : MonoBehaviour
         uIM = FindObjectOfType<UIManager>();
         Em = FindObjectOfType<EventManager>();
 
-        if (type == TypeEnum.building)
+        if (type == TypeEnum.nonUniyUpgradebuilding)
         {
-            switch (buttonType)     
+            switch (buttonType)
             {
                 case ButtonEnum.dart:
                     alreadyInSceneCheck(Em.Dart);
@@ -90,23 +107,37 @@ public class BuildingButton : MonoBehaviour
 
     public void backToCategorySelector()
     {
-        if (TypeEnum.back == type)
+        if (TypeEnum.backToCtaegory == type)
         {
             uIM.removeBuiidingMenu(centerPoint);
             uIM.openBuildingMenu(transform.position);
         }
+
+        if (TypeEnum.backToUpgrades == type)
+        {
+            uIM.selectBuildingCategory(transform.position, CategoryEnum.upgrades);
+        }
     }
+
+    public void openForUnitSelector()
+    {
+        if (TypeEnum.unitUpgradeBuilding == type)
+            uIM.SelectUnitToUpgrade(centerPoint, buttonType, unitAffected, BuildingTimer);
+    }
+
+
+
 
     public void StartBuildingTimer()
     {
-        uIM.addBuildingOnTimer(BuildingTimer, centerPoint);
+        uIM.addBuildingOnTimer(BuildingTimer, centerPoint, type, unitAffected);
     }
 
     void alreadyInSceneCheck(bool isInScene)
     {
         if (!isInScene)
         {
-           GetComponent<Button>().interactable = true;
+            GetComponent<Button>().interactable = true;
         }
         else
         {

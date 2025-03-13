@@ -97,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: d030d13bfc5fed44eb70b85e23a1cd4e, type: 3}
+  - {fileID: 2100000, guid: 6d73de479998e0144af59c379bdf7237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   eventType: 1
   ammount1: 0
   ammount2: 0
+  debuff: 0
 --- !u!114 &-4502186670267664138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 7
+  unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 8346436662149835116}
 --- !u!1 &8568042017097237417
@@ -271,16 +273,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 7422351257669038470}
     m_Modifications:
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e0af592a510d56429141c27da05363d, type: 3}
+    - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.b
-      value: 0.2401378
+      value: 0.55328846
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.g
-      value: 0.028539198
+      value: 0.4377299
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.r
-      value: 0.3490566
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name

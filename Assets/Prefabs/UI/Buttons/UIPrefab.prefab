@@ -1405,7 +1405,7 @@ MonoBehaviour:
   - {fileID: 9092842950762133138}
   - {fileID: 7568004904069973039}
   - {fileID: 3068780445070354626}
-  buildingTimerSlots: []
+  currentBuildingButtons: []
   availableBuildingCategories:
   - {fileID: 2167088606545193342, guid: 16f21e366334bea4aa0633d89bcf0c34, type: 3}
   - {fileID: 2167088606545193342, guid: 53843186af6f0d0499113c7ebdd39803, type: 3}
@@ -1432,6 +1432,11 @@ MonoBehaviour:
   - {fileID: 2167088606545193342, guid: 2dfda39cd38f2244891c6b08216c4845, type: 3}
   - {fileID: 2167088606545193342, guid: 0b86c22478ee8ee4c9081bf8b884228c, type: 3}
   - {fileID: 2167088606545193342, guid: b3e43556332c9ee478fc5d4876dc44b5, type: 3}
+  availableUnitsToUpgrade:
+  - {fileID: 2167088606545193342, guid: 7ee1c6fab91776240958eb8b85881fc1, type: 3}
+  - {fileID: 2167088606545193342, guid: 8340a098efbbe4f49b5a41211d563a8b, type: 3}
+  - {fileID: 2167088606545193342, guid: 3bd92e63e027f964da24f0f47f0c873f, type: 3}
+  - {fileID: 2167088606545193342, guid: 0457f4293591fa14abcf925f47760474, type: 3}
   BuildingBackButton: {fileID: 2167088606545193342, guid: 7a5c98e5df421554398771cc183ed7e7, type: 3}
   unitPanel: {fileID: 8017132356475932803}
   buildingsPanel: {fileID: 2880839483028868316}

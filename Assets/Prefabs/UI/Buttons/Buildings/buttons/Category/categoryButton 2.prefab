@@ -146,5 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BuildingTimer: {fileID: 0}
   type: 0
   category: 2
+  buttonType: 0
+  unitAffected: 0

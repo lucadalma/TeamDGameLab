@@ -61,14 +61,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3490566, g: 0.24308603, b: 0, a: 1}
+  m_Color: {r: 0.5566038, g: 0.46527216, b: 0.2555476, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: afe41a190c4b91141854104c2677fd3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 777984550411278307}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8421323026404292420}
+        m_TargetAssemblyTypeName: BuildingButton, Assembly-CSharp
+        m_MethodName: openForUnitSelector
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8421323026404292420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,5 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  BuildingTimer: {fileID: 0}
+  type: 2
   category: 2
+  buttonType: 13
+  unitAffected: 0

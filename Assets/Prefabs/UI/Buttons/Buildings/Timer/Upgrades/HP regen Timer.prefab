@@ -56,20 +56,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102633549431355430}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3490566, g: 0, b: 0.33321187, a: 1}
+  m_Color: {r: 0.5943396, g: 0.39622638, b: 0.5854356, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 8e0af592a510d56429141c27da05363d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,11 +94,12 @@ MonoBehaviour:
   first: 0
   onOrder: 1
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  creationTime: 20
+  unitToUpgrade: 0
+  creationTime: 120
   DeployUnit: {fileID: 0}
   BuildingPref: {fileID: 7222558343854961609, guid: f541c2de82f12414eac26792751fffd2, type: 3}
   timerBar: {fileID: 6907869805315139735}
-  creationTimeMax: 20
+  creationTimeMax: 120
   timerType: 1
 --- !u!1 &145249371856481888
 GameObject:
