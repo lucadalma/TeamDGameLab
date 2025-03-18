@@ -128,12 +128,13 @@ public class UnitManager : MonoBehaviour
             Debug.Log($"Spawn unità {i + 1} in posizione {spawnPosition}");
 
             GameObject unit = Instantiate(selectedUnit.unitPrefab, spawnPosition, Quaternion.identity);
-            UnitBehavior behavior = unit.GetComponent<UnitBehavior>();
+            TanksBehavior behavior = unit.GetComponent<TanksBehavior>();
 
             if (behavior != null)
             {
                 behavior.Initialize(selectedUnit, targetPoint);
                 Debug.Log($"{selectedUnit.unitName} spawnata in {spawnPosition}");
+                behavior.isEnemy = false;
             }
             else
             {

@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyGroup : ScriptableObject
 {
     [SerializeField]
-    public EnemyData enemy;
+    public UnitData enemy;
 
     [SerializeField]
     public int numberOfEnemy = 0;

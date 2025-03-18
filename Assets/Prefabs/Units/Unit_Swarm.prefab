@@ -170,8 +170,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1293947554229191034}
   - component: {fileID: 7529231737413571529}
-  - component: {fileID: -2442743702793723154}
   - component: {fileID: 1046802163985202061}
+  - component: {fileID: 8640876168175118512}
   m_Layer: 3
   m_Name: Unit_Swarm
   m_TagString: Unit
@@ -210,25 +210,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 13.3, y: 14.43, z: 60}
   m_Center: {x: 0, y: 5, z: -22.86}
---- !u!114 &-2442743702793723154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927213937340799936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edd172bd9a1f2447a9e56f3025a4196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackCooldown: 0
-  currentEnemy: {fileID: 0}
-  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 50
-  rotationSpeed: 3
-  healthBar: {fileID: 3318814927896821315}
 --- !u!195 &1046802163985202061
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -251,6 +232,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8640876168175118512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927213937340799936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce810e5f27ceb3e4f80018803e3e2406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0
+  currentEnemy: {fileID: 0}
+  isEnemy: 0
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
+  detectionRadius: 50
+  rotationSpeed: 3
+  healthBar: {fileID: 3318814927896821315}
+  EM: {fileID: 0}
 --- !u!1 &3200657342134601869
 GameObject:
   m_ObjectHideFlags: 0

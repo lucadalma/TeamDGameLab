@@ -1924,6 +1924,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evento: {fileID: 11400000, guid: 2f5bff0bb6976c446857b7ffe894509c, type: 2}
   pause: {fileID: 0}
+  isEnemy: 0
   speedSlider: {fileID: 0}
   moveSpeed: 0
 --- !u!114 &986947283
@@ -2266,6 +2267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   evento: {fileID: 11400000, guid: 6c16ee715e4176245826695aa02b337c, type: 2}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
+  isEnemy: 0
   speedSlider: {fileID: 1883550907}
   moveSpeed: 10
 --- !u!114 &1094485803

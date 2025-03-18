@@ -7,13 +7,26 @@ public class ProjectileBehavior : MonoBehaviour
     [SerializeField]
     private float damage;
     private Transform target;
+    private bool isEnemy;
+    TanksBehavior Enemytank;
+    BaseScript EnemyBase;
 
     public BoolVariable pause;
 
-    public void Initialize(float damage, Transform target)
+    public void Initialize(float damage, Transform target, bool isEnemy)
     {
         this.damage = damage;
         this.target = target;
+        this.isEnemy = isEnemy;
+
+        if (target.gameObject.GetComponent<TanksBehavior>())
+        {
+            Enemytank = target.gameObject.GetComponent<TanksBehavior>();
+        }
+        else if (target.gameObject.GetComponent<BaseScript>())
+        {
+            EnemyBase = target.gameObject.GetComponent<BaseScript>();
+        }
 
         if (target != null)
         {
@@ -49,31 +62,38 @@ public class ProjectileBehavior : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 0.1f)
             {
-                if (target.gameObject.CompareTag("BaseB"))
+                if (EnemyBase)
                 {
-                    BaseHealth baseHealth = target.GetComponent<BaseHealth>();
-                    if (baseHealth != null)
+                    if (isEnemy != EnemyBase.isEnemy)
                     {
-                        baseHealth.TakeDamage(damage);
-                        Debug.Log($"Danno inflitto: {damage} a {baseHealth.name}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                        BaseHealth baseHealth = target.GetComponent<BaseHealth>();
+                        if (baseHealth != null)
+                        {
+                            baseHealth.TakeDamage(damage);
+                            Debug.Log($"Danno inflitto: {damage} a {baseHealth.name}");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                        }
                     }
                 }
-                else if (target.gameObject.CompareTag("Enemy"))
+                else if (Enemytank)
                 {
 
-                    EnemyBehaviour unit = target.GetComponent<EnemyBehaviour>();
-                    if (unit != null)
+                    if (isEnemy != Enemytank.isEnemy)
                     {
-                        unit.TakeDamage(damage);
-                        Debug.Log($"Danno inflitto: {damage} a {unit.name}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+
+                        TanksBehavior unit = target.GetComponent<TanksBehavior>();
+                        if (unit != null)
+                        {
+                            unit.TakeDamage(damage);
+                            Debug.Log($"Danno inflitto: {damage} a {unit.name}");
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Il nemico non ha uno script UnitBehavior!");
+                        }
                     }
                 }
                 Destroy(gameObject);
