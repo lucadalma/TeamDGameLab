@@ -152,6 +152,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: EMP
+  infoDescription: 'After a short delay, stuns all enemy units within the target
+    area, preventing them from moving for the next 30 seconds.
+
+    
+
+    Build
+    Time (seconds): 60
+
+    Cooldown (seconds): 60
+
+    Target: enemy units
+
+    Max
+    Range: 90
+
+    Effect Duration (seconds): 30
+
+'
+  infoIcon: {fileID: 21300000, guid: da2f0ccf578725f4787d3ca00c897f78, type: 3}

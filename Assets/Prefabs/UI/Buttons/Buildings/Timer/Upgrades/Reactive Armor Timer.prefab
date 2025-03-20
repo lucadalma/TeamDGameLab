@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -584385348327584996}
   m_Layer: 5
   m_Name: Reactive Armor Timer
-  m_TagString: Untagged
+  m_TagString: BuildingTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoName: Insert Name here
-  infoDescription: Insert Description Here
+  infoDescription: 
   infoIcon: {fileID: 0}
 --- !u!1 &145249371856481888
 GameObject:
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1548379131597357307}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: BuildingTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

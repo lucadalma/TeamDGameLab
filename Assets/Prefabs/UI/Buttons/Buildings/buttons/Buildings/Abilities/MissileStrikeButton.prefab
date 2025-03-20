@@ -152,6 +152,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Missile Strike
+  infoDescription: 'Fires a salvo of 4 missiles dealing damage to all units within
+    the targeted area.
+
+
+
+    Build Time (seconds): 180
+
+    Cooldown (seconds):
+    120
+
+    Target: all units
+
+    Damage Per Shot: 50
+
+    Attack Cooldown (seconds):
+    1
+
+    Damage Radius: 6
+
+    Total Damage: 200
+
+    Max Range: 60
+
+'
+  infoIcon: {fileID: 21300000, guid: 9dc1641eede14074382e164d6d9f07ab, type: 3}

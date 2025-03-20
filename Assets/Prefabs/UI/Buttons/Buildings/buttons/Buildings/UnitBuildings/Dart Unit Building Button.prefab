@@ -164,6 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Dart
+  infoDescription: "A small snowmobile armed with an autocannon. It\u2019s quick
+    to produce and is deployed in large numbers. Good at getting in the way and wasting
+    enemy DPS on low-value targets. Can still become dangerous when upgraded.\r\n\r\nBuild
+    Time (seconds): 10\r\nDamage Per Shot: 4\r\nAttack Cooldown (seconds): 3\r\nHealth:
+    10\r\nSpeed: 2\r\nRange: 6\r\nUnit Size: Small\r\nSquad Size: 8\r\nSquad Total
+    Health: 80\r\nSquad Total DPS: 10.6\r\n"
+  infoIcon: {fileID: 21300000, guid: 64020fc779434d54282c2bb87d1ce966, type: 3}

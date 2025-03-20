@@ -165,5 +165,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoName: Insert Name here
-  infoDescription: Insert Description Here
+  infoDescription: Insert Description here
   infoIcon: {fileID: 0}

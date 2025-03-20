@@ -164,6 +164,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Javelin
+  infoDescription: 'Long ranged plasma tank with very high damage per shot. Vulnerable
+    when targeted directly, it excels at dealing with high health targets. Has a
+    tendency to overkill small units.
+
+
+
+    Build Time (seconds): 30
+
+    Damage
+    Per Shot: 100
+
+    Attack Cooldown (seconds): 6
+
+    Health: 80
+
+    Speed: 0.5
+
+    Range:
+    16
+
+    Unit Size: Large
+
+    Squad Size: 2
+
+    Squad Total Health: 160
+
+    Squad
+    Total DPS: 33.3
+
+'
+  infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}

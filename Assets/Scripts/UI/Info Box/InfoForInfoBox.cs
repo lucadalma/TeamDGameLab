@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InfoForInfoBox : MonoBehaviour
 {
     [SerializeField] string infoName = "Insert Name here";
-    [SerializeField] string infoDescription = "Insert Description Here";
+    [TextArea(14, 10)] [SerializeField] string infoDescription = "insert Description Here";
     [SerializeField] Sprite infoIcon;
-
 
     private void Start()
     {
-
         if (infoIcon == null)
         {
             infoIcon = Resources.Load<Sprite>("placeholder_icon_missing");
         }
-
-
 
     }
 

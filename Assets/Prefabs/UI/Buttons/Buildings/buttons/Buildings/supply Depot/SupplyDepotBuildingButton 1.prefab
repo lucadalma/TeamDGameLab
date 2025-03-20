@@ -164,6 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Supply Depot
+  infoDescription: "A logistics building that speeds up the construction of other
+    buildings. The more Supply Depots you have, the faster new buildings are deployed.\r\n\r\nMax
+    Build Time (seconds): 60 \r\nBuild Time Reduction: -7% per Depot\r\n"
+  infoIcon: {fileID: 21300000, guid: 50f84bae1aff8a240a9d7f24b7b7b723, type: 3}

@@ -9,6 +9,7 @@ TagManager:
   - BaseA
   - BaseB
   - Building
+  - BuildingTimer
   layers:
   - Default
   - TransparentFX

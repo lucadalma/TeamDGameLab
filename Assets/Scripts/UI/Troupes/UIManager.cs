@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     bool animInProgress = false;
     bool buildingButtonsVisible;
+    bool mouseOverTimer;
 
     [SerializeField] GameObject staticUI;
 
@@ -348,11 +349,10 @@ public class UIManager : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-
-
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, buildingLayerMask) && TargetBuilding == null)
             {
+
                 if (!buildingButtonsVisible)
                 {
                     foreach (var button in currentBuildingButtons)
@@ -361,9 +361,9 @@ public class UIManager : MonoBehaviour
                     }
                     buildingButtonsVisible = true;
                 }
-
             }
-            else
+
+            if (!Physics.Raycast(ray, out RaycastHit hit2, Mathf.Infinity, buildingLayerMask) && !mouseOverTimer)
             {
                 if (buildingButtonsVisible)
                 {
@@ -374,8 +374,6 @@ public class UIManager : MonoBehaviour
 
                     buildingButtonsVisible = false;
                 }
-
-
 
             }
 
@@ -787,10 +785,26 @@ public class UIManager : MonoBehaviour
                     }
                     break;
                 }
+
+            }
+            foreach (RaycastResult result in results)
+            {
+
+                if (result.gameObject.tag == "BuildingTimer")
+                {
+                    mouseOverTimer = true;
+                    break;
+                }
+                else
+                {
+                    mouseOverTimer = false;
+                }
+
             }
         }
         else
         {
+            mouseOverTimer = false;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, infoItemsLayer))
             {
@@ -841,8 +855,8 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    #region TopUI
 
+    #region TopUI
     void MachTimerTracker()
     {
 
@@ -860,9 +874,9 @@ public class UIManager : MonoBehaviour
             else
             {
                 seconds = 0;
-                if(tenSeconds < 6)
+                if (tenSeconds < 6)
                 {
-                   tenSeconds++;
+                    tenSeconds++;
                 }
                 else
                 {

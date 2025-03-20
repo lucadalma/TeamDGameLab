@@ -114,9 +114,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Gladius
+  infoDescription: 'A versatile medium tank that comes in small squads. Very durable
+    for its cost, but unimpressive in every other stat. Good at being retrofitted
+    for various combat scenarios through upgrades.
+
+
+
+    Build Time (seconds): 20
+
+    Damage
+    Per Shot: 10
+
+    Attack Cooldown (seconds): 4
+
+    Health: 120
+
+    Speed: 1
+
+    Range:
+    10
+
+    Unit Size: Medium
+
+    Squad Size: 4
+
+    Squad Total Health: 480
+
+    Squad
+    Total DPS: 10
+
+'
+  infoIcon: {fileID: 21300000, guid: 89daf6ddf9af99d45aa4a0cd49a5b2e0, type: 3}
 --- !u!1 &145249371856481888
 GameObject:
   m_ObjectHideFlags: 0

@@ -152,6 +152,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Overdrive
+  infoDescription: 'After a short delay, all friendly units within the target area
+    gain a 50% attack cooldown reduction for 20 seconds.
+
+
+
+    Build Time (seconds):
+    120
+
+    Cooldown (seconds): 60
+
+    Target: friendly units
+
+    Max Range: 40
+
+    Effect
+    Duration (seconds): 20
+
+'
+  infoIcon: {fileID: 21300000, guid: b0ae3262131abaf4ab251a83f4caf668, type: 3}
