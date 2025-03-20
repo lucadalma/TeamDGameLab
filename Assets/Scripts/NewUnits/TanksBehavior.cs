@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitBehavior : MonoBehaviour
+public class TanksBehavior : MonoBehaviour
 {
     private float speed;
     private float oldSpeed = 0;
@@ -13,6 +15,7 @@ public class UnitBehavior : MonoBehaviour
     private Transform currentRotation;
     private Transform targetPoint;
     public GameObject currentEnemy;
+    public bool isEnemy;
 
     public BoolVariable pause;
 
@@ -113,18 +116,27 @@ public class UnitBehavior : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
         foreach (var collider in hitColliders)
         {
-            // Se trova una base, la priorizza come bersaglio
-            if (collider.CompareTag("BaseB"))
+            if (collider.GetComponent<BaseScript>())
             {
-                currentEnemy = collider.gameObject;
-                return;
+
+                BaseScript EnemyBase = collider.GetComponent<BaseScript>();
+                if (isEnemy != EnemyBase.isEnemy)
+                {
+                    currentEnemy = collider.gameObject;
+                    return;
+                }
             }
 
             // Altrimenti cerca un'unità nemica
-            if (collider.CompareTag("Enemy"))
+            if (collider.GetComponent<TanksBehavior>())
             {
-                currentEnemy = collider.gameObject;
-                return;
+                TanksBehavior EnemyTank = collider.GetComponent<TanksBehavior>();
+                if (isEnemy != EnemyTank.isEnemy)
+                {
+                    currentEnemy = collider.gameObject;
+                    return;
+                }
+
             }
         }
     }
@@ -172,7 +184,7 @@ public class UnitBehavior : MonoBehaviour
             // Spara un proiettile verso l'unità nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            //projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform);
+            projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform, isEnemy);
         }
         else
         {
@@ -190,7 +202,7 @@ public class UnitBehavior : MonoBehaviour
         float distance = Vector3.Distance(transform.position, enemy.transform.position);
         if (distance > detectionRadius) return false;
 
-        UnitBehavior enemyBehavior = enemy.GetComponent<UnitBehavior>();
+        TanksBehavior enemyBehavior = enemy.GetComponent<TanksBehavior>();
 
         BaseHealth baseHealth = base.GetComponent<BaseHealth>();
 
@@ -237,14 +249,4 @@ public class UnitBehavior : MonoBehaviour
         attackCooldown += EM.newReload;
 
     }
-
-    //public void PauseGameObject()
-    //{
-    //    speed = 0;
-    //}
-
-    //public void ResumeGameObject()
-    //{
-    //    speed = oldSpeed;
-    //}
 }

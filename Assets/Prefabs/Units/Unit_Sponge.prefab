@@ -212,9 +212,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6600258955721276175}
   - component: {fileID: 8944125482615458840}
-  - component: {fileID: 3816020436278511870}
   - component: {fileID: 227446745111498746}
-  - component: {fileID: 6620389010468029338}
+  - component: {fileID: 4488722215469410975}
   m_Layer: 3
   m_Name: Unit_Sponge
   m_TagString: Unit
@@ -253,26 +252,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 20, z: 20}
   m_Center: {x: 0, y: 10, z: 0}
---- !u!114 &3816020436278511870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5824003280416219573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4edd172bd9a1f2447a9e56f3025a4196, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackCooldown: 0
-  currentEnemy: {fileID: 0}
-  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
-  detectionRadius: 100
-  rotationSpeed: 3
-  healthBar: {fileID: 3458354958204175235}
-  EM: {fileID: 0}
 --- !u!195 &227446745111498746
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -295,7 +274,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
---- !u!114 &6620389010468029338
+--- !u!114 &4488722215469410975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,12 +283,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5824003280416219573}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Script: {fileID: 11500000, guid: ce810e5f27ceb3e4f80018803e3e2406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  attackCooldown: 0
+  currentEnemy: {fileID: 0}
+  isEnemy: 0
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
+  detectionRadius: 100
+  rotationSpeed: 3
+  healthBar: {fileID: 3458354958204175235}
+  EM: {fileID: 0}
 --- !u!1 &5862049264789379980
 GameObject:
   m_ObjectHideFlags: 0

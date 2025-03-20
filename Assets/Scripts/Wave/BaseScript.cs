@@ -11,6 +11,8 @@ public class BaseScript : MonoBehaviour
     [SerializeField]
     BoolVariable pause;
 
+    public bool isEnemy;
+
     public Slider speedSlider;
     public int moveSpeed;
     private float speed;

@@ -96,11 +96,12 @@ public class EnemyWaveManager : MonoBehaviour
                 float offsetX = Random.Range(-areaWidth / 2, areaWidth / 2);
                 float offsetZ = Random.Range(-areaLength / 2, areaLength / 2);
                 Vector3 spawnPosition = currentWaveSO.spawnPoint[spawnPointIndex].transform.position + new Vector3(offsetX, 0, offsetZ);
-                GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, spawnPosition, Quaternion.identity);
-                EnemyBehaviour behavior = unit.GetComponent<EnemyBehaviour>();
+                GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, spawnPosition, Quaternion.Euler(0, 180, 0));
+                TanksBehavior behavior = unit.GetComponent<TanksBehavior>();
                 if (behavior != null)
                 {
                     behavior.Initialize(currentEnemyGroup.enemy, targetPoint);
+                    behavior.isEnemy = true;
                 }
             }
             spawnPointIndex++;
