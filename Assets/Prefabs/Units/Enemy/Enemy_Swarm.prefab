@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 5580585520546113479}
   - component: {fileID: 4527049466454394036}
   - component: {fileID: 8992560215146812767}
+  - component: {fileID: 8904784210275769526}
   m_Layer: 3
   m_Name: Enemy_Swarm
   m_TagString: Enemy
@@ -618,3 +619,18 @@ MonoBehaviour:
   detectionRadius: 50
   rotationSpeed: 3
   healthBar: {fileID: 5690535143451985412}
+--- !u!114 &8904784210275769526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7348415824809312673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}

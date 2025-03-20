@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 6605576422835594310}
   - component: {fileID: 6605576422835594312}
   - component: {fileID: 6605576422835594311}
+  - component: {fileID: -7056384631527305441}
   m_Layer: 3
   m_Name: Enemy_LongRange
   m_TagString: Enemy
@@ -534,6 +535,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7056384631527305441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605576422835594313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}
 --- !u!1 &8216446735751011420
 GameObject:
   m_ObjectHideFlags: 0

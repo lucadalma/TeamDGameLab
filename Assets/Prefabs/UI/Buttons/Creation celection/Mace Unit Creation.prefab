@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1545267414621182925}
   - component: {fileID: 7662028244500292854}
   - component: {fileID: -8251786249489150663}
+  - component: {fileID: 347335991317850541}
   m_Layer: 5
   m_Name: Mace Unit Creation
   m_TagString: Untagged
@@ -151,6 +152,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &347335991317850541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102633549431355430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Icon Here
+  infoIcon: {fileID: 0}
 --- !u!1 &4594758004939053560
 GameObject:
   m_ObjectHideFlags: 0

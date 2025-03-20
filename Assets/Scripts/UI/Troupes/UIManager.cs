@@ -10,6 +10,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
+using static UnityEditor.PlayerSettings;
 
 public class UIManager : MonoBehaviour
 {
@@ -46,6 +48,9 @@ public class UIManager : MonoBehaviour
     List<GameObject> buildingButtonsDysplayed = new List<GameObject>();
     List<GameObject> buildingsOnTimer = new List<GameObject>();
 
+
+
+    // UI panel references
     [SerializeField] Transform unitPanel;
     [SerializeField] Transform buildingsPanel;
 
@@ -53,18 +58,47 @@ public class UIManager : MonoBehaviour
     [SerializeField] List<Transform> buildingsPanelPos;
 
 
+    // info box variables
+    [SerializeField] Transform infoBoxFolder;
+    [SerializeField] LayerMask infoItemsLayer;
+    [SerializeField] GameObject infoBoxBase;
+    [SerializeField] TextMeshProUGUI infoBoxPreview;
+
+    float infoBoxPressTimer;
 
     public GameObject TargetBuilding;
-    //   public Transform TargetBuildParent;
+    [SerializeField] Transform buildingFolder;
     [NonSerialized] public Vector2 TargetPoint;
     [SerializeField] private LayerMask buildingLayerMask;
     [SerializeField] float r;
 
     [NonSerialized] public int numberOfBuildingsOnTimer;
-    // Start is called before the first frame update
+
+    //Top UI variables
+
+    //Mach timer
+    [SerializeField] TextMeshProUGUI machTimer;
+    float tickingTime;
+    int seconds = 0;
+    int tenSeconds = 0;
+    int Minutes = 0;
+    int tenMinutes = 0;
+
+    // HP Bars
+    [SerializeField] GameObject fortress;
+    [SerializeField] GameObject enemy;
+    [SerializeField] Image fortressBar;
+    [SerializeField] Image enemyBar;
+
+    //Pause Button
+    GameManager gM;
+    [SerializeField] Image PauseLight;
+
+
     void Start()
     {
-
+        gM = FindObjectOfType<GameManager>();
+        infoBoxPressTimer = 1;
 
         if (availableUnitsToCreate.Count % 6 == 0)
         {
@@ -82,11 +116,15 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        changePauseLight();
+        MachTimerTracker();
+        FillHPBars();
         ShowBuildingUIButton();
         PressdCloseBuildingUI();
+        CreateInfoBox();
     }
 
-
+    #region UnitControls
     void SetAvailableUnits()
     {
         if (availableUnitsToCreate.Count <= 6)
@@ -242,9 +280,9 @@ public class UIManager : MonoBehaviour
         numberOfUnitsOnDeploy = availableUnitsToDeploy.Count;
         setUnitOnTimer();
     }
+    #endregion
 
-
-    // Fuctions to disable or enable the static ui
+    #region BuildingControls
     void turnOffInteractionsWithStaticUI(Transform parent)
     {
 
@@ -306,7 +344,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-
     void ShowBuildingUIButton()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
@@ -345,8 +382,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-
     void DeactivateButtonVisibility(Transform parent)
     {
         Image image = parent.GetComponent<Image>();
@@ -371,7 +406,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
 
     void ActivateButtonVisisbility(Transform parent)
     {
@@ -398,14 +432,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
-    //buildin buttons functions
     public void PressdOpenBuildingUI(GameObject targetBuilding)
     {
         Debug.Log("ButtonPressed");
         turnOffInteractionsWithStaticUI(staticUI.transform);
         TargetBuilding = targetBuilding;
-        //      TargetBuildParent = hit.collider.gameObject.transform.parent;
         openBuildingMenu(Input.mousePosition);
 
     }
@@ -417,13 +448,11 @@ public class UIManager : MonoBehaviour
             if (TargetBuilding != null && Input.GetMouseButtonDown(0))
             {
                 TargetBuilding = null;
-                //TargetBuildParent = null;
                 removeBuiidingMenu(Input.mousePosition);
                 turnOnInteractionsWithStaticUI(staticUI.transform);
             }
         }
     }
-
 
     public void openBuildingMenu(Vector2 CenterPoint)
     {
@@ -433,8 +462,8 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < availableBuildingCategories.Count; i++)
         {
-            spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
-            GameObject temp = Instantiate(availableBuildingCategories[i], CenterPoint, transform.rotation, transform);
+            spawnPoint = new Vector2(r * Screen.width * Mathf.Sin(ang * i) + CenterPoint.x, r * Screen.width * Mathf.Cos(ang * i) + CenterPoint.y);
+            GameObject temp = Instantiate(availableBuildingCategories[i], CenterPoint, transform.rotation, buildingFolder);
             StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
             temp.GetComponent<BuildingButton>().centerPoint = CenterPoint;
             buildingButtonsDysplayed.Add(temp);
@@ -447,18 +476,13 @@ public class UIManager : MonoBehaviour
 
 
         buildingButtonsVisible = false;
-        //StartCoroutine(AnimStartCreate(ang, CenterPoint));
     }
     public void removeBuiidingMenu(Vector2 CenterPoint)
     {
         foreach (var buildingButton in buildingButtonsDysplayed)
         {
-            //Vector2 startPos = buildingButton.transform.position;
-            //StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
             Destroy(buildingButton.gameObject);
         }
-
-        //StartCoroutine(AnimStartRemove(CenterPoint));
 
         buildingButtonsDysplayed.Clear();
     }
@@ -468,14 +492,12 @@ public class UIManager : MonoBehaviour
     {
         foreach (var buildingButton in buildingButtonsDysplayed)
         {
-            Vector2 startPos = buildingButton.transform.position;
-            StartCoroutine(AnimationProgression(startPos, CenterPoint, buildingButton));
-
             Destroy(buildingButton.gameObject);
         }
+
         buildingButtonsDysplayed.Clear();
 
-        GameObject backButton = Instantiate(BuildingBackButton, CenterPoint, transform.rotation, transform);
+        GameObject backButton = Instantiate(BuildingBackButton, CenterPoint, transform.rotation, buildingFolder);
         buildingButtonsDysplayed.Add(backButton);
 
         List<GameObject> buttonsInCurrentCategory = new List<GameObject>();
@@ -495,8 +517,8 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < buttonsInCurrentCategory.Count; i++)
         {
-            spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
-            GameObject temp = Instantiate(buttonsInCurrentCategory[i], CenterPoint, transform.rotation, transform);
+            spawnPoint = new Vector2(r * Screen.width * Mathf.Sin(ang * i) + CenterPoint.x, r * Screen.width * Mathf.Cos(ang * i) + CenterPoint.y);
+            GameObject temp = Instantiate(buttonsInCurrentCategory[i], CenterPoint, transform.rotation, buildingFolder);
 
 
             if (temp.GetComponent<BuildingButton>().buttonType == TargetBuilding.GetComponent<BuildingCategorization>().type && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades)
@@ -522,7 +544,7 @@ public class UIManager : MonoBehaviour
         }
         buildingButtonsDysplayed.Clear();
 
-        GameObject backButton = Instantiate(BuildingBackButton, CenterPoint, transform.rotation, transform);
+        GameObject backButton = Instantiate(BuildingBackButton, CenterPoint, transform.rotation, buildingFolder);
         buildingButtonsDysplayed.Add(backButton);
         backButton.GetComponent<BuildingButton>().type = BuildingButton.TypeEnum.backToUpgrades;
 
@@ -532,8 +554,8 @@ public class UIManager : MonoBehaviour
 
         for (int i = 0; i < availableUnitsToUpgrade.Count; i++)
         {
-            spawnPoint = new Vector2(r * Mathf.Sin(ang * i) + CenterPoint.x, r * Mathf.Cos(ang * i) + CenterPoint.y);
-            GameObject temp = Instantiate(availableUnitsToUpgrade[i], CenterPoint, transform.rotation, transform);
+            spawnPoint = new Vector2(r * Screen.width * Mathf.Sin(ang * i) + CenterPoint.x, r * Screen.width * Mathf.Cos(ang * i) + CenterPoint.y);
+            GameObject temp = Instantiate(availableUnitsToUpgrade[i], CenterPoint, transform.rotation, buildingFolder);
             temp.GetComponent<BuildingButton>().buttonType = Upgrade;
             temp.GetComponent<BuildingButton>().BuildingTimer = timer;
 
@@ -583,7 +605,7 @@ public class UIManager : MonoBehaviour
                 GameObject newBuilding = Instantiate(building, TargetBuilding.GetComponent<BuildingCategorization>().BuildingButton.transform);
                 newBuilding.GetComponent<CreationTimer>().buildingSlot = TargetBuilding;
 
-                if(type == BuildingButton.TypeEnum.unitSelector)
+                if (type == BuildingButton.TypeEnum.unitSelector)
                 {
                     newBuilding.GetComponent<CreationTimer>().unitToUpgrade = affectrdUnit;
                 }
@@ -597,6 +619,7 @@ public class UIManager : MonoBehaviour
                 TargetBuilding = null;
                 removeBuiidingMenu(CenterPoint);
                 turnOnInteractionsWithStaticUI(staticUI.transform);
+                buildingButtonsVisible = false;
             }
             else
             {
@@ -613,7 +636,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-
     public void removeBuildingOnTimer(GameObject building)
     {
         buildingsOnTimer.Remove(building);
@@ -629,9 +651,8 @@ public class UIManager : MonoBehaviour
     public void addBuildingButton(GameObject ButtonToAdd)
     {
         currentBuildingButtons.Add(ButtonToAdd);
+        buildingButtonsVisible = false;
     }
-
-
 
     IEnumerator AnimStartRemove(Vector2 CenterPoint)
     {
@@ -649,11 +670,6 @@ public class UIManager : MonoBehaviour
 
         }
     }
-
-
-
-
-
 
     IEnumerator AnimStartCreate(float ang, Vector2 CenterPoint)
     {
@@ -682,16 +698,23 @@ public class UIManager : MonoBehaviour
 
         for (float i = 0; i < 1; i += animSpeed * Time.deltaTime)
         {
-            obj.transform.position = Vector2.Lerp(startPos, endPos, i);
-            if (i > 0.5 && !animationTransitioned)
+            if (obj != null)
             {
-                animationTransitioned = true;
-                animInProgress = false;
+                obj.transform.position = Vector2.Lerp(startPos, endPos, i);
+                if (i > 0.5 && !animationTransitioned)
+                {
+                    animationTransitioned = true;
+                    animInProgress = false;
+                }
             }
+
             yield return new WaitForEndOfFrame();
         }
     }
 
+    #endregion
+
+    #region PanelControls
     void unitPanelControl()
     {
         int currentPos;
@@ -724,7 +747,172 @@ public class UIManager : MonoBehaviour
         buildingsPanel.position = buildingsPanelPos[currentPos].position;
 
     }
+    #endregion
 
+    #region InfoBox
+
+    void CreateInfoBox()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                infoBoxPressTimer = 0;
+            }
+
+            if (Input.GetMouseButton(1))
+            {
+                infoBoxPressTimer += Time.deltaTime;
+            }
+
+
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject.GetComponent<InfoForInfoBox>() != null)
+                {
+                    if (Input.GetMouseButtonUp(1) && infoBoxPressTimer <= 0.2f)
+                    {
+                        InfoForInfoBox infos = result.gameObject.GetComponent<InfoForInfoBox>();
+                        GameObject tempInfoBox = Instantiate(infoBoxBase, Input.mousePosition, Quaternion.identity, infoBoxFolder);
+                        tempInfoBox.GetComponent<ItemBox>().SetItemBox(infos.InfoIcon, infos.InfoName, infos.InfoDescription);
+                    }
+
+                    if (infoBoxPreview.text != result.gameObject.GetComponent<InfoForInfoBox>().InfoName)
+                    {
+                        infoBoxPreview.text = result.gameObject.GetComponent<InfoForInfoBox>().InfoName;
+                    }
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, infoItemsLayer))
+            {
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    infoBoxPressTimer = 0;
+                }
+
+                if (Input.GetMouseButton(1))
+                {
+                    infoBoxPressTimer += Time.deltaTime;
+                }
+                if (hit.transform.GetComponent<InfoForInfoBox>() != null)
+                {
+                    if (Input.GetMouseButtonUp(1) && infoBoxPressTimer <= 0.2f)
+                    {
+                        InfoForInfoBox infos = hit.transform.GetComponent<InfoForInfoBox>();
+                        GameObject tempInfoBox = Instantiate(infoBoxBase, Input.mousePosition, Quaternion.identity, infoBoxFolder);
+                        tempInfoBox.GetComponent<ItemBox>().SetItemBox(infos.InfoIcon, infos.InfoName, infos.InfoDescription);
+                    }
+
+                    if (infoBoxPreview.text != hit.transform.gameObject.GetComponent<InfoForInfoBox>().InfoName)
+                    {
+                        infoBoxPreview.text = hit.transform.gameObject.GetComponent<InfoForInfoBox>().InfoName;
+                    }
+                }
+                else
+                {
+                    if (infoBoxPreview.text != "")
+                    {
+                        infoBoxPreview.text = "";
+                    }
+                }
+
+            }
+            else
+            {
+                if (infoBoxPreview.text != "")
+                {
+                    infoBoxPreview.text = "";
+                }
+            }
+        }
+
+    }
+
+
+    #endregion
+
+    #region TopUI
+
+    void MachTimerTracker()
+    {
+
+        if (tickingTime <= 1)
+        {
+            tickingTime += Time.deltaTime;
+        }
+        else
+        {
+            tickingTime = 0;
+            if (seconds < 9)
+            {
+                seconds++;
+            }
+            else
+            {
+                seconds = 0;
+                if(tenSeconds < 6)
+                {
+                   tenSeconds++;
+                }
+                else
+                {
+                    tenSeconds = 0;
+                    if (Minutes < 9)
+                    {
+                        Minutes++;
+                    }
+                    else
+                    {
+                        Minutes = 0;
+                        tenMinutes++;
+                    }
+                }
+
+            }
+
+        }
+
+        machTimer.text = "" + tenMinutes + Minutes + ":" + tenSeconds + seconds;
+    }
+
+    void FillHPBars()
+    {
+        fortressBar.fillAmount = fortress.GetComponent<BaseHealth>().health / fortress.GetComponent<BaseHealth>().maxHealth;
+        enemyBar.fillAmount = enemy.GetComponent<BaseHealth>().health / enemy.GetComponent<BaseHealth>().maxHealth;
+    }
+
+    public void PauseGameButton()
+    {
+        gM.PauseGame();
+    }
+
+    void changePauseLight()
+    {
+        switch (gM.getGameStatus)
+        {
+            case GameStatus.GamePause:
+                PauseLight.color = Color.red;
+                break;
+            case GameStatus.GameRunning:
+                PauseLight.color = Color.green;
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    #endregion
 
 
 }

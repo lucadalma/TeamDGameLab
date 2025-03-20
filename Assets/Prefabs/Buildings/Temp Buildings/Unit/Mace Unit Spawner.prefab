@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7222558343854961608}
   - component: {fileID: -8287998634685723415}
   - component: {fileID: -2941554764211240227}
+  - component: {fileID: 8270751445745756776}
   m_Layer: 6
   m_Name: Mace Unit Spawner
   m_TagString: Untagged
@@ -164,6 +165,21 @@ MonoBehaviour:
   unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 3588748634252962500}
+--- !u!114 &8270751445745756776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}
 --- !u!1 &9118522267488785293
 GameObject:
   m_ObjectHideFlags: 0

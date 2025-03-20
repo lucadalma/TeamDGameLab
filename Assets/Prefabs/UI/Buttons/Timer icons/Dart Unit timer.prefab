@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3369868512655545848}
   - component: {fileID: 133737436944122311}
   - component: {fileID: 8104882357771957156}
+  - component: {fileID: -920363776782949496}
   m_Layer: 5
   m_Name: Dart Unit timer
   m_TagString: Untagged
@@ -92,12 +93,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: 0
+  onOrder: 1
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
+  unitToUpgrade: 0
   creationTime: 10
   DeployUnit: {fileID: 102633549431355430, guid: 2c6a5a8c9c1d57b4b9ea2e45e709d0bb, type: 3}
   BuildingPref: {fileID: 0}
   timerBar: {fileID: 6907869805315139735}
+  creationTimeMax: 0
   timerType: 0
+--- !u!114 &-920363776782949496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102633549431355430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}
 --- !u!1 &145249371856481888
 GameObject:
   m_ObjectHideFlags: 0

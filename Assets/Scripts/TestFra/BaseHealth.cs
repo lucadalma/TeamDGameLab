@@ -1,8 +1,15 @@
+using System;
 using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
 {
-    public float health = 100f; // Salute della base
+    public float maxHealth = 100f; // Salute massima della base
+    public float health = 100f; // Salute corrente della base
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
 
     public void TakeDamage(float damage)
     {

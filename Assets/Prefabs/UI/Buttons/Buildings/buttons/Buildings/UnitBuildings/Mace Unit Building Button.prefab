@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 777984550411278307}
   - component: {fileID: 4619163513661565856}
   - component: {fileID: 8421323026404292420}
+  - component: {fileID: 8868331608897147801}
   m_Layer: 5
   m_Name: Mace Unit Building Button
   m_TagString: Untagged
@@ -38,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3925661362472200285
 CanvasRenderer:
@@ -151,3 +152,18 @@ MonoBehaviour:
   category: 1
   buttonType: 4
   unitAffected: 0
+--- !u!114 &8868331608897147801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167088606545193342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}

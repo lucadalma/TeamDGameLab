@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7222558343854961608}
   - component: {fileID: 1729679221092161158}
   - component: {fileID: -4502186670267664138}
+  - component: {fileID: 1878226842369224428}
   m_Layer: 6
   m_Name: HP regen Upgrade
   m_TagString: Untagged
@@ -164,6 +165,21 @@ MonoBehaviour:
   unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 8346436662149835116}
+--- !u!114 &1878226842369224428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}
 --- !u!1 &8568042017097237417
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-enum GameStatus
+public enum GameStatus
 {
     GamePause,
     GameRunning
@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject GameOverMenu;
 
-    GameStatus gameStatus;
+     GameStatus gameStatus;
+
+    public GameStatus getGameStatus { get { return gameStatus; } }
 
     private void Start()
     {
@@ -39,23 +41,26 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (gameStatus == GameStatus.GameRunning)
-            {
-                gameStatus = GameStatus.GamePause;
-                pauseEvent.Raise();
-                pause.SetValue(true);
-
-            }
-            else if (gameStatus == GameStatus.GamePause)
-            {
-                gameStatus = GameStatus.GameRunning;
-                resumeEvent.Raise();
-                pause.SetValue(false);
-            }
+            PauseGame();
         }
     }
 
+    public void PauseGame()
+    {
+        if (gameStatus == GameStatus.GameRunning)
+        {
+            gameStatus = GameStatus.GamePause;
+            pauseEvent.Raise();
+            pause.SetValue(true);
 
+        }
+        else if (gameStatus == GameStatus.GamePause)
+        {
+            gameStatus = GameStatus.GameRunning;
+            resumeEvent.Raise();
+            pause.SetValue(false);
+        }
+    }
 
     public void ReturnToMainMenu()
     {

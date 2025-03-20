@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 7222558343854961608}
   - component: {fileID: 5224025032951795355}
   - component: {fileID: -7138544317131968065}
+  - component: {fileID: 6713376385493517435}
   m_Layer: 6
   m_Name: Supply Depot
   m_TagString: Untagged
@@ -233,6 +234,22 @@ MonoBehaviour:
   ammount1: 0.07
   ammount2: 0
   debuff: 0
+--- !u!114 &6713376385493517435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Supply Depot Building
+  infoDescription: Supply Depot increses the building speed by 0.7% for every Supply
+    Depot built
+  infoIcon: {fileID: 21300000, guid: 50f84bae1aff8a240a9d7f24b7b7b723, type: 3}
 --- !u!1 &8176085057447733898
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +312,19 @@ PrefabInstance:
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name
       value: OpenBuildingButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 50f84bae1aff8a240a9d7f24b7b7b723, type: 3}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoName
+      value: Supply Depot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoDescription
+      value: Supply Depot increses the building speed by 0.7% for every Supply Depot
+        built
       objectReference: {fileID: 0}
     - target: {fileID: 6526638578765879915, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Pivot.x

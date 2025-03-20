@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 7529231737413571529}
   - component: {fileID: -2442743702793723154}
   - component: {fileID: 1046802163985202061}
+  - component: {fileID: -7414076005035522785}
   m_Layer: 3
   m_Name: Unit_Swarm
   m_TagString: Unit
@@ -229,6 +230,7 @@ MonoBehaviour:
   detectionRadius: 50
   rotationSpeed: 3
   healthBar: {fileID: 3318814927896821315}
+  EM: {fileID: 0}
 --- !u!195 &1046802163985202061
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -251,6 +253,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7414076005035522785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927213937340799936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Insert Name here
+  infoDescription: Insert Description Here
+  infoIcon: {fileID: 0}
 --- !u!1 &3200657342134601869
 GameObject:
   m_ObjectHideFlags: 0
