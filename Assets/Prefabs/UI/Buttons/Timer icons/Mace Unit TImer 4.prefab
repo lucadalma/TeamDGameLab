@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8104882357771957156}
   - component: {fileID: -1162777520896812189}
   m_Layer: 5
-  m_Name: Javelin Unit TImer 4
+  m_Name: Mace Unit TImer 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,37 +113,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Javelin
-  infoDescription: 'Long ranged plasma tank with very high damage per shot. Vulnerable
-    when targeted directly, it excels at dealing with high health targets. Has a
-    tendency to overkill small units.
-
-
-
-    Build Time (seconds): 30
-
-    Damage
-    Per Shot: 100
-
-    Attack Cooldown (seconds): 6
-
-    Health: 80
-
-    Speed: 0.5
-
-    Range:
-    16
-
-    Unit Size: Large
-
-    Squad Size: 2
-
-    Squad Total Health: 160
-
-    Squad
-    Total DPS: 33.3
-
-'
+  infoName: Mace
+  infoDescription: "Heavily armored multiple missile launcher. Low overall damage,
+    range and speed, though its high rate of fire makes it ideal for eliminating
+    a multitude of low health targets.\r\n\r\nBuild Time (seconds): 20\r\nDamage
+    Per Shot: 6\r\nAttack Cooldown (seconds): 0.5 \r\nHealth: 280\r\nSpeed: 0.5\r\nRange:
+    8\r\nUnit Size: Large\r\nSquad Size: 1\r\nSquad Total Health: 280\r\nSquad Total
+    DPS: 10\r\n"
   infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}
 --- !u!1 &145249371856481888
 GameObject:

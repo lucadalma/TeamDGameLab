@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 777984550411278307}
   - component: {fileID: 4619163513661565856}
   - component: {fileID: 8421323026404292420}
-  - component: {fileID: 8868331608897147801}
+  - component: {fileID: 9010221532201812706}
   m_Layer: 5
-  m_Name: Mace Unit Building Button
+  m_Name: Mace Unit Building Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7264151, g: 0.35407022, b: 0.35407022, a: 1}
+  m_Color: {r: 0.53889275, g: 0.9852521, b: 0.990566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -147,12 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingTimer: {fileID: 102633549431355430, guid: 67a64417e7724154d83bab98fed8ec8a, type: 3}
+  BuildingTimer: {fileID: 102633549431355430, guid: ef7f05b7b4e3b104d94226d964b1c760, type: 3}
   type: 1
   category: 1
-  buttonType: 4
+  buttonType: 3
   unitAffected: 0
---- !u!114 &8868331608897147801
+--- !u!114 &9010221532201812706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,4 +171,4 @@ MonoBehaviour:
     Per Shot: 6\r\nAttack Cooldown (seconds): 0.5 \r\nHealth: 280\r\nSpeed: 0.5\r\nRange:
     8\r\nUnit Size: Large\r\nSquad Size: 1\r\nSquad Total Health: 280\r\nSquad Total
     DPS: 10\r\n"
-  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
+  infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}

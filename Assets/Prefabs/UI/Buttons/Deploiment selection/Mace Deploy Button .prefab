@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1407607624782427540}
   - component: {fileID: 3369868512655545848}
   - component: {fileID: 133737436944122311}
-  - component: {fileID: 1545267414621182925}
-  - component: {fileID: 3711423871720704617}
+  - component: {fileID: 4371686295979317977}
   m_Layer: 5
-  m_Name: Javelin Unit Creation
+  m_Name: 'Mace Deploy Button '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,23 +77,8 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &1545267414621182925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102633549431355430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e30fd9a1a0c3724387958ff52a08b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitWaitTimer: {fileID: 102633549431355430, guid: 7889289ed50e29f42b6449763ae311cd, type: 3}
-  targetButton: {fileID: 0}
-  type: 0
---- !u!114 &3711423871720704617
+  m_PixelsPerUnitMultiplier: 3
+--- !u!114 &4371686295979317977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,37 +90,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Javelin
-  infoDescription: 'Long ranged plasma tank with very high damage per shot. Vulnerable
-    when targeted directly, it excels at dealing with high health targets. Has a
-    tendency to overkill small units.
-
-
-
-    Build Time (seconds): 30
-
-    Damage
-    Per Shot: 100
-
-    Attack Cooldown (seconds): 6
-
-    Health: 80
-
-    Speed: 0.5
-
-    Range:
-    16
-
-    Unit Size: Large
-
-    Squad Size: 2
-
-    Squad Total Health: 160
-
-    Squad
-    Total DPS: 33.3
-
-'
+  infoName: Mace
+  infoDescription: "Heavily armored multiple missile launcher. Low overall damage,
+    range and speed, though its high rate of fire makes it ideal for eliminating
+    a multitude of low health targets.\r\n\r\nBuild Time (seconds): 20\r\nDamage
+    Per Shot: 6\r\nAttack Cooldown (seconds): 0.5 \r\nHealth: 280\r\nSpeed: 0.5\r\nRange:
+    8\r\nUnit Size: Large\r\nSquad Size: 1\r\nSquad Total Health: 280\r\nSquad Total
+    DPS: 10\r\n"
   infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}
 --- !u!1 &4594758004939053560
 GameObject:
@@ -258,16 +218,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3529786853949479076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1545267414621182925}
-        m_TargetAssemblyTypeName: CreatorButton, Assembly-CSharp
-        m_MethodName: startUnitTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

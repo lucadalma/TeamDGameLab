@@ -15,6 +15,9 @@ using static UnityEditor.PlayerSettings;
 
 public class UIManager : MonoBehaviour
 {
+
+    public BoolVariable pause;
+
     int posiblePages;
     int currentPage = 0;
 
@@ -859,43 +862,44 @@ public class UIManager : MonoBehaviour
     #region TopUI
     void MachTimerTracker()
     {
-
-        if (tickingTime <= 1)
+        if (pause.Value == false)
         {
-            tickingTime += Time.deltaTime;
-        }
-        else
-        {
-            tickingTime = 0;
-            if (seconds < 9)
+            if (tickingTime <= 1)
             {
-                seconds++;
+                tickingTime += Time.deltaTime;
             }
             else
             {
-                seconds = 0;
-                if (tenSeconds < 6)
+                tickingTime = 0;
+                if (seconds < 9)
                 {
-                    tenSeconds++;
+                    seconds++;
                 }
                 else
                 {
-                    tenSeconds = 0;
-                    if (Minutes < 9)
+                    seconds = 0;
+                    if (tenSeconds < 6)
                     {
-                        Minutes++;
+                        tenSeconds++;
                     }
                     else
                     {
-                        Minutes = 0;
-                        tenMinutes++;
+                        tenSeconds = 0;
+                        if (Minutes < 9)
+                        {
+                            Minutes++;
+                        }
+                        else
+                        {
+                            Minutes = 0;
+                            tenMinutes++;
+                        }
                     }
+
                 }
 
             }
-
         }
-
         machTimer.text = "" + tenMinutes + Minutes + ":" + tenSeconds + seconds;
     }
 

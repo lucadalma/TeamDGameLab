@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1407607624782427540}
   - component: {fileID: 3369868512655545848}
   - component: {fileID: 133737436944122311}
-  - component: {fileID: 4371686295979317977}
+  - component: {fileID: -8287853443793558870}
+  - component: {fileID: 1890050275951108373}
   m_Layer: 5
-  m_Name: 'Javelin Deploy Button '
+  m_Name: Javelin Deploy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.99029756, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -77,8 +78,21 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3
---- !u!114 &4371686295979317977
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-8287853443793558870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102633549431355430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7e10db3833c334b960551aaad424d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitID: 2
+--- !u!114 &1890050275951108373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +135,7 @@ MonoBehaviour:
     Total DPS: 33.3
 
 '
-  infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}
+  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
 --- !u!1 &4594758004939053560
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -212,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -242,4 +256,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3529786853949479076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -8287853443793558870}
+        m_TargetAssemblyTypeName: unitDeployButton, Assembly-CSharp
+        m_MethodName: selectUnitToDeploy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.07475519, b: 0.6886792, a: 1}
+  m_Color: {r: 0, g: 0.11050216, b: 0.735849, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 3
 --- !u!114 &4785832122586924673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7e10db3833c334b960551aaad424d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitID: 2
+  unitID: 1
 --- !u!114 &5007817590363920280
 MonoBehaviour:
   m_ObjectHideFlags: 0

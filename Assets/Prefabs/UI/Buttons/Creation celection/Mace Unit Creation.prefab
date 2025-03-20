@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 3369868512655545848}
   - component: {fileID: 133737436944122311}
   - component: {fileID: 1545267414621182925}
-  - component: {fileID: 7662028244500292854}
-  - component: {fileID: -8251786249489150663}
-  - component: {fileID: 347335991317850541}
+  - component: {fileID: 3711423871720704617}
   m_Layer: 5
   m_Name: Mace Unit Creation
   m_TagString: Untagged
@@ -29,7 +27,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102633549431355430}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40,9 +38,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
-  m_SizeDelta: {x: 2.3283064e-10, y: -0.0020065308}
-  m_Pivot: {x: 0.49999982, y: 0.50000006}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -2, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3369868512655545848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8962264, g: 0.005636533, b: 0.005636533, a: 1}
+  m_Color: {r: 0, g: 0.99029756, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -93,66 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e30fd9a1a0c3724387958ff52a08b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitWaitTimer: {fileID: 102633549431355430, guid: d7c5fb8703b8d164fbe3170daf3e4867, type: 3}
-  targetButton: {fileID: 423624919573337153}
+  unitWaitTimer: {fileID: 102633549431355430, guid: 7889289ed50e29f42b6449763ae311cd, type: 3}
+  targetButton: {fileID: 0}
   type: 0
---- !u!114 &7662028244500292854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102633549431355430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa5167ce7ea58f8438dee19666b8a613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: d1c66e0709dc3ee4ab043e4dec4281ce, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &-8251786249489150663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102633549431355430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa5167ce7ea58f8438dee19666b8a613, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 4e6876e95dad2fd4a84edf53620525e6, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &347335991317850541
+--- !u!114 &3711423871720704617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +113,7 @@ MonoBehaviour:
     Per Shot: 6\r\nAttack Cooldown (seconds): 0.5 \r\nHealth: 280\r\nSpeed: 0.5\r\nRange:
     8\r\nUnit Size: Large\r\nSquad Size: 1\r\nSquad Total Health: 280\r\nSquad Total
     DPS: 10\r\n"
-  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
+  infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}
 --- !u!1 &4594758004939053560
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5943396, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -270,7 +212,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.44705883}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0.5686275}
     m_SelectedColor: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 0.43137255}

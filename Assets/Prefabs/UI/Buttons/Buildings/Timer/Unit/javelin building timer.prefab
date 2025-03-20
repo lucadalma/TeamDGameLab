@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3369868512655545848}
   - component: {fileID: 133737436944122311}
   - component: {fileID: 8104882357771957156}
-  - component: {fileID: -5840023922125276250}
+  - component: {fileID: 4406059318977117346}
   m_Layer: 5
-  m_Name: javelin building timer
+  m_Name: Javelin building timer
   m_TagString: BuildingTimer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.61724216, g: 0.9528302, b: 0.9396699, a: 1}
+  m_Color: {r: 0.6886792, g: 0.27720416, b: 0.27720416, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -93,16 +93,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: 0
-  onOrder: 3
+  onOrder: 4
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   unitToUpgrade: 0
   creationTime: 120
   DeployUnit: {fileID: 0}
-  BuildingPref: {fileID: 7222558343854961609, guid: dc3636ac0860eab428cd2c8eb9df7c18, type: 3}
+  BuildingPref: {fileID: 7222558343854961609, guid: f48bf8b08d7857740a788fc2203a1d21, type: 3}
   timerBar: {fileID: 6907869805315139735}
   creationTimeMax: 120
   timerType: 1
---- !u!114 &-5840023922125276250
+--- !u!114 &4406059318977117346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
     when targeted directly, it excels at dealing with high health targets. Has a
     tendency to overkill small units.
 
-
+    
 
     Build Time (seconds): 30
 
@@ -130,22 +130,22 @@ MonoBehaviour:
 
     Health: 80
 
-    Speed: 0.5
+    Speed:
+    0.5
 
-    Range:
-    16
+    Range: 16
 
     Unit Size: Large
 
     Squad Size: 2
 
-    Squad Total Health: 160
+    Squad Total
+    Health: 160
 
-    Squad
-    Total DPS: 33.3
+    Squad Total DPS: 33.3
 
 '
-  infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}
+  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
 --- !u!1 &145249371856481888
 GameObject:
   m_ObjectHideFlags: 0
