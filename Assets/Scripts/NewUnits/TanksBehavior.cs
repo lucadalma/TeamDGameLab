@@ -13,7 +13,7 @@ public class TanksBehavior : MonoBehaviour
     private float armor;
     public float attackCooldown;
     private Transform currentRotation;
-    private Transform targetPoint;
+    public Transform targetPoint;
     public GameObject currentEnemy;
     public bool isEnemy;
 

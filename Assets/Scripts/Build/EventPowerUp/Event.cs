@@ -585,24 +585,4 @@ public class Event : MonoBehaviour
     }
     #endregion
 
-    void prova()
-    {
-
-        if (unitToUpgrade == BuildingButton.forUnit.dart)
-        {
-
-        }
-        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
-        {
-            
-        }
-        else if (unitToUpgrade == BuildingButton.forUnit.mace)
-        {
-          
-        }
-        else if (unitToUpgrade == BuildingButton.forUnit.gladius)
-        {
-            
-        }
-    }
 }
