@@ -47,6 +47,7 @@ public class EventManager : MonoBehaviour
 
     #region UpToUnit
     #region Dart
+    [Header("Dart")]
     public float newHPReg1;
     public float newMoveSpeed1;
     public float newHp1;
@@ -68,6 +69,7 @@ public class EventManager : MonoBehaviour
     #endregion
 
     #region Javeling
+    [Header("Javeling")]
     public float newHPReg2;
     public float newMoveSpeed2;
     public float newHp2;
@@ -88,6 +90,7 @@ public class EventManager : MonoBehaviour
     #endregion
 
     #region Mace
+    [Header("Mace")]
     public float newHPReg3;
     public float newMoveSpeed3;
     public float newHp3;
@@ -108,6 +111,7 @@ public class EventManager : MonoBehaviour
     #endregion
 
     #region Gladius
+    [Header("Gladius")]
     public float newHPReg4;
     public float newMoveSpeed4;
     public float newHp4;
