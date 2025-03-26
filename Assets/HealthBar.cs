@@ -23,8 +23,6 @@ public class HealthBar : MonoBehaviour
 
         PowerUp();
 
-        unitData.health = maxhealth;
-
         health = maxhealth;  
     }
 

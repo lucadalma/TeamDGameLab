@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TanksBehavior : MonoBehaviour
 {
-    private float speed;
+    public float speed;
     private float oldSpeed = 0;
-    private float maxhealth;
+    public float maxhealth;
     private float health;
     private float fireRate;
     private float damage;
@@ -247,15 +247,15 @@ public class TanksBehavior : MonoBehaviour
         {
             if (gameObject.name == "Unit_Dart(Clone)")
             {
-                EM.ForUnitDart(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
+                EM.ForUnitDart(ref health,ref speed,ref maxhealth,ref armor, ref detectionRadius,ref damage,ref attackCooldown);
                 Debug.Log(maxhealth);
             }
-            if (gameObject.name == "Unit_Javeling")
-                EM.ForUnitJaveling(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
-            if (gameObject.name == "Unit_Mace")
-                EM.ForUnitMace(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
-            if (gameObject.name == "Unit_Gladius")
-                EM.ForUnitGladius(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
+            if (gameObject.name == "Unit_Javeling(Clone)")
+                EM.ForUnitJaveling(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+            if (gameObject.name == "Unit_Mace(Clone)")
+                EM.ForUnitMace(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+            if (gameObject.name == "Unit_Gladius(Clone)")
+                EM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
 
         }
     }
