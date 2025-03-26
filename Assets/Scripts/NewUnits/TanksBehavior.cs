@@ -240,6 +240,7 @@ public class TanksBehavior : MonoBehaviour
 
     private void PowerUp()
     {
+
         maxhealth += EM.newHp1;
         health += EM.newHPReg1;
         speed += EM.newMoveSpeed1;

@@ -8,25 +8,103 @@ public class StackEvent : MonoBehaviour
 {
     #region HPStack
     List<GameObject> HPStack = new List<GameObject>();
+    List<GameObject> HPStack2 = new List<GameObject>();
+    List<GameObject> HPStack3 = new List<GameObject>();
+    List<GameObject> HPStack4 = new List<GameObject>();
 
     public void AddHpStackList(GameObject Addobj)
     {
         HPStack.Add(Addobj);
+        HPStack2.Add(Addobj);
+        HPStack3.Add(Addobj);
+        HPStack4.Add(Addobj);
+
+    }  
+    public void AddHpStackList2(GameObject Addobj)
+    {
+        HPStack2.Add(Addobj);
+    }  
+    public void AddHpStackList3(GameObject Addobj)
+    {
+        HPStack3.Add(Addobj);
+
+    } 
+    public void AddHpStackList4(GameObject Addobj)
+    {
+        HPStack4.Add(Addobj);
 
     }
-
-
+    ////////
     public void RemoveHpStackList(GameObject obj)
     {
         HPStack.Remove(obj);
+        HPStack2.Remove(obj);
+        HPStack3.Remove(obj);
+        HPStack4.Remove(obj);
+    } public void RemoveHpStackList2(GameObject obj)
+    {
+        HPStack.Remove(obj);
+        HPStack2.Remove(obj);
+        HPStack3.Remove(obj);
+        HPStack4.Remove(obj);
+    } public void RemoveHpStackList3(GameObject obj)
+    {
+        HPStack.Remove(obj);
+        HPStack2.Remove(obj);
+        HPStack3.Remove(obj);
+        HPStack4.Remove(obj);
+    } public void RemoveHpStackList4(GameObject obj)
+    {
+        HPStack.Remove(obj);
+        HPStack2.Remove(obj);
+        HPStack3.Remove(obj);
+        HPStack4.Remove(obj);
     }
 
     public float ChangeStackHp(float stack, float ammount1, float ammount2)
     {
+        
+
         if (HPStack.Count <= 1)
             stack = HPStack.Count * ammount1;
         else if (HPStack.Count >= 2)
             stack = (HPStack.Count + ammount1) * ammount2;
+
+        return stack;
+    }
+
+    public float ChangeStackHp2(float stack, float ammount1, float ammount2)
+    {
+        
+
+        if (HPStack2.Count <= 1)
+            stack = HPStack2.Count * ammount1;
+        else if (HPStack2.Count >= 2)
+            stack = (HPStack2.Count + ammount1) * ammount2;
+
+        return stack;
+    }
+
+    public float ChangeStackHp3(float stack, float ammount1, float ammount2)
+    {
+       
+
+        if (HPStack3.Count <= 1)
+            stack = HPStack3.Count * ammount1;
+        else if (HPStack3.Count >= 2)
+            stack = (HPStack3.Count + ammount1) * ammount2;
+
+        return stack;
+    }
+
+    public float ChangeStackHp4(float stack, float ammount1, float ammount2)
+    {
+        
+
+        if (HPStack4.Count <= 1)
+            stack = HPStack4.Count * ammount1;
+        else if (HPStack4.Count >= 2)
+            stack = (HPStack4.Count + ammount1) * ammount2;
 
         return stack;
     }

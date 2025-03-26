@@ -145,9 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitToUpgrade: 0
   eventType: 1
-  ammount1: 0
-  ammount2: 0
+  ammount1: 1
+  ammount2: 0.5
   debuff: 0
 --- !u!114 &-4502186670267664138
 MonoBehaviour:
