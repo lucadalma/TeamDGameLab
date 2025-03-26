@@ -240,13 +240,13 @@ public class TanksBehavior : MonoBehaviour
 
     private void PowerUp()
     {
-        maxhealth += EM.newHp;
-        health += EM.newHPReg;
-        speed += EM.newMoveSpeed;
-        armor += EM.newArmor;
-        detectionRadius += EM.newRange;
-        damage += EM.newDmg;
-        attackCooldown += EM.newReload;
+        maxhealth += EM.newHp1;
+        health += EM.newHPReg1;
+        speed += EM.newMoveSpeed1;
+        armor += EM.newArmor1;
+        detectionRadius += EM.newRange1;
+        damage += EM.newDmg1;
+        attackCooldown += EM.newReload1;
 
     }
 }

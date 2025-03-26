@@ -26,6 +26,7 @@ public enum EventType
 public class Event : MonoBehaviour
 {
     EventManager EM;
+    private BuildingButton.forUnit unitToUpgrade;
 
     StackEvent SE;
     public EventType eventType;
@@ -40,6 +41,7 @@ public class Event : MonoBehaviour
 
 
     float stack;
+    float dart, javelin, mace, gladius;
 
 
     private void Start()
@@ -48,6 +50,8 @@ public class Event : MonoBehaviour
             EM = FindObjectOfType<EventManager>();
         if (SE == null)
             SE = FindObjectOfType<StackEvent>();
+
+        unitToUpgrade = unitToUpgrade;
 
         Stack();
     }
@@ -137,16 +141,69 @@ public class Event : MonoBehaviour
     #region PowerUp
     private void HPRegeneration()
     {
-        stack = SE.ChangeStackHp(stack, ammount1, ammount2);
-        EM.newHPReg = stack * Time.deltaTime;
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+            stack = SE.ChangeStackHp(stack, ammount1, ammount2);
+            dart = stack * Time.deltaTime;
+            EM.newHPReg1 = dart;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+            stack = SE.ChangeStackHp(stack, ammount1, ammount2);
+            javelin = stack * Time.deltaTime;
+            EM.newHPReg1 = javelin;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+            stack = SE.ChangeStackHp(stack, ammount1, ammount2);
+            mace = stack * Time.deltaTime;
+            EM.newHPReg1 = mace;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+            stack = SE.ChangeStackHp(stack, ammount1, ammount2);
+            gladius = stack * Time.deltaTime;
+            EM.newHPReg1 = gladius;
+        }
+
+
+
+        
     }
 
 
 
     private void SpeedUp()
     {
-        stack = SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
-        EM.newMoveSpeed = stack;
+
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+            stack = SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
+            dart = stack;
+            EM.newMoveSpeed1 = dart;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+            stack = SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
+            javelin = stack;
+            EM.newMoveSpeed1 = javelin;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+            stack = SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
+            mace = stack;
+            EM.newMoveSpeed1 = mace;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+            stack = SE.ChangeStackSpeedUp(stack, ammount1, ammount2);
+            gladius = stack;
+            EM.newMoveSpeed1 = gladius;
+        }
+
+
+
+       
 
     }
 
@@ -160,35 +217,149 @@ public class Event : MonoBehaviour
 
     private void MaxHP()
     {
-        stack = SE.ChangeStackMaxHp(stack, ammount1);
-        EM.newHp = stack;
+
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+
+            stack = SE.ChangeStackMaxHp(stack, ammount1);
+            dart = stack;
+            EM.newHp1 = dart;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+            stack = SE.ChangeStackMaxHp(stack, ammount1);
+            javelin = stack;
+            EM.newHp1 = javelin;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+            stack = SE.ChangeStackMaxHp(stack, ammount1);
+            mace = stack;
+            EM.newHp1 = mace;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+            stack = SE.ChangeStackMaxHp(stack, ammount1);
+            gladius = stack;
+            EM.newHp1 = gladius;
+        }
+
+
+
     }
 
     private void Armor()
     {
+
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+
+        }
+
+
+
+
         stack = SE.ChangeStackArmor(stack, ammount1, ammount2);
-        EM.newArmor = stack;
+        EM.newArmor1 = stack;
     }
 
     private void Range()
     {
+
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+
+        }
+
+
+
+
+
         stack = SE.ChangeStackRange(stack, ammount1, ammount2);
-        EM.newRange = stack;
-        EM.newMoveSpeed = SE.SpeedDebuff(EM.newMoveSpeed, debuff);
+        EM.newRange1 = stack;
+        EM.newMoveSpeed1 = SE.SpeedDebuff(EM.newMoveSpeed1, debuff);
     }
 
     private void Caliber()
     {
+
+
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+
+        }
+
+
+
         stack = SE.ChangeStackCaliber(stack, ammount1);
-        EM.newDmg = stack;
-        EM.newReload = SE.ReloadDebuff(EM.newReload, debuff);
+        EM.newDmg1 = stack;
+        EM.newReload1 = SE.ReloadDebuff(EM.newReload1, debuff);
     }
 
     private void Riot() //[1]
     {
+
+
+
+        if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+
+        }
+
+
+
+
         stack = SE.ChangeStackRiot(stack, debuff);
-        EM.newDmg = stack;
-        EM.newReload = SE.ReloadBuff(EM.newReload, ammount1);
+        EM.newDmg1 = stack;
+        EM.newReload1 = SE.ReloadBuff(EM.newReload1, ammount1);
 
     }
 
@@ -240,19 +411,19 @@ public class Event : MonoBehaviour
                 EM.RemoveListAction(Range);
                 SE.RemoveRangeStackList(this.gameObject);
                 SE.ChangeStackRange(stack, ammount1, ammount2);
-                SE.SpeedDebuff(EM.newMoveSpeed, debuff);
+                SE.SpeedDebuff(EM.newMoveSpeed1, debuff);
                 break;
             case EventType.Caliber:
                 EM.RemoveListAction(Caliber);
                 SE.RemoveCaliberStackList(this.gameObject);
                 SE.ChangeStackCaliber(stack, ammount1);
-                SE.ReloadDebuff(EM.newReload, debuff);
+                SE.ReloadDebuff(EM.newReload1, debuff);
                 break;
             case EventType.Riot:
                 EM.RemoveListAction(Riot);
                 SE.RemoveRiotStackList(this.gameObject);
                 SE.ChangeStackRiot(stack, debuff);
-                SE.ReloadBuff(EM.newReload, ammount1);
+                SE.ReloadBuff(EM.newReload1, ammount1);
                 break;
             case EventType.MaceUnit:
                 UnitaUnLook(false, false, false);
@@ -271,5 +442,5 @@ public class Event : MonoBehaviour
     }
     #endregion
 
-
+   
 }

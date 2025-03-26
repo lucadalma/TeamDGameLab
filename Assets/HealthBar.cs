@@ -52,9 +52,9 @@ public class HealthBar : MonoBehaviour
 
     void PowerUp()
     {
-        maxhealth += EM.newHp;
-        health += EM.newHPReg;
-        armor += EM.newArmor;
+        maxhealth += EM.newHp1;
+        health += EM.newHPReg1;
+        armor += EM.newArmor1;
     }
    
         
