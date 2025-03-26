@@ -42,6 +42,9 @@ public class TanksBehavior : MonoBehaviour
             PowerUp();
 
 
+
+
+
         // Salva la rotazione iniziale al momento dell'inizializzazione
         initialRotation = transform.rotation;
         oldSpeed = speed;
@@ -240,14 +243,20 @@ public class TanksBehavior : MonoBehaviour
 
     private void PowerUp()
     {
+        if (isEnemy == false)
+        {
+            if (gameObject.name == "Unit_Dart(Clone)")
+            {
+                EM.ForUnitDart(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
+                Debug.Log(maxhealth);
+            }
+            if (gameObject.name == "Unit_Javeling")
+                EM.ForUnitJaveling(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
+            if (gameObject.name == "Unit_Mace")
+                EM.ForUnitMace(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
+            if (gameObject.name == "Unit_Gladius")
+                EM.ForUnitGladius(health, speed, maxhealth, armor, detectionRadius, damage, attackCooldown);
 
-        maxhealth += EM.newHp1;
-        health += EM.newHPReg1;
-        speed += EM.newMoveSpeed1;
-        armor += EM.newArmor1;
-        detectionRadius += EM.newRange1;
-        damage += EM.newDmg1;
-        attackCooldown += EM.newReload1;
-
+        }
     }
 }

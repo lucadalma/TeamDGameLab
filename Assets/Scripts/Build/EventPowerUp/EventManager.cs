@@ -63,6 +63,7 @@ public class EventManager : MonoBehaviour
         _newRange += newRange1;
         _newDmg += newDmg1;
         _newReload += newReload1;
+        Debug.Log(_newHPReg);
     }
     #endregion
 
@@ -113,7 +114,7 @@ public class EventManager : MonoBehaviour
     public float newArmor4;
     public float newRange4;
     public float newDmg4, newReload4;
-    public void ForUnitGladdius(float _newHPReg, float _newMoveSpeed, float _newHp,
+    public void ForUnitGladius(float _newHPReg, float _newMoveSpeed, float _newHp,
        float _newArmor, float _newRange, float _newDmg, float _newReload)
     {
         _newHPReg += newHPReg4;
