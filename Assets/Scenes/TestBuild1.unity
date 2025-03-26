@@ -4918,6 +4918,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1732127601}
     - target: {fileID: 2880839483015369466, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
+      propertyPath: availableUnitsToCreate.Array.data[0]
+      value: 
+      objectReference: {fileID: 102633549431355430, guid: 1c749e3d2a13e084c94d02a2beca3f24, type: 3}
+    - target: {fileID: 2880839483015369466, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
       propertyPath: currentBuildingButtons.Array.data[0]
       value: 
       objectReference: {fileID: 391937012}
