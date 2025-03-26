@@ -7,7 +7,7 @@ public class BaseHealth : MonoBehaviour
     public float health = 100f; // Salute corrente della base
 
     [SerializeField]
-    BaseScript Base;
+    public BaseScript Base;
 
     private void Start()
     {
