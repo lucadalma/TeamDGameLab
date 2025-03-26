@@ -10,6 +10,9 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField]
     GameEvent increaseWaveNumber;
 
+    [SerializeField]
+    Transform EnemyBase;
+
     int currentWave = 0;
 
     int numberOfWaves = 0;
@@ -86,7 +89,6 @@ public class EnemyWaveManager : MonoBehaviour
     {
         WaveSO currentWaveSO = currentSetOfWave.waves[waveIndex];
 
-
         int spawnPointIndex = 0;
 
         foreach (EnemyGroup currentEnemyGroup in currentWaveSO.enemyGroup)
@@ -95,7 +97,10 @@ public class EnemyWaveManager : MonoBehaviour
             {
                 float offsetX = Random.Range(-areaWidth / 2, areaWidth / 2);
                 float offsetZ = Random.Range(-areaLength / 2, areaLength / 2);
-                Vector3 spawnPosition = currentWaveSO.spawnPoint[spawnPointIndex].transform.position + new Vector3(offsetX, 0, offsetZ);
+                Vector3 spawnPosition = currentWaveSO.spawnPoint[spawnPointIndex].transform.position + new Vector3(offsetX, 0, 0);
+
+                spawnPosition.z = EnemyBase.position.z + offsetZ;
+
                 GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, spawnPosition, Quaternion.Euler(0, 180, 0));
                 TanksBehavior behavior = unit.GetComponent<TanksBehavior>();
                 if (behavior != null)
@@ -107,7 +112,7 @@ public class EnemyWaveManager : MonoBehaviour
             spawnPointIndex++;
         }
         yield return new WaitForSeconds(timeBetweenSpawn.Value);
-
     }
+
 
 }

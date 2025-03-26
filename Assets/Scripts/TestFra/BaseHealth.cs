@@ -6,6 +6,9 @@ public class BaseHealth : MonoBehaviour
     public float maxHealth = 100f; // Salute massima della base
     public float health = 100f; // Salute corrente della base
 
+    [SerializeField]
+    BaseScript Base;
+
     private void Start()
     {
         health = maxHealth;
@@ -19,6 +22,16 @@ public class BaseHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        }
+
+        for (int i = 0; i < Base.hpThresholds.Count; i++)
+        {
+            if (health <= Base.hpThresholds[i] && i > Base.lastThresholdIndex)
+            {
+                Base.StartRetreat(i);
+                Base.lastThresholdIndex = i;
+                break;
+            }
         }
     }
 
