@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8421323026404292420}
   - component: {fileID: 1299063292083223248}
   m_Layer: 5
-  m_Name: uintBuildingButton 10
+  m_Name: StreamlinedProductionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: afe41a190c4b91141854104c2677fd3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 237f240917bf9754f8f2ff11a8d8812d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleUse: 1
   BuildingTimer: {fileID: 0}
   type: 2
   category: 2

@@ -147,10 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleUse: 1
   BuildingTimer: {fileID: 102633549431355430, guid: ef7f05b7b4e3b104d94226d964b1c760, type: 3}
   type: 1
   category: 1
-  buttonType: 3
+  buttonType: 4
   unitAffected: 0
 --- !u!114 &9010221532201812706
 MonoBehaviour:

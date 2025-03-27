@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleUse: 1
   BuildingTimer: {fileID: 102633549431355430, guid: 5aab1fba06e1030448b6191b919fd1e3, type: 3}
   type: 1
   category: 1

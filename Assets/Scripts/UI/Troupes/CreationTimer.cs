@@ -10,7 +10,7 @@ public class CreationTimer : MonoBehaviour
 {
     //public TextMeshProUGUI BuldingOrderText;
 
-
+    public BuildingButton.ButtonEnum type;
     public bool first = false;
     public int onOrder = 1;
     bool activated = false;
@@ -36,6 +36,7 @@ public class CreationTimer : MonoBehaviour
         unit,
         building
     }
+
 
     [SerializeField] timerTypeEnum timerType;
     void Start()

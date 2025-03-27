@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af18d414ccbe0b349b98d91ac2d63d02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleUse: 1
   BuildingTimer: {fileID: 0}
   type: 1
   category: 3
@@ -156,17 +157,17 @@ MonoBehaviour:
   infoDescription: 'After a short delay, stuns all enemy units within the target
     area, preventing them from moving for the next 30 seconds.
 
-    
 
-    Build
-    Time (seconds): 60
+
+    Build Time
+    (seconds): 60
 
     Cooldown (seconds): 60
 
     Target: enemy units
 
-    Max
-    Range: 90
+    Max Range:
+    90
 
     Effect Duration (seconds): 30
 

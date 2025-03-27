@@ -16,6 +16,9 @@ using static UnityEditor.PlayerSettings;
 public class UIManager : MonoBehaviour
 {
 
+
+
+
     public BoolVariable pause;
 
     int posiblePages;
@@ -527,6 +530,32 @@ public class UIManager : MonoBehaviour
                 temp.GetComponent<Button>().interactable = false;
             }
 
+            if (temp.GetComponent<BuildingButton>().isSingleUse && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades && temp.GetComponent<Button>().interactable != false)
+            {
+                Debug.Log("Started Checking Doublees");
+
+                foreach (var timer in buildingsOnTimer)
+                {
+                    Debug.Log("Doublees Checked in timers");
+                    if (temp.GetComponent<BuildingButton>().buttonType == timer.GetComponent<CreationTimer>().type)
+                    {
+                        Debug.Log("Deactivationg " + temp.name + " button from Timers");
+
+                        temp.GetComponent<Button>().interactable = false;
+                    }
+                }
+
+                foreach (var Building in FindObjectsOfType<BuildingCategorization>())
+                {
+                    Debug.Log("Doublees Checked in buildings");
+                    if (temp.GetComponent<BuildingButton>().buttonType == Building.type)
+                    {
+                        Debug.Log("Deactivationg " + temp.name +  " button from Buildings");
+                        temp.GetComponent<Button>().interactable = false;
+                    }
+                }
+            }
+
             StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
             temp.GetComponent<BuildingButton>().centerPoint = CenterPoint;
             buildingButtonsDysplayed.Add(temp);
@@ -596,7 +625,7 @@ public class UIManager : MonoBehaviour
         numberOfBuildingsOnTimer = buildingsOnTimer.Count;
     }
 
-    public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint, BuildingButton.TypeEnum type, BuildingButton.forUnit affectrdUnit)
+    public void addBuildingOnTimer(GameObject building, Vector2 CenterPoint, BuildingButton.TypeEnum type, BuildingButton.forUnit affectrdUnit, BuildingButton.ButtonEnum buttonType)
     {
         if (building != null)
         {
@@ -610,7 +639,7 @@ public class UIManager : MonoBehaviour
                 {
                     newBuilding.GetComponent<CreationTimer>().unitToUpgrade = affectrdUnit;
                 }
-
+                newBuilding.GetComponent<CreationTimer>().type = buttonType;
 
                 TargetBuilding.layer = LayerMask.NameToLayer("BuiildingsInQueue");
 
@@ -857,7 +886,6 @@ public class UIManager : MonoBehaviour
 
 
     #endregion
-
 
     #region TopUI
     void MachTimerTracker()

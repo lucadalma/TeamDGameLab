@@ -8,6 +8,8 @@ public class BuildingButton : MonoBehaviour
 {
     [NonSerialized] public Vector2 centerPoint;
 
+    public bool isSingleUse;
+
     public GameObject BuildingTimer;
     public enum TypeEnum
     {
@@ -130,7 +132,7 @@ public class BuildingButton : MonoBehaviour
 
     public void StartBuildingTimer()
     {
-        uIM.addBuildingOnTimer(BuildingTimer, centerPoint, type, unitAffected);
+        uIM.addBuildingOnTimer(BuildingTimer, centerPoint, type, unitAffected, buttonType);
     }
 
     void alreadyInSceneCheck(bool isInScene)
