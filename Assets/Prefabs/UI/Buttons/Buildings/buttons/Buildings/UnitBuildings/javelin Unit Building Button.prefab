@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8421323026404292420}
   - component: {fileID: 8868331608897147801}
   m_Layer: 5
-  m_Name: Javelin Unit Building Button
+  m_Name: javelin Unit Building Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   BuildingTimer: {fileID: 102633549431355430, guid: 67a64417e7724154d83bab98fed8ec8a, type: 3}
   type: 1
   category: 1
-  buttonType: 4
+  buttonType: 3
   unitAffected: 0
 --- !u!114 &8868331608897147801
 MonoBehaviour:

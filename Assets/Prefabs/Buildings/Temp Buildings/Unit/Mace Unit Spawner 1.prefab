@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventType: 0
+  unitToUpgrade: 0
+  eventType: 9
   ammount1: 0
   ammount2: 0
   debuff: 0
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 3
+  type: 4
   unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 1778570417008535757}

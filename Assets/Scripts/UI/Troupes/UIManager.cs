@@ -530,27 +530,31 @@ public class UIManager : MonoBehaviour
                 temp.GetComponent<Button>().interactable = false;
             }
 
-            //if (temp.GetComponent<BuildingButton>().isSingleUse && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades && temp.GetComponent<Button>().interactable != false)
-            //{
+            if (temp.GetComponent<BuildingButton>().isSingleUse && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades && temp.GetComponent<Button>().interactable != false)
+            {
+                Debug.Log("Started Checking Doublees");
 
-            //    foreach (var timer in buildingsOnTimer)
-            //    {
-            //        if (temp.GetComponent<BuildingButton>().buttonType == timer.GetComponent<CreationTimer>().type)
-            //        {
-            //            temp.GetComponent<Button>().interactable = false;
-            //            break;
-            //        }
-            //    }
+                foreach (var timer in buildingsOnTimer)
+                {
+                    Debug.Log("Doublees Checked in timers");
+                    if (temp.GetComponent<BuildingButton>().buttonType == timer.GetComponent<CreationTimer>().type)
+                    {
+                        Debug.Log("Deactivationg " + temp.name + " button from Timers");
 
-            //    foreach (var Building in FindObjectsOfType<BuildingCategorization>())
-            //    {
-            //        if (temp.GetComponent<BuildingButton>().buttonType == Building.type)
-            //        {
-            //            temp.GetComponent<Button>().interactable = false;
-            //            break;
-            //        }
-            //    }
-            //}
+                        temp.GetComponent<Button>().interactable = false;
+                    }
+                }
+
+                foreach (var Building in FindObjectsOfType<BuildingCategorization>())
+                {
+                    Debug.Log("Doublees Checked in buildings");
+                    if (temp.GetComponent<BuildingButton>().buttonType == Building.type)
+                    {
+                        Debug.Log("Deactivationg " + temp.name +  " button from Buildings");
+                        temp.GetComponent<Button>().interactable = false;
+                    }
+                }
+            }
 
             StartCoroutine(AnimationProgression(CenterPoint, spawnPoint, temp));
             temp.GetComponent<BuildingButton>().centerPoint = CenterPoint;

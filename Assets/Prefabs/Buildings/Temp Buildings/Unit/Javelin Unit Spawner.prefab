@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventType: 9
+  unitToUpgrade: 0
+  eventType: 0
   ammount1: 0
   ammount2: 0
   debuff: 0
@@ -161,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
+  type: 3
   unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 3588748634252962500}
@@ -182,7 +183,7 @@ MonoBehaviour:
     when targeted directly, it excels at dealing with high health targets. Has a
     tendency to overkill small units.
 
-    
+
 
     Build Time (seconds): 30
 
@@ -193,19 +194,19 @@ MonoBehaviour:
 
     Health: 80
 
-    Speed:
-    0.5
+    Speed: 0.5
 
-    Range: 16
+    Range:
+    16
 
     Unit Size: Large
 
     Squad Size: 2
 
-    Squad Total
-    Health: 160
+    Squad Total Health: 160
 
-    Squad Total DPS: 33.3
+    Squad
+    Total DPS: 33.3
 
 '
   infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
