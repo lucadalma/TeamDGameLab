@@ -287,12 +287,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce810e5f27ceb3e4f80018803e3e2406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  maxhealth: 0
   attackCooldown: 0
+  targetPoint: {fileID: 0}
   currentEnemy: {fileID: 0}
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
-  detectionRadius: 100
+  detectionRadius: 250
   rotationSpeed: 3
   healthBar: {fileID: 3458354958204175235}
   EM: {fileID: 0}
