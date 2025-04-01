@@ -530,16 +530,13 @@ public class UIManager : MonoBehaviour
                 temp.GetComponent<Button>().interactable = false;
             }
 
-            if (temp.GetComponent<BuildingButton>().isSingleUse && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades && temp.GetComponent<Button>().interactable != false)
+            if (temp.GetComponent<BuildingButton>().isSingleUse && temp.GetComponent<BuildingButton>().category != BuildingButton.CategoryEnum.upgrades)
             {
-                Debug.Log("Started Checking Doublees");
-
                 foreach (var timer in buildingsOnTimer)
                 {
-                    Debug.Log("Doublees Checked in timers");
                     if (temp.GetComponent<BuildingButton>().buttonType == timer.GetComponent<CreationTimer>().type)
                     {
-                        Debug.Log("Deactivationg " + temp.name + " button from Timers");
+                        Debug.Log("Deactivationg " + temp.name);
 
                         temp.GetComponent<Button>().interactable = false;
                     }
@@ -547,10 +544,10 @@ public class UIManager : MonoBehaviour
 
                 foreach (var Building in FindObjectsOfType<BuildingCategorization>())
                 {
-                    Debug.Log("Doublees Checked in buildings");
                     if (temp.GetComponent<BuildingButton>().buttonType == Building.type)
                     {
-                        Debug.Log("Deactivationg " + temp.name +  " button from Buildings");
+                        Debug.Log("Deactivationg " + temp.name);
+
                         temp.GetComponent<Button>().interactable = false;
                     }
                 }
