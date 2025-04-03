@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 5671954401964722568}
   - component: {fileID: 9039410474528768603}
   - component: {fileID: 2444877162349679114}
+  - component: {fileID: -7480725428416755022}
   m_Layer: 3
   m_Name: Unit_Mace
   m_TagString: Unit
@@ -625,6 +626,26 @@ MonoBehaviour:
   rotationSpeed: 3
   healthBar: {fileID: 7334433375511510991}
   EM: {fileID: 0}
+--- !u!114 &-7480725428416755022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8193337744482914128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Mace
+  infoDescription: "Heavily armored multiple missile launcher. Low overall damage,
+    range and speed, though its high rate of fire makes it ideal for eliminating
+    a multitude of low health targets.\r\n\r\nBuild Time (seconds): 20\r\nDamage
+    Per Shot: 6\r\nAttack Cooldown (seconds): 0.5 \r\nHealth: 280\r\nSpeed: 0.5\r\nRange:
+    8\r\nUnit Size: Large\r\nSquad Size: 1\r\nSquad Total Health: 280\r\nSquad Total
+    DPS: 10\r\n"
+  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
 --- !u!1001 &353062340048688917
 PrefabInstance:
   m_ObjectHideFlags: 0

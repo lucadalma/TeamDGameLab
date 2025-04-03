@@ -2357,6 +2357,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1338275738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6094899479250923731, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+  m_PrefabInstance: {fileID: 6094899478365636425}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1338275743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6094899479250923734, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
@@ -2668,7 +2673,7 @@ PrefabInstance:
     - target: {fileID: 2880839483015369466, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 986947279}
+      objectReference: {fileID: 1338275738}
     - target: {fileID: 2880839483015369466, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
       propertyPath: pause
       value: 
@@ -3436,6 +3441,10 @@ PrefabInstance:
       propertyPath: speedSlider
       value: 
       objectReference: {fileID: 1883550907}
+    - target: {fileID: 4913719819467653259, guid: 65fce38f75b894142a071f848fc2777a, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4913719819467653260, guid: 65fce38f75b894142a071f848fc2777a, type: 3}
       propertyPath: m_Size.x
       value: 610.13934
@@ -3469,56 +3478,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 121246739750450128, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121246739750450128, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121246739750450128, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_LocalRotation.y
+    - target: {fileID: 3507952560720632041, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 121246739750450128, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 121246739750450128, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094899479250923730, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: infoName
-      value: 'Enemy Fortress '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094899479250923730, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: infoDescription
-      value: "The enemy\u2019s Fortress. Destroy this to win. It spawns enemy units
-        and upgrades them over time. It will start retreating after taking enough
-        damage.\r\n\r\nDamage Per Shot: 4\r\nAttack Cooldown (seconds): 1\r\nHealth:
-        1000\r\nSpeed: 1\r\nRange: 12\r\n"
+    - target: {fileID: 3507952561140107059, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6094899479250923731, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
       propertyPath: m_Name
       value: BaseNemicaV.2
       objectReference: {fileID: 0}
-    - target: {fileID: 6094899479250923733, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_Size.x
-      value: 589.35645
+    - target: {fileID: 6094899479250923732, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: health
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 6094899479250923733, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_Size.z
-      value: 362.398
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094899479250923733, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_Center.x
-      value: 3.6396942
-      objectReference: {fileID: 0}
-    - target: {fileID: 6094899479250923733, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
-      propertyPath: m_Center.z
-      value: 62.024017
+    - target: {fileID: 6094899479250923732, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: maxHealth
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6094899479250923734, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
       propertyPath: m_RootOrder

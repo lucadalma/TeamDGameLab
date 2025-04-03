@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitWaitTimer: {fileID: 102633549431355430, guid: 7889289ed50e29f42b6449763ae311cd, type: 3}
-  targetButton: {fileID: 0}
+  targetButton: {fileID: 423624919573337153}
   type: 0
 --- !u!114 &3711423871720704617
 MonoBehaviour:
