@@ -47,9 +47,13 @@ public class BaseScript : MonoBehaviour
     {
         if (isEnemy)
         {
-            if (isRetreating)
+            if (pause.Value == false)
             {
-                MoveBackward();
+                if (isRetreating)
+                {
+                    MoveBackward();
+                }
+
             }
         }
 
@@ -82,18 +86,18 @@ public class BaseScript : MonoBehaviour
         if (currentSpeed < retreatSpeed)
         {
             currentSpeed += acceleration * Time.deltaTime;
-            currentSpeed = Mathf.Min(currentSpeed, retreatSpeed); 
+            currentSpeed = Mathf.Min(currentSpeed, retreatSpeed);
         }
 
         float speedFactor = Mathf.Clamp01(distanceRemaining / totalDistance);
-        float adjustedSpeed = currentSpeed * speedFactor; 
+        float adjustedSpeed = currentSpeed * speedFactor;
 
         transform.position = Vector3.MoveTowards(transform.position, retreatTarget, adjustedSpeed * Time.deltaTime);
 
         if (distanceRemaining < 0.5f)
         {
             isRetreating = false;
-            currentSpeed = 0f; 
+            currentSpeed = 0f;
         }
     }
 
@@ -106,8 +110,8 @@ public class BaseScript : MonoBehaviour
 
         isRetreating = true;
         retreatTarget = transform.position - transform.forward * retreatDistances[index];
-        lastThresholdIndex = index; 
-        currentSpeed = 0f; 
+        lastThresholdIndex = index;
+        currentSpeed = 0f;
 
         Debug.Log($"Retreating {retreatDistances[index]} units!");
     }
