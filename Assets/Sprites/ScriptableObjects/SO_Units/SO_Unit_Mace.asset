@@ -18,7 +18,7 @@ MonoBehaviour:
   fireRate: 0.5
   damage: 6
   spawnCd: 20
-  unitID: 1
+  unitID: 3
   unitCount: 2
   unitPrefab: {fileID: 8193337744482914128, guid: 64d69014465ddd94f8b727d847c3fff2, type: 3}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
