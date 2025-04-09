@@ -68,6 +68,15 @@ public class EnemyWaveManager : MonoBehaviour
 
             numberOfWaves += 1;
 
+            if (currentWave + 1 >= currentSetOfWave.waves.Count)
+            {
+                nextWaveSO = currentSetOfWave.waves[0];
+            }
+            else 
+            {
+                nextWaveSO = currentSetOfWave.waves[currentWave + 1];
+            }
+
             while (pause.Value)
             {
                 yield return null;
@@ -90,7 +99,7 @@ public class EnemyWaveManager : MonoBehaviour
     private IEnumerator SpawnWave(int waveIndex)
     {
         WaveSO currentWaveSO = currentSetOfWave.waves[waveIndex];
-        nextWaveSO = currentSetOfWave.waves[waveIndex + 1];
+        //nextWaveSO = currentSetOfWave.waves[waveIndex + 1];
 
         int spawnPointIndex = 0;
 
