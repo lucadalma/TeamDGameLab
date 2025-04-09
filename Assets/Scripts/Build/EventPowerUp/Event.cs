@@ -16,7 +16,8 @@ public enum EventType
     Riot,
     MaceUnit,
     DartUnit,
-    GladiusUnit
+    GladiusUnit,
+    JavUnit
 };
 
 
@@ -82,13 +83,16 @@ public class Event : MonoBehaviour
                 EM.AddListAction(SpeedUp);
                 break;
             case EventType.MaceUnit:
-                UnitaUnLook(true, false, false);
+                UnitaUnLook(true, false, false, false);
                 break;
             case EventType.DartUnit:
-                UnitaUnLook(false, true, false);
+                UnitaUnLook(false, true, false, false);
                 break;
             case EventType.GladiusUnit:
-                UnitaUnLook(false, false, true);
+                UnitaUnLook(false, false, true, false);
+                break;
+            case EventType.JavUnit:
+                UnitaUnLook(false, false, false, true);
                 break;
             case EventType.BuildingCreationSpeed:
                 EM.AddListAction(BuildSpeed);
@@ -457,7 +461,7 @@ public class Event : MonoBehaviour
         
     }
 
-    private void UnitaUnLook(bool red, bool green, bool blue)
+    private void UnitaUnLook(bool red, bool green, bool blue, bool viola)
     {
         if (red == true)
             EM.Mace = true;
@@ -465,6 +469,8 @@ public class Event : MonoBehaviour
             EM.Dart = true;
         if (blue == true)
             EM.Gladius = true;
+        if (viola == true)
+            EM.Javeling = true;
 
     }
     #endregion
@@ -569,13 +575,16 @@ public class Event : MonoBehaviour
                 SE.ReloadBuff(EM.newReload1, ammount1);
                 break;
             case EventType.MaceUnit:
-                UnitaUnLook(false, false, false);
+                UnitaUnLook(false, false, false, false);
                 break;
             case EventType.DartUnit:
-                UnitaUnLook(false, false, false);
+                UnitaUnLook(false, false, false, false);
                 break;
             case EventType.GladiusUnit:
-                UnitaUnLook(false, false, false);
+                UnitaUnLook(false, false, false, false);
+                break;
+            case EventType.JavUnit:
+                UnitaUnLook(false, false, false, true);
                 break;
             default:
                 break;

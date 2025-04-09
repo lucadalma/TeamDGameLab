@@ -12,7 +12,7 @@ public class EventManager : MonoBehaviour
     public float newBuildSpeed;
 
     [HideInInspector]
-    public bool Mace, Dart, Gladius;
+    public bool Mace, Dart, Gladius, Javeling;
 
 
     private void Update()
