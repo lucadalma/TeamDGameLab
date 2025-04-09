@@ -254,7 +254,7 @@ MonoBehaviour:
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 200
+  detectionRadius: 6
   rotationSpeed: 3
   healthBar: {fileID: 3318814927896821315}
   EM: {fileID: 0}
