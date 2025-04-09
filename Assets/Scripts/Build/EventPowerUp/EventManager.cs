@@ -11,7 +11,6 @@ public class EventManager : MonoBehaviour
 
     public float newBuildSpeed;
 
-
     [HideInInspector]
     public bool Mace, Dart, Gladius;
 

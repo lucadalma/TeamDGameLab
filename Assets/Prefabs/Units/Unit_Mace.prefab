@@ -539,9 +539,9 @@ GameObject:
   - component: {fileID: 5671954401964722568}
   - component: {fileID: 9039410474528768603}
   - component: {fileID: 2444877162349679114}
-  - component: {fileID: -2461090866694279580}
+  - component: {fileID: -7480725428416755022}
   m_Layer: 3
-  m_Name: Unit_Javelin
+  m_Name: Unit_Mace
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,6 +563,7 @@ Transform:
   - {fileID: 7742200578220358223}
   - {fileID: 6744965106710678938}
   - {fileID: 6561292929648583260}
+  - {fileID: 246832864049950974}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -621,11 +622,11 @@ MonoBehaviour:
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
-  detectionRadius: 16
+  detectionRadius: 8
   rotationSpeed: 3
   healthBar: {fileID: 7334433375511510991}
   EM: {fileID: 0}
---- !u!114 &-2461090866694279580
+--- !u!114 &-7480725428416755022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -637,38 +638,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Javelin
-  infoDescription: 'Long ranged plasma tank with very high damage per shot. Vulnerable
-    when targeted directly, it excels at dealing with high health targets. Has a
-    tendency to overkill small units.
-
-
-
-    Build Time (seconds): 30
-
-    Damage
-    Per Shot: 100
-
-    Attack Cooldown (seconds): 6
-
-    Health: 80
-
-    Speed: 0.5
-
-    Range:
-    16
-
-    Unit Size: Large
-
-    Squad Size: 2
-
-    Squad Total Health: 160
-
-    Squad
-    Total DPS: 33.3
-
-'
-  infoIcon: {fileID: 21300000, guid: 37568b2c4c60038459f07796fecd5351, type: 3}
+  infoName: Mace
+  infoDescription: "Heavily armored multiple missile launcher. Low overall damage,
+    range and speed, though its high rate of fire makes it ideal for eliminating
+    a multitude of low health targets.\r\n\r\nBuild Time (seconds): 20\r\nDamage
+    Per Shot: 6\r\nAttack Cooldown (seconds): 0.5 \r\nHealth: 280\r\nSpeed: 0.5\r\nRange:
+    8\r\nUnit Size: Large\r\nSquad Size: 1\r\nSquad Total Health: 280\r\nSquad Total
+    DPS: 10\r\n"
+  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
+--- !u!1001 &353062340048688917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8862879454993847786}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 11.554
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 239.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 673.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_Name
+      value: Unit_Mace_Prova_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+--- !u!4 &246832864049950974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+  m_PrefabInstance: {fileID: 353062340048688917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6666695608130143671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}
       propertyPath: m_Name
       value: Unit_Javelin_Prova_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}

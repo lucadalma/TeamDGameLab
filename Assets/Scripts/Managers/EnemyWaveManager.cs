@@ -15,6 +15,8 @@ public class EnemyWaveManager : MonoBehaviour
 
     int currentWave = 0;
 
+    public WaveSO nextWaveSO;
+
     int numberOfWaves = 0;
 
     public Transform targetPoint;  // Punto finale per le unità
@@ -88,6 +90,7 @@ public class EnemyWaveManager : MonoBehaviour
     private IEnumerator SpawnWave(int waveIndex)
     {
         WaveSO currentWaveSO = currentSetOfWave.waves[waveIndex];
+        nextWaveSO = currentSetOfWave.waves[waveIndex + 1];
 
         int spawnPointIndex = 0;
 

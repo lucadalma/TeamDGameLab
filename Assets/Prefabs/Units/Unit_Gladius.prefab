@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 8944125482615458840}
   - component: {fileID: 227446745111498746}
   - component: {fileID: 4488722215469410975}
+  - component: {fileID: 4610811945192722304}
   m_Layer: 3
   m_Name: Unit_Gladius
   m_TagString: Unit
@@ -295,10 +296,54 @@ MonoBehaviour:
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
-  detectionRadius: 250
+  detectionRadius: 10
   rotationSpeed: 3
   healthBar: {fileID: 3458354958204175235}
   EM: {fileID: 0}
+--- !u!114 &4610811945192722304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824003280416219573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoName: Gladius
+  infoDescription: 'A versatile medium tank that comes in small squads. Very durable
+    for its cost, but unimpressive in every other stat. Good at being retrofitted
+    for various combat scenarios through upgrades.
+
+
+
+    Build Time (seconds): 20
+
+    Damage
+    Per Shot: 10
+
+    Attack Cooldown (seconds): 4
+
+    Health: 120
+
+    Speed: 1
+
+    Range:
+    10
+
+    Unit Size: Medium
+
+    Squad Size: 4
+
+    Squad Total Health: 480
+
+    Squad
+    Total DPS: 10
+
+'
+  infoIcon: {fileID: 21300000, guid: 89daf6ddf9af99d45aa4a0cd49a5b2e0, type: 3}
 --- !u!1 &5862049264789379980
 GameObject:
   m_ObjectHideFlags: 0

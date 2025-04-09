@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitToUpgrade: 0
   eventType: 3
   ammount1: 0.07
   ammount2: 0

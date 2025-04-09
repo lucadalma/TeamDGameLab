@@ -41,7 +41,7 @@ public class TanksBehavior : MonoBehaviour
         if (EM != null)
             PowerUp();
 
-
+        detectionRadius *= 55;
 
 
 
@@ -107,7 +107,7 @@ public class TanksBehavior : MonoBehaviour
 
 
         // Sposta l'unità lungo la direzione
-        transform.position += direction * speed * Time.deltaTime;
+        transform.position += direction * (speed * 50) * Time.deltaTime;
 
 
     }
