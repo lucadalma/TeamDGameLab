@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,10 @@ public class TanksBehavior : MonoBehaviour
 
 
     public EventManager EM;
+
+
+    public MMF_Player feedbacks; // da assegnare via Inspector
+
 
     void Start()
     {
@@ -184,6 +189,8 @@ public class TanksBehavior : MonoBehaviour
         //else 
         if (projectilePrefab != null)
         {
+            feedbacks.PlayFeedbacks();
+
             // Spara un proiettile verso l'unità nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
