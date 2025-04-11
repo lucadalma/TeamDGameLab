@@ -205,7 +205,7 @@ public class TanksBehavior : MonoBehaviour
         //else 
         if (projectilePrefab != null)
         {
-            // feedbacks.PlayFeedbacks();
+            feedbacks.PlayFeedbacks();
             PlayRecoil();
 
             // Spara un proiettile verso l'unità nemica
