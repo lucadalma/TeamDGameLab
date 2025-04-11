@@ -1,7 +1,8 @@
-using MoreMountains.Feedbacks;
+Ôªøusing MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TanksBehavior : MonoBehaviour
 {
@@ -35,8 +36,16 @@ public class TanksBehavior : MonoBehaviour
     public MMF_Player feedbacks; // da assegnare via Inspector
 
 
+    public float recoilDistance = 0.3f;
+    public float recoilDuration = 0.1f;
+    public float returnDuration = 0.2f;
+
+    private Vector3 _initialLocalPosition;
+
+
     void Start()
     {
+        
 
         health = maxhealth;
 
@@ -71,6 +80,8 @@ public class TanksBehavior : MonoBehaviour
 
     void Update()
     {
+        _initialLocalPosition = transform.localPosition;
+
         if (!pause.Value)
         {
 
@@ -111,7 +122,7 @@ public class TanksBehavior : MonoBehaviour
 
 
 
-        // Sposta l'unit‡ lungo la direzione
+        // Sposta l'unit√† lungo la direzione
         transform.position += direction * (speed * 50) * Time.deltaTime;
 
 
@@ -135,7 +146,7 @@ public class TanksBehavior : MonoBehaviour
                 }
             }
 
-            // Altrimenti cerca un'unit‡ nemica
+            // Altrimenti cerca un'unit√† nemica
             if (collider.GetComponent<TanksBehavior>())
             {
                 TanksBehavior EnemyTank = collider.GetComponent<TanksBehavior>();
@@ -158,6 +169,11 @@ public class TanksBehavior : MonoBehaviour
 
         // Ruota gradualmente verso il bersaglio
         // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+
+        
+
+
 
         // Controlla il cooldown per l'attacco
         if (attackCooldown > 0)
@@ -189,9 +205,10 @@ public class TanksBehavior : MonoBehaviour
         //else 
         if (projectilePrefab != null)
         {
-            feedbacks.PlayFeedbacks();
+            // feedbacks.PlayFeedbacks();
+            PlayRecoil();
 
-            // Spara un proiettile verso l'unit‡ nemica
+            // Spara un proiettile verso l'unit√† nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
             GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform, isEnemy);
@@ -266,4 +283,26 @@ public class TanksBehavior : MonoBehaviour
 
         }
     }
+
+    public void PlayRecoil()
+    {
+        // Ferma eventuali animazioni in corso
+        transform.DOKill();
+
+        // SALVA la posizione corrente (non quella iniziale di Start!)
+        Vector3 currentLocalPosition = transform.localPosition;
+
+        // Calcola il punto di rinculo basato sulla posizione attuale
+        Vector3 recoilTarget = currentLocalPosition + Vector3.back * recoilDistance;
+
+        // Esegui rinculo ‚Üí ritorno
+        transform.DOLocalMove(recoilTarget, recoilDuration)
+                 .SetEase(Ease.OutQuad)
+                 .OnComplete(() =>
+                 {
+                     transform.DOLocalMove(currentLocalPosition, returnDuration)
+                              .SetEase(Ease.InOutQuad);
+                 });
+    }
 }
+
