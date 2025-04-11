@@ -10,9 +10,11 @@ public class CreatorButton : MonoBehaviour
     public Button targetButton;
     enum ButtonType
     {
-        Red,
-        Green,
-        Blue
+        Mace,
+        Dart,
+        Galdius,
+        Javelin
+
     }
 
     [SerializeField] ButtonType type;
@@ -29,14 +31,17 @@ public class CreatorButton : MonoBehaviour
     {
         switch (type)
         {
-            case ButtonType.Red:
+            case ButtonType.Mace:
                 buttonControl(Em.Mace);
                 break;
-            case ButtonType.Green:
+            case ButtonType.Dart:
                 buttonControl(Em.Dart);
                 break;
-            case ButtonType.Blue:
+            case ButtonType.Galdius:
                 buttonControl(Em.Gladius);
+                break;
+            case ButtonType.Javelin:
+                buttonControl(Em.Javelin);
                 break;
             default:
                 break;

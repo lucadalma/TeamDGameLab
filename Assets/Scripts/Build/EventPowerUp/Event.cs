@@ -470,7 +470,7 @@ public class Event : MonoBehaviour
         if (blue == true)
             EM.Gladius = true;
         if (viola == true)
-            EM.Javeling = true;
+            EM.Javelin = true;
 
     }
     #endregion

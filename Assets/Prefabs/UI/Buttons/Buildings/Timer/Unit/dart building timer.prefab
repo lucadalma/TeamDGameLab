@@ -63,14 +63,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3648985, g: 0.7075472, b: 0.37090987, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64020fc779434d54282c2bb87d1ce966, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad7891c1a915d8849a258ead0561e702, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1e5e77dbe272d49b9e020578140c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   first: 0
   onOrder: 1
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
@@ -121,7 +122,7 @@ MonoBehaviour:
     Time (seconds): 10\r\nDamage Per Shot: 4\r\nAttack Cooldown (seconds): 3\r\nHealth:
     10\r\nSpeed: 2\r\nRange: 6\r\nUnit Size: Small\r\nSquad Size: 8\r\nSquad Total
     Health: 80\r\nSquad Total DPS: 10.6\r\n"
-  infoIcon: {fileID: 21300000, guid: 64020fc779434d54282c2bb87d1ce966, type: 3}
+  infoIcon: {fileID: 21300000, guid: ad7891c1a915d8849a258ead0561e702, type: 3}
 --- !u!1 &145249371856481888
 GameObject:
   m_ObjectHideFlags: 0

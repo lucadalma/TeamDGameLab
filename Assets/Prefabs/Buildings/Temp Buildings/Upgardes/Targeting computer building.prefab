@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3378611697677345150}
   - component: {fileID: 4794727060167773789}
   - component: {fileID: 2846109594567716440}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unitToUpgrade: 0
   eventType: 6
   ammount1: 25
   ammount2: 4

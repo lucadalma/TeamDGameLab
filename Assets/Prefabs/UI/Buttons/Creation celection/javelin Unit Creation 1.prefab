@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitWaitTimer: {fileID: 102633549431355430, guid: d7c5fb8703b8d164fbe3170daf3e4867, type: 3}
   targetButton: {fileID: 423624919573337153}
-  type: 0
+  type: 3
 --- !u!114 &7662028244500292854
 MonoBehaviour:
   m_ObjectHideFlags: 0
