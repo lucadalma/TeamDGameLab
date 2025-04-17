@@ -130,7 +130,10 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            SwitchSpescific(index);
+            if (currentSpescificTab != SpescificTabs[index])
+            {
+                SwitchSpescific(index);
+            }
         }
     }
 
