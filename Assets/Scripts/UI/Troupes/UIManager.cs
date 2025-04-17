@@ -449,11 +449,15 @@ public class UIManager : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (TargetBuilding != null && Input.GetMouseButtonDown(0))
+            if (TargetBuilding != null)
             {
-                TargetBuilding = null;
-                removeBuiidingMenu(Input.mousePosition);
-                turnOnInteractionsWithStaticUI(staticUI.transform);
+                if (Input.GetMouseButtonDown(0) || Input.anyKey||Mathf.Abs(Input.mouseScrollDelta.y) >= 1)
+                {
+                    TargetBuilding = null;
+                    removeBuiidingMenu(Input.mousePosition);
+                    turnOnInteractionsWithStaticUI(staticUI.transform);
+                }
+
             }
         }
     }
