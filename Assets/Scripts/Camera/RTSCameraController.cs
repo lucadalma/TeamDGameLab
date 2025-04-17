@@ -34,6 +34,7 @@ public class RTSCameraController : MonoBehaviour
     private float desiredZoomDistance;
     private bool isRotating = false;
     private Vector3 lastMousePosition;
+    public Camera cameraUI;
 
     private void Awake()
     {
@@ -170,6 +171,7 @@ public class RTSCameraController : MonoBehaviour
             currentFOV -= scrollInput * zoomSpeed;
             currentFOV = Mathf.Clamp(currentFOV, minFOV, maxFOV);
             mainCamera.fieldOfView = currentFOV;
+            cameraUI.fieldOfView = currentFOV;
         }
     }
 
