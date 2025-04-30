@@ -36,6 +36,10 @@ public class TanksBehavior : MonoBehaviour
     public MMF_Player feedbacks; // da assegnare via Inspector
 
 
+    [SerializeField] private Transform cannonTransform;
+    [SerializeField] private Transform bodyTransform;
+    [SerializeField] private Transform firePointTransform;
+
     public float recoilDistance = 0.3f;
     public float recoilDuration = 0.1f;
     public float returnDuration = 0.2f;
@@ -210,8 +214,25 @@ public class TanksBehavior : MonoBehaviour
 
             // Spara un proiettile verso l'unità nemica
             Debug.Log($"Sparo al nemico: {currentEnemy.name}");
-            GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            //GameObject projectile = Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
+            //projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform, isEnemy);
+
+            // Instanzia proiettile
+            GameObject projectile = Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
+
+            // Calcola direzione orizzontale (ignora altezza se necessario)
+            Vector3 targetPos = currentEnemy.transform.position;
+            targetPos.y = firePointTransform.position.y; // Ignora altezza
+
+            Vector3 direction = (targetPos - firePointTransform.position).normalized;
+
+            // Ruota il proiettile per puntare verso il bersaglio
+            projectile.transform.rotation = Quaternion.LookRotation(direction);
+
+            // Inizializza il comportamento
             projectile.GetComponent<ProjectileBehavior>().Initialize(damage, currentEnemy.transform, isEnemy);
+
+
         }
         else
         {
@@ -287,22 +308,29 @@ public class TanksBehavior : MonoBehaviour
     public void PlayRecoil()
     {
         // Ferma eventuali animazioni in corso
-        transform.DOKill();
+        cannonTransform.DOKill();
+        bodyTransform.DOKill();
 
-        // SALVA la posizione corrente (non quella iniziale di Start!)
-        Vector3 currentLocalPosition = transform.localPosition;
+        Vector3 currentLocalPosition = cannonTransform.localPosition;
+        Vector3 currentBodyLocalPosition = bodyTransform.localPosition;
 
         // Calcola il punto di rinculo basato sulla posizione attuale
-        Vector3 recoilTarget = currentLocalPosition + Vector3.back * recoilDistance;
+        Vector3 recoilTarget = currentLocalPosition + Vector3.forward * recoilDistance;
+        Vector3 recoilBodyTarget = currentBodyLocalPosition + Vector3.back * recoilDistance;
 
         // Esegui rinculo → ritorno
-        transform.DOLocalMove(recoilTarget, recoilDuration)
-                 .SetEase(Ease.OutQuad)
-                 .OnComplete(() =>
-                 {
-                     transform.DOLocalMove(currentLocalPosition, returnDuration)
-                              .SetEase(Ease.InOutQuad);
-                 });
+        cannonTransform.DOLocalMove(recoilTarget, recoilDuration).SetEase(Ease.OutQuad);
+        bodyTransform.DOLocalMove(recoilBodyTarget, recoilDuration).SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                cannonTransform.DOLocalMove(currentLocalPosition, returnDuration)
+                    .SetEase(Ease.InOutQuad);
+
+                bodyTransform.DOLocalMove(currentBodyLocalPosition, returnDuration)
+                    .SetEase(Ease.InOutQuad);
+            });
     }
+
+   
 }
 

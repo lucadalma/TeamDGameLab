@@ -5472,6 +5472,9 @@ MonoBehaviour:
   healthBar: {fileID: 7334433375511510991}
   EM: {fileID: 0}
   feedbacks: {fileID: 6393846326441034675}
+  cannonTransform: {fileID: 6544497326121088647}
+  bodyTransform: {fileID: 6813964716747912891}
+  firePointTransform: {fileID: 676815735583973391}
   recoilDistance: 0.3
   recoilDuration: 0.1
   returnDuration: 0.2
@@ -5763,6 +5766,16 @@ MonoBehaviour:
         DeclaredDuration: 0
         ForceSimulationSpeed: 0
         ForcedSimulationSpeed: {x: 0.1, y: 1}
+--- !u!4 &6544497326121088647 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6788312184387232146, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+  m_PrefabInstance: {fileID: 353062340048688917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6813964716747912891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6518472952703771054, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+  m_PrefabInstance: {fileID: 353062340048688917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6666695608130143671
 PrefabInstance:
   m_ObjectHideFlags: 0

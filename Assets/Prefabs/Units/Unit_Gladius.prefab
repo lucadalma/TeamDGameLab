@@ -5140,12 +5140,15 @@ MonoBehaviour:
   currentEnemy: {fileID: 0}
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
   detectionRadius: 10
   rotationSpeed: 3
   healthBar: {fileID: 3458354958204175235}
   EM: {fileID: 0}
   feedbacks: {fileID: 3140448217235927959}
+  cannonTransform: {fileID: 2250825352753302713}
+  bodyTransform: {fileID: 7492008692138640207}
+  firePointTransform: {fileID: 2481355179543179522}
   recoilDistance: 0.3
   recoilDuration: 0.1
   returnDuration: 0.2
@@ -5611,6 +5614,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
+--- !u!4 &2250825352753302713 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -141739716533627803, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
+  m_PrefabInstance: {fileID: 7004497928651741404}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2271938482370593379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -93601691126834497, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
@@ -5796,5 +5804,10 @@ MonoBehaviour:
 --- !u!4 &7403426014942101303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
+  m_PrefabInstance: {fileID: 7004497928651741404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7492008692138640207 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 489784014051154835, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
   m_PrefabInstance: {fileID: 7004497928651741404}
   m_PrefabAsset: {fileID: 0}

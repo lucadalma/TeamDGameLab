@@ -254,12 +254,15 @@ MonoBehaviour:
   currentEnemy: {fileID: 0}
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
   detectionRadius: 6
   rotationSpeed: 3
   healthBar: {fileID: 3318814927896821315}
   EM: {fileID: 0}
   feedbacks: {fileID: 2891537246249125798}
+  cannonTransform: {fileID: 2161009662737656506}
+  bodyTransform: {fileID: 7512833723997881387}
+  firePointTransform: {fileID: 6704290810949621801}
   recoilDistance: 0.3
   recoilDuration: 0.1
   returnDuration: 0.2
@@ -5583,9 +5586,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
+--- !u!4 &2161009662737656506 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6732398567079961185, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
+  m_PrefabInstance: {fileID: 4653126633195849947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5123270604613562160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
+  m_PrefabInstance: {fileID: 4653126633195849947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7512833723997881387 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6282019610603270928, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
   m_PrefabInstance: {fileID: 4653126633195849947}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8502269089226285299 stripped
