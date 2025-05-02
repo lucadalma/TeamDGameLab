@@ -1184,6 +1184,10 @@ MonoBehaviour:
   targetPoint: {fileID: 1094485801}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   timeBetweenSpawn: {fileID: 11400000, guid: fd9e5a95a0042f541a7a7a92c8985065, type: 2}
+  enemySpawnPoints:
+  - {fileID: 7850750491185124504}
+  - {fileID: 1353490325154023974}
+  - {fileID: 6107200519576709045}
   difficulty: {fileID: 11400000, guid: c2fdbec07bf325c46a552227e39ae746, type: 2}
 --- !u!1 &694769302 stripped
 GameObject:
@@ -2200,6 +2204,7 @@ MonoBehaviour:
   maxVerticalAngle: 80
   defaultVerticalAngle: 45
   edgeRotationMargin: 50
+  cameraUI: {fileID: 0}
 --- !u!1 &1122935856
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,7 +4895,7 @@ PrefabInstance:
       objectReference: {fileID: 1883550907}
     - target: {fileID: 4913719819467653259, guid: 65fce38f75b894142a071f848fc2777a, type: 3}
       propertyPath: maxHealth
-      value: 1e+16
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4913719819467653260, guid: 65fce38f75b894142a071f848fc2777a, type: 3}
       propertyPath: m_Size.x

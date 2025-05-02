@@ -220,7 +220,7 @@ public class TanksBehavior : MonoBehaviour
             // Instanzia proiettile
             GameObject projectile = Instantiate(projectilePrefab, firePointTransform.position, Quaternion.identity);
 
-            // Calcola direzione orizzontale (ignora altezza se necessario)
+            //Calcola direzione orizzontale(ignora altezza se necessario)
             Vector3 targetPos = currentEnemy.transform.position;
             targetPos.y = firePointTransform.position.y; // Ignora altezza
 

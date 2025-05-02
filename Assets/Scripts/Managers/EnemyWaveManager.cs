@@ -29,6 +29,9 @@ public class EnemyWaveManager : MonoBehaviour
     FloatVariable timeBetweenSpawn;
 
     [SerializeField]
+    List<Transform> enemySpawnPoints;
+
+    [SerializeField]
     IntVariable difficulty;
 
     WavesSO currentSetOfWave;
@@ -109,7 +112,22 @@ public class EnemyWaveManager : MonoBehaviour
             {
                 float offsetX = Random.Range(-areaWidth / 2, areaWidth / 2);
                 float offsetZ = Random.Range(-areaLength / 2, areaLength / 2);
-                Vector3 spawnPosition = currentWaveSO.spawnPoint[spawnPointIndex].transform.position + new Vector3(offsetX, 0, 0);
+
+                Vector3 spawnPosition = Vector3.zero;
+                if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane1)
+                {
+                    spawnPosition = enemySpawnPoints[0].position + new Vector3(offsetX, 0, 0);
+                }
+                else if(currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane2) 
+                {
+                    spawnPosition = enemySpawnPoints[1].position + new Vector3(offsetX, 0, 0);
+
+                }
+                else if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane3)
+                {
+                    spawnPosition = enemySpawnPoints[2].position + new Vector3(offsetX, 0, 0);
+
+                }
 
                 spawnPosition.z = EnemyBase.position.z + offsetZ;
 

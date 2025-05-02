@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SpawnPoint 
+{
+    Lane1,
+    Lane2,
+    Lane3,
+    None
+}
+
 [CreateAssetMenu(menuName = "Wave/Create Single Wave")]
 public class WaveSO : ScriptableObject
 {
@@ -9,7 +17,7 @@ public class WaveSO : ScriptableObject
     public List<EnemyGroup> enemyGroup;
 
     [SerializeField]
-    public List<GameObject> spawnPoint;
+    public List<SpawnPoint> spawnPoint;
 
     private void OnValidate()
     {
@@ -17,7 +25,7 @@ public class WaveSO : ScriptableObject
         {
             while (spawnPoint.Count < enemyGroup.Count)
             {
-                spawnPoint.Add(null);
+                spawnPoint.Add(SpawnPoint.None);
             }
 
             while (spawnPoint.Count > enemyGroup.Count)
