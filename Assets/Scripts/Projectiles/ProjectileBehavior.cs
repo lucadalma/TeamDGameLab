@@ -58,9 +58,9 @@ public class ProjectileBehavior : MonoBehaviour
         if (!pause.Value)
         {
             // Movimento continuo del proiettile
-            // transform.position += direction * speed * Time.deltaTime;
+            transform.position += direction * speed * Time.deltaTime;
 
-            transform.position += transform.forward * speed * Time.deltaTime;
+            //transform.position += transform.forward * speed * Time.deltaTime;
 
             // Controllo del tempo di vita del proiettile
             lifetime -= Time.deltaTime;
