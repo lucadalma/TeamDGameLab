@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyGroup1
   m_EditorClassIdentifier: 
   enemy: {fileID: 11400000, guid: a3bf462d97fcb544abb77d8abfed92c3, type: 2}
-  numberOfEnemy: 8
+  numberOfEnemy: 4

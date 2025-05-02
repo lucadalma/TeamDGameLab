@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 1540771355251757398}
   m_LocalRotation: {x: -0, y: 0.048599925, z: -0, w: 0.99881834}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.18357, y: 0.32933, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8902602066821314668}
@@ -5108,7 +5108,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5824003280416219573}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 16
+  m_Radius: 40
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -5222,7 +5222,7 @@ RectTransform:
   m_GameObject: {fileID: 5862049264789379980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5.1976e-10}
-  m_LocalScale: {x: 0.072305255, y: 0.15020466, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2286088492972978525}
@@ -5232,7 +5232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 244.37, y: -111.89}
+  m_AnchoredPosition: {x: 244.37, y: -64.62477}
   m_SizeDelta: {x: 190, y: 23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7576475367627844263
@@ -5472,7 +5472,7 @@ RectTransform:
   m_GameObject: {fileID: 8290961381303733340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8902602066821314668}
