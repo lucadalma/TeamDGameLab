@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -5534272590042927780}
   - component: {fileID: -1469104412324354387}
   - component: {fileID: -1571627362187094}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Swarm_Proj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4455838741618225204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 20.56, y: 20.56, z: 20.56}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
