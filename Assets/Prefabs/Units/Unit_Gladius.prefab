@@ -5140,7 +5140,7 @@ MonoBehaviour:
   currentEnemy: {fileID: 0}
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
   detectionRadius: 10
   rotationSpeed: 3
   healthBar: {fileID: 3458354958204175235}
@@ -5584,6 +5584,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7195623090192681712, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08241c79cbedde34ca6841ce1987d083, type: 2}
     - target: {fileID: -141739716533627803, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5612,6 +5616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit_Gladius_Prova_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4616784366528705691, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ac2198ff4bf1f64c80b890e8e9912f3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad9b7b6d6c11244b98337158de9eacb, type: 3}
 --- !u!4 &2250825352753302713 stripped

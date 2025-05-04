@@ -5596,6 +5596,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.31614158
       objectReference: {fileID: 0}
+    - target: {fileID: -1689805662016373507, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5b0021408d70aa4d92539d33774a732, type: 2}
     - target: {fileID: -989305760045375818, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5612,6 +5616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit_Javelin_Prova_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5944894556935345671, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99a339a5d777def4a809a8bb106a073c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cbc420e7a3df747b30c102a850f4cb, type: 3}
 --- !u!4 &1652265991002155958 stripped

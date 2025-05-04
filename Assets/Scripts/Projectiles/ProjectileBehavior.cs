@@ -1,4 +1,5 @@
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class ProjectileBehavior : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class ProjectileBehavior : MonoBehaviour
 
     private Vector3 direction;  // La direzione del proiettile
 
-    private float lifetime = 5f;  // Tempo di vita del proiettile
+    private float lifetime = 4f;  // Tempo di vita del proiettile
+
+    public MMF_Player feedbacks;
 
     public void Initialize(float damage, Transform target, bool isEnemy)
     {
@@ -72,6 +75,10 @@ public class ProjectileBehavior : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+
+        feedbacks.PlayFeedbacks();
+
+
         if (collision.gameObject.GetComponent<TanksBehavior>())
         {
             TanksBehavior unit = collision.gameObject.GetComponent<TanksBehavior>();

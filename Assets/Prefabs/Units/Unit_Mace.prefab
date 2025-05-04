@@ -5565,6 +5565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit_Mace_Prova_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5995106832562531056, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99cc4e16f12a5c846a0a31361cc875d7, type: 2}
     - target: {fileID: 6788312184387232146, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.189466
@@ -5577,6 +5581,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -58.760857
       objectReference: {fileID: 0}
+    - target: {fileID: 7303058816815763061, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99a339a5d777def4a809a8bb106a073c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af55570c53683e1478da4eabca8d7dc7, type: 3}
 --- !u!4 &246832864049950974 stripped

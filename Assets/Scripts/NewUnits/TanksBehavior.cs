@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Animations;
 
 public class TanksBehavior : MonoBehaviour
 {
@@ -33,7 +34,9 @@ public class TanksBehavior : MonoBehaviour
     public EventManager EM;
 
 
-    public MMF_Player feedbacks; // da assegnare via Inspector
+    public MMF_Player feedbacks;
+
+    [SerializeField] private MMFloatingTextSpawner floatingTextSpawner;
 
 
     [SerializeField] private Transform cannonTransform;
@@ -174,13 +177,12 @@ public class TanksBehavior : MonoBehaviour
         // Ruota gradualmente verso il bersaglio
         // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-
         
 
 
 
-        // Controlla il cooldown per l'attacco
-        if (attackCooldown > 0)
+     // Controlla il cooldown per l'attacco
+     if (attackCooldown > 0)
         {
             attackCooldown -= Time.deltaTime;
             return; // Attendi il cooldown per attaccare di nuovo
@@ -266,6 +268,9 @@ public class TanksBehavior : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
+     
+
         damage -= armor;
         Debug.Log(damage);
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   health: 10
   speed: 2
   fireRate: 0.5
-  damage: 4
+  damage: 2
   spawnCd: 1
   unitID: 0
   unitCount: 8

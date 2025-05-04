@@ -111,7 +111,7 @@ RectTransform:
   m_GameObject: {fileID: 1593524334974337229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1774927890318646774}
@@ -254,12 +254,13 @@ MonoBehaviour:
   currentEnemy: {fileID: 0}
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 123a2f218aad16648b0651c0381533a2, type: 3}
   detectionRadius: 4
   rotationSpeed: 3
   healthBar: {fileID: 3318814927896821315}
   EM: {fileID: 0}
   feedbacks: {fileID: 2891537246249125798}
+  floatingTextSpawner: {fileID: 0}
   cannonTransform: {fileID: 2161009662737656506}
   bodyTransform: {fileID: 7512833723997881387}
   firePointTransform: {fileID: 6704290810949621801}
@@ -5572,6 +5573,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit_Dart_Prova_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1746654310787607633, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d4d30e933491e44b986e063d4ca56a9, type: 2}
+    - target: {fileID: 2816831734691548057, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be46f8a0ae3fd2d4782c1b10137207db, type: 2}
     - target: {fileID: 6732398567079961185, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.11705202

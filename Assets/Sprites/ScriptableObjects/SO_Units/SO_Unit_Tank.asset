@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SO_Unit_Tank
   m_EditorClassIdentifier: 
   unitName: Tank
-  health: 80
+  health: 15
   speed: 0.5
   fireRate: 0.2
-  damage: 100
+  damage: 10
   spawnCd: 5
   unitID: 2
   unitCount: 2
   unitPrefab: {fileID: 8193337744482914128, guid: dedf0f0d659a39046877df01c9fe2861, type: 3}
-  projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
+  projectilePrefab: {fileID: 4455838741618225204, guid: 4eec9b40970926e41876be2c6a9f3970, type: 3}
