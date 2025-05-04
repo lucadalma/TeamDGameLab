@@ -22,6 +22,8 @@ public class ProjectileBehavior : MonoBehaviour
 
     public void Initialize(float damage, Transform target, bool isEnemy)
     {
+        feedbacks.PlayFeedbacks();
+
         this.damage = damage;
         this.target = target;
         this.isEnemy = isEnemy;
