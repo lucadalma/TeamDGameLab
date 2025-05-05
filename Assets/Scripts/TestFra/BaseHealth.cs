@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class BaseHealth : MonoBehaviour
     [SerializeField]
     public BaseScript Base;
 
+    public MMF_Player feedbacks;
+
     private void Start()
     {
         health = maxHealth;
@@ -16,6 +19,8 @@ public class BaseHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        feedbacks.PlayFeedbacks();
+
         health -= damage;
         Debug.Log($"Base {gameObject.name} ha subito {damage} danni. Salute rimanente: {health}");
 

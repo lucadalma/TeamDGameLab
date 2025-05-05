@@ -364,8 +364,8 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 7251480493937131521
   - rid: 7251480503194746881
+  - rid: 7251480493937131521
   KeepPlayModeChanges: 1
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -527,7 +527,7 @@ MonoBehaviour:
           ButtonText: Debug Play Sound
         TestStopButton:
           ButtonText: Debug Stop Sound
-        PlayMethod: 1
+        PlayMethod: 2
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 0

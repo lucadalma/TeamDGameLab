@@ -11,7 +11,8 @@ public class AudioManager : MonoBehaviour
         GladiusShot,
         Powerup,
         Music_Menu,
-        Music_Battle
+        Music_Battle,
+        Click_UI
         // Add more sound types as needed
     }
 

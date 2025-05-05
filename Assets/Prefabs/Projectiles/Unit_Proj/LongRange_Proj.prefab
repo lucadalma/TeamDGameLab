@@ -5352,8 +5352,8 @@ MonoBehaviour:
         StopSoundOnFeedbackStop: 0
         MinVolume: 0.35
         MaxVolume: 0.3
-        MinPitch: 0.53
-        MaxPitch: 1
+        MinPitch: 1.37
+        MaxPitch: 1.82
         SfxAudioMixerGroup: {fileID: 0}
         Priority: 128
         PanStereo: 0

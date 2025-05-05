@@ -208,6 +208,8 @@ public class UIManager : MonoBehaviour
 
     public void setUnitOnTimer()
     {
+        AudioManager.Instance.Play(AudioManager.SoundType.Click_UI);
+
         if (unitsOnTimer.Count > 0)
         {
             for (int i = 0; i < unitsOnTimer.Count; i++)
