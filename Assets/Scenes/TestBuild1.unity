@@ -1528,6 +1528,7 @@ MonoBehaviour:
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   EnemyBase: {fileID: 1338275743}
   nextWaveSO: {fileID: 0}
+  nextWaveTimer: 0
   targetPoint: {fileID: 1094485801}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   timeBetweenSpawn: {fileID: 11400000, guid: fd9e5a95a0042f541a7a7a92c8985065, type: 2}
@@ -3832,7 +3833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0cc1aeb241ff142a415f4ab53351da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 10
+  interval: 20
   difficulty: {fileID: 11400000, guid: c2fdbec07bf325c46a552227e39ae746, type: 2}
   ListWaves:
   - {fileID: 11400000, guid: 12b6557a2a679a14b8e3ad325074d6b5, type: 2}
