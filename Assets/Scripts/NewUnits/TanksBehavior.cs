@@ -62,6 +62,8 @@ public class TanksBehavior : MonoBehaviour
         if (EM != null)
             PowerUp();
 
+        
+
         detectionRadius *= 55;
 
 
@@ -111,7 +113,7 @@ public class TanksBehavior : MonoBehaviour
         }
 
 
-
+        Ability();
 
     }
 
@@ -308,7 +310,48 @@ public class TanksBehavior : MonoBehaviour
                 EM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
 
         }
+
+        
     }
+
+
+
+    bool overdrive;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("OverDrive"))
+        {
+            overdrive = true;
+            Debug.Log("OVERDRIVATO");
+        }
+    }
+
+    float timers;
+    float reloadOD;
+    private void Ability()
+    {
+        attackCooldown = attackCooldown + reloadOD;
+        if (overdrive == true)
+        {
+            timers += 1 * Time.deltaTime;
+            reloadOD = 0.5f;
+           
+
+            if(timers >= 20)
+            {
+                overdrive = false;
+            }
+             
+        }
+        else if (overdrive == false)
+        {
+            timers = 0;
+            reloadOD = 0;
+        }
+    }
+
+
 
     public void PlayRecoil()
     {
