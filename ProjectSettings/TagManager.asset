@@ -12,6 +12,7 @@ TagManager:
   - BuildingTimer
   - Ground
   - OverDrive
+  - EMP
   layers:
   - Default
   - TransparentFX
