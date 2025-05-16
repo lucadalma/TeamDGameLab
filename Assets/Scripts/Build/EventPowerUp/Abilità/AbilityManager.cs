@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
-    [HideInInspector] public GameObject abilità;
+    /*[HideInInspector]*/
+    public GameObject abilità;
     public LayerMask laneLayerMask;
 
     void Update()
@@ -17,13 +18,22 @@ public class AbilityManager : MonoBehaviour
         }
     }
 
+
+    float timer;
+    int stop;
+
     void SpawnAbilityAtMouseClick()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
         {
-            Instantiate(abilità, hit.point, Quaternion.identity);
-            Debug.Log("Ciao");
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
+            {
+                Instantiate(abilità, hit.point, Quaternion.identity);
+            }
         }
+       
+
+
     }
+}
 }

@@ -54,7 +54,7 @@ public class TanksBehavior : MonoBehaviour
 
     void Start()
     {
-        
+
 
         health = maxhealth;
 
@@ -64,7 +64,7 @@ public class TanksBehavior : MonoBehaviour
         if (EM != null)
             PowerUp();
 
-        
+
 
         detectionRadius *= 55;
 
@@ -93,19 +93,34 @@ public class TanksBehavior : MonoBehaviour
     {
         _initialLocalPosition = transform.localPosition;
 
+        if (isEnemy == false)
+            OverDriver();
+        if (isEnemy == true)
+            EMP();
+
+
         if (!pause.Value)
         {
 
             if (currentEnemy == null || !IsEnemyValid(currentEnemy))
             {
-                // Nessun nemico valido, continua a muoverti
-                MoveTowardsTarget();
-                SearchForEnemy();
+
+                if (emp == false)
+                {
+                    // Nessun nemico valido, continua a muoverti
+                    MoveTowardsTarget();
+                    SearchForEnemy();
+                }
+
             }
             else
             {
-                // Attacca il nemico
-                AttackEnemy();
+                if (emp == false)
+                {
+                    // Attacca il nemico
+                    AttackEnemy();
+                }
+
             }
         }
 
@@ -113,9 +128,6 @@ public class TanksBehavior : MonoBehaviour
         {
             health = maxhealth;
         }
-
-
-        Ability();
 
     }
 
@@ -181,12 +193,12 @@ public class TanksBehavior : MonoBehaviour
         // Ruota gradualmente verso il bersaglio
         // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-        
 
 
 
-     // Controlla il cooldown per l'attacco
-     if (attackCooldown > 0)
+
+        // Controlla il cooldown per l'attacco
+        if (attackCooldown > 0)
         {
             attackCooldown -= Time.deltaTime;
             return; // Attendi il cooldown per attaccare di nuovo
@@ -273,7 +285,7 @@ public class TanksBehavior : MonoBehaviour
     public void TakeDamage(float damage)
     {
 
-     
+
 
         damage -= armor;
         Debug.Log(damage);
@@ -303,7 +315,7 @@ public class TanksBehavior : MonoBehaviour
         {
             AudioManager.Instance.Play(AudioManager.SoundType.DartExplosion);
         }
-        else if(gameObject.name.Contains("Gladius"))
+        else if (gameObject.name.Contains("Gladius"))
         {
             AudioManager.Instance.Play(AudioManager.SoundType.GladiusExplosion);
         }
@@ -329,7 +341,7 @@ public class TanksBehavior : MonoBehaviour
         {
             if (gameObject.name == "Unit_Dart(Clone)")
             {
-                EM.ForUnitDart(ref health,ref speed,ref maxhealth,ref armor, ref detectionRadius,ref damage,ref attackCooldown);
+                EM.ForUnitDart(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
                 Debug.Log(maxhealth);
             }
             if (gameObject.name == "Unit_Javeling(Clone)")
@@ -341,38 +353,43 @@ public class TanksBehavior : MonoBehaviour
 
         }
 
-        
+
     }
 
 
 
-    bool overdrive;
+    public bool overdrive, emp;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("OverDrive"))
+        if (other.CompareTag("OverDrive") && isEnemy == false)
         {
             overdrive = true;
             Debug.Log("OVERDRIVATO");
+        }
+
+        if (other.CompareTag("EMP") && isEnemy == true)
+        {
+            emp = true;
         }
     }
 
     float timers;
     float reloadOD;
-    private void Ability()
+    private void OverDriver()
     {
         attackCooldown = attackCooldown + reloadOD;
         if (overdrive == true)
         {
             timers += 1 * Time.deltaTime;
             reloadOD = 0.5f;
-           
 
-            if(timers >= 20)
+
+            if (timers >= 20)
             {
                 overdrive = false;
             }
-             
+
         }
         else if (overdrive == false)
         {
@@ -381,7 +398,24 @@ public class TanksBehavior : MonoBehaviour
         }
     }
 
+    void EMP()
+    {
+        if (emp == true)
+        {
+            timers += 1 * Time.deltaTime;
 
+
+            if (timers >= 30)
+            {
+                emp = false;
+            }
+
+        }
+        else if (emp == false)
+        {
+            timers = 0;
+        }
+    }
 
     public void PlayRecoil()
     {
@@ -409,6 +443,6 @@ public class TanksBehavior : MonoBehaviour
             });
     }
 
-   
+
 }
 

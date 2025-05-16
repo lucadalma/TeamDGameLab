@@ -14,6 +14,9 @@ public class DestroyAbilities : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+
     }
+
 
 }

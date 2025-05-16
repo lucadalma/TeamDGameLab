@@ -24,7 +24,7 @@ public class EventAbility : MonoBehaviour
 
     private void Update()
     {
-        if(manager != null)
+        if (manager != null)
         {
             manager = FindObjectOfType<AbilityManager>();
         }
@@ -38,13 +38,19 @@ public class EventAbility : MonoBehaviour
         switch (Ability)
         {
             case ABILITY.Missile:
-                manager.abilità = Missile;
+                if (mis == true)
+                {
+                    manager.abilità = Missile;
+
+                }
                 break;
             case ABILITY.Overdrive:
-                manager.abilità = Overdrive;
+                if (over == true)
+                    manager.abilità = Overdrive;
                 break;
             case ABILITY.EMP:
-                manager.abilità = EMP;
+                if (emp == true)
+                    manager.abilità = EMP;
                 break;
             default:
                 break;
