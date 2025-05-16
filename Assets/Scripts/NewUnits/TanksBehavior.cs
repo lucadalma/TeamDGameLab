@@ -35,8 +35,10 @@ public class TanksBehavior : MonoBehaviour
 
 
     public MMF_Player feedbacks;
+    public MMF_Player explosion;
+    public GameObject explosionPrefab;
 
-    
+
 
 
     [SerializeField] private Transform cannonTransform;
@@ -287,6 +289,34 @@ public class TanksBehavior : MonoBehaviour
 
     private void Die()
     {
+
+
+        if (explosionPrefab != null)
+        {
+            // Istanzia l'effetto esplosione alla posizione corrente
+            GameObject fx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            fx.transform.localScale = Vector3.one * 2f;
+            // Opzionale
+            Destroy(fx, 2f);
+        }
+        if (gameObject.name.Contains("Dart"))
+        {
+            AudioManager.Instance.Play(AudioManager.SoundType.DartExplosion);
+        }
+        else if(gameObject.name.Contains("Gladius"))
+        {
+            AudioManager.Instance.Play(AudioManager.SoundType.GladiusExplosion);
+        }
+        else if (gameObject.name.Contains("Javelin"))
+        {
+            AudioManager.Instance.Play(AudioManager.SoundType.JavelinExplosion);
+        }
+        else if (gameObject.name.Contains("Mace"))
+        {
+            AudioManager.Instance.Play(AudioManager.SoundType.MaceExplosion);
+        }
+
+
 
         Destroy(gameObject);
     }

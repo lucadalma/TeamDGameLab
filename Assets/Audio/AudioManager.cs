@@ -5,6 +5,10 @@ public class AudioManager : MonoBehaviour
 {
     public enum SoundType
     {
+        DartExplosion,
+        JavelinExplosion,
+        MaceExplosion,
+        GladiusExplosion,
         DartShot,
         JavelinShot,
         MaceShot,
