@@ -1653,9 +1653,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: e634f16c4d77d554aba759abec7bc677, type: 2}
+  - {fileID: 11400000, guid: e634f16c4d77d554aba759abec7bc677, type: 2}
+  - {fileID: 11400000, guid: e634f16c4d77d554aba759abec7bc677, type: 2}
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   EnemyBase: {fileID: 1338275743}
-  nextWaveSO: {fileID: 0}
+  nextWaveSO: {fileID: 11400000, guid: 2a88c08626b45f64e81cdfb6c1091bf4, type: 2}
   nextWaveTimer: 0
   targetPoint: {fileID: 1094485801}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
@@ -4013,7 +4015,7 @@ Transform:
   - {fileID: 530470233}
   - {fileID: 277489957}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1264170669 stripped
 Transform:
@@ -6123,7 +6125,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fa4a355b43aa66a44b3046704f274134, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa4a355b43aa66a44b3046704f274134, type: 3}
       propertyPath: m_LocalPosition.x
