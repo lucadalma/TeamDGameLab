@@ -224,7 +224,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 7
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -256,7 +256,7 @@ MonoBehaviour:
   isEnemy: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
-  detectionRadius: 5
+  detectionRadius: 6
   rotationSpeed: 3
   healthBar: {fileID: 3318814927896821315}
   EM: {fileID: 0}
@@ -269,6 +269,8 @@ MonoBehaviour:
   recoilDistance: 0.3
   recoilDuration: 0.1
   returnDuration: 0.2
+  overdrive: 0
+  emp: 0
 --- !u!114 &-5077540913406686558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5817,15 +5819,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.779674
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.779674
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.779674
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5867,6 +5869,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6282019610603270928, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5897,7 +5903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6732398567079961185, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.12453812
+      value: 1.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7291b1cd735f494fb048f246bdda8b1, type: 3}
