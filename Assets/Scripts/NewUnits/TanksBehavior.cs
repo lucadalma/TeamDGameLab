@@ -374,7 +374,8 @@ public class TanksBehavior : MonoBehaviour
 
         if (other.CompareTag("Missile"))
         {
-            health -= 50;
+            TakeDamage(50);
+            Debug.Log(health);
         }
     }
 

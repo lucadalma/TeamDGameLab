@@ -23,7 +23,7 @@ public class MissiliEsplosione : MonoBehaviour
             MissileNO.SetActive(false);
         }
 
-        if (timer >= timeEspolione + 0.3f)
+        if (timer >= timeEspolione + 0.1f)
             Destroy(this.gameObject);
     }
 }
