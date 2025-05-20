@@ -39,10 +39,7 @@ public class EventAbility : MonoBehaviour
         {
             case ABILITY.Missile:
                 if (mis == true)
-                {
                     manager.abilità = Missile;
-
-                }
                 break;
             case ABILITY.Overdrive:
                 if (over == true)

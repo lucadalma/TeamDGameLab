@@ -365,12 +365,16 @@ public class TanksBehavior : MonoBehaviour
         if (other.CompareTag("OverDrive") && isEnemy == false)
         {
             overdrive = true;
-            Debug.Log("OVERDRIVATO");
         }
 
         if (other.CompareTag("EMP") && isEnemy == true)
         {
             emp = true;
+        }
+
+        if (other.CompareTag("Missile"))
+        {
+            health -= 50;
         }
     }
 

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6961798386989657658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -215.42159, y: 31.963268, z: -113.90308}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 90, y: 1, z: 90}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59,6 +59,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00f68f417ed0a645a94e79a3003f0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerDestruction: 0.5
+  missili: 0
+  Missili: {fileID: 0}
+  spawnAreaSize: {x: 0, y: 0}
+  spawnHeight: 0
 --- !u!54 &-2539140452723781778
 Rigidbody:
   m_ObjectHideFlags: 0

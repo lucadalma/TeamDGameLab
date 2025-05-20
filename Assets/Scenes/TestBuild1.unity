@@ -2762,6 +2762,7 @@ MonoBehaviour:
   health: 0
   Base: {fileID: 986947281}
   feedbacks: {fileID: 0}
+  screenFlash: {fileID: 0}
 --- !u!114 &986947284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,7 +3258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ability: 2
-  Missile: {fileID: 6961798386989657658, guid: 59582b8eeb991de4a9336054b5a1a074, type: 3}
+  Missile: {fileID: 80195518037072487, guid: c548eb530c685e74fb1c02d4fccf6429, type: 3}
   Overdrive: {fileID: 6961798386989657658, guid: ed96f1fd6f44cb745b39c5a174c81137, type: 3}
   EMP: {fileID: 6961798386989657658, guid: 5a18985122f492f4e984118415abe4aa, type: 3}
   mis: 0
