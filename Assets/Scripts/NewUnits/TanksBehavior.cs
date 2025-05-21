@@ -32,6 +32,7 @@ public class TanksBehavior : MonoBehaviour
 
 
     public EventManager EM;
+    public EnemyBase_EventManager EBEM;
 
 
     public MMF_Player feedbacks;
@@ -61,8 +62,11 @@ public class TanksBehavior : MonoBehaviour
 
         if (EM == null)
             EM = FindObjectOfType<EventManager>();
-        if (EM != null)
+        if (EBEM == null)
+            EBEM = FindObjectOfType<EnemyBase_EventManager>();
+        if (EM != null || EBEM != null)
             PowerUp();
+
 
 
 
@@ -351,6 +355,21 @@ public class TanksBehavior : MonoBehaviour
             if (gameObject.name == "Unit_Gladius(Clone)")
                 EM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
 
+        }
+        else 
+        {
+
+            if (gameObject.name == "Unit_Dart(Clone)")
+            {
+                EBEM.ForUnitDart(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                Debug.Log(maxhealth);
+            }
+            if (gameObject.name == "Unit_Javeling(Clone)")
+                EBEM.ForUnitJaveling(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+            if (gameObject.name == "Unit_Mace(Clone)")
+                EBEM.ForUnitMace(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+            if (gameObject.name == "Unit_Gladius(Clone)")
+                EBEM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
         }
 
 

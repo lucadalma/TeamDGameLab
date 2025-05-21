@@ -147,9 +147,10 @@ GameObject:
   - component: {fileID: 7222558343854961608}
   - component: {fileID: -5640404744347214801}
   - component: {fileID: 6905220299970935086}
-  - component: {fileID: 2450201636990095376}
+  - component: {fileID: 4598975171189084824}
+  - component: {fileID: -6430740256333109810}
   m_Layer: 6
-  m_Name: Ablative Armor building
+  m_Name: Reactive Armor Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c6bef01d1970304299a8af5933012da, type: 2}
+  - {fileID: 2100000, guid: 8c309d3c49369604590cb909e4b141c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,9 +248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitToUpgrade: 0
-  eventType: 5
-  ammount1: 10
-  ammount2: 5
+  eventType: 4
+  ammount1: 25
+  ammount2: 25
   debuff: 0
 --- !u!114 &6905220299970935086
 MonoBehaviour:
@@ -263,11 +264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 14
+  type: 8
   unitToUpgrade: 0
   isInfront: 0
   BuildingButton: {fileID: 4702368915331540466}
---- !u!114 &2450201636990095376
+--- !u!114 &4598975171189084824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -282,6 +283,23 @@ MonoBehaviour:
   infoName: Insert Name here
   infoDescription: Insert Description Here
   infoIcon: {fileID: 0}
+--- !u!114 &-6430740256333109810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba91c9f64d07e8f4aba7193c6f7a1c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToUpgrade: 0
+  eventType: 4
+  ammount1: 25
+  ammount2: 25
+  debuff: 0
 --- !u!1001 &6868306118414748812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,22 +310,22 @@ PrefabInstance:
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 787d53c2333a200419dff7323c1f516c, type: 3}
+      objectReference: {fileID: 21300000, guid: 6aaddd940308af14ea1903c77aa19b24, type: 3}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.b
-      value: 0.9782368
+      value: 0.50980395
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.9529412
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.r
-      value: 0.58176094
+      value: 0.6932734
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name
