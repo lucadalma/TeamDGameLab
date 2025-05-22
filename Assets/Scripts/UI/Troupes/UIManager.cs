@@ -102,6 +102,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image PauseLight;
 
 
+    //Ability System
+
+    [SerializeField] List<Transform> abilitySlots;
+    List<GameObject> currentAvailableAbilities = new List<GameObject>();
+    public List<GameObject> abilityButtons;
+    List<GameObject> currentAbilities = new List<GameObject>();
+
     void Start()
     {
         gM = FindObjectOfType<GameManager>();
@@ -760,19 +767,11 @@ public class UIManager : MonoBehaviour
 
     void AbilityPanelControl()
     {
-
         int currentPos;
 
-        if (buildingsOnTimer.Count % 2 == 0)
-        {
-            currentPos = buildingsOnTimer.Count / 2;
-        }
-        else
-        {
-            currentPos = (buildingsOnTimer.Count + 1) / 2;
-        }
-        buildingsPanel.position = buildingsPanelPos[currentPos].position;
+        currentPos = currentAvailableAbilities.Count;
 
+        buildingsPanel.position = buildingsPanelPos[currentPos].position;
     }
     #endregion
 
@@ -957,5 +956,89 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region ability
 
+    public void addAbility(GameObject ability)
+    {
+        currentAvailableAbilities.Add(ability);
+        AbilityPanelControl();
+
+        SetAbilityUI();
+    }
+
+
+    public void removeAbility(GameObject ability)
+    {
+        currentAvailableAbilities.Remove(ability);
+        AbilityPanelControl();
+
+        SetAbilityUI();
+    }
+
+
+    void SetAbilityUI()
+    {
+
+        if (currentAbilities.Count > 0)
+        {
+            foreach (GameObject item in currentAbilities)
+            {
+                Destroy(item);
+            }
+
+             currentAbilities.Clear();
+        }
+
+
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (GameObject item in currentAvailableAbilities)
+            {
+                GameObject temp;
+
+                switch (item.GetComponent<BuildAbility>().abilityType)
+                {
+                    case abilityTypes.mis:
+                        if (i == 0)
+                        {
+                            temp = Instantiate(abilityButtons[0], abilitySlots[0].transform);
+                            currentAbilities.Add(temp);
+                            Debug.Log(temp);
+                        }
+
+                        break;
+                    case abilityTypes.over:
+                        if (i == 1)
+                        {
+                            temp = Instantiate(abilityButtons[1], abilitySlots[0].transform);
+                            currentAbilities.Add(temp);
+                            Debug.Log(temp);
+                        }
+
+                        break;
+                    case abilityTypes.emp:
+                        if (i == 2)
+                        {
+                            temp = Instantiate(abilityButtons[2], abilitySlots[0].transform);
+                            currentAbilities.Add(temp);
+                            Debug.Log(temp);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+
+        for (int i = 0; i < currentAbilities.Count; i++)
+        {
+            currentAbilities[i].transform.position = abilitySlots[i].transform.position;
+            currentAbilities[i].transform.parent = abilitySlots[i].transform;
+        }
+    }
+
+
+    #endregion
 }

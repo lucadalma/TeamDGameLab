@@ -2,22 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+    public enum abilityTypes { mis, over, emp }
 public class BuildAbility : MonoBehaviour
 {
 
     EventAbility EA;
-    public bool mis, over, emp;
+
+    UIManager uIM;
+
+    public abilityTypes abilityType;
 
     private void Start()
     {
-        if(EA != null)
+        if (EA == null)
             EA = FindObjectOfType<EventAbility>();
+        if (uIM == null)
+            uIM = FindObjectOfType<UIManager>();
+
+        uIM.addAbility(gameObject);
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        EA.mis = mis;
-        EA.over = over;
-        EA.emp = emp;
+       uIM.removeAbility(gameObject);
     }
 }
