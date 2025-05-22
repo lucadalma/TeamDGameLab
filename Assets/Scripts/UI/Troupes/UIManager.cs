@@ -230,8 +230,9 @@ public class UIManager : MonoBehaviour
 
     public void addUnitOnTimer(GameObject unit)
     {
-        if (numberOfUnitsOnTimer + numberOfUnitsOnDeploy < 8)
+        if (numberOfUnitsOnTimer + numberOfUnitsOnDeploy < 6)
         {
+            Debug.LogWarning("not free spacez " + (numberOfUnitsOnTimer + numberOfUnitsOnDeploy));
             GameObject newUnit = Instantiate(unit, unitTimerSlots[0]);
 
             unitsOnTimer.Add(newUnit);
@@ -453,7 +454,7 @@ public class UIManager : MonoBehaviour
         {
             if (TargetBuilding != null)
             {
-                if (Input.GetMouseButtonDown(0) || Input.anyKey||Mathf.Abs(Input.mouseScrollDelta.y) >= 1)
+                if (Input.GetMouseButtonDown(0) || Input.anyKey || Mathf.Abs(Input.mouseScrollDelta.y) >= 1)
                 {
                     TargetBuilding = null;
                     removeBuiidingMenu(Input.mousePosition);
@@ -752,16 +753,9 @@ public class UIManager : MonoBehaviour
     {
         int currentPos;
 
-        if ((unitsOnTimer.Count + availableUnitsToDeploy.Count) % 2 == 0)
-        {
-            currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count) / 2;
-        }
-        else
-        {
-            currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count + 1) / 2;
-        }
-        unitPanel.position = unitPanelPos[currentPos].position;
+        currentPos = (unitsOnTimer.Count + availableUnitsToDeploy.Count);
 
+        unitPanel.position = unitPanelPos[currentPos].position;
     }
 
     void AbilityPanelControl()
