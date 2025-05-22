@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "EnemyBase/Buildings")]
 public class SO_EnemyBuilding : ScriptableObject
 {
-    [SerializeField]
+    [FilteredPrefab("Assets/Prefabs/Buildings/Temp Buildings/EnemyUpgardes")]
     public List<GameObject> buildings;
 
     [SerializeField]
