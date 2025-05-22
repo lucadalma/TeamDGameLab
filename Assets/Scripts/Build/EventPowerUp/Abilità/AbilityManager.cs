@@ -7,7 +7,12 @@ public class AbilityManager : MonoBehaviour
 {
     /*[HideInInspector]*/
     public GameObject abilità;
+    public abilityButton currentButton;
     public LayerMask laneLayerMask;
+
+    float timer;
+    int stop;
+    bool nulled;
 
     void Update()
     {
@@ -16,11 +21,23 @@ public class AbilityManager : MonoBehaviour
             if (abilità != null)
                 SpawnAbilityAtMouseClick();
         }
+
+        if(timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            if (nulled)
+            {
+                abilità = null;
+                currentButton = null;
+                nulled = false;
+            }
+        }
     }
 
 
-    float timer;
-    int stop;
 
     void SpawnAbilityAtMouseClick()
     {
@@ -29,6 +46,17 @@ public class AbilityManager : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, laneLayerMask))
             {
                 Instantiate(abilità, hit.point, Quaternion.identity);
+                currentButton.StartTimer();
+
+                timer = 0.001f;
+                nulled = true;
+                Debug.Log("fired");
+            }
+            else
+            {
+                Debug.Log("missfired");
+                abilità = null;
+                currentButton = null;
             }
         }
        

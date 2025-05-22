@@ -3474,7 +3474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1076259468}
   - component: {fileID: 1076259469}
-  - component: {fileID: 1076259470}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3510,28 +3509,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "abilit\xE0": {fileID: 0}
+  currentButton: {fileID: 0}
   laneLayerMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &1076259470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076259467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8efd3804c95084092b68e4e8e14fa2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ability: 2
-  Missile: {fileID: 80195518037072487, guid: c548eb530c685e74fb1c02d4fccf6429, type: 3}
-  Overdrive: {fileID: 6961798386989657658, guid: ed96f1fd6f44cb745b39c5a174c81137, type: 3}
-  EMP: {fileID: 6961798386989657658, guid: 5a18985122f492f4e984118415abe4aa, type: 3}
-  mis: 0
-  over: 0
-  emp: 0
 --- !u!1 &1078361808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9045056358176542035, guid: 65fce38f75b894142a071f848fc2777a, type: 3}
