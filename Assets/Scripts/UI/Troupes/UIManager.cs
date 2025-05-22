@@ -11,7 +11,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.PlayerSettings;
 
 public class UIManager : MonoBehaviour
 {
