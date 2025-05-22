@@ -234,9 +234,14 @@ public class UnitBehavior : MonoBehaviour
         armor += EM.newArmor1;
         detectionRadius += EM.newRange1;
         damage += EM.newDmg1;
-        attackCooldown += EM.newReload1;
+        attackCooldown += EM.newReload1; 
 
     }
+
+   
+
+
+
 
     //public void PauseGameObject()
     //{

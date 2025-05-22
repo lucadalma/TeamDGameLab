@@ -97,7 +97,7 @@ MonoBehaviour:
   onOrder: 1
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   unitToUpgrade: 0
-  creationTime: 7
+  creationTime: 20
   DeployUnit: {fileID: 102633549431355430, guid: 47c9db31eddc4184982bad1621fb1d9c, type: 3}
   BuildingPref: {fileID: 0}
   timerBar: {fileID: 6907869805315139735}

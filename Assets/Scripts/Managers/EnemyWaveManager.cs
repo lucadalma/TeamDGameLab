@@ -17,6 +17,8 @@ public class EnemyWaveManager : MonoBehaviour
 
     public WaveSO nextWaveSO;
 
+    public float nextWaveTimer;
+
     int numberOfWaves = 0;
 
     public Transform targetPoint;  // Punto finale per le unità
@@ -74,10 +76,12 @@ public class EnemyWaveManager : MonoBehaviour
             if (currentWave + 1 >= currentSetOfWave.waves.Count)
             {
                 nextWaveSO = currentSetOfWave.waves[0];
+                nextWaveTimer = currentSetOfWave.timeBetweenWaves[0];
             }
             else 
             {
                 nextWaveSO = currentSetOfWave.waves[currentWave + 1];
+                nextWaveTimer = currentSetOfWave.timeBetweenWaves[currentWave + 1];
             }
 
             while (pause.Value)

@@ -12,6 +12,8 @@ public class BaseHealth : MonoBehaviour
 
     public MMF_Player feedbacks;
 
+    public DamageFlash screenFlash;
+
     private void Start()
     {
         health = maxHealth;
@@ -20,6 +22,8 @@ public class BaseHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         feedbacks.PlayFeedbacks();
+
+        screenFlash.Flash(damage);
 
         health -= damage;
         Debug.Log($"Base {gameObject.name} ha subito {damage} danni. Salute rimanente: {health}");
