@@ -12,6 +12,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 using static UnityEditor.PlayerSettings;
+using static UnityEditor.Progress;
 
 public class UIManager : MonoBehaviour
 {
@@ -963,14 +964,42 @@ public class UIManager : MonoBehaviour
         currentAvailableAbilities.Add(ability);
         AbilityPanelControl();
 
+
+        GameObject temp;
+
+        switch (ability.GetComponent<BuildAbility>().abilityType)
+        {
+            case abilityTypes.mis:
+                temp = Instantiate(abilityButtons[0], abilitySlots[0].transform);
+                currentAbilities.Add(temp);
+                ability.GetComponent<BuildAbility>().connectedAbButton = temp;
+                break;
+            case abilityTypes.over:
+                temp = Instantiate(abilityButtons[1], abilitySlots[0].transform);
+                currentAbilities.Add(temp);
+                ability.GetComponent<BuildAbility>().connectedAbButton = temp;
+                break;
+            case abilityTypes.emp:
+                temp = Instantiate(abilityButtons[2], abilitySlots[0].transform);
+                currentAbilities.Add(temp);
+                ability.GetComponent<BuildAbility>().connectedAbButton = temp;
+                break;
+            default:
+                break;
+        }
+
         SetAbilityUI();
+
     }
 
 
-    public void removeAbility(GameObject ability)
+    public void removeAbility(GameObject abilityBuilding, GameObject connectedButton)
     {
-        currentAvailableAbilities.Remove(ability);
+        currentAvailableAbilities.Remove(abilityBuilding);
         AbilityPanelControl();
+
+        currentAbilities.Remove(connectedButton);
+        Destroy(connectedButton);
 
         SetAbilityUI();
     }
@@ -978,64 +1007,21 @@ public class UIManager : MonoBehaviour
 
     void SetAbilityUI()
     {
-
-        if (currentAbilities.Count > 0)
-        {
-            foreach (GameObject item in currentAbilities)
-            {
-                Destroy(item);
-            }
-
-             currentAbilities.Clear();
-        }
-
+        int x = 0;
 
         for (int i = 0; i < 3; i++)
         {
-            foreach (GameObject item in currentAvailableAbilities)
+            foreach (GameObject ability in currentAbilities)
             {
-                GameObject temp;
-
-                switch (item.GetComponent<BuildAbility>().abilityType)
+                if (abilityButtons[i].GetComponent<abilityButton>().index == ability.GetComponent<abilityButton>().index)
                 {
-                    case abilityTypes.mis:
-                        if (i == 0)
-                        {
-                            temp = Instantiate(abilityButtons[0], abilitySlots[0].transform);
-                            currentAbilities.Add(temp);
-                            Debug.Log(temp);
-                        }
-
-                        break;
-                    case abilityTypes.over:
-                        if (i == 1)
-                        {
-                            temp = Instantiate(abilityButtons[1], abilitySlots[0].transform);
-                            currentAbilities.Add(temp);
-                            Debug.Log(temp);
-                        }
-
-                        break;
-                    case abilityTypes.emp:
-                        if (i == 2)
-                        {
-                            temp = Instantiate(abilityButtons[2], abilitySlots[0].transform);
-                            currentAbilities.Add(temp);
-                            Debug.Log(temp);
-                        }
-                        break;
-                    default:
-                        break;
+                    ability.transform.position = abilitySlots[x].transform.position;
+                    ability.transform.parent = abilitySlots[x].transform;
+                    Debug.Log("Put ability " + x + " in slot " + x + " during selection " + i);
+                    x++;
                 }
-
             }
 
-        }
-
-        for (int i = 0; i < currentAbilities.Count; i++)
-        {
-            currentAbilities[i].transform.position = abilitySlots[i].transform.position;
-            currentAbilities[i].transform.parent = abilitySlots[i].transform;
         }
     }
 

@@ -13,6 +13,7 @@ public class abilityButton : MonoBehaviour
     [SerializeField] float timer = 5;
     float timerTime = 0;
 
+    public int index;
 
     void Start()
     {

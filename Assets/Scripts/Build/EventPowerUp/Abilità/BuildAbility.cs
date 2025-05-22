@@ -11,7 +11,9 @@ public class BuildAbility : MonoBehaviour
 
     UIManager uIM;
 
+
     public abilityTypes abilityType;
+    public GameObject connectedAbButton;
 
     private void Start()
     {
@@ -25,6 +27,6 @@ public class BuildAbility : MonoBehaviour
 
     private void OnDestroy()
     {
-       uIM.removeAbility(gameObject);
+       uIM.removeAbility(gameObject, connectedAbButton);
     }
 }

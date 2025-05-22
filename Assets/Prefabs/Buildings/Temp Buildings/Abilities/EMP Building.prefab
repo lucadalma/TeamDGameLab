@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 7222558343854961608}
   - component: {fileID: 69157745549139044}
   - component: {fileID: -6958674717488058938}
+  - component: {fileID: 5596648600595442777}
   m_Layer: 6
   m_Name: EMP Building
   m_TagString: Untagged
@@ -261,6 +262,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 2
+  connectedAbButton: {fileID: 0}
+--- !u!114 &5596648600595442777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7222558343854961609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108f28cd2765d4f468b10ab83ef05ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  unitToUpgrade: 0
+  isInfront: 0
+  BuildingButton: {fileID: 4702368915331540466}
 --- !u!1001 &6868306118414748812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,18 +289,18 @@ PrefabInstance:
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: c182ed3003b154b49b4af8684079e62c, type: 3}
+      objectReference: {fileID: 21300000, guid: b46da75ad2a41ef4d97dd7808f20606a, type: 3}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.b
-      value: 0.50937456
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.g
-      value: 0.9528302
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Color.r
-      value: 0.94197005
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 777984550411278307, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Enabled
@@ -381,5 +399,10 @@ PrefabInstance:
 --- !u!224 &415007586232014567 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6526638578765879915, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+  m_PrefabInstance: {fileID: 6868306118414748812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4702368915331540466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
   m_PrefabInstance: {fileID: 6868306118414748812}
   m_PrefabAsset: {fileID: 0}
