@@ -141,6 +141,18 @@ public class EnemyWaveManager : MonoBehaviour
                 {
                     behavior.Initialize(currentEnemyGroup.enemy, targetPoint);
                     behavior.isEnemy = true;
+                    if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane1)
+                    {
+                        behavior.lane = Lane.Lane3;
+                    }
+                    else if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane2)
+                    {
+                        behavior.lane = Lane.Lane2;
+                    }
+                    else 
+                    {
+                        behavior.lane = Lane.Lane1;
+                    }
                 }
             }
             spawnPointIndex++;

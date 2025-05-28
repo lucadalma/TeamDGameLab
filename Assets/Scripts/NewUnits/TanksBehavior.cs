@@ -5,6 +5,13 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Animations;
 
+public enum Lane
+{
+    Lane1,
+    Lane2,
+    Lane3
+}
+
 public class TanksBehavior : MonoBehaviour
 {
     public float speed;
@@ -19,6 +26,8 @@ public class TanksBehavior : MonoBehaviour
     public Transform targetPoint;
     public GameObject currentEnemy;
     public bool isEnemy;
+
+    public Lane lane;
 
     public BoolVariable pause;
 
@@ -179,8 +188,11 @@ public class TanksBehavior : MonoBehaviour
                 TanksBehavior EnemyTank = collider.GetComponent<TanksBehavior>();
                 if (isEnemy != EnemyTank.isEnemy)
                 {
-                    currentEnemy = collider.gameObject;
-                    return;
+                    if(lane == EnemyTank.lane) 
+                    {
+                        currentEnemy = collider.gameObject;
+                        return;
+                    }
                 }
 
             }
@@ -288,8 +300,6 @@ public class TanksBehavior : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-
 
         damage -= armor;
         Debug.Log(damage);

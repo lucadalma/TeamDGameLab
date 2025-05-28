@@ -89,11 +89,12 @@ public class UnitManager : MonoBehaviour
                     int laneIndex = GetLaneIndex(hit.transform);
                     Debug.Log($"Lane index cliccato: {laneIndex}");
 
+                    
                     if (laneIndex >= 0 && laneIndex < spawnpoints.Length)
                     {
                         uIManager.removeDeployUnits(currentUnitButton);
                         Vector3 spawnPosition = new Vector3(spawnpoints[laneIndex].position.x, spawnpoints[laneIndex].position.y, baseTransform.position.z);
-                        SpawnUnitsInArea(spawnPosition, unitIndex);
+                        SpawnUnitsInArea(spawnPosition, unitIndex, laneIndex);
                         readyToDeploy = false;
                     }
                     else
@@ -105,7 +106,7 @@ public class UnitManager : MonoBehaviour
         }
     }
 
-    private void SpawnUnitsInArea(Vector3 centerPosition, int unitIndex)
+    private void SpawnUnitsInArea(Vector3 centerPosition, int unitIndex, int laneIndex)
     {
         if (selectedUnit == null || selectedUnit.unitPrefab == null)
         {
@@ -129,6 +130,18 @@ public class UnitManager : MonoBehaviour
 
             GameObject unit = Instantiate(selectedUnit.unitPrefab, spawnPosition, Quaternion.identity);
             TanksBehavior behavior = unit.GetComponent<TanksBehavior>();
+            if (laneIndex == 0)
+            {
+                behavior.lane = Lane.Lane3;
+            }
+            else if (laneIndex == 1)
+            {
+                behavior.lane = Lane.Lane2;
+            }
+            else
+            {
+                behavior.lane = Lane.Lane1;
+            }
 
             if (behavior != null)
             {
