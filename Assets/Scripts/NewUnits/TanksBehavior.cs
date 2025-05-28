@@ -22,6 +22,7 @@ public class TanksBehavior : MonoBehaviour
     private float damage;
     private float armor;
     public float attackCooldown;
+    public bool ad;
     private Transform currentRotation;
     public Transform targetPoint;
     public GameObject currentEnemy;
@@ -188,7 +189,8 @@ public class TanksBehavior : MonoBehaviour
                 TanksBehavior EnemyTank = collider.GetComponent<TanksBehavior>();
                 if (isEnemy != EnemyTank.isEnemy)
                 {
-                    if(lane == EnemyTank.lane) 
+                    
+                    if (lane == EnemyTank.lane && ad == false || ad == true)
                     {
                         currentEnemy = collider.gameObject;
                         return;
@@ -355,18 +357,21 @@ public class TanksBehavior : MonoBehaviour
         {
             if (gameObject.name == "Unit_Dart(Clone)")
             {
-                EM.ForUnitDart(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EM.ForUnitDart(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
                 Debug.Log(maxhealth);
             }
             if (gameObject.name == "Unit_Javeling(Clone)")
-                EM.ForUnitJaveling(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EM.ForUnitJaveling(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
             if (gameObject.name == "Unit_Mace(Clone)")
-                EM.ForUnitMace(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EM.ForUnitMace(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
             if (gameObject.name == "Unit_Gladius(Clone)")
-                EM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+            {
+                EM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
+                Debug.Log(ad);
+            }
 
         }
-        else 
+        else
         {
 
             if (gameObject.name == "Unit_Dart(Clone)")

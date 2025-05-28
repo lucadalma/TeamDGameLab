@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1515829, g: 0.15147191, b: 0.19517085, a: 1}
+  m_IndirectSpecularColor: {r: 0.15158617, g: 0.1514772, b: 0.1951766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -784,6 +784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364200872}
+  - component: {fileID: 364200873}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -806,6 +807,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &364200873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364200871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd5e3b7ada5af6439308cd8ce2c80de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitToUpgrade: 0
+  eventType: 13
+  ammount1: 0
+  ammount2: 0
+  debuff: 0
 --- !u!1 &364503306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,7 +1820,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661394749}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecfd0cb97e0b4ce4087b96962e95b90e, type: 3}
   m_Name: 
@@ -3265,6 +3283,7 @@ MonoBehaviour:
   newRange1: 0
   newDmg1: 0
   newReload1: 0
+  ad1: 0
   newHPReg2: 0
   newMoveSpeed2: 0
   newHp2: 0
@@ -3272,6 +3291,7 @@ MonoBehaviour:
   newRange2: 0
   newDmg2: 0
   newReload2: 0
+  ad2: 0
   newHPReg3: 0
   newMoveSpeed3: 0
   newHp3: 0
@@ -3279,6 +3299,7 @@ MonoBehaviour:
   newRange3: 0
   newDmg3: 0
   newReload3: 0
+  ad3: 0
   newHPReg4: 0
   newMoveSpeed4: 0
   newHp4: 0
@@ -3286,6 +3307,7 @@ MonoBehaviour:
   newRange4: 0
   newDmg4: 0
   newReload4: 0
+  ad4: 0
 --- !u!114 &1048210065
 MonoBehaviour:
   m_ObjectHideFlags: 0

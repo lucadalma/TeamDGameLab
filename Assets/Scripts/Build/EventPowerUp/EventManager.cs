@@ -53,8 +53,9 @@ public class EventManager : MonoBehaviour
     public float newArmor1;
     public float newRange1;
     public float newDmg1, newReload1;
+    public bool ad1;
     public void ForUnitDart(ref float _newHPReg,ref float _newMoveSpeed,ref float _newHp,
-        ref float _newArmor, ref float _newRange,ref float _newDmg,ref float _newReload)
+        ref float _newArmor, ref float _newRange,ref float _newDmg,ref float _newReload, ref bool _ad)
     {
         _newHPReg += newHPReg1;
         _newMoveSpeed += newMoveSpeed1;
@@ -63,7 +64,7 @@ public class EventManager : MonoBehaviour
         _newRange += newRange1;
         _newDmg += newDmg1;
         _newReload += newReload1;
-        Debug.Log(_newHPReg);
+        _ad = ad1;
     }
     #endregion
 
@@ -75,8 +76,9 @@ public class EventManager : MonoBehaviour
     public float newArmor2;
     public float newRange2;
     public float newDmg2, newReload2;
+    public bool ad2;
     public void ForUnitJaveling(ref float _newHPReg,ref float _newMoveSpeed, ref float _newHp,
-       ref float _newArmor, ref float _newRange, ref float _newDmg, ref float _newReload)
+       ref float _newArmor, ref float _newRange, ref float _newDmg, ref float _newReload, ref bool _ad)
     {
         _newHPReg += newHPReg2;
         _newMoveSpeed += newMoveSpeed2;
@@ -85,6 +87,7 @@ public class EventManager : MonoBehaviour
         _newRange += newRange2;
         _newDmg += newDmg2;
         _newReload = newReload2;
+        _ad = ad2;
     }
     #endregion
 
@@ -96,8 +99,9 @@ public class EventManager : MonoBehaviour
     public float newArmor3;
     public float newRange3;
     public float newDmg3, newReload3;
+    public bool ad3;
     public void ForUnitMace(ref float _newHPReg, ref float _newMoveSpeed, ref float _newHp,
-       ref float _newArmor, ref float _newRange,ref float _newDmg,ref float _newReload)
+       ref float _newArmor, ref float _newRange,ref float _newDmg,ref float _newReload, ref bool _ad)
     {
         _newHPReg += newHPReg3;
         _newMoveSpeed += newMoveSpeed3;
@@ -106,6 +110,7 @@ public class EventManager : MonoBehaviour
         _newRange += newRange3;
         _newDmg += newDmg3;
         _newReload += newReload3;
+        _ad = ad3;
     }
     #endregion
 
@@ -117,8 +122,10 @@ public class EventManager : MonoBehaviour
     public float newArmor4;
     public float newRange4;
     public float newDmg4, newReload4;
+    public bool ad4;
+
     public void ForUnitGladius(ref float _newHPReg,ref float _newMoveSpeed,ref float _newHp,
-      ref float _newArmor, ref float _newRange, ref float _newDmg, ref float _newReload)
+      ref float _newArmor, ref float _newRange, ref float _newDmg, ref float _newReload, ref bool _ad)
     {
         _newHPReg += newHPReg4;
         _newMoveSpeed += newMoveSpeed4;
@@ -127,6 +134,7 @@ public class EventManager : MonoBehaviour
         _newRange += newRange4;
         _newDmg += newDmg4;
         _newReload += newReload4;
+        _ad = ad4;
     }
     #endregion
     #endregion

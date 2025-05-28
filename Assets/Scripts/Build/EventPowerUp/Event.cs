@@ -17,7 +17,8 @@ public enum EventType
     MaceUnit,
     DartUnit,
     GladiusUnit,
-    JavUnit
+    JavUnit,
+    AdOptics
 };
 
 
@@ -93,6 +94,9 @@ public class Event : MonoBehaviour
                 break;
             case EventType.JavUnit:
                 UnitaUnLook(false, false, false, true);
+                break;
+            case EventType.AdOptics:
+                EM.AddListAction(ADOptics);
                 break;
             case EventType.BuildingCreationSpeed:
                 EM.AddListAction(BuildSpeed);
@@ -279,10 +283,26 @@ public class Event : MonoBehaviour
             EM.newMoveSpeed4 = gladius;
         }
 
+    }
 
-
-
-
+    private void ADOptics()
+    {
+        if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+            EM.ad1 = true;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+            EM.ad2 = true;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+            EM.ad3 = true;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+            EM.ad4 = true;
+        }
     }
 
 
