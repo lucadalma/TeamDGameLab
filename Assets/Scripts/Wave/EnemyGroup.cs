@@ -10,4 +10,7 @@ public class EnemyGroup : ScriptableObject
 
     [SerializeField]
     public int numberOfEnemy = 0;
+
+    [SerializeField]
+    public int unitID = 0;
 }

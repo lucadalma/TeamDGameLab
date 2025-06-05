@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGroup:
   - {fileID: 11400000, guid: 95eae28380737fa42b832f2c1d738443, type: 2}
-  spawnPoint: 00000000
+  - {fileID: 11400000, guid: 1cfbcf6516e596e4199d6abbaa84be91, type: 2}
+  - {fileID: 11400000, guid: 1cfbcf6516e596e4199d6abbaa84be91, type: 2}
+  - {fileID: 11400000, guid: 0de8859265ccf9f4ca18af4a9fa5561a, type: 2}
+  - {fileID: 11400000, guid: 95eae28380737fa42b832f2c1d738443, type: 2}
+  spawnPoint: 0000000001000000020000000200000001000000

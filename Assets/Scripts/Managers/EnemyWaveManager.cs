@@ -38,11 +38,14 @@ public class EnemyWaveManager : MonoBehaviour
 
     WavesSO currentSetOfWave;
 
+    WaveTimer timerDisplay;
+
     float areaWidth = 5f;
     float areaLength = 5f;
 
     private void Start()
     {
+        timerDisplay = FindObjectOfType<WaveTimer>();
         StartCoroutine(ManageWaves());
     }
 
@@ -106,6 +109,7 @@ public class EnemyWaveManager : MonoBehaviour
     private IEnumerator SpawnWave(int waveIndex)
     {
         WaveSO currentWaveSO = currentSetOfWave.waves[waveIndex];
+
         //nextWaveSO = currentSetOfWave.waves[waveIndex + 1];
 
         int spawnPointIndex = 0;
@@ -157,8 +161,13 @@ public class EnemyWaveManager : MonoBehaviour
             }
             spawnPointIndex++;
         }
+
+        timerDisplay.setTimer(nextWaveTimer);
+
         yield return new WaitForSeconds(timeBetweenSpawn.Value);
     }
 
+
+    
 
 }
