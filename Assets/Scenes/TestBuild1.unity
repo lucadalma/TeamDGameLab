@@ -5791,7 +5791,7 @@ PrefabInstance:
     - target: {fileID: 2880839483015369466, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
       propertyPath: availableUnitsToCreate.Array.data[3]
       value: 
-      objectReference: {fileID: 102633549431355430, guid: 6f6779d9506be3a418b5ea5e5bc93870, type: 3}
+      objectReference: {fileID: 102633549431355430, guid: 9584a9b3b4483304d8d4774dcbeec691, type: 3}
     - target: {fileID: 2880839483015369466, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
       propertyPath: currentBuildingButtons.Array.data[0]
       value: 
