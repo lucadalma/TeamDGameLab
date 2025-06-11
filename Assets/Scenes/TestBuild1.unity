@@ -3377,7 +3377,7 @@ MonoBehaviour:
   - {fileID: 6094899478365636428}
   - {fileID: 6094899478365636427}
   - {fileID: 6094899478365636426}
-  pause: {fileID: 0}
+  pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   enemyBuildingsList: {fileID: 11400000, guid: 41830d85fa20fbf4291c74ff272ad343, type: 2}
 --- !u!114 &1069189827 stripped
 MonoBehaviour:
@@ -5860,6 +5860,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -531.9
       objectReference: {fileID: 0}
+    - target: {fileID: 6156731765864352396, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
     - target: {fileID: 6473585899325790938, guid: f29b9984e008ec14eb3b6f5171d66204, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -117.1

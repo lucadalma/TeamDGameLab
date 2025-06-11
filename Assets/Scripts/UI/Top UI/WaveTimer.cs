@@ -8,6 +8,8 @@ public class WaveTimer : MonoBehaviour
 
     WaveDisplay waveDisplay;
 
+    public BoolVariable pause;
+
     int CurrentTime;
 
     [SerializeField] TextMeshProUGUI timerDisplay;
@@ -68,11 +70,14 @@ public class WaveTimer : MonoBehaviour
     {
         while (CurrentTime > 1)
         {
-            CurrentTime--;
-
+            while (pause.Value)
+            {
+                yield return null;
+            }
             yield return new WaitForSeconds(1);
+            CurrentTime--;
         }
     }
 
 }
-     
+

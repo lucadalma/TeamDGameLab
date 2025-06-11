@@ -68,7 +68,8 @@ public class EnemyWaveManager : MonoBehaviour
     private IEnumerator ManageWaves()
     {
         while (true)
-        {
+        { 
+
             if (difficulty.Value >= waves.Count) difficulty.Value = waves.Count - 1;
             currentSetOfWave = waves[difficulty.Value];
 
@@ -92,14 +93,12 @@ public class EnemyWaveManager : MonoBehaviour
                 yield return null;
             }
 
-            //Debug.Log($"Inizio wave {numberOfWaves}");
             yield return StartCoroutine(SpawnWave(currentWave));
 
             if (currentWave < currentSetOfWave.timeBetweenWaves.Count)
             {
                 float delay = currentSetOfWave.timeBetweenWaves[currentWave];
-                // Debug.Log($"Attesa di {delay} secondi prima della prossima wave.");
-                yield return new WaitForSeconds(delay);
+                yield return StartCoroutine(WaitWhileNotPaused(delay));
             }
 
             currentWave++;
@@ -111,6 +110,7 @@ public class EnemyWaveManager : MonoBehaviour
         WaveSO currentWaveSO = currentSetOfWave.waves[waveIndex];
 
         //nextWaveSO = currentSetOfWave.waves[waveIndex + 1];
+
 
         int spawnPointIndex = 0;
 
@@ -164,10 +164,22 @@ public class EnemyWaveManager : MonoBehaviour
 
         timerDisplay.setTimer(nextWaveTimer);
 
-        yield return new WaitForSeconds(timeBetweenSpawn.Value);
+        yield return StartCoroutine(WaitWhileNotPaused(timeBetweenSpawn.Value));
+
     }
 
 
-    
+    private IEnumerator WaitWhileNotPaused(float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            if (!pause.Value)
+            {
+                timer += Time.deltaTime;
+            }
+            yield return null;
+        }
+    }
 
 }

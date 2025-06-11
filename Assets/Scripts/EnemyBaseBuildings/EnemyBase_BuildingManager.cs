@@ -21,11 +21,9 @@ public class EnemyBase_BuildingManager : MonoBehaviour
 
             for (int i = 0; i < enemyBuildingsList.buildings.Count; i++)
             {
-                while (pause.Value) 
-                {
-                    yield return null;
-                }
-                yield return new WaitForSeconds(enemyBuildingsList.timers[i]);
+                
+                yield return StartCoroutine(WaitWhileNotPaused(enemyBuildingsList.timers[i]));
+
 
                 if (buildings[i] != null)
                 {
@@ -42,6 +40,19 @@ public class EnemyBase_BuildingManager : MonoBehaviour
 
 
             }
+        }
+    }
+
+    private IEnumerator WaitWhileNotPaused(float duration)
+    {
+        float timer = 0f;
+        while (timer < duration)
+        {
+            if (!pause.Value)
+            {
+                timer += Time.deltaTime;
+            }
+            yield return null;
         }
     }
 
