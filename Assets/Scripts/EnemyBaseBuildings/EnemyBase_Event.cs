@@ -72,6 +72,9 @@ public class EnemyBase_Event : MonoBehaviour
             case EventType.JavUnit:
                 UnitaUnLook(false, false, false, true);
                 break;
+            case EventType.AdOptics:
+                EM.AddListAction(ADOptics);
+                break;
             case EventType.BuildingCreationSpeed:
                 EM.AddListAction(BuildSpeed);
                 break;
@@ -258,6 +261,25 @@ public class EnemyBase_Event : MonoBehaviour
         }
     }
 
+    private void ADOptics()
+    {
+        if (unitToUpgrade == BuildingButton.forUnit.dart)
+        {
+            EM.ad1 = true;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.javelin)
+        {
+            EM.ad2 = true;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.mace)
+        {
+            EM.ad3 = true;
+        }
+        else if (unitToUpgrade == BuildingButton.forUnit.gladius)
+        {
+            EM.ad4 = true;
+        }
+    }
 
     private void BuildSpeed()
     {
@@ -546,6 +568,9 @@ public class EnemyBase_Event : MonoBehaviour
                     SE.RemoveRiotStackList4(this.gameObject);
                 SE.ChangeStackRiot(stack, debuff);
                 SE.ReloadBuff(EM.newReload1, ammount1);
+                break;
+            case EventType.AdOptics:
+                EM.RemoveListAction(ADOptics);
                 break;
             case EventType.MaceUnit:
                 UnitaUnLook(false, false, false, false);

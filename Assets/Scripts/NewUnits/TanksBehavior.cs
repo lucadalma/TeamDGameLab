@@ -376,15 +376,15 @@ public class TanksBehavior : MonoBehaviour
 
             if (gameObject.name == "Unit_Dart(Clone)")
             {
-                EBEM.ForUnitDart(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EBEM.ForUnitDart(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
                 Debug.Log(maxhealth);
             }
             if (gameObject.name == "Unit_Javeling(Clone)")
-                EBEM.ForUnitJaveling(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EBEM.ForUnitJaveling(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
             if (gameObject.name == "Unit_Mace(Clone)")
-                EBEM.ForUnitMace(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EBEM.ForUnitMace(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
             if (gameObject.name == "Unit_Gladius(Clone)")
-                EBEM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown);
+                EBEM.ForUnitGladius(ref health, ref speed, ref maxhealth, ref armor, ref detectionRadius, ref damage, ref attackCooldown, ref ad);
         }
 
 

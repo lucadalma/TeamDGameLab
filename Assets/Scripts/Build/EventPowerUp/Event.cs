@@ -407,7 +407,7 @@ public class Event : MonoBehaviour
 
 
 
-      
+
     }
 
     private void Caliber()
@@ -441,7 +441,7 @@ public class Event : MonoBehaviour
 
 
 
-      
+
     }
 
     private void Riot() //[1]
@@ -478,7 +478,7 @@ public class Event : MonoBehaviour
 
 
 
-        
+
     }
 
     private void UnitaUnLook(bool red, bool green, bool blue, bool viola)
@@ -593,6 +593,9 @@ public class Event : MonoBehaviour
                     SE.RemoveRiotStackList4(this.gameObject);
                 SE.ChangeStackRiot(stack, debuff);
                 SE.ReloadBuff(EM.newReload1, ammount1);
+                break;
+            case EventType.AdOptics:
+                EM.RemoveListAction(ADOptics);
                 break;
             case EventType.MaceUnit:
                 UnitaUnLook(false, false, false, false);
