@@ -9,6 +9,7 @@ public class RTSCameraController : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private float movementSpeed = 10f;
+    [SerializeField] private float incrasedMovementSpeed = 20f;
     [SerializeField] private Vector2 mapBoundsX = new Vector2(-50f, 50f);
     [SerializeField] private Vector2 mapBoundsZ = new Vector2(-50f, 50f);
 
@@ -90,8 +91,15 @@ public class RTSCameraController : MonoBehaviour
         {
             inputDirection.y = 0;
             inputDirection.Normalize();
-
-            Vector3 newPosition = transform.position + inputDirection * movementSpeed * Time.deltaTime;
+            Vector3 newPosition;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                newPosition = transform.position + inputDirection * incrasedMovementSpeed * Time.deltaTime;
+            }
+            else 
+            {
+                newPosition = transform.position + inputDirection * movementSpeed * Time.deltaTime;
+            }
             newPosition.x = Mathf.Clamp(newPosition.x, mapBoundsX.x, mapBoundsX.y);
             newPosition.z = Mathf.Clamp(newPosition.z, mapBoundsZ.x, mapBoundsZ.y);
 
