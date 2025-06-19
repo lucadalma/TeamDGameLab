@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
 
-    public void LoadScene()
+    public void LoadGameScene()
     {
         SceneManager.LoadScene("TestBuild1");
     }
+
+    public void LoadTutorialScene()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
+
 
     public void QuitApplication() 
     {
