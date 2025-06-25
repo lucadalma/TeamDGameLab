@@ -28,6 +28,9 @@ public class TanksBehavior : MonoBehaviour
     public GameObject currentEnemy;
     public bool isEnemy;
 
+    public GameObject allyMesh;
+    public GameObject enemyMesh;
+
     public Lane lane;
 
     public BoolVariable pause;
@@ -66,6 +69,16 @@ public class TanksBehavior : MonoBehaviour
     void Start()
     {
 
+        if (isEnemy)
+        {
+            allyMesh.SetActive(false);
+            enemyMesh.SetActive(true);
+        }
+        else 
+        {
+            allyMesh.SetActive(true);
+            enemyMesh.SetActive(false);
+        }
 
         health = maxhealth;
 
