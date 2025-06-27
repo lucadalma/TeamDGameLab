@@ -34,7 +34,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Trim_P
-  m_Shader: {fileID: -6465566751694194690, guid: 8c03aec1ade51a941ab046af850028f5, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: b5616f21f40d7ae4daa1b29ea7bfcddc, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -86,8 +86,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 82a6a61abac1b344fa5d93d7d003905a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_21f11e5cf1bc4983b45763174a6fc0b8_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 82a6a61abac1b344fa5d93d7d003905a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_3b7e787508c2499b981aa93ef7def2ed_Texture_1:
         m_Texture: {fileID: 2800000, guid: 7409df4be562caf41b6d9cfbd86a8001, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_412b7ef049564128b6eaf1c03f2cf65f_Texture_1:
+        m_Texture: {fileID: 2800000, guid: b371357d5399bac4c8b3179b8665db09, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_665f18ce95434712b0c90c147c37eb87_Texture_1:
@@ -100,6 +108,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_8b4d389ff53d41799e8b0d841db3091e_Texture_1:
         m_Texture: {fileID: 2800000, guid: 82a6a61abac1b344fa5d93d7d003905a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_95e6f307ab0c4bfab164dd12b6dc9f44_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7409df4be562caf41b6d9cfbd86a8001, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_d56cf38a79af4d4dafd472e8e51b1102_Texture_1:
