@@ -256,8 +256,11 @@ MonoBehaviour:
   targetPoint: {fileID: 0}
   currentEnemy: {fileID: 0}
   isEnemy: 0
-  allyMesh: {fileID: 0}
-  enemyMesh: {fileID: 0}
+  allyMaterial: {fileID: 2100000, guid: fef950dac1bba7f419b2d6b586043f50, type: 2}
+  enemyMaterial: {fileID: 2100000, guid: 124b8340d8e76b349ac1b91268772a3f, type: 2}
+  meshPart1: {fileID: 5738771083363631379}
+  meshPart2: {fileID: 4652131064426447870}
+  meshPart3: {fileID: 1699595734379539335}
   lane: 0
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   projectilePrefab: {fileID: 4455838741618225204, guid: 649d9571ebae8c74bbd0e06d7795ac85, type: 3}
@@ -5904,6 +5907,21 @@ PrefabInstance:
 --- !u!4 &561863293333903290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01eeb937a305d304eba08aeabd3a60d1, type: 3}
+  m_PrefabInstance: {fileID: 19873454799122513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1699595734379539335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7507298691528205354, guid: 01eeb937a305d304eba08aeabd3a60d1, type: 3}
+  m_PrefabInstance: {fileID: 19873454799122513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4652131064426447870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4555063079474285649, guid: 01eeb937a305d304eba08aeabd3a60d1, type: 3}
+  m_PrefabInstance: {fileID: 19873454799122513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5738771083363631379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5756355861592060226, guid: 01eeb937a305d304eba08aeabd3a60d1, type: 3}
   m_PrefabInstance: {fileID: 19873454799122513}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4653126633195849947

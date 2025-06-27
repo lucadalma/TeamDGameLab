@@ -28,8 +28,12 @@ public class TanksBehavior : MonoBehaviour
     public GameObject currentEnemy;
     public bool isEnemy;
 
-    public GameObject allyMesh;
-    public GameObject enemyMesh;
+    public Material allyMaterial;
+    public Material enemyMaterial;
+
+    public GameObject meshPart1;
+    public GameObject meshPart2;
+    public GameObject meshPart3;
 
     public Lane lane;
 
@@ -71,13 +75,15 @@ public class TanksBehavior : MonoBehaviour
 
         if (isEnemy)
         {
-            allyMesh.SetActive(false);
-            enemyMesh.SetActive(true);
+            meshPart1.GetComponent<MeshRenderer>().material = enemyMaterial;
+            meshPart2.GetComponent<MeshRenderer>().material = enemyMaterial;
+            meshPart3.GetComponent<MeshRenderer>().material = enemyMaterial;
         }
-        else 
+        else
         {
-            allyMesh.SetActive(true);
-            enemyMesh.SetActive(false);
+            meshPart1.GetComponent<MeshRenderer>().material = allyMaterial;
+            meshPart2.GetComponent<MeshRenderer>().material = allyMaterial;
+            meshPart3.GetComponent<MeshRenderer>().material = allyMaterial;
         }
 
         health = maxhealth;
