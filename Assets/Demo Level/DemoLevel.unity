@@ -1215,11 +1215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: 12b6557a2a679a14b8e3ad325074d6b5, type: 2}
+  - {fileID: 0}
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   EnemyBase: {fileID: 1338275743}
   nextWaveSO: {fileID: 0}
-  nextWaveTimer: 0
+  nextWaveTimer: 120
   targetPoint: {fileID: 1094485801}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
   timeBetweenSpawn: {fileID: 11400000, guid: fd9e5a95a0042f541a7a7a92c8985065, type: 2}
@@ -2521,7 +2521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHeight: 400
   startAngle: 45
-  startLookAtPoint: {x: 0, y: 0, z: 0}
+  startLookAtPoint: {x: -300, y: 0, z: 4200}
   movementSpeed: 100
   incrasedMovementSpeed: 200
   mapBoundsX: {x: -1000000, y: 1000000}
@@ -5361,6 +5361,26 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
+    - target: {fileID: 6094899479250923735, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: retreatSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094899479250923735, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: retreatTarget.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094899479250923735, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: retreatDistances.Array.data[0]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094899479250923735, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: retreatDistances.Array.data[1]
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094899479250923735, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
+      propertyPath: retreatDistances.Array.data[2]
+      value: 1500
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5222949661047058792, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
     - {fileID: 5222949661205442052, guid: 6180dfcd33673e9469557954a9c6ca22, type: 3}
