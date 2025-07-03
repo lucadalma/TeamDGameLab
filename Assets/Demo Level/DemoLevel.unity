@@ -2403,7 +2403,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfd0cb97e0b4ce4087b96962e95b90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - {fileID: 11400000, guid: c139da39f5b7e534dbc7b40486b5aedf, type: 2}
+  - {fileID: 11400000, guid: 31e84bfd94a7d574188db1b421c4e0ed, type: 2}
+  - {fileID: 11400000, guid: e0c34532f4cca90498a1d408c53fc46d, type: 2}
+  - {fileID: 11400000, guid: b79bb011b32493d4a908b60493c54abf, type: 2}
+  - {fileID: 11400000, guid: 6b9d40404e009964592b8ca9e6cfaeb1, type: 2}
+  - {fileID: 11400000, guid: 15f5231ced9926e4aacc30ddb827b642, type: 2}
+  - {fileID: 11400000, guid: 65a1744e6d7b66c41a353fd251a3110a, type: 2}
+  - {fileID: 11400000, guid: 8c80f718ca595bf4da23473d4d36c557, type: 2}
+  - {fileID: 11400000, guid: 049bedacbf27ad64bb65fc11e5fb2d58, type: 2}
+  - {fileID: 11400000, guid: af93bfcf32749664fade32d6f74e3038, type: 2}
+  - {fileID: 11400000, guid: dcccb3116cba4994ebd11487cc61facc, type: 2}
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   EnemyBase: {fileID: 1338275743}
   nextWaveSO: {fileID: 0}
@@ -5951,10 +5962,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0cc1aeb241ff142a415f4ab53351da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 20
+  interval: 120
   difficulty: {fileID: 11400000, guid: c2fdbec07bf325c46a552227e39ae746, type: 2}
   ListWaves:
-  - {fileID: 11400000, guid: 12b6557a2a679a14b8e3ad325074d6b5, type: 2}
+  - {fileID: 11400000, guid: c139da39f5b7e534dbc7b40486b5aedf, type: 2}
+  - {fileID: 11400000, guid: 31e84bfd94a7d574188db1b421c4e0ed, type: 2}
+  - {fileID: 11400000, guid: e0c34532f4cca90498a1d408c53fc46d, type: 2}
+  - {fileID: 11400000, guid: b79bb011b32493d4a908b60493c54abf, type: 2}
+  - {fileID: 11400000, guid: 6b9d40404e009964592b8ca9e6cfaeb1, type: 2}
+  - {fileID: 11400000, guid: 15f5231ced9926e4aacc30ddb827b642, type: 2}
+  - {fileID: 11400000, guid: 65a1744e6d7b66c41a353fd251a3110a, type: 2}
+  - {fileID: 11400000, guid: 8c80f718ca595bf4da23473d4d36c557, type: 2}
+  - {fileID: 11400000, guid: 049bedacbf27ad64bb65fc11e5fb2d58, type: 2}
+  - {fileID: 11400000, guid: af93bfcf32749664fade32d6f74e3038, type: 2}
+  - {fileID: 11400000, guid: dcccb3116cba4994ebd11487cc61facc, type: 2}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
 --- !u!4 &1302382095
 Transform:
