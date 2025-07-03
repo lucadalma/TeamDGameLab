@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f3f518144033a4bb8f2112d09c67e3, type: 3}
+  m_Name: EnemyBuildingProgression
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 7222558343854961609, guid: 69351e06c31dac64f8d0ca5e82e3d15b, type: 3}
+  - {fileID: 7222558343854961609, guid: 69351e06c31dac64f8d0ca5e82e3d15b, type: 3}
+  - {fileID: 7222558343854961609, guid: f541c2de82f12414eac26792751fffd2, type: 3}
+  - {fileID: 7222558343854961609, guid: 4dcafae4dcad93444b63b9a5ba79b49c, type: 3}
+  - {fileID: 7222558343854961609, guid: eddd413b1b8fa8c48b76ee78b107531a, type: 3}
+  - {fileID: 7222558343854961609, guid: 2c9c9a8dcacb5c54dbf1ecca8cfd8484, type: 3}
+  - {fileID: 7222558343854961609, guid: bb43a580327d0a94f852d0318ad05a99, type: 3}
+  - {fileID: 7222558343854961609, guid: 69351e06c31dac64f8d0ca5e82e3d15b, type: 3}
+  - {fileID: 7222558343854961609, guid: 69351e06c31dac64f8d0ca5e82e3d15b, type: 3}
+  - {fileID: 7222558343854961609, guid: f541c2de82f12414eac26792751fffd2, type: 3}
+  - {fileID: 7222558343854961609, guid: 4dcafae4dcad93444b63b9a5ba79b49c, type: 3}
+  - {fileID: 7222558343854961609, guid: eddd413b1b8fa8c48b76ee78b107531a, type: 3}
+  - {fileID: 7222558343854961609, guid: 2c9c9a8dcacb5c54dbf1ecca8cfd8484, type: 3}
+  units: 01000000020000000300000004000000010000000200000003000000040000000100000002000000030000000400000001000000
+  timers:
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
+  - 120
