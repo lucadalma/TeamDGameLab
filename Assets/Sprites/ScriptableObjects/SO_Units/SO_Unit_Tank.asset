@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SO_Unit_Tank
   m_EditorClassIdentifier: 
   unitName: Tank
-  health: 24
+  health: 80
   speed: 0.25
-  fireRate: 0.2
-  damage: 10
+  fireRate: 0.16
+  damage: 100
   spawnCd: 5
   unitID: 2
   unitCount: 2

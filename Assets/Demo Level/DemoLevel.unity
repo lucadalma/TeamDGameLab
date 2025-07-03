@@ -2403,8 +2403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfd0cb97e0b4ce4087b96962e95b90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - {fileID: 11400000, guid: 12b6557a2a679a14b8e3ad325074d6b5, type: 2}
+  waves: []
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   EnemyBase: {fileID: 1338275743}
   nextWaveSO: {fileID: 0}
@@ -4543,8 +4542,6 @@ MonoBehaviour:
   - {fileID: 6094899478365636437}
   - {fileID: 6094899478365636436}
   - {fileID: 6094899478365636435}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 6094899478365636432}
   - {fileID: 6094899478365636431}
   - {fileID: 6094899478365636430}

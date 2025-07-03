@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SO_Unit_Base
   m_EditorClassIdentifier: 
   unitName: Base
-  health: 65
+  health: 120
   speed: 0.75
-  fireRate: 0.4
-  damage: 22
+  fireRate: 0.25
+  damage: 6
   spawnCd: 1
   unitID: 1
-  unitCount: 2
+  unitCount: 4
   unitPrefab: {fileID: 5824003280416219573, guid: 952173cdb9a65c64cb7ba3ca1f7ba72a, type: 3}
   projectilePrefab: {fileID: 4455838741618225204, guid: 02f9f5c5fcd3b424ea875aeaa84fba04, type: 3}
