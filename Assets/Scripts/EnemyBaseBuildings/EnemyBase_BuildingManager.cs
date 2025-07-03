@@ -8,9 +8,18 @@ public class EnemyBase_BuildingManager : MonoBehaviour
 
     public BoolVariable pause;
 
+    public Material mat;
+
     public SO_EnemyBuilding enemyBuildingsList;
     private void Start()
     {
+        foreach (GameObject building in buildings)
+        {
+            MeshRenderer mesh = building.GetComponentInChildren<MeshRenderer>();
+            mesh.material = mat;
+
+        }
+
         StartCoroutine(SpawnBuildings());
     }
 

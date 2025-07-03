@@ -11,8 +11,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.PlayerSettings;
-using static UnityEditor.Progress;
+//using static UnityEditor.PlayerSettings;
+//using static UnityEditor.Progress;
 
 
 
