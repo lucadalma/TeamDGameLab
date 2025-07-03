@@ -252,7 +252,7 @@ MonoBehaviour:
   infoDescription: "A logistics building that speeds up the construction of other
     buildings. The more Supply Depots you have, the faster new buildings are deployed.\r\n\r\nMax
     Build Time (seconds): 60 \r\nBuild Time Reduction: -7% per Depot\r\n"
-  infoIcon: {fileID: 21300000, guid: 50f84bae1aff8a240a9d7f24b7b7b723, type: 3}
+  infoIcon: {fileID: 21300000, guid: 1f6a39b74aacf274badd9f418b1ee049, type: 3}
 --- !u!1 &8176085057447733898
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: infoIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 50f84bae1aff8a240a9d7f24b7b7b723, type: 3}
+      objectReference: {fileID: 21300000, guid: 1f6a39b74aacf274badd9f418b1ee049, type: 3}
     - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: infoName
       value: Supply Depot

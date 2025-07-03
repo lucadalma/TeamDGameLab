@@ -280,9 +280,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Reactive Armor
+  infoDescription: 'Adds an extra layer of HP which will always block at least one
+    instance of damage.
+
+
+
+    Build Time: 120
+
+    Extra HP: 25%
+
+    Stackable:
+    Yes
+
+    Stack: +25%
+
+'
+  infoIcon: {fileID: 21300000, guid: 9cf4529a8dc45584d8eb091309d840ab, type: 3}
 --- !u!1001 &1717572081951574884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,6 +405,32 @@ PrefabInstance:
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name
       value: OpenBuildingButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 9cf4529a8dc45584d8eb091309d840ab, type: 3}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoName
+      value: Reactive Armor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoDescription
+      value: 'Adds an extra layer of HP which will always block at least one instance
+        of damage.
+
+
+
+        Build Time: 120
+
+        Extra HP: 25%
+
+        Stackable:
+        Yes
+
+        Stack: +25%
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6526638578765879915, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Pivot.x

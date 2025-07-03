@@ -162,9 +162,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Self Rapair
+  infoDescription: 'Slowly but constantly regenerates health over time.
+
+'
+  infoIcon: {fileID: 21300000, guid: 5ce9f40434949fe44b61acc32025ac6a, type: 3}
 --- !u!114 &3388760067376221173
 MonoBehaviour:
   m_ObjectHideFlags: 0

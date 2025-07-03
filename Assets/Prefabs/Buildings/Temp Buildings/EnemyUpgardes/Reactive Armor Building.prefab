@@ -281,9 +281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Reactive Armor
+  infoDescription: 'Adds an extra layer of HP which will always block at least one
+    instance of damage.
+
+'
+  infoIcon: {fileID: 21300000, guid: 9cf4529a8dc45584d8eb091309d840ab, type: 3}
 --- !u!114 &-6430740256333109810
 MonoBehaviour:
   m_ObjectHideFlags: 0
