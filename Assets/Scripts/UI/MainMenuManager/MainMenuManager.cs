@@ -8,7 +8,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("TestBuild1");
+        SceneManager.LoadScene("DemoLevel");
     }
 
     public void LoadTutorialScene()

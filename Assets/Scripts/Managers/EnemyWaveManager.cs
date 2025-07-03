@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyWaveManager : MonoBehaviour
 {
@@ -47,10 +48,19 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void Start()
     {
-        doneFirstTime = false;
-        timerDisplay = FindObjectOfType<WaveTimer>();
-        StartCoroutine(ManageWaves());
+        StartCoroutine(WaitForTimerThenStart());
+    }
 
+    private IEnumerator WaitForTimerThenStart()
+    {
+        while (timerDisplay == null)
+        {
+            timerDisplay = FindObjectOfType<WaveTimer>();
+            yield return null;
+        }
+
+        doneFirstTime = false;
+        StartCoroutine(ManageWaves());
     }
 
     //private void OnValidate()
@@ -88,6 +98,7 @@ public class EnemyWaveManager : MonoBehaviour
                 timerDisplay.setTimer(nextWaveTimer);
                 doneFirstTime = true;
             }
+
             if (currentWave + 1 >= currentSetOfWave.waves.Count)
             {
                 nextWaveSO = currentSetOfWave.waves[0];
@@ -150,8 +161,19 @@ public class EnemyWaveManager : MonoBehaviour
                 }
 
                 spawnPosition.z = EnemyBase.position.z + offsetZ;
+                //Vector3 finalSpawnPosition = spawnPosition;
+                //NavMeshHit hit;
+                //if (NavMesh.SamplePosition(spawnPosition, out hit, 2f, NavMesh.AllAreas))
+                //{
+                //    finalSpawnPosition = hit.position;
+                //}
+                //else
+                //{
+                //    Debug.LogWarning($"Spawn position {spawnPosition} is not on the NavMesh.");
+                //}
 
                 GameObject unit = Instantiate(currentEnemyGroup.enemy.unitPrefab, spawnPosition, Quaternion.Euler(0, 180, 0));
+
                 TanksBehavior behavior = unit.GetComponent<TanksBehavior>();
                 if (behavior != null)
                 {
@@ -159,7 +181,7 @@ public class EnemyWaveManager : MonoBehaviour
                     behavior.isEnemy = true;
                     if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane1)
                     {
-                        behavior.lane = Lane.Lane3;
+                        behavior.lane = Lane.Lane1;
                     }
                     else if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane2)
                     {
@@ -167,7 +189,7 @@ public class EnemyWaveManager : MonoBehaviour
                     }
                     else
                     {
-                        behavior.lane = Lane.Lane1;
+                        behavior.lane = Lane.Lane3;
                     }
                 }
             }
