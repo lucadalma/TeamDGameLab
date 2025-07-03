@@ -2735,8 +2735,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 15f5231ced9926e4aacc30ddb827b642, type: 2}
   - {fileID: 11400000, guid: 65a1744e6d7b66c41a353fd251a3110a, type: 2}
   - {fileID: 11400000, guid: 8c80f718ca595bf4da23473d4d36c557, type: 2}
-  - {fileID: 11400000, guid: 049bedacbf27ad64bb65fc11e5fb2d58, type: 2}
-  - {fileID: 11400000, guid: af93bfcf32749664fade32d6f74e3038, type: 2}
+  - {fileID: 11400000, guid: ac34cb422a829a34a90389e66e2f7f03, type: 2}
+  - {fileID: 11400000, guid: 15f563127e4c21d45a2305e24c080b8c, type: 2}
   - {fileID: 11400000, guid: dcccb3116cba4994ebd11487cc61facc, type: 2}
   increaseWaveNumber: {fileID: 11400000, guid: 35dd48b4d0ec04848bb0ac1c176c067d, type: 2}
   EnemyBase: {fileID: 1338275743}
@@ -6377,8 +6377,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 15f5231ced9926e4aacc30ddb827b642, type: 2}
   - {fileID: 11400000, guid: 65a1744e6d7b66c41a353fd251a3110a, type: 2}
   - {fileID: 11400000, guid: 8c80f718ca595bf4da23473d4d36c557, type: 2}
-  - {fileID: 11400000, guid: 049bedacbf27ad64bb65fc11e5fb2d58, type: 2}
-  - {fileID: 11400000, guid: af93bfcf32749664fade32d6f74e3038, type: 2}
+  - {fileID: 11400000, guid: ac34cb422a829a34a90389e66e2f7f03, type: 2}
+  - {fileID: 11400000, guid: 15f563127e4c21d45a2305e24c080b8c, type: 2}
   - {fileID: 11400000, guid: dcccb3116cba4994ebd11487cc61facc, type: 2}
   pause: {fileID: 11400000, guid: 3c6ae4d8dff4c584dbf3cbff543ca17d, type: 2}
 --- !u!4 &1302382095
