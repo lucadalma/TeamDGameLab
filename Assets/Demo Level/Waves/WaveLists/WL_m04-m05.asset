@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5565a322d910bd94889c535547835811, type: 3}
   m_Name: WL_m04-m05
   m_EditorClassIdentifier: 
-  waves: []
-  timeBetweenWaves: []
+  waves:
+  - {fileID: 11400000, guid: 6d1c99b4fd9698b419dfe58d5f0bcf42, type: 2}
+  timeBetweenWaves:
+  - 30
