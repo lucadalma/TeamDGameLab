@@ -13,6 +13,8 @@ public class EnemyWaveManager : MonoBehaviour
     [SerializeField]
     Transform EnemyBase;
 
+    bool doneFirstTime;
+
     int currentWave = 0;
 
     public WaveSO nextWaveSO;
@@ -45,8 +47,10 @@ public class EnemyWaveManager : MonoBehaviour
 
     private void Start()
     {
+        doneFirstTime = false;
         timerDisplay = FindObjectOfType<WaveTimer>();
         StartCoroutine(ManageWaves());
+
     }
 
     //private void OnValidate()
@@ -68,7 +72,7 @@ public class EnemyWaveManager : MonoBehaviour
     private IEnumerator ManageWaves()
     {
         while (true)
-        { 
+        {
 
             if (difficulty.Value >= waves.Count) difficulty.Value = waves.Count - 1;
             currentSetOfWave = waves[difficulty.Value];
@@ -77,12 +81,19 @@ public class EnemyWaveManager : MonoBehaviour
 
             numberOfWaves += 1;
 
+            if (doneFirstTime == false)
+            {
+                nextWaveSO = currentSetOfWave.waves[0];
+                nextWaveTimer = currentSetOfWave.timeBetweenWaves[0];
+                timerDisplay.setTimer(nextWaveTimer);
+                doneFirstTime = true;
+            }
             if (currentWave + 1 >= currentSetOfWave.waves.Count)
             {
                 nextWaveSO = currentSetOfWave.waves[0];
                 nextWaveTimer = currentSetOfWave.timeBetweenWaves[0];
             }
-            else 
+            else
             {
                 nextWaveSO = currentSetOfWave.waves[currentWave + 1];
                 nextWaveTimer = currentSetOfWave.timeBetweenWaves[currentWave + 1];
@@ -93,13 +104,14 @@ public class EnemyWaveManager : MonoBehaviour
                 yield return null;
             }
 
-            yield return StartCoroutine(SpawnWave(currentWave));
 
             if (currentWave < currentSetOfWave.timeBetweenWaves.Count)
             {
                 float delay = currentSetOfWave.timeBetweenWaves[currentWave];
                 yield return StartCoroutine(WaitWhileNotPaused(delay));
             }
+
+            yield return StartCoroutine(SpawnWave(currentWave));
 
             currentWave++;
         }
@@ -126,7 +138,7 @@ public class EnemyWaveManager : MonoBehaviour
                 {
                     spawnPosition = enemySpawnPoints[0].position + new Vector3(offsetX, 0, 0);
                 }
-                else if(currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane2) 
+                else if (currentWaveSO.spawnPoint[spawnPointIndex] == SpawnPoint.Lane2)
                 {
                     spawnPosition = enemySpawnPoints[1].position + new Vector3(offsetX, 0, 0);
 
@@ -153,7 +165,7 @@ public class EnemyWaveManager : MonoBehaviour
                     {
                         behavior.lane = Lane.Lane2;
                     }
-                    else 
+                    else
                     {
                         behavior.lane = Lane.Lane1;
                     }

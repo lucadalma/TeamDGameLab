@@ -9,7 +9,6 @@ public class WaveDisplay : MonoBehaviour
     [SerializeField] List<Sprite> sprites;
     [SerializeField] List<Transform> IconSlots;
 
-
     List<GameObject> currentIcons = new List<GameObject>();
 
     EnemyWaveManager wM;

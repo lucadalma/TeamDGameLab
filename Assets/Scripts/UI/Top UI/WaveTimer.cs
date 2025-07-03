@@ -28,7 +28,7 @@ public class WaveTimer : MonoBehaviour
     public void setTimer(float time)
     {
         StopAllCoroutines();
-        CurrentTime = ((int)time) + 1;
+        CurrentTime = ((int)time);
         waveDisplay.ChangeDisplay();
         StartCoroutine(tickTimer());
     }
@@ -44,8 +44,6 @@ public class WaveTimer : MonoBehaviour
 
         timerToSeconds = CurrentTime - (60 * Mathf.FloorToInt(CurrentTime / 60f));
         timerToMinutes = Mathf.FloorToInt(CurrentTime / 60f);
-
-
 
         if (timerToSeconds < 10 && timerToSeconds < 10)
         {
@@ -63,6 +61,7 @@ public class WaveTimer : MonoBehaviour
         {
             timerDisplay.text = timerToMinutes + ":" + timerToSeconds;
         }
+
     }
 
 
