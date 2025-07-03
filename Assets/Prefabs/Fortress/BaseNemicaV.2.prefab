@@ -122,7 +122,7 @@ MonoBehaviour:
     units and upgrades them over time. It will start retreating after taking enough
     damage.\r\n\r\nDamage Per Shot: 4\r\nAttack Cooldown (seconds): 1\r\nHealth:
     1000\r\nSpeed: 1\r\nRange: 12\r\n"
-  infoIcon: {fileID: 0}
+  infoIcon: {fileID: 21300000, guid: d184d351ddab2c745971c84151a9793c, type: 3}
 --- !u!1001 &442610849769755707
 PrefabInstance:
   m_ObjectHideFlags: 0

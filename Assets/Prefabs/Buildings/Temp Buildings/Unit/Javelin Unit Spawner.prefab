@@ -210,7 +210,7 @@ MonoBehaviour:
     Total DPS: 33.3
 
 '
-  infoIcon: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
+  infoIcon: {fileID: 21300000, guid: fa36353afa393ac4095d0e0ccd138b8a, type: 3}
 --- !u!1 &9118522267488785293
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: infoIcon
       value: 
-      objectReference: {fileID: 21300000, guid: df43e32ed293c2c469b3655d97b5c8ba, type: 3}
+      objectReference: {fileID: 21300000, guid: fa36353afa393ac4095d0e0ccd138b8a, type: 3}
     - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: infoName
       value: Javelin

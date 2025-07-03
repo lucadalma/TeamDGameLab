@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description here
-  infoIcon: {fileID: 0}
+  infoName: Engine Turbocharger
+  infoDescription: "Increases the unit\u2019s movement speed by a flat amount.\r\n\r\nBuild
+    Time: 60\r\nSpeed Increase: 1\r\nStackable: Yes\r\nStack: +0.5\r\n"
+  infoIcon: {fileID: 21300000, guid: 114caf0b94a69844ea220b7a46e3f1fa, type: 3}

@@ -115,8 +115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: 
+  infoName: Riot Mode
+  infoDescription: "Halves both the unit\u2019s damage and reload time.\r\n\r\nBuild
+    Time: 180\r\nDamage Decrease: 50%\r\nReload Time Decrease: 50%\r\nStackable:
+    No\r\n"
   infoIcon: {fileID: 0}
 --- !u!1 &145249371856481888
 GameObject:

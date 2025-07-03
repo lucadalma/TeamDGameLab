@@ -287,7 +287,7 @@ MonoBehaviour:
     Time (seconds): 10\r\nDamage Per Shot: 4\r\nAttack Cooldown (seconds): 3\r\nHealth:
     10\r\nSpeed: 2\r\nRange: 6\r\nUnit Size: Small\r\nSquad Size: 8\r\nSquad Total
     Health: 80\r\nSquad Total DPS: 10.6\r\n"
-  infoIcon: {fileID: 21300000, guid: 64020fc779434d54282c2bb87d1ce966, type: 3}
+  infoIcon: {fileID: 21300000, guid: 1ca92167e2c20bf4eb7dd60fe315ac6a, type: 3}
 --- !u!1001 &3965986998593473949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ PrefabInstance:
     - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: infoIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 64020fc779434d54282c2bb87d1ce966, type: 3}
+      objectReference: {fileID: 21300000, guid: 1ca92167e2c20bf4eb7dd60fe315ac6a, type: 3}
     - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: infoName
       value: Dart

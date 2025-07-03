@@ -263,9 +263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Ablative Armor
+  infoDescription: 'Blocks a small, flat amount of damage on each hit. It can never
+    block damage completely.
+
+'
+  infoIcon: {fileID: 21300000, guid: a929cf604cf8d8545951fa53a901d32f, type: 3}
 --- !u!114 &5072456848181735862
 MonoBehaviour:
   m_ObjectHideFlags: 0

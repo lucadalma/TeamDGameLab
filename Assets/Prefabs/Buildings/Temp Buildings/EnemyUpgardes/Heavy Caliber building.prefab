@@ -263,9 +263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Heavy Caliber
+  infoDescription: "Increases the unit\u2019s damage per shot at the cost of reload
+    time.\r\n\n"
+  infoIcon: {fileID: 21300000, guid: eba16ac585e5252439a4e6ee873cd3f3, type: 3}
 --- !u!114 &-990962224128721759
 MonoBehaviour:
   m_ObjectHideFlags: 0

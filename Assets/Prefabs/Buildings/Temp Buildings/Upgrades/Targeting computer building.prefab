@@ -280,9 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Targeting Computer
+  infoDescription: "Increases the unit\u2019s attack range but decreases movement
+    speed.\r\n\r\nBuild Time: 120\r\nRange Increase: 25% +4\r\nMovement Speed Decrease:
+    0.5\r\nStackable: Yes\r\nStack: +4 range / -0.5 speed\r\n"
+  infoIcon: {fileID: 21300000, guid: 8f7a5b58051a94c4db3a2e4aa2188a87, type: 3}
 --- !u!1001 &4469289026007401740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,6 +397,20 @@ PrefabInstance:
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name
       value: OpenBuildingButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f7a5b58051a94c4db3a2e4aa2188a87, type: 3}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoName
+      value: Targeting Computer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoDescription
+      value: "Increases the unit\u2019s attack range but decreases movement speed.\r\n\r\nBuild
+        Time: 120\r\nRange Increase: 25% +4\r\nMovement Speed Decrease: 0.5\r\nStackable:
+        Yes\r\nStack: +4 range / -0.5 speed\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6526638578765879915, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Pivot.x

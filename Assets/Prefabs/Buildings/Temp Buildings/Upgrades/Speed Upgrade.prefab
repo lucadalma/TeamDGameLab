@@ -280,9 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aec25c41bd31e4b9d446511f6276e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoName: Insert Name here
-  infoDescription: Insert Description Here
-  infoIcon: {fileID: 0}
+  infoName: Engine Turbocharger
+  infoDescription: "Increases the unit\u2019s movement speed by a flat amount.\r\n\r\nBuild
+    Time: 60\r\nSpeed Increase: 1\r\nStackable: Yes\r\nStack: +0.5\r\n"
+  infoIcon: {fileID: 21300000, guid: 114caf0b94a69844ea220b7a46e3f1fa, type: 3}
 --- !u!1001 &1424300621175447708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -391,6 +392,19 @@ PrefabInstance:
     - target: {fileID: 2167088606545193342, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Name
       value: OpenBuildingButtons
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 114caf0b94a69844ea220b7a46e3f1fa, type: 3}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoName
+      value: Engine Turbocharger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5877674746074240218, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
+      propertyPath: infoDescription
+      value: "Increases the unit\u2019s movement speed by a flat amount.\r\n\r\nBuild
+        Time: 60\r\nSpeed Increase: 1\r\nStackable: Yes\r\nStack: +0.5\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6526638578765879915, guid: cc972d4cc76b4b046aa78fbbadf451eb, type: 3}
       propertyPath: m_Pivot.x
